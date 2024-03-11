@@ -1,6 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://mb3dx1aga4n5"]
+[gd_scene load_steps=12 format=3 uid="uid://mb3dx1aga4n5"]
 
 [ext_resource type="Texture2D" uid="uid://tdv2c8mer0v7" path="res://Assets/Landscape/landscapeTiles_067.png" id="1_n64y6"]
+[ext_resource type="Texture2D" uid="uid://cod6m6rawbj1g" path="res://Assets/Landscape/landscapeTiles_075.png" id="2_1km7q"]
+[ext_resource type="Texture2D" uid="uid://jixks2jhr3ch" path="res://Assets/Landscape/landscapeTiles_034.png" id="3_urmyn"]
+[ext_resource type="Texture2D" uid="uid://d2t13xh33r6qa" path="res://Assets/Landscape/landscapeTiles_066.png" id="4_10jg2"]
+[ext_resource type="Texture2D" uid="uid://xcl3fqvnwo5" path="res://Assets/Landscape/landscapeTiles_059.png" id="5_n8t8k"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_vhh4d"]
 texture = ExtResource("1_n64y6")
@@ -8,12 +12,37 @@ texture_region_size = Vector2i(132, 99)
 5:1/0 = 0
 0:0/0 = 0
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_g63pa"]
+texture = ExtResource("2_1km7q")
+texture_region_size = Vector2i(132, 99)
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ymhnq"]
+texture = ExtResource("3_urmyn")
+texture_region_size = Vector2i(132, 99)
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_afxlu"]
+texture = ExtResource("4_10jg2")
+texture_region_size = Vector2i(132, 82)
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_dx25j"]
+texture = ExtResource("5_n8t8k")
+texture_region_size = Vector2i(132, 99)
+0:0/0 = 0
+
 [sub_resource type="TileSet" id="TileSet_yvqpj"]
 tile_shape = 1
 tile_size = Vector2i(130, 64)
 sources/4 = SubResource("TileSetAtlasSource_vhh4d")
+sources/5 = SubResource("TileSetAtlasSource_g63pa")
+sources/6 = SubResource("TileSetAtlasSource_ymhnq")
+sources/8 = SubResource("TileSetAtlasSource_afxlu")
+sources/9 = SubResource("TileSetAtlasSource_dx25j")
 
 [node name="TileMap" type="TileMap"]
+y_sort_enabled = true
 texture_filter = 1
 tile_set = SubResource("TileSet_yvqpj")
 format = 2
