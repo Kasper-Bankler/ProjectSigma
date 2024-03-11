@@ -1,0 +1,29 @@
+[gd_scene load_steps=4 format=3 uid="uid://mb3dx1aga4n5"]
+
+[ext_resource type="Texture2D" uid="uid://tdv2c8mer0v7" path="res://Assets/Landscape/landscapeTiles_067.png" id="1_n64y6"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_vhh4d"]
+texture = ExtResource("1_n64y6")
+texture_region_size = Vector2i(132, 99)
+5:1/0 = 0
+0:0/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_yvqpj"]
+tile_shape = 1
+tile_size = Vector2i(130, 64)
+sources/4 = SubResource("TileSetAtlasSource_vhh4d")
+
+[node name="TileMap" type="TileMap"]
+texture_filter = 1
+tile_set = SubResource("TileSet_yvqpj")
+format = 2
+layer_0/name = "Layer 0"
+layer_0/y_sort_enabled = true
+layer_1/name = "Layer 1"
+layer_1/y_sort_enabled = true
+layer_1/z_index = -1
+layer_1/tile_data = PackedInt32Array()
+layer_2/name = "Layer 2"
+layer_2/y_sort_enabled = true
+layer_2/z_index = -2
+layer_2/tile_data = PackedInt32Array()
