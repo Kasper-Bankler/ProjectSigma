@@ -11,6 +11,6 @@ config_version=5
 [application]
 
 config/name="ProjectSigma"
-run/main_scene="res://menu.tscn"
+run/main_scene="res://login_folder/menu.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
 config/icon="res://icon.svg"
