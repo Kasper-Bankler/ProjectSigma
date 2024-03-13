@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dav2ikioikypg"
-path="res://.godot/imported/0039.png-4e4cad7dc91e7a443a2de2b4cc11a9e8.ctex"
+uid="uid://d07f3mow0fvdk"
+path="res://.godot/imported/biogas3.png-e8fcebc5204500d804c2b431c9829d4d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/buildings/windturbine/rotationAnimation/LEVEL1/0039.png"
-dest_files=["res://.godot/imported/0039.png-4e4cad7dc91e7a443a2de2b4cc11a9e8.ctex"]
+source_file="res://Assets/buildings/biogas/biogas3.png"
+dest_files=["res://.godot/imported/biogas3.png-e8fcebc5204500d804c2b431c9829d4d.ctex"]
 
 [params]
 
