@@ -12,25 +12,28 @@ grow_vertical = 2
 script = ExtResource("1_l0i5v")
 
 [node name="Username" type="TextEdit" parent="."]
-custom_minimum_size = Vector2(400, 400)
 layout_mode = 0
-offset_right = 8.0
-offset_bottom = 8.0
+offset_left = -1.0
+offset_top = -14.0
+offset_right = 99.0
+offset_bottom = 36.0
 text = "Username"
 
 [node name="Password" type="TextEdit" parent="."]
 custom_minimum_size = Vector2(400, 400)
 layout_mode = 0
-offset_left = -1.0
-offset_top = 401.0
-offset_right = 399.0
-offset_bottom = 801.0
+offset_left = 3.0
+offset_top = 48.0
+offset_right = 403.0
+offset_bottom = 448.0
 text = "Password"
 
 [node name="Login" type="Button" parent="."]
 layout_mode = 0
-offset_right = 8.0
-offset_bottom = 8.0
+offset_left = 23.0
+offset_top = 820.0
+offset_right = 121.0
+offset_bottom = 864.0
 text = "Create"
 
 [connection signal="button_down" from="Login" to="." method="_on_login_button_down"]
