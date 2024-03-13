@@ -90,7 +90,7 @@ texture_region_size = Vector2i(133, 99)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_afxlu"]
 texture = ExtResource("4_sjmom")
-texture_region_size = Vector2i(132, 82)
+texture_region_size = Vector2i(128, 68)
 0:0/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_dx25j"]
@@ -125,6 +125,7 @@ tile_set = SubResource("TileSet_yvqpj")
 format = 2
 layer_0/name = "Layer 0"
 layer_0/y_sort_enabled = true
+layer_0/tile_data = PackedInt32Array(131073, 4, 0, 196608, 7, 0, 262145, 7, 0, 327681, 7, 0, 393218, 7, 0, 458754, 12, 0, 524291, 8, 0, 589826, 6, 0, 655362, 6, 0, 524290, 4, 0, 589825, 4, 0, 458753, 4, 0, 524289, 4, 0, 393217, 4, 0, 458752, 4, 0, 589827, 8, 0, 655363, 8, 0, 720898, 8, 0)
 layer_1/name = "Layer 1"
 layer_1/y_sort_enabled = true
 layer_1/z_index = -1
