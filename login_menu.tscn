@@ -1,0 +1,36 @@
+[gd_scene load_steps=2 format=3 uid="uid://c2cbyvl5notb6"]
+
+[ext_resource type="Script" path="res://login_menu.gd" id="1_l0i5v"]
+
+[node name="Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_l0i5v")
+
+[node name="Username" type="TextEdit" parent="."]
+custom_minimum_size = Vector2(400, 400)
+layout_mode = 0
+offset_right = 8.0
+offset_bottom = 8.0
+text = "Username"
+
+[node name="Password" type="TextEdit" parent="."]
+custom_minimum_size = Vector2(400, 400)
+layout_mode = 0
+offset_left = -1.0
+offset_top = 401.0
+offset_right = 399.0
+offset_bottom = 801.0
+text = "Password"
+
+[node name="Login" type="Button" parent="."]
+layout_mode = 0
+offset_right = 8.0
+offset_bottom = 8.0
+text = "Create"
+
+[connection signal="button_down" from="Login" to="." method="_on_login_button_down"]
