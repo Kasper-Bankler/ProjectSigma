@@ -90,6 +90,7 @@ texture_region_size = Vector2i(133, 99)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_afxlu"]
 texture = ExtResource("4_sjmom")
+margins = Vector2i(2, 0)
 texture_region_size = Vector2i(128, 68)
 0:0/0 = 0
 
