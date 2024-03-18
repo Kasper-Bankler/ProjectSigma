@@ -14,3 +14,7 @@ config/name="ProjectSigma"
 run/main_scene="res://Scenes/Screens/menu.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
 config/icon="res://icon.svg"
+
+[autoload]
+
+UserData="*res://Autoload/UserData.gd"
