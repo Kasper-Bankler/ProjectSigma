@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://bfth7tlibkh4r"]
 
-[ext_resource type="Script" path="res://Scripts/Menu.gd" id="1_2nj5o"]
+[ext_resource type="Script" path="res://Scripts/StartMenu.gd" id="1_2nj5o"]
 
 [node name="Login_Menu" type="Control"]
 layout_mode = 3
@@ -27,10 +27,15 @@ text = "Play"
 layout_mode = 2
 text = "Options"
 
+[node name="Leaderboard" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Leaderboard"
+
 [node name="Quit" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 text = "Quit"
 
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Options" to="." method="_on_options_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Leaderboard" to="." method="_on_leaderboard_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Quit" to="." method="_on_quit_pressed"]
