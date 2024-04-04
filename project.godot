@@ -18,3 +18,14 @@ config/icon="res://icon.svg"
 [autoload]
 
 UserData="*res://Autoload/UserData.gd"
+
+[input]
+
+ui_leftclick={
+"deadzone": 0.5,
+"events": []
+}
+ui_rightclick={
+"deadzone": 0.5,
+"events": []
+}

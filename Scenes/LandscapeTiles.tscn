@@ -1,7 +1,6 @@
-[gd_scene load_steps=34 format=3 uid="uid://mb3dx1aga4n5"]
+[gd_scene load_steps=32 format=3 uid="uid://mb3dx1aga4n5"]
 
 [ext_resource type="Texture2D" uid="uid://tdv2c8mer0v7" path="res://Assets/Landscape/landscapeTiles_067.png" id="1_6wyeb"]
-[ext_resource type="Texture2D" uid="uid://8vk2dml6xrys" path="res://Assets/Landscape/landscapeTiles_083.png" id="1_actil"]
 [ext_resource type="Texture2D" uid="uid://1syhgafufjky" path="res://Assets/Landscape/landscapeTiles_042.png" id="2_btklf"]
 [ext_resource type="Texture2D" uid="uid://cod6m6rawbj1g" path="res://Assets/Landscape/landscapeTiles_075.png" id="2_f28qu"]
 [ext_resource type="Texture2D" uid="uid://bvou7e5wxk6p4" path="res://Assets/Landscape/landscapeTiles_033.png" id="3_6vj0n"]
@@ -16,11 +15,6 @@
 [ext_resource type="Texture2D" uid="uid://bt60tnmlyoshd" path="res://Assets/Landscape/landscapeTiles_035.png" id="9_em10a"]
 [ext_resource type="Texture2D" uid="uid://cso4ru3kk6p2u" path="res://Assets/Landscape/landscapeTiles_064.png" id="10_vf1j5"]
 [ext_resource type="Texture2D" uid="uid://d1xgvj2iauqnn" path="res://Assets/Landscape/landscapeTiles_072.png" id="14_y37fg"]
-
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_kyxdt"]
-texture = ExtResource("1_actil")
-texture_region_size = Vector2i(130, 99)
-0:0/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_kw82c"]
 texture = ExtResource("2_btklf")
@@ -102,22 +96,21 @@ texture_region_size = Vector2i(132, 99)
 [sub_resource type="TileSet" id="TileSet_yvqpj"]
 tile_shape = 1
 tile_size = Vector2i(130, 64)
-sources/4 = SubResource("TileSetAtlasSource_vhh4d")
-sources/5 = SubResource("TileSetAtlasSource_g63pa")
-sources/6 = SubResource("TileSetAtlasSource_ymhnq")
-sources/8 = SubResource("TileSetAtlasSource_afxlu")
-sources/9 = SubResource("TileSetAtlasSource_dx25j")
-sources/0 = SubResource("TileSetAtlasSource_kyxdt")
-sources/1 = SubResource("TileSetAtlasSource_kw82c")
-sources/2 = SubResource("TileSetAtlasSource_nms1x")
-sources/3 = SubResource("TileSetAtlasSource_oy4ff")
-sources/7 = SubResource("TileSetAtlasSource_e3vpo")
-sources/10 = SubResource("TileSetAtlasSource_74yy3")
-sources/11 = SubResource("TileSetAtlasSource_h62nj")
-sources/12 = SubResource("TileSetAtlasSource_uf45y")
-sources/13 = SubResource("TileSetAtlasSource_3lu4y")
-sources/14 = SubResource("TileSetAtlasSource_uw3av")
 sources/15 = SubResource("TileSetAtlasSource_42bke")
+sources/14 = SubResource("TileSetAtlasSource_uw3av")
+sources/13 = SubResource("TileSetAtlasSource_3lu4y")
+sources/12 = SubResource("TileSetAtlasSource_uf45y")
+sources/11 = SubResource("TileSetAtlasSource_h62nj")
+sources/10 = SubResource("TileSetAtlasSource_74yy3")
+sources/9 = SubResource("TileSetAtlasSource_dx25j")
+sources/8 = SubResource("TileSetAtlasSource_afxlu")
+sources/7 = SubResource("TileSetAtlasSource_e3vpo")
+sources/6 = SubResource("TileSetAtlasSource_ymhnq")
+sources/5 = SubResource("TileSetAtlasSource_g63pa")
+sources/4 = SubResource("TileSetAtlasSource_vhh4d")
+sources/3 = SubResource("TileSetAtlasSource_oy4ff")
+sources/2 = SubResource("TileSetAtlasSource_nms1x")
+sources/1 = SubResource("TileSetAtlasSource_kw82c")
 
 [node name="TileMap" type="TileMap"]
 y_sort_enabled = true
@@ -126,7 +119,7 @@ tile_set = SubResource("TileSet_yvqpj")
 format = 2
 layer_0/name = "Layer 0"
 layer_0/y_sort_enabled = true
-layer_0/tile_data = PackedInt32Array(131073, 4, 0, 196608, 7, 0, 262145, 7, 0, 327681, 7, 0, 393218, 7, 0, 458754, 12, 0, 524291, 8, 0, 589826, 6, 0, 655362, 6, 0, 524290, 4, 0, 589825, 4, 0, 458753, 4, 0, 524289, 4, 0, 393217, 4, 0, 458752, 4, 0, 589827, 8, 0, 655363, 8, 0, 720898, 8, 0)
+layer_0/tile_data = PackedInt32Array(65536, 4, 0, 131072, 4, 0, 196608, 4, 0, 262144, 4, 0, 393215, 4, 0, 393216, 4, 0, 458752, 4, 0, 393217, 4, 0, 458753, 4, 0, 393218, 4, 0, 327682, 4, 0, 262146, 4, 0, 196609, 4, 0, 262145, 4, 0, 327680, 4, 0, 327681, 4, 0, 131073, 4, 0, 524288, 4, 0, 524289, 4, 0, 0, 4, 0, 131071, 4, 0, 196607, 4, 0, 262143, 4, 0, 327679, 4, 0, 393214, 4, 0, 458751, 4, 0, 524286, 4, 0, 589823, 4, 0, 655358, 4, 0, 720895, 4, 0, 655359, 4, 0, 655360, 4, 0, 589824, 4, 0, 524287, 4, 0, 65535, 4, 0, -2, 4, 0, -65538, 4, 0, -131074, 4, 0, -3, 4, 0, 65534, 4, 0, 131069, 4, 0, 196605, 4, 0, 262141, 4, 0, 327677, 4, 0, 393213, 4, 0, 458749, 4, 0, 458750, 4, 0, 262142, 4, 0, 327678, 4, 0, 524285, 4, 0, 589821, 4, 0, 655357, 4, 0, 589822, 4, 0, 786431, 4, 0, 720896, 4, 0, 655361, 4, 0, 720897, 4, 0, 655362, 4, 0, 720898, 4, 0, 655363, 4, 0, 589827, 4, 0, 524292, 4, 0, 458756, 4, 0, 393220, 4, 0, 458755, 4, 0, 524291, 4, 0, 589826, 4, 0, 786433, 4, 0, 851968, 4, 0, 917505, 4, 0, 917506, 4, 0, 851970, 4, 0, 917507, 4, 0, 851971, 4, 0, 786436, 4, 0, 720900, 4, 0, 720901, 4, 0, 655366, 4, 0, 589830, 4, 0, 655367, 4, 0, 786437, 4, 0, 851972, 4, 0, 917508, 4, 0, 983043, 4, 0, 524293, 4, 0, 589828, 4, 0, 655364, 4, 0, 720899, 4, 0, 786435, 4, 0, 655365, 4, 0, 720902, 4, 0, 786438, 4, 0, 589829, 4, 0, 458757, 4, 0, 393222, 4, 0, 327686, 4, 0, 393223, 4, 0, 458758, 4, 0, 524294, 4, 0, 720903, 4, 0, 786439, 4, 0, 851975, 4, 0, 917511, 4, 0, 983046, 4, 0, 1048583, 4, 0, 1114118, 4, 0, 1179654, 4, 0, 1245189, 4, 0, 1310725, 4, 0, 1245188, 4, 0, 1310724, 4, 0, 1310723, 4, 0, 1245186, 4, 0, 1310722, 4, 0, 1245185, 4, 0, 1179649, 4, 0, 1179648, 4, 0, 1179647, 4, 0, 1048576, 4, 0, 983040, 4, 0, 917509, 4, 0, 917510, 4, 0, 1048582, 4, 0, 1114117, 4, 0, 1179653, 4, 0, 1179652, 4, 0, 1245187, 4, 0, 1179651, 4, 0, 1114115, 4, 0, 1048580, 4, 0, 983044, 4, 0, 1048581, 4, 0, 983045, 4, 0, 1114116, 4, 0, 1179650, 4, 0, 1114112, 4, 0, 983041, 4, 0, 1114114, 4, 0, 1114113, 4, 0, 1048578, 4, 0, 983042, 4, 0, 1048579, 4, 0, 851969, 4, 0, 786434, 4, 0, 1048577, 4, 0, 851974, 4, 0, 851973, 4, 0, 458754, 4, 0, 524290, 4, 0, 589825, 4, 0, 786432, 4, 0, 917503, 4, 0, 917504, 4, 0, 1048575, 4, 0, 1114111, 4, 0, 262147, 4, 0, 262148, 4, 0, 196612, 4, 0, 131077, 4, 0, 196613, 4, 0, 262149, 4, 0, 327684, 4, 0, 327683, 4, 0, 393219, 4, 0, 196614, 4, 0, 262150, 4, 0, 393221, 4, 0, 327685, 4, 0, 524295, 4, 0, 458759, 4, 0, 524296, 4, 0, 589832, 4, 0, 655368, 4, 0, 720904, 4, 0, 786440, 4, 0, 851976, 4, 0, 917512, 4, 0, 983047, 4, 0, 589831, 4, 0, 1114119, 4, 0, 1179655, 4, 0, 1245190, 4, 0, 1245184, 4, 0, 1310721, 4, 0, 1376259, 4, 0, 1048584, 4, 0, 1310726, 4, 0, 1245191, 4, 0, 1179656, 4, 0, 1310720, 4, 0, 1310719, 4, 0, 196610, 4, 0, 131074, 4, 0, 65537, 4, 0, 65538, 4, 0, 131075, 4, 0, 65539, 4, 0, 131076, 4, 0, 65541, 4, 0, 196611, 4, 0, 131078, 4, 0, 131079, 4, 0, 458760, 4, 0, 393224, 4, 0, 327688, 4, 0, 262152, 4, 0, 196616, 4, 0, 327687, 4, 0, 196615, 4, 0, 65543, 4, 0, 8, 4, 0, -65528, 4, 0, 65544, 4, 0, 131080, 4, 0, 262151, 4, 0, 65542, 4, 0, 7, 4, 0, -65529, 4, 0, 65540, 4, 0, 5, 4, 0, -65531, 4, 0, -131066, 4, 0, -65530, 4, 0, 6, 4, 0, 4, 4, 0, 3, 4, 0, -65533, 4, 0, -131068, 4, 0, -196604, 4, 0, -131067, 4, 0, -65532, 4, 0, 2, 4, 0, 1, 4, 0, -65536, 4, 0, -131071, 4, 0, -131070, 4, 0, -196606, 4, 0, -131069, 4, 0, -196605, 4, 0, -65534, 4, 0, -1, 4, 0, -65535, 4, 0, 131070, 4, 0, 196606, 4, 0)
 layer_1/name = "Layer 1"
 layer_1/y_sort_enabled = true
 layer_1/z_index = -1
