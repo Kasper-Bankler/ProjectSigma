@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://bx61ln3mpjgia"]
+
+[ext_resource type="PackedScene" uid="uid://mb3dx1aga4n5" path="res://Scenes/TileMaps/LandscapeTiles.tscn" id="1_h7qir"]
+
+[node name="World" type="Node2D"]
+
+[node name="TileMap" parent="." instance=ExtResource("1_h7qir")]
+layer_0/tile_data = PackedInt32Array(131073, 4, 0, 196608, 7, 0, 262145, 7, 0, 327681, 7, 0, 393218, 13, 0, 458754, 12, 0, 524291, 8, 0, 589826, 6, 0, 524290, 3, 0, 393217, 4, 0, 589827, 4, 0, 655363, 4, 0, 720898, 4, 0, 655362, 6, 0, 589825, 3, 0, 458753, 3, 0, 524289, 3, 0, 458752, 2, 0, 393216, 4, 0, 393215, 4, 0, 327680, 4, 0, 262144, 4, 0)
