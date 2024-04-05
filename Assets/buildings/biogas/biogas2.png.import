@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bpgwasblpg1x8"
-path="res://.godot/imported/biogas2.png-17f8e8f29c5338004a237ed42a9a357c.ctex"
+path="res://.godot/imported/biogas2.png-3cd0a4d5a6c4979fe539e22b919dfb91.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/buildings/biogas/biogas2.png"
-dest_files=["res://.godot/imported/biogas2.png-17f8e8f29c5338004a237ed42a9a357c.ctex"]
+source_file="res://Assets/Buildings/biogas/biogas2.png"
+dest_files=["res://.godot/imported/biogas2.png-3cd0a4d5a6c4979fe539e22b919dfb91.ctex"]
 
 [params]
 

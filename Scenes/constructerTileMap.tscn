@@ -1,6 +1,6 @@
-[gd_scene load_steps=5 format=3 uid="uid://eh0ignnj0boj"]
+[gd_scene load_steps=5 format=3 uid="uid://cocncesq6aqce"]
 
-[ext_resource type="Texture2D" uid="uid://bpb647w4bv1af" path="res://Assets/buildings/biogas/biogas1.png" id="1_fbye4"]
+[ext_resource type="Texture2D" uid="uid://bpb647w4bv1af" path="res://Assets/Buildings/biogas/biogas1.png" id="1_fbye4"]
 [ext_resource type="Script" path="res://Scripts/Builder.gd" id="1_ibqrb"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_6452c"]
@@ -284,6 +284,7 @@ texture_region_size = Vector2i(132, 124)
 
 [sub_resource type="TileSet" id="TileSet_dnqlf"]
 tile_shape = 1
+tile_size = Vector2i(130, 64)
 sources/0 = SubResource("TileSetAtlasSource_6452c")
 
 [node name="ConstructerTileMap" type="TileMap"]
