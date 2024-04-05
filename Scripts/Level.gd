@@ -9,3 +9,10 @@ class_name Level
 @export var max_emission = 0
 @export var balance = 0
 @export var energy_generated = 0
+
+
+func _ready():
+	$HUD.update_weather(0.7,0.4)
+	$HUD.update_energy(0)
+	$HUD.update_score(0)
+	
