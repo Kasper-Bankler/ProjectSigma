@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dbyubs8oq72l"
-path="res://.godot/imported/solceller4.png-1a0dc9b43d73d27b8a2e486484ee16d7.ctex"
+uid="uid://b0ukuaqfr3eds"
+path="res://.godot/imported/solceller4.png-21e2e4b4e53a57864a02e92b29b4dfae.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Buildings/solarpanel/solceller4.png"
-dest_files=["res://.godot/imported/solceller4.png-1a0dc9b43d73d27b8a2e486484ee16d7.ctex"]
+source_file="res://Assets/buildings/solarpanel/solceller4.png"
+dest_files=["res://.godot/imported/solceller4.png-21e2e4b4e53a57864a02e92b29b4dfae.ctex"]
 
 [params]
 

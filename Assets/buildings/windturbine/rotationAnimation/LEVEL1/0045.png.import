@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dcijuk6gsol7b"
-path="res://.godot/imported/0045.png-54a2d9fe492aee144a0b6786765d4ae9.ctex"
+uid="uid://b46c58q61smko"
+path="res://.godot/imported/0045.png-7a7432e8c18236d6d2d2b167dc6b2a41.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Buildings/windturbine/rotationAnimation/LEVEL1/0045.png"
-dest_files=["res://.godot/imported/0045.png-54a2d9fe492aee144a0b6786765d4ae9.ctex"]
+source_file="res://Assets/buildings/windturbine/rotationAnimation/LEVEL1/0045.png"
+dest_files=["res://.godot/imported/0045.png-7a7432e8c18236d6d2d2b167dc6b2a41.ctex"]
 
 [params]
 

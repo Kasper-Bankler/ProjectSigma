@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dsrmwgf7ywr82"
-path="res://.godot/imported/level1.png-0c8c31c20f44e5b2cf971e5d535159d9.ctex"
+uid="uid://b1fb10w8a1gql"
+path="res://.godot/imported/level1.png-f6e7b5dd1265366118fdc72d458a356c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Buildings/coal powerplant/level1.png"
-dest_files=["res://.godot/imported/level1.png-0c8c31c20f44e5b2cf971e5d535159d9.ctex"]
+source_file="res://Assets/buildings/coal powerplant/level1.png"
+dest_files=["res://.godot/imported/level1.png-f6e7b5dd1265366118fdc72d458a356c.ctex"]
 
 [params]
 

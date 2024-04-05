@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d2iwlooe07cl5"
-path="res://.godot/imported/0060.png-7e0064b8684ebd584d64b85d2809a6a5.ctex"
+uid="uid://deb4kwohteupk"
+path="res://.godot/imported/0060.png-befcc58b029bad90f65ca89044060557.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Buildings/waterturbine/animation/0060.png"
-dest_files=["res://.godot/imported/0060.png-7e0064b8684ebd584d64b85d2809a6a5.ctex"]
+source_file="res://Assets/buildings/waterturbine/animation/0060.png"
+dest_files=["res://.godot/imported/0060.png-befcc58b029bad90f65ca89044060557.ctex"]
 
 [params]
 
