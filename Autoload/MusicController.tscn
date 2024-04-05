@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://rgvd7ddumv7c"]
+
+[ext_resource type="AudioStream" uid="uid://djb4gxxukmpdo" path="res://Assets/Music/music_zapsplat_game_music_childrens_soft_warm_cuddly_calm_015.mp3" id="1_o3mj7"]
+
+[node name="MusicController" type="Node"]
+
+[node name="Music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("1_o3mj7")
+autoplay = true

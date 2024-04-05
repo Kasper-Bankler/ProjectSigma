@@ -18,6 +18,7 @@ config/icon="res://icon.svg"
 [autoload]
 
 UserData="*res://Autoload/UserData.gd"
+MusicController="*res://Autoload/MusicController.tscn"
 
 [input]
 
