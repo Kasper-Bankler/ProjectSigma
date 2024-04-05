@@ -1,8 +1,8 @@
 [gd_scene load_steps=4 format=3 uid="uid://dn3anuhbqyb4j"]
 
 [ext_resource type="Texture2D" uid="uid://c6e1qmqg5fw45" path="res://icon.svg" id="1_gmb7k"]
-[ext_resource type="PackedScene" uid="uid://eh0ignnj0boj" path="res://Scenes/constructerTileMap.tscn" id="1_ifrjd"]
-[ext_resource type="PackedScene" uid="uid://mb3dx1aga4n5" path="res://Scenes/LandscapeTiles.tscn" id="2_2yygm"]
+[ext_resource type="PackedScene" uid="uid://cocncesq6aqce" path="res://Scenes/constructerTileMap.tscn" id="1_ifrjd"]
+[ext_resource type="PackedScene" uid="uid://mb3dx1aga4n5" path="res://Scenes/TileMaps/LandscapeTiles.tscn" id="2_2yygm"]
 
 [node name="Game" type="Node2D"]
 
@@ -13,6 +13,5 @@ position = Vector2(1, 14)
 texture = ExtResource("1_gmb7k")
 
 [node name="TileMap" parent="." instance=ExtResource("2_2yygm")]
-layer_0/z_index = -1
 layer_1/z_index = -2
 layer_2/z_index = -3

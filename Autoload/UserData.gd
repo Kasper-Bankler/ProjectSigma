@@ -3,6 +3,7 @@ extends Node
 signal user_updated
 signal progression_cleared
 
+var tile_posiiton
 var username
 var score = []
 

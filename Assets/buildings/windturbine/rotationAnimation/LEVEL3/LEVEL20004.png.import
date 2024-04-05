@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://brvs5wkmsx3q1"
-path="res://.godot/imported/LEVEL20004.png-2839f9122cf688a1d294e2433e60ba65.ctex"
+path="res://.godot/imported/LEVEL20004.png-6a2e59c7ce0732912a623ebd3740e44a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/buildings/windturbine/rotationAnimation/LEVEL3/LEVEL20004.png"
-dest_files=["res://.godot/imported/LEVEL20004.png-2839f9122cf688a1d294e2433e60ba65.ctex"]
+source_file="res://Assets/Buildings/windturbine/rotationAnimation/LEVEL3/LEVEL20004.png"
+dest_files=["res://.godot/imported/LEVEL20004.png-6a2e59c7ce0732912a623ebd3740e44a.ctex"]
 
 [params]
 

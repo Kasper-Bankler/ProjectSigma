@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://4kue5bb7bln8"
-path="res://.godot/imported/level2.png-20f3faa8420bb8fcf2deeebdc0b1f253.ctex"
+path="res://.godot/imported/level2.png-b86458105308549674959f782e48c80c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/buildings/coal powerplant/level2.png"
-dest_files=["res://.godot/imported/level2.png-20f3faa8420bb8fcf2deeebdc0b1f253.ctex"]
+source_file="res://Assets/Buildings/coal powerplant/level2.png"
+dest_files=["res://.godot/imported/level2.png-b86458105308549674959f782e48c80c.ctex"]
 
 [params]
 

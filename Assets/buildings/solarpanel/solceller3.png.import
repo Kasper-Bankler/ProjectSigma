@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://gojvhdxt8uap"
-path="res://.godot/imported/solceller3.png-060c9961bd48173ad39987e76bc01073.ctex"
+path="res://.godot/imported/solceller3.png-c969662fe410a7bc9e1f53905d549cfb.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/buildings/solarpanel/solceller3.png"
-dest_files=["res://.godot/imported/solceller3.png-060c9961bd48173ad39987e76bc01073.ctex"]
+source_file="res://Assets/Buildings/solarpanel/solceller3.png"
+dest_files=["res://.godot/imported/solceller3.png-c969662fe410a7bc9e1f53905d549cfb.ctex"]
 
 [params]
 

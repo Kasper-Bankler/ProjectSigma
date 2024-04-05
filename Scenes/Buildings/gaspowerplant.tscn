@@ -1,0 +1,31 @@
+[gd_scene load_steps=6 format=3 uid="uid://dvck0tsyjwg3g"]
+
+[ext_resource type="Texture2D" uid="uid://bpb647w4bv1af" path="res://Assets/Buildings/biogas/biogas1.png" id="1_cvorm"]
+[ext_resource type="Texture2D" uid="uid://bpgwasblpg1x8" path="res://Assets/Buildings/biogas/biogas2.png" id="2_mq7k8"]
+[ext_resource type="Texture2D" uid="uid://d07f3mow0fvdk" path="res://Assets/Buildings/biogas/biogas3.png" id="3_o6tgr"]
+[ext_resource type="Texture2D" uid="uid://unu6d5p1mt8e" path="res://Assets/Buildings/biogas/biogas4.png" id="4_4s2pg"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_tmuur"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_cvorm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_mq7k8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_o6tgr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_4s2pg")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Gaspowerplant" type="Node2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_tmuur")
