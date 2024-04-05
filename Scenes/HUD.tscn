@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://b1wn2qycrxqrr"]
+[gd_scene load_steps=17 format=3 uid="uid://b1wn2qycrxqrr"]
 
 [ext_resource type="Script" path="res://Scripts/HUD.gd" id="1_kayje"]
 [ext_resource type="FontFile" uid="uid://dikb6kaq6rwap" path="res://Assets/Fonts/kenvector_future.ttf" id="1_l5apb"]
@@ -9,6 +9,8 @@
 [ext_resource type="Texture2D" uid="uid://dkhkg5omrplta" path="res://Assets/Icons/Weather/wind-solid.svg" id="7_4qqeo"]
 [ext_resource type="Texture2D" uid="uid://b4asdicqpdgi7" path="res://Assets/Icons/Weather/cloud-sun-solid.svg" id="7_6cre7"]
 [ext_resource type="Texture2D" uid="uid://digas8in53l7q" path="res://Assets/Icons/Weather/tornado-solid.svg" id="8_ifrgb"]
+[ext_resource type="Texture2D" uid="uid://cxfv3sl4nrkj7" path="res://Assets/Icons/PNG/Black/1x/pause.png" id="10_5e062"]
+[ext_resource type="Texture2D" uid="uid://bahdoct3hvjvb" path="res://Assets/Icons/PNG/Black/1x/cart.png" id="11_jyge7"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_88tuy"]
 bg_color = Color(0.545098, 0.556863, 0.0784314, 1)
@@ -38,6 +40,20 @@ corner_radius_top_left = 8
 corner_radius_top_right = 8
 corner_radius_bottom_right = 8
 corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0e0n1"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 50
+corner_radius_top_right = 50
+corner_radius_bottom_right = 50
+corner_radius_bottom_left = 50
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1p434"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 50
+corner_radius_top_right = 50
+corner_radius_bottom_right = 50
+corner_radius_bottom_left = 50
 
 [node name="HUD" type="CanvasLayer"]
 script = ExtResource("1_kayje")
@@ -153,3 +169,29 @@ offset_right = 683.0
 offset_bottom = 777.0
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("8_ifrgb")
+
+[node name="PauseButton" type="Button" parent="."]
+offset_left = 4.0
+offset_top = 4.0
+offset_right = 54.0
+offset_bottom = 54.0
+scale = Vector2(2, 2)
+theme_override_styles/normal = SubResource("StyleBoxFlat_0e0n1")
+theme_override_styles/hover = SubResource("StyleBoxFlat_1p434")
+icon = ExtResource("10_5e062")
+
+[node name="CartButton" type="Button" parent="."]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 9.0
+offset_top = -107.0
+offset_right = 59.0
+offset_bottom = -57.0
+grow_vertical = 0
+scale = Vector2(2, 2)
+theme_override_styles/normal = SubResource("StyleBoxFlat_0e0n1")
+theme_override_styles/hover = SubResource("StyleBoxFlat_1p434")
+icon = ExtResource("11_jyge7")
+
+[connection signal="pressed" from="PauseButton" to="." method="_on_pause_button_pressed"]
