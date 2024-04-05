@@ -3,7 +3,7 @@ extends Control
 
 # Declare member variables here. Examples:
 var http_request : HTTPRequest = HTTPRequest.new()
-const SERVER_URL = "http://spaghetticodestudios.com/db_test.php"
+const SERVER_URL = "http://http://spaghetticodestudios.com/db_test.php"
 const SERVER_HEADERS = ["Content-Type: application/x-www-form-urlencoded", "Cache-Control: max-age=0"]
 var request_queue : Array = []
 var is_requesting : bool = false
@@ -12,13 +12,12 @@ var is_requesting : bool = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	
-
 	randomize()
 	add_child(http_request)
 	http_request.request_completed.connect(self._http_request_completed)
 
-
+	
+	
 
 
 func _process(delta):
@@ -40,16 +39,11 @@ func _http_request_completed(_result, _response_code, _headers, _body):
 	if _result != http_request.RESULT_SUCCESS:
 		printerr("Error w/ connection: " + String(_result))
 		return
-	print("***body***")
-	print(_body)
+	
 	var response_body = _body.get_string_from_utf8()
-	print("***response_body***")
-	print(response_body)
 	#$TextEdit.set_text(response_body)
-	var json = JSON.new()
-	var response = json.parse(response_body)
-	print("***response***")
-	print(response)
+	var response = response_body.data
+
 	if response['error'] != "none":
 		printerr("We returned error: " + response['error'])
 		return
@@ -74,14 +68,12 @@ func _http_request_completed(_result, _response_code, _headers, _body):
 func _send_request(request: Dictionary):
 	var client = HTTPClient.new()
 	var data = client.query_string_from_dict({"data" : JSON.stringify(request['data'])})
-	print("***data***")
-	print(data)
 	var body = "command=" + request['command'] + "&" + data
 	
 	var err = http_request.request(SERVER_URL, SERVER_HEADERS, HTTPClient.METHOD_POST, body)
 	
 	if err != OK:
-		print("HTTPRequest error: " + String(err))
+		printerr("HTTPRequest error: " + String(err))
 		return
 		
 	#$TextEdit.set_text(body)
@@ -109,7 +101,3 @@ func _get_player():
 
 
 
-
-
-func _on_back_pressed():
-	get_tree().change_scene_to_file("res://Scenes/Screens/StartMenu.tscn")

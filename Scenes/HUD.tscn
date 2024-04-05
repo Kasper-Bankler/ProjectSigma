@@ -1,0 +1,197 @@
+[gd_scene load_steps=17 format=3 uid="uid://b1wn2qycrxqrr"]
+
+[ext_resource type="Script" path="res://Scripts/HUD.gd" id="1_kayje"]
+[ext_resource type="FontFile" uid="uid://dikb6kaq6rwap" path="res://Assets/Fonts/kenvector_future.ttf" id="1_l5apb"]
+[ext_resource type="Texture2D" uid="uid://cbw7tb54otaw4" path="res://Assets/Icons/lightning.png" id="2_xyjx7"]
+[ext_resource type="Texture2D" uid="uid://ciumuwkelucec" path="res://Assets/Icons/coin.png" id="3_xvr64"]
+[ext_resource type="Texture2D" uid="uid://bdr34jn8cuqnb" path="res://Assets/Icons/Weather/sun-solid.svg" id="5_q6t7r"]
+[ext_resource type="Texture2D" uid="uid://b1ifr31ios5dk" path="res://Assets/Icons/Weather/cloud-solid.svg" id="6_vu54g"]
+[ext_resource type="Texture2D" uid="uid://dkhkg5omrplta" path="res://Assets/Icons/Weather/wind-solid.svg" id="7_4qqeo"]
+[ext_resource type="Texture2D" uid="uid://b4asdicqpdgi7" path="res://Assets/Icons/Weather/cloud-sun-solid.svg" id="7_6cre7"]
+[ext_resource type="Texture2D" uid="uid://digas8in53l7q" path="res://Assets/Icons/Weather/tornado-solid.svg" id="8_ifrgb"]
+[ext_resource type="Texture2D" uid="uid://cxfv3sl4nrkj7" path="res://Assets/Icons/PNG/Black/1x/pause.png" id="10_5e062"]
+[ext_resource type="Texture2D" uid="uid://bahdoct3hvjvb" path="res://Assets/Icons/PNG/Black/1x/cart.png" id="11_jyge7"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_88tuy"]
+bg_color = Color(0.545098, 0.556863, 0.0784314, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kfwie"]
+bg_color = Color(0.890196, 0.941176, 0.027451, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_b7tap"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0e0n1"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 50
+corner_radius_top_right = 50
+corner_radius_bottom_right = 50
+corner_radius_bottom_left = 50
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1p434"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 50
+corner_radius_top_right = 50
+corner_radius_bottom_right = 50
+corner_radius_bottom_left = 50
+
+[node name="HUD" type="CanvasLayer"]
+script = ExtResource("1_kayje")
+
+[node name="EnergyProgressBar" type="ProgressBar" parent="."]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -121.0
+offset_top = 36.0
+offset_right = 122.0
+offset_bottom = 63.0
+grow_horizontal = 2
+scale = Vector2(1.5, 1.5)
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_l5apb")
+theme_override_styles/background = SubResource("StyleBoxFlat_88tuy")
+theme_override_styles/fill = SubResource("StyleBoxFlat_kfwie")
+value = 50.0
+
+[node name="Lightning" type="TextureRect" parent="EnergyProgressBar"]
+layout_mode = 0
+offset_left = 201.0
+offset_top = -24.0
+offset_right = 713.0
+offset_bottom = 488.0
+scale = Vector2(0.15, 0.15)
+texture = ExtResource("2_xyjx7")
+
+[node name="CoinLabel" type="Label" parent="."]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -224.0
+offset_top = 32.0
+offset_right = -140.0
+offset_bottom = 61.0
+grow_horizontal = 0
+scale = Vector2(1.5, 1.5)
+theme_override_fonts/font = ExtResource("1_l5apb")
+text = "10000"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="Coin" type="TextureRect" parent="CoinLabel"]
+layout_mode = 0
+offset_left = 89.0
+offset_top = -11.0
+offset_right = 601.0
+offset_bottom = 501.0
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("3_xvr64")
+
+[node name="WeatherPanel" type="Panel" parent="."]
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -375.0
+offset_top = -276.0
+offset_bottom = 276.0
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_b7tap")
+
+[node name="Sun" type="TextureRect" parent="WeatherPanel"]
+visible = false
+layout_mode = 0
+offset_left = 67.0
+offset_right = 579.0
+offset_bottom = 512.0
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("5_q6t7r")
+
+[node name="Cloud" type="TextureRect" parent="WeatherPanel"]
+visible = false
+layout_mode = 0
+offset_left = 30.0
+offset_top = -2.0
+offset_right = 670.0
+offset_bottom = 510.0
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("6_vu54g")
+
+[node name="CloudSun" type="TextureRect" parent="WeatherPanel"]
+visible = false
+layout_mode = 0
+offset_left = 30.0
+offset_top = 1.0
+offset_right = 670.0
+offset_bottom = 513.0
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("7_6cre7")
+
+[node name="Wind" type="TextureRect" parent="WeatherPanel"]
+visible = false
+layout_mode = 0
+offset_left = 29.0
+offset_top = 265.0
+offset_right = 669.0
+offset_bottom = 777.0
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("7_4qqeo")
+
+[node name="Tornado" type="TextureRect" parent="WeatherPanel"]
+visible = false
+layout_mode = 0
+offset_left = 43.0
+offset_top = 265.0
+offset_right = 683.0
+offset_bottom = 777.0
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("8_ifrgb")
+
+[node name="PauseButton" type="Button" parent="."]
+offset_left = 4.0
+offset_top = 4.0
+offset_right = 54.0
+offset_bottom = 54.0
+scale = Vector2(2, 2)
+theme_override_styles/normal = SubResource("StyleBoxFlat_0e0n1")
+theme_override_styles/hover = SubResource("StyleBoxFlat_1p434")
+icon = ExtResource("10_5e062")
+
+[node name="CartButton" type="Button" parent="."]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 9.0
+offset_top = -107.0
+offset_right = 59.0
+offset_bottom = -57.0
+grow_vertical = 0
+scale = Vector2(2, 2)
+theme_override_styles/normal = SubResource("StyleBoxFlat_0e0n1")
+theme_override_styles/hover = SubResource("StyleBoxFlat_1p434")
+icon = ExtResource("11_jyge7")
+
+[connection signal="pressed" from="PauseButton" to="." method="_on_pause_button_pressed"]
