@@ -14,7 +14,8 @@ func _process(delta):
 		var tileLocation=(Vector2(UserData.tile_posiiton.x,UserData.tile_posiiton.y))
 		var building=wind.instantiate()
 		$".".add_child(building)
-		print(building.zIndex)
+		
+
 		#building.zIndex=int(tileLocation.y)+1
 		building.position.x=(tileLocation.x*130+65*(fmod(tileLocation.y,2)+1))
 		building.position.y=(tileLocation.y+1)*32
