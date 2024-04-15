@@ -1,25 +1,23 @@
-extends Node
-
-signal user_updated
-signal progression_cleared
-
-var tile_posiiton
-var username
-var score = []
+extends Control
 
 
+# Declare member variables here. Examples:
 var http_request : HTTPRequest = HTTPRequest.new()
 const SERVER_URL = "http://spaghetticodestudios.com/db_test.php"
 const SERVER_HEADERS = ["Content-Type: application/x-www-form-urlencoded", "Cache-Control: max-age=0"]
 var request_queue : Array = []
 var is_requesting : bool = false
-#db stads^^
 
+
+
+# Called when the node enters the scene tree for the first time.
 func _ready():
 	randomize()
 	add_child(http_request)
 	http_request.request_completed.connect(_http_request_completed)
 	
+	
+
 
 func _process(delta):
 	
@@ -43,7 +41,7 @@ func _http_request_completed(_result, _response_code, _headers, _body):
 	
 	var response_body = _body.get_string_from_utf8()
 	var json = JSON.new()
-	#print(response_body)
+	#$TextEdit.set_text(response_body)
 	var error = json.parse(response_body)
 	var response=json.get_data()
 	if error:
@@ -52,23 +50,21 @@ func _http_request_completed(_result, _response_code, _headers, _body):
 	
 
 	if response['datasize'] > 1:
-		print("")
+		$TextEdit.set_text("")
 		for n in response['datasize']:
-			print($TextEdit.get_text() + str(response['response'][str(n)]['player_name']) + "\t\t" + str(response['response'][str(n)]['score']) + "\n")
+			$TextEdit.set_text($TextEdit.get_text() + str(response['response'][str(n)]['player_name']) + "\t\t" + str(response['response'][str(n)]['score']) + "\n")
 	elif response['datasize'] == 1:
 		var response_2 = str(response['response'])
 		response_2 = response_2.replace("{","{\"")
 		response_2 = response_2.replace(":","\":\"")
 		response_2 = response_2.replace(", ","\", \"")
 		response_2 = response_2.replace("}","\"}")
-		print(response_2)
-		print(response_2)
-		#print(str(response_2['player_name']) + "has score" + str(response_2['score']))
+		$TextEdit.set_text(response_2)
+		#$TextEdit.set_text(str(response_2['player_name']) + "has score" + str(response_2['score']))
 	else:	
-		print("No data")
+		$TextEdit.set_text("No data")
 	
-
-
+	
 func _send_request(request: Dictionary):
 	var client = HTTPClient.new()
 	var data = client.query_string_from_dict({"data" : JSON.stringify(request['data'])})
@@ -80,7 +76,7 @@ func _send_request(request: Dictionary):
 		printerr("HTTPRequest error: " + String(err))
 		return
 		
-	#print(body)
+	#$TextEdit.set_text(body)
 	print("Requesting...\n\tCommand: " + request['command'] + "\n\tBody: " + body)
 	
 	
@@ -103,8 +99,5 @@ func _get_player():
 	var data = {"user_id" : user_id}
 	request_queue.push_back({"command" : command, "data" : data})
 
-func test_db(user_id):
-	var command = "get_player"
-	var data = {"user_id" : user_id}
-	request_queue.push_back({"command" : command, "data" : data})
+
 

@@ -1,6 +1,7 @@
 extends Control
 
 func _on_play_pressed():
+	UserData.test_db(1)
 	get_tree().change_scene_to_file("res://Scenes/Screens/LevelSelect.tscn")
 
 
