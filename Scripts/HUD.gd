@@ -97,3 +97,10 @@ func select_building(scene: String):
 		var instance = preloaded_scene.instantiate()
 		get_parent().add_child(instance)
 		building_selected = true
+
+
+func _on_exit_button_pressed():
+	get_tree().change_scene_to_file("res://Scenes/Screens/LevelSelect.tscn")
+
+func _on_next_button_pressed():
+	get_tree().change_scene_to_file("res://Scenes/Screens/Level2.tscn")

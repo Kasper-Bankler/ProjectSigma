@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://b1wn2qycrxqrr"]
+[gd_scene load_steps=28 format=3 uid="uid://b1wn2qycrxqrr"]
 
 [ext_resource type="Script" path="res://Scripts/HUD.gd" id="1_kayje"]
 [ext_resource type="FontFile" uid="uid://dikb6kaq6rwap" path="res://Assets/Fonts/kenvector_future.ttf" id="1_l5apb"]
@@ -17,6 +17,9 @@
 [ext_resource type="Texture2D" uid="uid://c546k643fulat" path="res://Assets/buildings/windturbine/rotationAnimation/LEVEL1/0001.png" id="14_mt4g3"]
 [ext_resource type="Texture2D" uid="uid://bc75cnltl02l6" path="res://Assets/buildings/waterturbine/animation/0001.png" id="15_jdqnl"]
 [ext_resource type="Texture2D" uid="uid://3s7kyae117nn" path="res://Assets/buildings/biogas/biogas1.png" id="16_q104s"]
+[ext_resource type="Texture2D" uid="uid://cmdf2pyax8q2t" path="res://Assets/Medals/PNG/flat_medal2.png" id="18_h416i"]
+[ext_resource type="Texture2D" uid="uid://bb6wgnnbbsmjb" path="res://Assets/Medals/PNG/flat_medal9.png" id="19_hxx15"]
+[ext_resource type="Texture2D" uid="uid://cicdcyusmu8xf" path="res://Assets/Medals/PNG/shaded_medal1.png" id="20_clds8"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_88tuy"]
 bg_color = Color(0.545098, 0.556863, 0.0784314, 1)
@@ -63,6 +66,8 @@ corner_radius_bottom_left = 50
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bckn3"]
 bg_color = Color(1, 1, 1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_q3oo2"]
 
 [node name="HUD" type="CanvasLayer"]
 script = ExtResource("1_kayje")
@@ -199,6 +204,7 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_1p434")
 icon = ExtResource("11_jyge7")
 
 [node name="BuildingPanelContainer" type="PanelContainer" parent="."]
+visible = false
 anchors_preset = -1
 anchor_top = 0.92
 anchor_right = 1.0
@@ -310,6 +316,81 @@ text = "CO2 emission:"
 [node name="Emission" type="Label" parent="PopupPanel/VBoxContainer"]
 layout_mode = 2
 
+[node name="LevelCompletePopup" type="Panel" parent="."]
+visible = false
+layout_direction = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -406.5
+offset_top = -379.5
+offset_right = 406.5
+offset_bottom = 379.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_q3oo2")
+
+[node name="CenterContainer" type="CenterContainer" parent="LevelCompletePopup"]
+layout_mode = 0
+offset_right = 812.0
+offset_bottom = 759.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="LevelCompletePopup/CenterContainer"]
+layout_mode = 2
+
+[node name="TitleLabel" type="Label" parent="LevelCompletePopup/CenterContainer/VBoxContainer"]
+layout_mode = 2
+text = "Level Complete!"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="LevelCompletePopup/CenterContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Medal1" type="TextureRect" parent="LevelCompletePopup/CenterContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("18_h416i")
+
+[node name="Medal2" type="TextureRect" parent="LevelCompletePopup/CenterContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("19_hxx15")
+
+[node name="Medal3" type="TextureRect" parent="LevelCompletePopup/CenterContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("20_clds8")
+
+[node name="BalanceLabel" type="Label" parent="LevelCompletePopup/CenterContainer/VBoxContainer"]
+layout_mode = 2
+text = "Balance:"
+
+[node name="Balance" type="Label" parent="LevelCompletePopup/CenterContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="EnergyLabel" type="Label" parent="LevelCompletePopup/CenterContainer/VBoxContainer"]
+layout_mode = 2
+text = "Total energy generated:"
+
+[node name="Energy" type="Label" parent="LevelCompletePopup/CenterContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="CO2Label" type="Label" parent="LevelCompletePopup/CenterContainer/VBoxContainer"]
+layout_mode = 2
+text = "Total CO2 emitted:"
+
+[node name="CO2" type="Label" parent="LevelCompletePopup/CenterContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="LevelCompletePopup/CenterContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="ExitButton" type="Button" parent="LevelCompletePopup/CenterContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+text = "Exit"
+
+[node name="NextButton" type="Button" parent="LevelCompletePopup/CenterContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+text = "Next level"
+
 [connection signal="pressed" from="PauseButton" to="." method="_on_pause_button_pressed"]
 [connection signal="pressed" from="CartButton" to="." method="_on_cart_button_pressed"]
 [connection signal="mouse_entered" from="BuildingPanelContainer/BuildingPanel/HBoxContainer/Coal" to="." method="_on_coal_mouse_entered"]
@@ -328,3 +409,5 @@ layout_mode = 2
 [connection signal="mouse_exited" from="BuildingPanelContainer/BuildingPanel/HBoxContainer/Bio" to="." method="_on_bio_mouse_exited"]
 [connection signal="pressed" from="BuildingPanelContainer/BuildingPanel/HBoxContainer/Bio" to="." method="_on_bio_pressed"]
 [connection signal="pressed" from="BuildingPanelContainer/BuildingPanel/CloseButton" to="." method="_on_close_button_pressed"]
+[connection signal="pressed" from="LevelCompletePopup/CenterContainer/VBoxContainer/HBoxContainer2/ExitButton" to="." method="_on_exit_button_pressed"]
+[connection signal="pressed" from="LevelCompletePopup/CenterContainer/VBoxContainer/HBoxContainer2/NextButton" to="." method="_on_next_button_pressed"]
