@@ -1,5 +1,7 @@
 extends CanvasLayer
 
+var building_selected = false
+
 func update_score(value):
 	$CoinLabel.text = str(value)
 	
@@ -35,26 +37,20 @@ func _on_close_button_pressed():
 	$CartButton.visible = true
 	$BuildingPanelContainer.visible = false
 
-
 func _on_coal_pressed():
-	pass # Replace with function body.
-
+	select_building("res://Scenes/Buildings/coalpowerplant.tscn")
 
 func _on_solar_pressed():
-	pass # Replace with function body.
-
+	pass
 
 func _on_wind_pressed():
 	pass # Replace with function body.
 
-
 func _on_water_pressed():
 	pass # Replace with function body.
 
-
 func _on_bio_pressed():
 	pass # Replace with function body.
-
 
 func _on_coal_mouse_entered():
 	update_popup("coal", "12", "10", "8")
@@ -62,34 +58,26 @@ func _on_coal_mouse_entered():
 func _on_coal_mouse_exited():
 	$PopupPanel.visible = false
 
-
 func _on_solar_mouse_entered():
 	update_popup("solar", "12", "10", "8")
-
 
 func _on_solar_mouse_exited():
 	$PopupPanel.visible = false
 
-
 func _on_wind_mouse_entered():
 	update_popup("wind", "12", "10", "8")
-
 
 func _on_wind_mouse_exited():
 	$PopupPanel.visible = false
 
-
 func _on_water_mouse_entered():
 	update_popup("water", "12", "10", "8")
-
 
 func _on_water_mouse_exited():
 	$PopupPanel.visible = false
 
-
 func _on_bio_mouse_entered():
 	update_popup("bio", "12", "10", "8")
-
 
 func _on_bio_mouse_exited():
 	$PopupPanel.visible = false
@@ -102,3 +90,10 @@ func update_popup(name, price, productionRate, emission):
 	$PopupPanel/VBoxContainer/Price.text = price
 	$PopupPanel/VBoxContainer/Production.text = productionRate
 	$PopupPanel/VBoxContainer/Emission.text = emission
+
+func select_building(scene: String):
+	if not building_selected:
+		var preloaded_scene = load(scene)
+		var instance = preloaded_scene.instantiate()
+		get_parent().add_child(instance)
+		building_selected = true
