@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://cocncesq6aqce"]
 
-[ext_resource type="Texture2D" uid="uid://bpb647w4bv1af" path="res://Assets/Buildings/biogas/biogas1.png" id="1_fbye4"]
+[ext_resource type="Texture2D" uid="uid://3s7kyae117nn" path="res://Assets/Buildings/biogas/biogas1.png" id="1_fbye4"]
 [ext_resource type="Script" path="res://Scripts/Builder.gd" id="1_ibqrb"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_6452c"]
