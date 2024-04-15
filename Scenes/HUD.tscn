@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://b1wn2qycrxqrr"]
+[gd_scene load_steps=24 format=3 uid="uid://b1wn2qycrxqrr"]
 
 [ext_resource type="Script" path="res://Scripts/HUD.gd" id="1_kayje"]
 [ext_resource type="FontFile" uid="uid://dikb6kaq6rwap" path="res://Assets/Fonts/kenvector_future.ttf" id="1_l5apb"]
@@ -11,6 +11,12 @@
 [ext_resource type="Texture2D" uid="uid://digas8in53l7q" path="res://Assets/Icons/Weather/tornado-solid.svg" id="8_ifrgb"]
 [ext_resource type="Texture2D" uid="uid://cxfv3sl4nrkj7" path="res://Assets/Icons/PNG/Black/1x/pause.png" id="10_5e062"]
 [ext_resource type="Texture2D" uid="uid://bahdoct3hvjvb" path="res://Assets/Icons/PNG/Black/1x/cart.png" id="11_jyge7"]
+[ext_resource type="Texture2D" uid="uid://bht74yjo1b707" path="res://Assets/UI/PNG/red_cross.png" id="12_4nm0u"]
+[ext_resource type="Texture2D" uid="uid://b1fb10w8a1gql" path="res://Assets/buildings/coal powerplant/level1.png" id="12_oiw1a"]
+[ext_resource type="Texture2D" uid="uid://cw3o377hfisdp" path="res://Assets/buildings/solarpanel/solceller1.png" id="13_l17fa"]
+[ext_resource type="Texture2D" uid="uid://c546k643fulat" path="res://Assets/buildings/windturbine/rotationAnimation/LEVEL1/0001.png" id="14_mt4g3"]
+[ext_resource type="Texture2D" uid="uid://bc75cnltl02l6" path="res://Assets/buildings/waterturbine/animation/0001.png" id="15_jdqnl"]
+[ext_resource type="Texture2D" uid="uid://3s7kyae117nn" path="res://Assets/buildings/biogas/biogas1.png" id="16_q104s"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_88tuy"]
 bg_color = Color(0.545098, 0.556863, 0.0784314, 1)
@@ -54,6 +60,9 @@ corner_radius_top_left = 50
 corner_radius_top_right = 50
 corner_radius_bottom_right = 50
 corner_radius_bottom_left = 50
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bckn3"]
+bg_color = Color(1, 1, 1, 1)
 
 [node name="HUD" type="CanvasLayer"]
 script = ExtResource("1_kayje")
@@ -108,66 +117,61 @@ offset_bottom = 501.0
 scale = Vector2(0.1, 0.1)
 texture = ExtResource("3_xvr64")
 
-[node name="WeatherPanel" type="Panel" parent="."]
-anchors_preset = 6
-anchor_left = 1.0
-anchor_top = 0.5
+[node name="WeatherPanelContainer" type="PanelContainer" parent="."]
+anchors_preset = -1
+anchor_left = 0.899
+anchor_top = 0.323
 anchor_right = 1.0
-anchor_bottom = 0.5
-offset_left = -375.0
-offset_top = -276.0
-offset_bottom = 276.0
-grow_horizontal = 0
+anchor_bottom = 0.62
+offset_left = 0.351944
+offset_top = -0.304009
+offset_bottom = 0.239997
+grow_horizontal = 2
 grow_vertical = 2
+
+[node name="WeatherPanel" type="Panel" parent="WeatherPanelContainer"]
+layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_b7tap")
 
-[node name="Sun" type="TextureRect" parent="WeatherPanel"]
-visible = false
+[node name="VBoxContainer" type="VBoxContainer" parent="WeatherPanelContainer/WeatherPanel"]
 layout_mode = 0
-offset_left = 67.0
-offset_right = 579.0
-offset_bottom = 512.0
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("5_q6t7r")
+offset_right = 640.0
+offset_bottom = 970.0
+scale = Vector2(0.2, 0.2)
 
-[node name="Cloud" type="TextureRect" parent="WeatherPanel"]
+[node name="WeatherSymbol1" type="CenterContainer" parent="WeatherPanelContainer/WeatherPanel/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 11.32
+
+[node name="Sun" type="TextureRect" parent="WeatherPanelContainer/WeatherPanel/VBoxContainer/WeatherSymbol1"]
 visible = false
-layout_mode = 0
-offset_left = 30.0
-offset_top = -2.0
-offset_right = 670.0
-offset_bottom = 510.0
-scale = Vector2(0.5, 0.5)
+layout_mode = 2
+texture = ExtResource("5_q6t7r")
+expand_mode = 2
+stretch_mode = 3
+
+[node name="Cloud" type="TextureRect" parent="WeatherPanelContainer/WeatherPanel/VBoxContainer/WeatherSymbol1"]
+visible = false
+layout_mode = 2
 texture = ExtResource("6_vu54g")
 
-[node name="CloudSun" type="TextureRect" parent="WeatherPanel"]
+[node name="CloudSun" type="TextureRect" parent="WeatherPanelContainer/WeatherPanel/VBoxContainer/WeatherSymbol1"]
 visible = false
-layout_mode = 0
-offset_left = 30.0
-offset_top = 1.0
-offset_right = 670.0
-offset_bottom = 513.0
-scale = Vector2(0.5, 0.5)
+layout_mode = 2
 texture = ExtResource("7_6cre7")
 
-[node name="Wind" type="TextureRect" parent="WeatherPanel"]
+[node name="WeatherSymbol2" type="CenterContainer" parent="WeatherPanelContainer/WeatherPanel/VBoxContainer"]
+layout_mode = 2
+
+[node name="Wind" type="TextureRect" parent="WeatherPanelContainer/WeatherPanel/VBoxContainer/WeatherSymbol2"]
 visible = false
-layout_mode = 0
-offset_left = 29.0
-offset_top = 265.0
-offset_right = 669.0
-offset_bottom = 777.0
-scale = Vector2(0.5, 0.5)
+layout_mode = 2
 texture = ExtResource("7_4qqeo")
 
-[node name="Tornado" type="TextureRect" parent="WeatherPanel"]
+[node name="Tornado" type="TextureRect" parent="WeatherPanelContainer/WeatherPanel/VBoxContainer/WeatherSymbol2"]
 visible = false
-layout_mode = 0
-offset_left = 43.0
-offset_top = 265.0
-offset_right = 683.0
-offset_bottom = 777.0
-scale = Vector2(0.5, 0.5)
+layout_mode = 2
 texture = ExtResource("8_ifrgb")
 
 [node name="PauseButton" type="Button" parent="."]
@@ -194,4 +198,133 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_0e0n1")
 theme_override_styles/hover = SubResource("StyleBoxFlat_1p434")
 icon = ExtResource("11_jyge7")
 
+[node name="BuildingPanelContainer" type="PanelContainer" parent="."]
+anchors_preset = -1
+anchor_top = 0.92
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -0.160011
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="BuildingPanel" type="Panel" parent="BuildingPanelContainer"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_bckn3")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="BuildingPanelContainer/BuildingPanel"]
+texture_filter = 1
+custom_minimum_size = Vector2(1000, 1000)
+layout_direction = 1
+layout_mode = 1
+offset_right = 10840.0
+offset_bottom = 1000.0
+scale = Vector2(0.1, 0.1)
+theme_override_constants/separation = 100
+alignment = 1
+
+[node name="Coal" type="Button" parent="BuildingPanelContainer/BuildingPanel/HBoxContainer"]
+custom_minimum_size = Vector2(1000, 1000)
+layout_mode = 2
+icon = ExtResource("12_oiw1a")
+flat = true
+icon_alignment = 1
+expand_icon = true
+
+[node name="Solar" type="Button" parent="BuildingPanelContainer/BuildingPanel/HBoxContainer"]
+custom_minimum_size = Vector2(1000, 1000)
+layout_mode = 2
+icon = ExtResource("13_l17fa")
+flat = true
+expand_icon = true
+
+[node name="Wind" type="Button" parent="BuildingPanelContainer/BuildingPanel/HBoxContainer"]
+custom_minimum_size = Vector2(1000, 1000)
+layout_mode = 2
+icon = ExtResource("14_mt4g3")
+flat = true
+expand_icon = true
+
+[node name="Water" type="Button" parent="BuildingPanelContainer/BuildingPanel/HBoxContainer"]
+custom_minimum_size = Vector2(1000, 1000)
+layout_mode = 2
+icon = ExtResource("15_jdqnl")
+flat = true
+expand_icon = true
+
+[node name="Bio" type="Button" parent="BuildingPanelContainer/BuildingPanel/HBoxContainer"]
+custom_minimum_size = Vector2(1000, 1000)
+layout_mode = 2
+icon = ExtResource("16_q104s")
+flat = true
+expand_icon = true
+
+[node name="CloseButton" type="Button" parent="BuildingPanelContainer/BuildingPanel"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -71.0
+offset_top = -19.0
+offset_right = -23.0
+offset_bottom = 12.0
+grow_horizontal = 0
+scale = Vector2(3, 3)
+icon = ExtResource("12_4nm0u")
+flat = true
+
+[node name="PopupPanel" type="PopupPanel" parent="."]
+initial_position = 1
+size = Vector2i(134, 220)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PopupPanel"]
+offset_left = 4.0
+offset_top = 4.0
+offset_right = 130.0
+offset_bottom = 216.0
+
+[node name="NameLabel" type="Label" parent="PopupPanel/VBoxContainer"]
+layout_mode = 2
+text = "Name:"
+
+[node name="Name" type="Label" parent="PopupPanel/VBoxContainer"]
+layout_mode = 2
+
+[node name="PriceLabel" type="Label" parent="PopupPanel/VBoxContainer"]
+layout_mode = 2
+text = "Price:"
+
+[node name="Price" type="Label" parent="PopupPanel/VBoxContainer"]
+layout_mode = 2
+
+[node name="ProductionLabel" type="Label" parent="PopupPanel/VBoxContainer"]
+layout_mode = 2
+text = "Production rate:"
+
+[node name="Production" type="Label" parent="PopupPanel/VBoxContainer"]
+layout_mode = 2
+
+[node name="EmissionLabel" type="Label" parent="PopupPanel/VBoxContainer"]
+layout_mode = 2
+text = "CO2 emission:"
+
+[node name="Emission" type="Label" parent="PopupPanel/VBoxContainer"]
+layout_mode = 2
+
 [connection signal="pressed" from="PauseButton" to="." method="_on_pause_button_pressed"]
+[connection signal="pressed" from="CartButton" to="." method="_on_cart_button_pressed"]
+[connection signal="mouse_entered" from="BuildingPanelContainer/BuildingPanel/HBoxContainer/Coal" to="." method="_on_coal_mouse_entered"]
+[connection signal="mouse_exited" from="BuildingPanelContainer/BuildingPanel/HBoxContainer/Coal" to="." method="_on_coal_mouse_exited"]
+[connection signal="pressed" from="BuildingPanelContainer/BuildingPanel/HBoxContainer/Coal" to="." method="_on_coal_pressed"]
+[connection signal="mouse_entered" from="BuildingPanelContainer/BuildingPanel/HBoxContainer/Solar" to="." method="_on_solar_mouse_entered"]
+[connection signal="mouse_exited" from="BuildingPanelContainer/BuildingPanel/HBoxContainer/Solar" to="." method="_on_solar_mouse_exited"]
+[connection signal="pressed" from="BuildingPanelContainer/BuildingPanel/HBoxContainer/Solar" to="." method="_on_solar_pressed"]
+[connection signal="mouse_entered" from="BuildingPanelContainer/BuildingPanel/HBoxContainer/Wind" to="." method="_on_wind_mouse_entered"]
+[connection signal="mouse_exited" from="BuildingPanelContainer/BuildingPanel/HBoxContainer/Wind" to="." method="_on_wind_mouse_exited"]
+[connection signal="pressed" from="BuildingPanelContainer/BuildingPanel/HBoxContainer/Wind" to="." method="_on_wind_pressed"]
+[connection signal="mouse_entered" from="BuildingPanelContainer/BuildingPanel/HBoxContainer/Water" to="." method="_on_water_mouse_entered"]
+[connection signal="mouse_exited" from="BuildingPanelContainer/BuildingPanel/HBoxContainer/Water" to="." method="_on_water_mouse_exited"]
+[connection signal="pressed" from="BuildingPanelContainer/BuildingPanel/HBoxContainer/Water" to="." method="_on_water_pressed"]
+[connection signal="mouse_entered" from="BuildingPanelContainer/BuildingPanel/HBoxContainer/Bio" to="." method="_on_bio_mouse_entered"]
+[connection signal="mouse_exited" from="BuildingPanelContainer/BuildingPanel/HBoxContainer/Bio" to="." method="_on_bio_mouse_exited"]
+[connection signal="pressed" from="BuildingPanelContainer/BuildingPanel/HBoxContainer/Bio" to="." method="_on_bio_pressed"]
+[connection signal="pressed" from="BuildingPanelContainer/BuildingPanel/CloseButton" to="." method="_on_close_button_pressed"]

@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://byw6n7gl1dfut"]
+[gd_scene load_steps=3 format=3 uid="uid://byw6n7gl1dfut"]
 
 [ext_resource type="Script" path="res://Scripts/Options.gd" id="1_aidr3"]
+[ext_resource type="Script" path="res://Scenes/Screens/Volume.gd" id="2_dpmip"]
 
 [node name="Options" type="Control"]
 layout_mode = 3
@@ -25,6 +26,9 @@ text = "Volume"
 
 [node name="Volume" type="HSlider" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
+max_value = 1.0
+step = 0.001
+script = ExtResource("2_dpmip")
 
 [node name="ResetButton" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
@@ -33,4 +37,5 @@ layout_mode = 2
 layout_mode = 2
 text = "Back"
 
+[connection signal="changed" from="MarginContainer/VBoxContainer/Volume" to="MarginContainer/VBoxContainer/Volume" method="_on_changed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/BackButton" to="." method="_on_back_button_pressed"]
