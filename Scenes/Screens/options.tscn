@@ -1,8 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://byw6n7gl1dfut"]
+[gd_scene load_steps=3 format=3 uid="uid://byw6n7gl1dfut"]
 
 [ext_resource type="Script" path="res://Scripts/Options.gd" id="1_aidr3"]
 [ext_resource type="Script" path="res://Scenes/Screens/Volume.gd" id="2_dpmip"]
-[ext_resource type="AudioStream" uid="uid://djb4gxxukmpdo" path="res://Assets/Music/music_zapsplat_game_music_childrens_soft_warm_cuddly_calm_015.mp3" id="3_u2f7v"]
 
 [node name="Options" type="Control"]
 layout_mode = 3
@@ -30,11 +29,6 @@ layout_mode = 2
 max_value = 1.0
 step = 0.001
 script = ExtResource("2_dpmip")
-
-[node name="Music" type="AudioStreamPlayer" parent="MarginContainer/VBoxContainer/Volume"]
-stream = ExtResource("3_u2f7v")
-autoplay = true
-bus = &"Music"
 
 [node name="ResetButton" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
