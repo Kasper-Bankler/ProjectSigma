@@ -4,9 +4,10 @@ class_name BuildingClass
 
 @export var Name = ""
 @export var upgradeLevel = 1
-@export var EmissionRate = 0
-@export var ProductionRate = 0
-@export var Price = 0
+@export var emissionRate = 0
+@export var productionRate = 0
+@export var price = 100
+@export var upgradePrice = 50
 
 @onready var popup = get_node("UpgradePopupMenu")
 @onready var areaNode = get_node("Area2D")
@@ -21,7 +22,7 @@ func _ready():
 	popup.add_item(" ")
 	popup.add_item("YES",1)
 	popup.add_item("NO",0)
-	pass # Replace with function body.
+	UserData.update_balance(-price)
 
 func onClick(viewport, event, shape_idx):
 	if (Input.is_action_just_pressed("ui_leftclick")):
@@ -32,39 +33,22 @@ func onClick(viewport, event, shape_idx):
 
 func upgradeMenu():
 	popup.visible = true
-	pass
 
-func upgradeBuilding():
-	print("test test test")
-	pass
-
-func placementHandler():
-	pass
-
-func removeMoney():
-	pass
-
-func onClickMenu(id):
+func upgradeBuilding(id):
 	if id == 1:
-		var currentUpgrade = animatedSprite.animation
-		print(currentUpgrade)
-		if currentUpgrade == "level4":
+		if upgradeLevel == 4:
 			upgradedLabel.visible = true
 			await get_tree().create_timer(3.0).timeout
 			upgradedLabel.visible = false
-			
-			pass
 		else:
-			removeMoney()
-			print("kom hertil")
-			print("level" + str((int(currentUpgrade.right(1)))+1))
-			animatedSprite.play("level" + str((int(currentUpgrade.right(1)))+1))
+			UserData.update_balance(-upgradePrice)
+			upgradeLevel += 1
+			animatedSprite.play("level" + str(upgradeLevel))
+			upgradePrice*=2
 
-		print("test")
+func onClickMenu(id):
+	upgradeBuilding(id)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	pass
-
-	
-	

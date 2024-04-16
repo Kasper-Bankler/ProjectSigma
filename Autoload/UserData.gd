@@ -6,7 +6,8 @@ signal progression_cleared
 var tile_posiiton
 var username
 var score = []
-
+var popup=preload("res://Scenes/popup_messenger.tscn")
+var balance = 10000
 
 var http_request : HTTPRequest = HTTPRequest.new()
 const SERVER_URL = "http://spaghetticodestudios.com/db_test.php"
@@ -31,10 +32,7 @@ func _process(delta):
 		
 	is_requesting = true
 	_send_request(request_queue.pop_front())
-	
-	
-			
-	
+
 func _http_request_completed(_result, _response_code, _headers, _body):
 	is_requesting = false
 	if _result != http_request.RESULT_SUCCESS:
@@ -46,8 +44,7 @@ func _http_request_completed(_result, _response_code, _headers, _body):
 	#print(response_body)
 	var error = json.parse(response_body)
 	var response=json.get_data()
-	print("*********")
-	print(response)
+
 	if error:
 		printerr("We returned error: " + str(error))
 		return
@@ -95,7 +92,7 @@ func _get_scores():
 	var command = "get_scores"
 	var data = {"score_ofset" : 0, "score_number" : 10}
 	request_queue.push_back({"command" : command, "data" : data})
-	print("get scores")
+
 
 func _get_player():
 	var command = "get_player"
@@ -113,3 +110,16 @@ func register_new_user(username,password):
 	var data = {"username" : username,"password":password}
 	request_queue.push_back({"command" : command, "data" : data})
 
+func login_user(username,password):
+	var command ="get_player"
+	var data = {"username" : username,"password":password}
+	request_queue.push_back({"command" : command, "data" : data})
+
+
+func popup_message(message,parentNode):
+	var popup_instance=popup.instantiate()
+	popup_instance.get_child(0).set_text(message)
+	parentNode.add_child(popup_instance)
+
+func update_balance(value):
+	balance+=value
