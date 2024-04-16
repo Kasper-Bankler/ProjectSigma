@@ -8,7 +8,7 @@ func _process(delta):
 
 
 func update_balance():
-	$CoinLabel.text = str(UserData.balance)
+	$CoinLabel.text = str(CurrentLevel.balance)
 	
 func update_energy(value):
 	$EnergyProgressBar.value = value
