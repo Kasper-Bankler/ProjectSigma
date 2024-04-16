@@ -96,3 +96,7 @@ func _get_player():
 
 
 
+
+
+func _on_add_score_pressed():
+	UserData.submit_score($PlayerName.get_text(),$Score.get_text())

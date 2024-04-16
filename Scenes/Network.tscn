@@ -97,4 +97,4 @@ offset_bottom = 617.0
 
 [connection signal="pressed" from="GetPlayer" to="." method="_get_player"]
 [connection signal="pressed" from="GetScores" to="." method="_get_scores"]
-[connection signal="pressed" from="AddScore" to="." method="_submit_score"]
+[connection signal="pressed" from="AddScore" to="." method="_on_add_score_pressed"]
