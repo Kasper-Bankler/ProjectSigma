@@ -1,7 +1,7 @@
 extends Node2D
 
-
-var wind = preload("res://Scenes/Buildings/windturbine.tscn")
+var selected_building = ""
+var building: PackedScene
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -9,13 +9,29 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	var mouseLocation = get_global_mouse_position()
-
-	if (Input.is_action_just_pressed("ui_accept")):
-		var tileLocation=(Vector2(UserData.tile_posiiton.x,UserData.tile_posiiton.y))
-		var building=wind.instantiate()
-		$".".add_child(building)
+	if selected_building != "":
+		if selected_building == "coal":
+			building = preload("res://Scenes/Buildings/coalpowerplant.tscn")
+		elif  selected_building == "wind":
+			building = preload("res://Scenes/Buildings/windturbine.tscn")
+		elif selected_building == "solar":
+			building = preload("res://Scenes/Buildings/solarpanel.tscn")
+		elif selected_building == "water":
+			building = preload("res://Scenes/Buildings/waterturbine.tscn")
+		elif selected_building == "bio": 
+			building = preload("res://Scenes/Buildings/gaspowerplant.tscn")
 		
-		#building.zIndex=int(tileLocation.y)+1
-		building.position.x=(tileLocation.x*130+65*(fmod(tileLocation.y,2)+1))
-		building.position.y=(tileLocation.y+1)*32
+		var mouseLocation = get_global_mouse_position()
+
+		if (Input.is_action_just_pressed("ui_leftclick")):
+			var tileLocation=(Vector2(UserData.tile_posiiton.x,UserData.tile_posiiton.y))
+			var building_scene = building.instantiate()
+			$".".add_child(building_scene)
+			
+			building_scene.position.x=(tileLocation.x*130+65*(fmod(tileLocation.y,2)+1))
+			building_scene.position.y=(tileLocation.y+1)*32
+			selected_building = ""
+
+
+func _on_hud_place_building(building):
+	selected_building = building
