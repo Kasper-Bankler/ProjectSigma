@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 
 UserData="*res://Autoload/UserData.gd"
 MusicController="*res://Autoload/MusicController.tscn"
+CurrentLevel="*res://Autoload/CurrentLevel.gd"
 
 [input]
 

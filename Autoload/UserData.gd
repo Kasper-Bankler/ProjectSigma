@@ -3,11 +3,9 @@ extends Node
 signal user_updated
 signal progression_cleared
 
-var tile_posiiton
 var username
 var score = []
 var popup=preload("res://Scenes/popup_messenger.tscn")
-var balance = 10000
 
 var http_request : HTTPRequest = HTTPRequest.new()
 const SERVER_URL = "http://spaghetticodestudios.com/db_test.php"
@@ -120,6 +118,3 @@ func popup_message(message,parentNode):
 	var popup_instance=popup.instantiate()
 	popup_instance.get_child(0).set_text(message)
 	parentNode.add_child(popup_instance)
-
-func update_balance(value):
-	balance+=value

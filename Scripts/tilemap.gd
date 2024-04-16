@@ -10,7 +10,7 @@ var old_tile=Vector2i(0,0)
 func _process(delta):
 	var tile=local_to_map(get_global_mouse_position())
 
-	UserData.tile_posiiton=tile
+	CurrentLevel.tile_posiiton=tile
 	
 	erase_cell(1,old_tile)
 	

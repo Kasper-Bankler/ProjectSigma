@@ -23,7 +23,7 @@ func _process(delta):
 			building = preload("res://Scenes/Buildings/gaspowerplant.tscn")
 		
 		var mouseLocation = get_global_mouse_position()
-		var tileLocation=(Vector2(UserData.tile_posiiton.x,UserData.tile_posiiton.y))
+		var tileLocation=(Vector2(CurrentLevel.tile_posiiton.x,CurrentLevel.tile_posiiton.y))
 
 		if (Input.is_action_just_pressed("ui_leftclick") and not occupied_tiles.has(tileLocation)):
 			occupied_tiles.append(tileLocation)
