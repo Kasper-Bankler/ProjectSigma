@@ -11,6 +11,15 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_l0i5v")
 
+[node name="Label2" type="Label" parent="."]
+offset_left = 91.0
+offset_top = 167.0
+offset_right = 232.0
+offset_bottom = 241.0
+text = "Password"
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="Username" type="TextEdit" parent="."]
 layout_mode = 0
 offset_left = 270.0
@@ -44,17 +53,5 @@ offset_bottom = 161.0
 text = "Username"
 horizontal_alignment = 1
 vertical_alignment = 1
-
-[node name="Label" type="Label" parent="Label"]
-offset_left = -26.0
-offset_top = 80.0
-offset_right = 115.0
-offset_bottom = 154.0
-text = "Password"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="Popup" type="Popup" parent="."]
-visible = true
 
 [connection signal="button_down" from="Login" to="." method="_on_login_button_down"]
