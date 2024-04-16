@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=3 uid="uid://btb0lhtqd3axc"]
+[gd_scene load_steps=36 format=3 uid="uid://dxhoih6iqnxv8"]
 
 [ext_resource type="Texture2D" uid="uid://tdv2c8mer0v7" path="res://Assets/Landscape/landscapeTiles_067.png" id="1_6wyeb"]
 [ext_resource type="Texture2D" uid="uid://8vk2dml6xrys" path="res://Assets/Landscape/landscapeTiles_083.png" id="1_actil"]
@@ -14,7 +14,7 @@
 [ext_resource type="Texture2D" uid="uid://do0va4mhldirh" path="res://Assets/Landscape/landscapeTiles_048.png" id="7_dlpqe"]
 [ext_resource type="Texture2D" uid="uid://ct84hjya35c3j" path="res://Assets/Landscape/landscapeTiles_049.png" id="8_26qu4"]
 [ext_resource type="Texture2D" uid="uid://bt60tnmlyoshd" path="res://Assets/Landscape/landscapeTiles_035.png" id="9_em10a"]
-[ext_resource type="PackedScene" uid="uid://c5r4jwx0ch33c" path="res://Scenes/Buildings/windturbine.tscn" id="9_v3dh6"]
+[ext_resource type="PackedScene" uid="uid://c5r4jwx0ch33c" path="res://Scenes/buildings/windturbine.tscn" id="9_v3dh6"]
 [ext_resource type="Texture2D" uid="uid://cso4ru3kk6p2u" path="res://Assets/Landscape/landscapeTiles_064.png" id="10_vf1j5"]
 [ext_resource type="Texture2D" uid="uid://d1xgvj2iauqnn" path="res://Assets/Landscape/landscapeTiles_072.png" id="14_y37fg"]
 

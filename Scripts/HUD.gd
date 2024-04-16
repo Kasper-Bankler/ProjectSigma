@@ -28,7 +28,8 @@ func update_weather(sun, wind):
 
 
 func _on_pause_button_pressed():
-	get_tree().change_scene_to_file("res://Scenes/Screens/StartMenu.tscn")
+	$PausePopup.visible = true
+	#get_tree().change_scene_to_file("res://Scenes/Screens/StartMenu.tscn")
 
 
 func _on_cart_button_pressed():
@@ -104,3 +105,16 @@ func _on_exit_button_pressed():
 
 func _on_next_button_pressed():
 	get_tree().change_scene_to_file("res://Scenes/Screens/Level2.tscn")
+
+
+func _on_resume_button_pressed_paused():
+	$PausePopup.visible = false
+
+
+func _on_options_button_pressed_paused():
+	get_tree().change_scene_to_file("res://Scenes/Screens/options.tscn")
+
+
+func _on_exit_pressed_paused():
+	get_tree().change_scene_to_file("res://Scenes/Screens/LevelSelect.tscn")
+	
