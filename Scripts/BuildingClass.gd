@@ -18,12 +18,15 @@ func _ready():
 	popup.id_pressed.connect(onClickMenu)
 	areaNode.input_event.connect(onClick)
 	popup.visible = false
+	popup.add_item(" ")
 	popup.add_item("YES",1)
 	popup.add_item("NO",0)
 	pass # Replace with function body.
 
 func onClick(viewport, event, shape_idx):
 	if (Input.is_action_just_pressed("ui_leftclick")):
+		popup.position.x = get_viewport().get_mouse_position().x
+		popup.position.y = get_viewport().get_mouse_position().y + 20
 		upgradedLabel.visible = false
 		upgradeMenu()
 
