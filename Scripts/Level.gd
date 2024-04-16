@@ -22,5 +22,6 @@ func update_balance(value):
 	$HUD.update_score(balance)
 	
 func update_emission():
+	pass
 	
 
