@@ -36,17 +36,14 @@ func upgradeMenu():
 
 func upgradeBuilding(id):
 	if id == 1:
-		var currentUpgrade = animatedSprite.animation
-		print(currentUpgrade)
-		if currentUpgrade == "level4":
+		if upgradeLevel == 4:
 			upgradedLabel.visible = true
 			await get_tree().create_timer(3.0).timeout
 			upgradedLabel.visible = false
-
 		else:
 			UserData.update_balance(-upgradePrice)
-			print("level" + str((int(currentUpgrade.right(1)))+1))
-			animatedSprite.play("level" + str((int(currentUpgrade.right(1)))+1))
+			upgradeLevel += 1
+			animatedSprite.play("level" + str(upgradeLevel))
 			upgradePrice*=2
 
 func onClickMenu(id):

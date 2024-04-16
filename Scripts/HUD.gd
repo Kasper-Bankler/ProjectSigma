@@ -3,8 +3,12 @@ extends CanvasLayer
 signal place_building(building)
 var building_selected = ""
 
-func update_score(value):
-	$CoinLabel.text = str(value)
+func _process(delta):
+	update_balance()
+
+
+func update_balance():
+	$CoinLabel.text = str(UserData.balance)
 	
 func update_energy(value):
 	$EnergyProgressBar.value = value
