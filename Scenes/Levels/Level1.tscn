@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://b1wn2qycrxqrr" path="res://Scenes/HUD.tscn" id="1_5v01m"]
 [ext_resource type="Script" path="res://Scripts/Level.gd" id="1_h8thf"]
-[ext_resource type="Texture2D" uid="uid://b8u331l01iid" path="res://Assets/Background/background_color.png" id="3_xw7v7"]
+[ext_resource type="Texture2D" uid="uid://c5phet5buhndy" path="res://Assets/Background/background_color.png" id="3_xw7v7"]
 [ext_resource type="PackedScene" uid="uid://mb3dx1aga4n5" path="res://Scenes/TileMaps/LandscapeTiles.tscn" id="4_8w0od"]
 [ext_resource type="Script" path="res://Scripts/Builder.gd" id="5_hd7tj"]
 

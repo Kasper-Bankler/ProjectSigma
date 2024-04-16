@@ -11,4 +11,4 @@ func _process(delta):
 
 
 func _on_upgrade_popup_menu_id_pressed(id):
-	pass
+	pass # Replace with function body.

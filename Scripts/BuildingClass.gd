@@ -4,10 +4,9 @@ class_name BuildingClass
 
 @export var Name = ""
 @export var upgradeLevel = 1
-@export var emissionRate = 0
-@export var productionRate = 0
-@export var price = 100
-@export var upgradePrice = 50
+@export var EmissionRate = 0
+@export var ProductionRate = 0
+@export var Price = 0
 
 @onready var popup = get_node("UpgradePopupMenu")
 @onready var areaNode = get_node("Area2D")
@@ -22,7 +21,7 @@ func _ready():
 	popup.add_item(" ")
 	popup.add_item("YES",1)
 	popup.add_item("NO",0)
-	UserData.update_balance(-price)
+	pass # Replace with function body.
 
 func onClick(viewport, event, shape_idx):
 	if (Input.is_action_just_pressed("ui_leftclick")):
@@ -35,7 +34,17 @@ func upgradeMenu():
 	popup.visible = true
 	pass
 
-func upgradeBuilding(id):
+func upgradeBuilding():
+	print("test test test")
+	pass
+
+func placementHandler():
+	pass
+
+func removeMoney():
+	pass
+
+func onClickMenu(id):
 	if id == 1:
 		var currentUpgrade = animatedSprite.animation
 		print(currentUpgrade)
@@ -46,20 +55,12 @@ func upgradeBuilding(id):
 			
 			pass
 		else:
-			UserData.update_balance(-upgradePrice)
+			removeMoney()
 			print("kom hertil")
 			print("level" + str((int(currentUpgrade.right(1)))+1))
 			animatedSprite.play("level" + str((int(currentUpgrade.right(1)))+1))
-			upgradePrice*=2
 
-func placementHandler():
-	pass
-
-func removeMoney():
-	pass
-
-func onClickMenu(id):
-	upgradeBuilding(id)
+		print("test")
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
