@@ -46,6 +46,8 @@ func _http_request_completed(_result, _response_code, _headers, _body):
 	#print(response_body)
 	var error = json.parse(response_body)
 	var response=json.get_data()
+	print("*********")
+	print(response)
 	if error:
 		printerr("We returned error: " + str(error))
 		return
@@ -62,7 +64,7 @@ func _http_request_completed(_result, _response_code, _headers, _body):
 		response_2 = response_2.replace(", ","\", \"")
 		response_2 = response_2.replace("}","\"}")
 		print(response_2)
-		print(response_2)
+
 		#print(str(response_2['player_name']) + "has score" + str(response_2['score']))
 	else:	
 		print("No data")
@@ -84,10 +86,8 @@ func _send_request(request: Dictionary):
 	print("Requesting...\n\tCommand: " + request['command'] + "\n\tBody: " + body)
 	
 	
-func _submit_score():
+func submit_score(user_name,score):
 	var command = "add_score"
-	var user_name = $PlayerName.get_text()
-	var score = $Score.get_text()
 	var data = {"username" : user_name, "score" : score}
 	request_queue.push_back({"command" : command, "data" : data})
 	
