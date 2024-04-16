@@ -29,7 +29,7 @@ func _process(delta):
 			occupied_tiles.append(tileLocation)
 			var building_scene = building.instantiate()
 			$".".add_child(building_scene)
-			
+			print("place")
 			building_scene.position.x=(tileLocation.x*130+65*(fmod(tileLocation.y,2)+1))
 			building_scene.position.y=(tileLocation.y+1)*32
 			selected_building = ""

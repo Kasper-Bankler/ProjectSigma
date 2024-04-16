@@ -51,7 +51,7 @@ script = ExtResource("1_d75w8")
 position = Vector2(-9, -94)
 scale = Vector2(0.428161, 0.428161)
 sprite_frames = SubResource("SpriteFrames_yrtqw")
-animation = &"level4"
+animation = &"level1"
 autoplay = "level1"
 
 [node name="Area2D" type="Area2D" parent="."]
