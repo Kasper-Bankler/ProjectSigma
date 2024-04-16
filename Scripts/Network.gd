@@ -80,12 +80,7 @@ func _send_request(request: Dictionary):
 	print("Requesting...\n\tCommand: " + request['command'] + "\n\tBody: " + body)
 	
 	
-func _submit_score():
-	var command = "add_score"
-	var user_name = $PlayerName.get_text()
-	var score = $Score.get_text()
-	var data = {"username" : user_name, "score" : score}
-	request_queue.push_back({"command" : command, "data" : data})
+
 	
 func _get_scores():
 	var command = "get_scores"

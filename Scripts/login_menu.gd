@@ -9,8 +9,9 @@ var created = false
 
 func _on_login_button_down():
 	if !created:
-		username = $Username.text
-		password = $Password.text.sha256_text()
+		username = $Username.get_text()
+		password = $Password.get_text()
+		UserData.register_new_user(username,password)
 		created = true
 		$Login.text = "Login"
 		$Username.text = ""

@@ -108,3 +108,8 @@ func test_db(user_id):
 	var data = {"user_id" : user_id}
 	request_queue.push_back({"command" : command, "data" : data})
 
+func register_new_user(username,password):
+	var command = "add_user"
+	var data = {"username" : username,"password":password}
+	request_queue.push_back({"command" : command, "data" : data})
+
