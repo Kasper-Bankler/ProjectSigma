@@ -50,6 +50,8 @@ func onClickMenu(id):
 		print(currentUpgrade)
 		if currentUpgrade == "level4":
 			upgradedLabel.visible = true
+			await get_tree().create_timer(3.0).timeout
+			upgradedLabel.visible = false
 			
 			pass
 		else:
