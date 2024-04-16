@@ -13,7 +13,12 @@ func _process(delta):
 		$Login.set_text("Login")
 		
 
-func _on_login_button_down():
+
+	
+
+
+func _on_login_pressed():
+	print("test")
 	if usernameField.get_text()=="":
 		UserData.popup_message("Please enter a username",$".")
 		return

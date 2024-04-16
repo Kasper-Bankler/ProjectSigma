@@ -48,7 +48,6 @@ func _http_request_completed(_result, _response_code, _headers, _body):
 	if error:
 		printerr("We returned error: " + str(error))
 		return
-	
 
 	if response['datasize'] > 1:
 		print("")
@@ -63,7 +62,7 @@ func _http_request_completed(_result, _response_code, _headers, _body):
 		print(response_2)
 
 		#print(str(response_2['player_name']) + "has score" + str(response_2['score']))
-	else:	
+	else:
 		print("No data")
 	
 
@@ -77,7 +76,7 @@ func _send_request(request: Dictionary):
 	
 	if err != OK:
 		printerr("HTTPRequest error: " + String(err))
-		return
+		
 		
 	#print(body)
 	print("Requesting...\n\tCommand: " + request['command'] + "\n\tBody: " + body)
@@ -111,7 +110,7 @@ func register_new_user(username,password):
 	request_queue.push_back({"command" : command, "data" : data})
 
 func login_user(username,password):
-	var command ="get_player"
+	var command ="get_player_username"
 	var data = {"username" : username,"password":password}
 	request_queue.push_back({"command" : command, "data" : data})
 

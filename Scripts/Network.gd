@@ -41,7 +41,7 @@ func _http_request_completed(_result, _response_code, _headers, _body):
 	
 	var response_body = _body.get_string_from_utf8()
 	var json = JSON.new()
-	#$TextEdit.set_text(response_body)
+	$TextEdit.set_text(response_body)
 	var error = json.parse(response_body)
 	var response=json.get_data()
 	if error:

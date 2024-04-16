@@ -1,4 +1,6 @@
-[gd_scene format=3 uid="uid://cj2p4oro2qhgh"]
+[gd_scene load_steps=2 format=3 uid="uid://cj2p4oro2qhgh"]
+
+[ext_resource type="Script" path="res://Scripts/login.gd" id="1_r6uya"]
 
 [node name="Login" type="Control"]
 layout_mode = 3
@@ -7,3 +9,45 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_r6uya")
+
+[node name="Label2" type="Label" parent="."]
+offset_left = 91.0
+offset_top = 167.0
+offset_right = 232.0
+offset_bottom = 241.0
+text = "Password"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Username" type="TextEdit" parent="."]
+offset_left = 270.0
+offset_top = 103.0
+offset_right = 441.0
+offset_bottom = 153.0
+placeholder_text = "Username"
+
+[node name="Password" type="TextEdit" parent="."]
+offset_left = 262.0
+offset_top = 172.0
+offset_right = 445.0
+offset_bottom = 226.0
+placeholder_text = "Password"
+
+[node name="Login" type="Button" parent="."]
+offset_left = 268.0
+offset_top = 252.0
+offset_right = 366.0
+offset_bottom = 296.0
+text = "Login"
+
+[node name="Label" type="Label" parent="."]
+offset_left = 117.0
+offset_top = 87.0
+offset_right = 258.0
+offset_bottom = 161.0
+text = "Username"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="pressed" from="Login" to="." method="_on_login_pressed"]
