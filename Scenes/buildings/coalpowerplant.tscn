@@ -48,8 +48,8 @@ size = Vector2(68, 197)
 script = ExtResource("1_d75w8")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(-9, -94)
-scale = Vector2(0.428161, 0.428161)
+position = Vector2(-6, -30)
+scale = Vector2(0.25388, 0.25388)
 sprite_frames = SubResource("SpriteFrames_yrtqw")
 animation = &"level1"
 autoplay = "level1"

@@ -23,13 +23,12 @@ func _process(delta):
 			building = preload("res://Scenes/Buildings/gaspowerplant.tscn")
 		
 		var mouseLocation = get_global_mouse_position()
-		var tileLocation=(Vector2(UserData.tile_posiiton.x,UserData.tile_posiiton.y))
+		var tileLocation=(Vector2(CurrentLevel.tile_posiiton.x,CurrentLevel.tile_posiiton.y))
 
 		if (Input.is_action_just_pressed("ui_leftclick") and not occupied_tiles.has(tileLocation)):
 			occupied_tiles.append(tileLocation)
 			var building_scene = building.instantiate()
 			$".".add_child(building_scene)
-			print("place")
 			building_scene.position.x=(tileLocation.x*130+65*(fmod(tileLocation.y,2)+1))
 			building_scene.position.y=(tileLocation.y+1)*32
 			selected_building = ""

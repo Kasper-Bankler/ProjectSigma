@@ -22,7 +22,7 @@ func _ready():
 	popup.add_item(" ")
 	popup.add_item("YES",1)
 	popup.add_item("NO",0)
-	UserData.update_balance(-price)
+	CurrentLevel.update_balance(-price)
 
 func onClick(viewport, event, shape_idx):
 	if (Input.is_action_just_pressed("ui_leftclick")):
@@ -36,17 +36,14 @@ func upgradeMenu():
 
 func upgradeBuilding(id):
 	if id == 1:
-		var currentUpgrade = animatedSprite.animation
-		print(currentUpgrade)
-		if currentUpgrade == "level4":
+		if upgradeLevel == 4:
 			upgradedLabel.visible = true
 			await get_tree().create_timer(3.0).timeout
 			upgradedLabel.visible = false
-
 		else:
-			UserData.update_balance(-upgradePrice)
-			print("level" + str((int(currentUpgrade.right(1)))+1))
-			animatedSprite.play("level" + str((int(currentUpgrade.right(1)))+1))
+			CurrentLevel.update_balance(-upgradePrice)
+			upgradeLevel += 1
+			animatedSprite.play("level" + str(upgradeLevel))
 			upgradePrice*=2
 
 func onClickMenu(id):
