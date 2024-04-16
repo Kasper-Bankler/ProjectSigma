@@ -20,3 +20,7 @@ func _ready():
 func update_balance(value):
 	balance += value
 	$HUD.update_score(balance)
+	
+func update_emission():
+	
+

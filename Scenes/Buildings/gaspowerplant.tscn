@@ -48,6 +48,7 @@ size = Vector2(68, 197)
 script = ExtResource("1_f6n63")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-29, -30)
 sprite_frames = SubResource("SpriteFrames_tmuur")
 animation = &"level1"
 

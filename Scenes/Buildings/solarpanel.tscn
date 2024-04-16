@@ -42,14 +42,14 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1bvqy"]
-size = Vector2(68, 197)
+size = Vector2(68, 96)
 
 [node name="Solarpanel" type="Node2D"]
 script = ExtResource("1_ls7xd")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(-9, -94)
-scale = Vector2(0.428161, 0.428161)
+position = Vector2(5, -47)
+scale = Vector2(0.269097, 0.269097)
 sprite_frames = SubResource("SpriteFrames_xcp36")
 animation = &"level4"
 autoplay = "level1"
@@ -57,7 +57,7 @@ autoplay = "level1"
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(-4, -69.5)
+position = Vector2(-4, -19)
 shape = SubResource("RectangleShape2D_1bvqy")
 
 [node name="fullyUpgradedLabel" type="Label" parent="Area2D"]
@@ -75,6 +75,6 @@ visible = true
 [node name="Label" type="Label" parent="UpgradePopupMenu"]
 offset_right = 40.0
 offset_bottom = 23.0
-text = "Upgade?"
+text = "Do you want to upgrade?"
 
 [connection signal="id_pressed" from="UpgradePopupMenu" to="." method="_on_upgrade_popup_menu_id_pressed"]
