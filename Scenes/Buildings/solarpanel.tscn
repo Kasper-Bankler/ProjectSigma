@@ -48,10 +48,10 @@ size = Vector2(68, 96)
 script = ExtResource("1_ls7xd")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(5, -47)
-scale = Vector2(0.269097, 0.269097)
+position = Vector2(-1, -26)
+scale = Vector2(0.12484, 0.12484)
 sprite_frames = SubResource("SpriteFrames_xcp36")
-animation = &"level4"
+animation = &"level1"
 autoplay = "level1"
 
 [node name="Area2D" type="Area2D" parent="."]
