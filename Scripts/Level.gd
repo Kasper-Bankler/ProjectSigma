@@ -12,11 +12,13 @@ class_name Level
 
 
 func _ready():
-	update_balance(1000)
+	update_balance()
 	$HUD.update_weather(0.7,0.4)
 	$HUD.update_energy(0)
 	
 
-func update_balance(value):
-	balance += value
-	$HUD.update_score(balance)
+func update_balance():
+	$HUD.update_score(UserData.balance)
+
+func _process(delta):
+	update_balance()
