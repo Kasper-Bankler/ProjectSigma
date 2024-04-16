@@ -1,0 +1,20 @@
+[gd_scene load_steps=2 format=3 uid="uid://cmv8ckxfc05n2"]
+
+[ext_resource type="Script" path="res://Scripts/popup_messenger.gd" id="1_kmvod"]
+
+[node name="PopupMessenger" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_kmvod")
+
+[node name="AcceptDialog" type="AcceptDialog" parent="."]
+initial_position = 1
+visible = true
+
+[connection signal="canceled" from="AcceptDialog" to="." method="_on_accept_dialog_canceled"]
+[connection signal="confirmed" from="AcceptDialog" to="." method="_on_accept_dialog_confirmed"]
+[connection signal="visibility_changed" from="AcceptDialog" to="." method="_on_accept_dialog_visibility_changed"]

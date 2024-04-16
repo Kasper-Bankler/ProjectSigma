@@ -13,26 +13,48 @@ script = ExtResource("1_l0i5v")
 
 [node name="Username" type="TextEdit" parent="."]
 layout_mode = 0
-offset_left = -1.0
-offset_top = -14.0
-offset_right = 99.0
-offset_bottom = 36.0
-text = "Username"
+offset_left = 270.0
+offset_top = 103.0
+offset_right = 441.0
+offset_bottom = 153.0
+placeholder_text = "Username"
 
 [node name="Password" type="TextEdit" parent="."]
 layout_mode = 0
-offset_left = 1.0
-offset_top = 42.0
-offset_right = 99.0
-offset_bottom = 96.0
-text = "Password"
+offset_left = 262.0
+offset_top = 172.0
+offset_right = 445.0
+offset_bottom = 226.0
+placeholder_text = "Password"
 
 [node name="Login" type="Button" parent="."]
 layout_mode = 0
-offset_left = 3.0
-offset_top = 107.0
-offset_right = 101.0
-offset_bottom = 151.0
-text = "Create"
+offset_left = 268.0
+offset_top = 252.0
+offset_right = 366.0
+offset_bottom = 296.0
+text = "Sign Up"
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 117.0
+offset_top = 87.0
+offset_right = 258.0
+offset_bottom = 161.0
+text = "Username"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label" type="Label" parent="Label"]
+offset_left = -26.0
+offset_top = 80.0
+offset_right = 115.0
+offset_bottom = 154.0
+text = "Password"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Popup" type="Popup" parent="."]
+visible = true
 
 [connection signal="button_down" from="Login" to="." method="_on_login_button_down"]
