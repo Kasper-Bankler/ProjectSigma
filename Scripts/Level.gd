@@ -13,7 +13,7 @@ class_name Level
 
 func _ready():
 	$HUD.update_weather(0.7,0.4)
-	$HUD.update_energy(0)
+	$HUD.update_energy()
 	
 
 	
