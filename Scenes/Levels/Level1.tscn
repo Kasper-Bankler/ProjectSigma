@@ -1,8 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://d1kbrj17ghkn0"]
+[gd_scene load_steps=6 format=3 uid="uid://d1kbrj17ghkn0"]
 
 [ext_resource type="PackedScene" uid="uid://b1wn2qycrxqrr" path="res://Scenes/HUD.tscn" id="1_5v01m"]
 [ext_resource type="Script" path="res://Scripts/Level.gd" id="1_h8thf"]
-[ext_resource type="Texture2D" uid="uid://c5phet5buhndy" path="res://Assets/Background/background_color.png" id="3_xw7v7"]
+[ext_resource type="Texture2D" uid="uid://b8u331l01iid" path="res://Assets/Background/background_color.png" id="3_xw7v7"]
+[ext_resource type="PackedScene" uid="uid://mb3dx1aga4n5" path="res://Scenes/TileMaps/LandscapeTiles.tscn" id="4_8w0od"]
+[ext_resource type="Script" path="res://Scripts/Builder.gd" id="5_hd7tj"]
 
 [node name="Level1" type="Node2D"]
 script = ExtResource("1_h8thf")
@@ -17,3 +19,11 @@ follow_viewport_enabled = true
 offset_right = 5623.0
 offset_bottom = 3990.0
 texture = ExtResource("3_xw7v7")
+
+[node name="TileMap" parent="." instance=ExtResource("4_8w0od")]
+layer_0/tile_data = PackedInt32Array(327682, 4, 0, 393219, 4, 0, 458754, 4, 0, 524291, 4, 0, 589827, 4, 0, 524292, 4, 0, 458755, 4, 0, 262147, 4, 0, 327683, 4, 0, 393220, 4, 0, 458756, 4, 0, 393218, 4, 0, 458753, 4, 0, 524290, 4, 0, 589826, 4, 0, 655363, 4, 0, 196611, 4, 0, 262148, 4, 0, 327684, 4, 0, 393221, 4, 0, 720899, 4, 0, 655364, 4, 0, 589828, 4, 0, 524293, 4, 0, 458757, 4, 0)
+
+[node name="Builder" type="Node2D" parent="."]
+script = ExtResource("5_hd7tj")
+
+[connection signal="place_building" from="HUD" to="Builder" method="_on_hud_place_building"]

@@ -1,12 +1,15 @@
 extends CanvasLayer
 
-var building_selected = false
+signal place_building(building)
+var building_selected = ""
 
 func update_score(value):
 	$CoinLabel.text = str(value)
 	
 func update_energy(value):
 	$EnergyProgressBar.value = value
+
+
 
 func update_weather(sun, wind):
 	if sun>0.5:
@@ -38,19 +41,19 @@ func _on_close_button_pressed():
 	$BuildingPanelContainer.visible = false
 
 func _on_coal_pressed():
-	select_building("res://Scenes/Buildings/coalpowerplant.tscn")
+	select_building("coal")
 
 func _on_solar_pressed():
-	pass
+	select_building("solar")
 
 func _on_wind_pressed():
-	pass # Replace with function body.
+	select_building("wind")
 
 func _on_water_pressed():
-	pass # Replace with function body.
+	select_building("water")
 
 func _on_bio_pressed():
-	pass # Replace with function body.
+	select_building("bio")
 
 func _on_coal_mouse_entered():
 	update_popup("coal", "12", "10", "8")
@@ -91,12 +94,9 @@ func update_popup(name, price, productionRate, emission):
 	$PopupPanel/VBoxContainer/Production.text = productionRate
 	$PopupPanel/VBoxContainer/Emission.text = emission
 
-func select_building(scene: String):
-	if not building_selected:
-		var preloaded_scene = load(scene)
-		var instance = preloaded_scene.instantiate()
-		get_parent().add_child(instance)
-		building_selected = true
+func select_building(building):
+	building_selected=building
+	emit_signal("place_building", building_selected)
 
 
 func _on_exit_button_pressed():
