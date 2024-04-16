@@ -12,6 +12,7 @@ func _on_login_button_down():
 		username = $Username.get_text()
 		password = $Password.get_text()
 		UserData.register_new_user(username,password)
+		#UserData.submit_score(username,password)
 		created = true
 		$Login.text = "Login"
 		$Username.text = ""
