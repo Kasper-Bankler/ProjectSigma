@@ -46,6 +46,7 @@ size = Vector2(68, 96)
 
 [node name="Solarpanel" type="Node2D"]
 script = ExtResource("1_ep7bs")
+Name = "solar"
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(-1, -26)

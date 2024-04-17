@@ -46,6 +46,7 @@ size = Vector2(68, 197)
 
 [node name="Coalpowerplant" type="Node2D"]
 script = ExtResource("1_m82f2")
+Name = "nuclear"
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(-6, -30)

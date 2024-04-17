@@ -430,6 +430,7 @@ size = Vector2(68, 197)
 
 [node name="Waterturbine" type="Node2D"]
 script = SubResource("GDScript_8fv7i")
+Name = "water"
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
