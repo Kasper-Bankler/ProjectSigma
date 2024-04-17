@@ -1,6 +1,6 @@
 extends Node
 
-var balance = 100
+var balance = 1000
 var tile_posiiton
 var energy_generated = 0
 

@@ -15,7 +15,7 @@ func _ready():
 	randomize()
 	add_child(http_request)
 	http_request.request_completed.connect(_http_request_completed)
-	
+	UserData.submit_score("tqd",1,301)
 	
 
 
@@ -98,5 +98,7 @@ func _get_player():
 
 
 
+
 func _on_add_score_pressed():
-	UserData.submit_score($PlayerName.get_text(),$Score.get_text())
+	#UserData.submit_score($PlayerName.get_text(),$Score.get_text())
+	pass

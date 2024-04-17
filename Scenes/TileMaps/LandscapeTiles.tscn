@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=3 uid="uid://mb3dx1aga4n5"]
+[gd_scene load_steps=44 format=3 uid="uid://mb3dx1aga4n5"]
 
 [ext_resource type="Texture2D" uid="uid://tdv2c8mer0v7" path="res://Assets/Landscape/landscapeTiles_067.png" id="1_6wyeb"]
 [ext_resource type="Texture2D" uid="uid://8vk2dml6xrys" path="res://Assets/Landscape/landscapeTiles_083.png" id="1_actil"]
@@ -13,13 +13,14 @@
 [ext_resource type="Texture2D" uid="uid://c6k7b63voq1yt" path="res://Assets/Landscape/landscapeTiles_041.png" id="6_wonrr"]
 [ext_resource type="Texture2D" uid="uid://do0va4mhldirh" path="res://Assets/Landscape/landscapeTiles_048.png" id="7_dlpqe"]
 [ext_resource type="Texture2D" uid="uid://ct84hjya35c3j" path="res://Assets/Landscape/landscapeTiles_049.png" id="8_26qu4"]
-[ext_resource type="PackedScene" uid="uid://dvck0tsyjwg3g" path="res://Scenes/buildings/gaspowerplant.tscn" id="9_0unq3"]
+[ext_resource type="PackedScene" uid="uid://dvck0tsyjwg3g" path="res://Scenes/Buildings/gaspowerplant.tscn" id="9_0unq3"]
 [ext_resource type="Texture2D" uid="uid://c6o41rrvx66pi" path="res://Assets/highlightTile.png" id="9_b3jbu"]
 [ext_resource type="Texture2D" uid="uid://bt60tnmlyoshd" path="res://Assets/Landscape/landscapeTiles_035.png" id="9_em10a"]
-[ext_resource type="PackedScene" uid="uid://deg3svkcpg7bc" path="res://Scenes/buildings/coalpowerplant.tscn" id="10_fmd2a"]
+[ext_resource type="PackedScene" uid="uid://deg3svkcpg7bc" path="res://Scenes/Buildings/coalpowerplant.tscn" id="10_fmd2a"]
 [ext_resource type="Texture2D" uid="uid://cso4ru3kk6p2u" path="res://Assets/Landscape/landscapeTiles_064.png" id="10_vf1j5"]
-[ext_resource type="PackedScene" uid="uid://dj1hkyhsfa8xg" path="res://Scenes/buildings/waterturbine.tscn" id="11_efjyl"]
-[ext_resource type="PackedScene" uid="uid://c5r4jwx0ch33c" path="res://Scenes/buildings/windturbine.tscn" id="12_8n3pg"]
+[ext_resource type="PackedScene" uid="uid://dj1hkyhsfa8xg" path="res://Scenes/Buildings/waterturbine.tscn" id="11_efjyl"]
+[ext_resource type="PackedScene" uid="uid://c5r4jwx0ch33c" path="res://Scenes/Buildings/windturbine.tscn" id="12_8n3pg"]
+[ext_resource type="Texture2D" uid="uid://c546k643fulat" path="res://Assets/buildings/windturbine/rotationAnimation/LEVEL1/0001.png" id="13_r1dxm"]
 [ext_resource type="Texture2D" uid="uid://d1xgvj2iauqnn" path="res://Assets/Landscape/landscapeTiles_072.png" id="14_y37fg"]
 [ext_resource type="Script" path="res://Scripts/tilemap.gd" id="18_hysgr"]
 
@@ -70,6 +71,24 @@ scenes/1/scene = ExtResource("9_0unq3")
 scenes/2/scene = ExtResource("10_fmd2a")
 scenes/3/scene = ExtResource("11_efjyl")
 scenes/4/scene = ExtResource("12_8n3pg")
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_k6m21"]
+resource_name = "Windmill"
+texture = ExtResource("13_r1dxm")
+texture_region_size = Vector2i(130, 200)
+0:0/0 = 0
+0:0/0/y_sort_origin = 10
+1:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+1:2/0 = 0
+0:3/0 = 0
+1:3/0 = 0
+0:4/0 = 0
+1:4/0 = 0
+1:5/0 = 0
+1:6/0 = 0
+1:7/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_nms1x"]
 texture = ExtResource("9_em10a")
@@ -146,6 +165,7 @@ sources/14 = SubResource("TileSetAtlasSource_uw3av")
 sources/15 = SubResource("TileSetAtlasSource_42bke")
 sources/25 = SubResource("TileSetAtlasSource_tqerh")
 sources/16 = SubResource("TileSetScenesCollectionSource_4ykkt")
+sources/17 = SubResource("TileSetAtlasSource_k6m21")
 
 [node name="TileMap" type="TileMap"]
 z_index = -1
