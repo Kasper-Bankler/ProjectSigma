@@ -829,4 +829,8 @@ offset_right = 40.0
 offset_bottom = 23.0
 text = "Upgade?"
 
+[node name="Timer" type="Timer" parent="."]
+autostart = true
+
 [connection signal="id_pressed" from="UpgradePopupMenu" to="." method="_on_upgrade_popup_menu_id_pressed"]
+[connection signal="timeout" from="Timer" to="." method="_on_wind_timer_timeout"]

@@ -49,6 +49,8 @@ func upgradeBuilding(id):
 func onClickMenu(id):
 	upgradeBuilding(id)
 
+
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	pass
+

@@ -10,7 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://b4asdicqpdgi7" path="res://Assets/Icons/Weather/cloud-sun-solid.svg" id="7_6cre7"]
 [ext_resource type="Texture2D" uid="uid://digas8in53l7q" path="res://Assets/Icons/Weather/tornado-solid.svg" id="8_ifrgb"]
 [ext_resource type="Texture2D" uid="uid://cxfv3sl4nrkj7" path="res://Assets/Icons/PNG/Black/1x/pause.png" id="10_5e062"]
-[ext_resource type="Texture2D" uid="uid://dpvplykks48k4" path="res://Assets/Icons/Weather/no_sign.png" id="10_5vwny"]
+[ext_resource type="Texture2D" uid="uid://cjrwows645ix6" path="res://Assets/Icons/Weather/no_sign.png" id="10_5vwny"]
 [ext_resource type="Texture2D" uid="uid://bahdoct3hvjvb" path="res://Assets/Icons/PNG/Black/1x/cart.png" id="11_jyge7"]
 [ext_resource type="Texture2D" uid="uid://bht74yjo1b707" path="res://Assets/UI/PNG/red_cross.png" id="12_4nm0u"]
 [ext_resource type="Texture2D" uid="uid://b1fb10w8a1gql" path="res://Assets/buildings/coal powerplant/level1.png" id="12_oiw1a"]
