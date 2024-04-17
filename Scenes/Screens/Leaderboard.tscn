@@ -166,5 +166,14 @@ metadata/_edit_group_ = true
 layout_mode = 2
 text = "Name"
 
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 55.0
+offset_top = 25.0
+offset_right = 123.0
+offset_bottom = 60.0
+text = "Refresh"
+
 [connection signal="pressed" from="Back/VBoxContainer/Back" to="." method="_on_back_pressed"]
 [connection signal="pressed" from="Leaderboard/VBoxContainer/Back" to="." method="_on_back_pressed"]
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

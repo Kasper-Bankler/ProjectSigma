@@ -3,10 +3,13 @@ extends Node
 signal user_updated
 signal progression_cleared
 
+
+var level_scores=[]
 var username
 var score = []
 var popup=preload("res://Scenes/popup_messenger.tscn")
 
+var logged_in_username="tqd"
 var http_request : HTTPRequest = HTTPRequest.new()
 const SERVER_URL = "http://spaghetticodestudios.com/db_test.php"
 const SERVER_HEADERS = ["Content-Type: application/x-www-form-urlencoded", "Cache-Control: max-age=0"]
@@ -62,14 +65,27 @@ func _http_request_completed(_result, _response_code, _headers, _body):
 		elif (response["response"]["password"]!=response["response"]["input_password"]):
 			popup_message("wrong password!",$".")
 			return
+		logged_in_username=response["response"]["username"]
 		get_tree().change_scene_to_file("res://Scenes/Screens/StartMenu.tscn")
 	
 	
-	
+	if response["command"]=="get_level_scores":
+		var c=1
+		json=JSON.new()
+		print("HERE")
+		error=json.parse(response["response"])
+		var transform=json.get_data()
+		print(transform)
+		print("HERE")
+		
+		for n in response["datasize"]:
+			level_scores.append(transform[str(n)])
+			
 	if response['datasize'] > 1:
-		print("")
-		for n in response['datasize']:
-			print($TextEdit.get_text() + str(response['response'][str(n)]['player_name']) + "\t\t" + str(response['response'][str(n)]['score']) + "\n")
+		print("**")
+		print(response["response"])
+		#for n in response['datasize']:
+			#print(str(response['response'][str(n+1)]['player_name']) + "\t\t" + str(response['response'][str(n+1)]['score']) + "\n")
 	elif response['datasize'] == 1:
 		
 		
@@ -101,9 +117,9 @@ func _send_request(request: Dictionary):
 	print("Requesting...\n\tCommand: " + request['command'] + "\n\tBody: " + body)
 	
 	
-func submit_score(user_name,score):
+func submit_score(user_name,level,score):
 	var command = "add_score"
-	var data = {"username" : user_name, "score" : score}
+	var data = {"username" : user_name, "score" : score,"level":level}
 	request_queue.push_back({"command" : command, "data" : data})
 	
 func _get_scores():
@@ -134,6 +150,12 @@ func login_user(username,password):
 	request_queue.push_back({"command" : command, "data" : data})
 
 
+func get_level_scores(level):
+	var command = "get_level_scores"
+	var data = { "score_number" : 5,"level":level}
+	request_queue.push_back({"command" : command, "data" : data})
+	
+	
 func popup_message(message,parentNode):
 	var popup_instance=popup.instantiate()
 	popup_instance.get_child(0).set_text(message)
