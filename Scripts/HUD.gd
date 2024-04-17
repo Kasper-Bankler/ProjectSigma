@@ -9,6 +9,7 @@ func _ready():
 func _process(delta):
 	update_balance()
 	update_energy()
+	updata_buy_menu()
 
 func update_balance():
 	$CoinLabel.text = str(CurrentLevel.balance)
@@ -16,19 +17,38 @@ func update_balance():
 func update_energy():
 	$EnergyProgressBar.value = CurrentLevel.energy_generated
 
+func updata_buy_menu():
+	var balance = CurrentLevel.balance
+	if balance < CurrentLevel.coal["price"]:
+		$BuildingPanelContainer/BuildingPanel/HBoxContainer/Coal.disabled = true
+	if balance < CurrentLevel.solar["price"]:
+		$BuildingPanelContainer/BuildingPanel/HBoxContainer/Solar.disabled = true
+	if balance < CurrentLevel.wind["price"]:
+		$BuildingPanelContainer/BuildingPanel/HBoxContainer/Wind.disabled = true
+	if balance < CurrentLevel.water["price"]:
+		$BuildingPanelContainer/BuildingPanel/HBoxContainer/Water.disabled = true
+	if balance < CurrentLevel.bio["price"]:
+		$BuildingPanelContainer/BuildingPanel/HBoxContainer/Bio.disabled = true
+	else:
+		$BuildingPanelContainer/BuildingPanel/HBoxContainer/Coal.disabled = false
+		$BuildingPanelContainer/BuildingPanel/HBoxContainer/Solar.disabled = false
+		$BuildingPanelContainer/BuildingPanel/HBoxContainer/Wind.disabled = false
+		$BuildingPanelContainer/BuildingPanel/HBoxContainer/Water.disabled = false
+		$BuildingPanelContainer/BuildingPanel/HBoxContainer/Bio.disabled = false
+
 func update_weather(sun, wind):
-	if sun>0.5:
-		$WeatherPanelContainer/WeatherPanel/VBoxContainer/WeatherSymbol1/Sun.visible = true
+	if sun==0:
+		$WeatherPanelContainer/WeatherPanel/VBoxContainer/WeatherSymbol1/Cloud.visible = true
 	elif sun<0.5:
 		$WeatherPanelContainer/WeatherPanel/VBoxContainer/WeatherSymbol1/CloudSun.visible = true
 	else:
-		$WeatherPanelContainer/WeatherPanel/VBoxContainer/WeatherSymbol1/Cloud.visible = true
-	if wind>0.5:
-		$WeatherPanelContainer/WeatherPanel/VBoxContainer/WeatherSymbol2/Tornado.visible = true
+		$WeatherPanelContainer/WeatherPanel/VBoxContainer/WeatherSymbol1/Sun.visible = true
+	if wind==0:
+		$WeatherPanelContainer/WeatherPanel/VBoxContainer/WeatherSymbol2/NoWind.visible = true
 	elif wind<0.5:
 		$WeatherPanelContainer/WeatherPanel/VBoxContainer/WeatherSymbol2/Wind.visible = true
 	else:
-		pass
+		$WeatherPanelContainer/WeatherPanel/VBoxContainer/WeatherSymbol2/Tornado.visible = true
 
 func _on_pause_button_pressed():
 	$PausePopup.visible = true
@@ -98,6 +118,9 @@ func update_popup(name, price, productionRate, emission):
 func select_building(building):
 	building_selected=building
 	emit_signal("place_building", building_selected)
+	$CartButton.visible = true
+	$BuildingPanelContainer.visible = false
+	
 
 func _on_exit_button_pressed():
 	get_tree().change_scene_to_file("res://Scenes/Screens/LevelSelect.tscn")
