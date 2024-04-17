@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://byw6n7gl1dfut"]
 
 [ext_resource type="Script" path="res://Scripts/Options.gd" id="1_aidr3"]
-[ext_resource type="Script" path="res://Scenes/Screens/Volume.gd" id="2_dpmip"]
+[ext_resource type="Script" path="res://Scripts/Volume.gd" id="2_dpmip"]
 
 [node name="Options" type="Control"]
 layout_mode = 3

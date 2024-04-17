@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://bif5kdskjyach"]
 
-[ext_resource type="Script" path="res://Scenes/Screens/Leaderboard.gd" id="1_4v2wq"]
+[ext_resource type="Script" path="res://Scripts/Leaderboard.gd" id="1_4v2wq"]
 [ext_resource type="FontFile" uid="uid://dikb6kaq6rwap" path="res://Assets/Fonts/kenvector_future.ttf" id="2_10um7"]
 
 [node name="Leaderboard" type="Control"]
