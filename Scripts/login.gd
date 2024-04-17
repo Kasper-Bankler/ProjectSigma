@@ -31,3 +31,7 @@ func _on_login_pressed():
 		username = usernameField.get_text()
 		password = passwordField.get_text()
 		UserData.login_user(username,password)
+
+
+func _on_login_2_pressed():
+	get_tree().change_scene_to_file("res://Scenes/Screens/signup.tscn")

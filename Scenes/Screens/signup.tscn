@@ -54,4 +54,12 @@ text = "Username"
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="Login2" type="Button" parent="."]
+offset_left = 267.0
+offset_top = 312.0
+offset_right = 545.0
+offset_bottom = 356.0
+text = "Already have an account? Login here"
+
 [connection signal="button_down" from="Login" to="." method="_on_login_button_down"]
+[connection signal="pressed" from="Login2" to="." method="_on_login_2_pressed"]

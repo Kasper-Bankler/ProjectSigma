@@ -46,12 +46,33 @@ func _http_request_completed(_result, _response_code, _headers, _body):
 	if error:
 		printerr("We returned error: " + str(error))
 		return
-
+	
+	print("***********")
+	print(response)
+	print("***********")
+	
+	if response["command"]=="add_user":
+		get_tree().change_scene_to_file("res://Scenes/Screens/login.tscn")
+	
+	if response["command"]=="get_player_username":
+		if ("username" not in response["response"]):
+			popup_message("User doesnt exist!",$".")
+			return
+			
+		elif (response["response"]["password"]!=response["response"]["input_password"]):
+			popup_message("wrong password!",$".")
+			return
+		get_tree().change_scene_to_file("res://Scenes/Screens/StartMenu.tscn")
+	
+	
+	
 	if response['datasize'] > 1:
 		print("")
 		for n in response['datasize']:
 			print($TextEdit.get_text() + str(response['response'][str(n)]['player_name']) + "\t\t" + str(response['response'][str(n)]['score']) + "\n")
 	elif response['datasize'] == 1:
+		
+		
 		var response_2 = str(response['response'])
 		response_2 = response_2.replace("{","{\"")
 		response_2 = response_2.replace(":","\":\"")

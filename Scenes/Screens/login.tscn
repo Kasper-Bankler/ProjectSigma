@@ -11,6 +11,13 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_r6uya")
 
+[node name="Login2" type="Button" parent="."]
+offset_left = 267.0
+offset_top = 312.0
+offset_right = 545.0
+offset_bottom = 356.0
+text = "dont have an account? signup here"
+
 [node name="Label2" type="Label" parent="."]
 layout_mode = 0
 offset_left = 91.0
@@ -55,4 +62,5 @@ text = "Username"
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[connection signal="pressed" from="Login2" to="." method="_on_login_2_pressed"]
 [connection signal="pressed" from="Login" to="." method="_on_login_pressed"]

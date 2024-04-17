@@ -26,9 +26,13 @@ func _on_login_button_down():
 		username = usernameField.get_text()
 		password = passwordField.get_text()
 		UserData.register_new_user(username,password)
-
+		
 
 		$Username.text = ""
 		$Password.text = ""
 	
 		
+
+
+func _on_login_2_pressed():
+	get_tree().change_scene_to_file("res://Scenes/Screens/login.tscn")
