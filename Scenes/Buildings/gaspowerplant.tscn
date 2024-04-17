@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://dvck0tsyjwg3g"]
 
+[ext_resource type="Script" path="res://Scripts/BuildingClass.gd" id="1_8ira5"]
 [ext_resource type="Texture2D" uid="uid://3s7kyae117nn" path="res://Assets/buildings/biogas/biogas1.png" id="1_cvorm"]
-[ext_resource type="Script" path="res://Scripts/UpgradeBuilding.gd" id="1_f6n63"]
 [ext_resource type="Texture2D" uid="uid://dlpmdav0hscff" path="res://Assets/buildings/biogas/biogas2.png" id="2_mq7k8"]
 [ext_resource type="Texture2D" uid="uid://bu72bjpe50he2" path="res://Assets/buildings/biogas/biogas3.png" id="3_o6tgr"]
 [ext_resource type="Texture2D" uid="uid://cm2yqau5sy131" path="res://Assets/buildings/biogas/biogas4.png" id="4_4s2pg"]
@@ -45,7 +45,7 @@ animations = [{
 size = Vector2(68, 197)
 
 [node name="Gaspowerplant" type="Node2D"]
-script = ExtResource("1_f6n63")
+script = ExtResource("1_8ira5")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(-29, -30)

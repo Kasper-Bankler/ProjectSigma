@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://4wker6emfj5i"]
 
-[ext_resource type="Script" path="res://Scripts/UpgradeBuilding.gd" id="1_npsgw"]
+[ext_resource type="Script" path="res://Scripts/BuildingClass.gd" id="1_m82f2"]
 [ext_resource type="Texture2D" uid="uid://bfsc7nojxv6wy" path="res://Assets/buildings/nuclear powerplant/1.png" id="2_dfg6m"]
 [ext_resource type="Texture2D" uid="uid://b43jc5bfa0v3k" path="res://Assets/buildings/nuclear powerplant/2.png" id="3_21ojs"]
 [ext_resource type="Texture2D" uid="uid://re8dou2c8omu" path="res://Assets/buildings/nuclear powerplant/3.png" id="4_wstkb"]
@@ -45,7 +45,7 @@ animations = [{
 size = Vector2(68, 197)
 
 [node name="Coalpowerplant" type="Node2D"]
-script = ExtResource("1_npsgw")
+script = ExtResource("1_m82f2")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(-6, -30)

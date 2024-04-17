@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://deg3svkcpg7bc"]
 
-[ext_resource type="Script" path="res://Scripts/UpgradeBuilding.gd" id="1_d75w8"]
 [ext_resource type="Texture2D" uid="uid://b1fb10w8a1gql" path="res://Assets/buildings/coal powerplant/level1.png" id="1_q0dsg"]
+[ext_resource type="Script" path="res://Scripts/BuildingClass.gd" id="1_vy4n2"]
 [ext_resource type="Texture2D" uid="uid://bwj0e4bogcmbi" path="res://Assets/buildings/coal powerplant/level2.png" id="2_qsisi"]
 [ext_resource type="Texture2D" uid="uid://bfr4oi21y7mix" path="res://Assets/buildings/coal powerplant/level3.png" id="3_8bb8q"]
 [ext_resource type="Texture2D" uid="uid://cngdnj677vkdo" path="res://Assets/buildings/coal powerplant/level4.png" id="4_a71sy"]
@@ -45,7 +45,7 @@ animations = [{
 size = Vector2(68, 197)
 
 [node name="Coalpowerplant" type="Node2D"]
-script = ExtResource("1_d75w8")
+script = ExtResource("1_vy4n2")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(-6, -30)
@@ -77,8 +77,4 @@ offset_right = 40.0
 offset_bottom = 23.0
 text = "Upgade?"
 
-[node name="Timer" type="Timer" parent="."]
-autostart = true
-
 [connection signal="id_pressed" from="UpgradePopupMenu" to="." method="_on_upgrade_popup_menu_id_pressed"]
-[connection signal="timeout" from="Timer" to="." method="_on_coal_timer_timeout"]

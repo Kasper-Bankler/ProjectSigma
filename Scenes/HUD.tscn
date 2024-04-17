@@ -216,15 +216,15 @@ offset_bottom = -57.0
 grow_vertical = 0
 scale = Vector2(2, 2)
 theme_override_styles/normal = SubResource("StyleBoxFlat_0e0n1")
-theme_override_styles/hover = SubResource("StyleBoxFlat_1p434")
 icon = ExtResource("11_jyge7")
 
 [node name="BuildingPanelContainer" type="PanelContainer" parent="."]
+visible = false
 anchors_preset = -1
 anchor_top = 0.92
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = -0.160011
+offset_top = -19.6
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -237,8 +237,10 @@ texture_filter = 1
 custom_minimum_size = Vector2(1000, 1000)
 layout_direction = 1
 layout_mode = 1
-offset_right = 10840.0
-offset_bottom = 1000.0
+offset_left = 422.0
+offset_top = -3.0
+offset_right = 11262.0
+offset_bottom = 997.0
 scale = Vector2(0.1, 0.1)
 theme_override_constants/separation = 100
 alignment = 1
