@@ -7,7 +7,7 @@ func _ready():
 	# For now, let's assume player has not completed level 1
 	# You would replace this with your actual logic to determine if level 1 is completed
 	UserData.get_player_progress(UserData.logged_in_username)
-	player_completed_level_1 = false
+	
 
 
 func _process(delta):

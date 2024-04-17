@@ -6,6 +6,14 @@ var password
 @onready var usernameField =$Username
 @onready var passwordField =$Password
 
+
+func _ready():
+	UserData.connect("signed_up",signed_up)
+
+
+func signed_up():
+	get_tree().change_scene_to_file("res://Scenes/Screens/login.tscn")
+	
 func _process(delta):
 	if UserData.is_requesting:
 		$Login.set_text("Loading...")

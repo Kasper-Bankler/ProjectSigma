@@ -2,13 +2,15 @@ extends Node
 
 signal user_updated
 signal progression_cleared
+signal signed_up
+signal log_in_response
 
 var player_progress=-1
 var num_of_levels=2
 var level_scores={}
 var username
 var score = []
-var popup=preload("res://Scripts/popup_messenger.gd")
+var popup=preload("res://Scenes/Screens/popup_messenger.tscn")
 
 var logged_in_username="tqd"
 var http_request : HTTPRequest = HTTPRequest.new()
@@ -46,31 +48,24 @@ func _http_request_completed(_result, _response_code, _headers, _body):
 	#print(response_body)
 	var error = json.parse(response_body)
 	var response=json.get_data()
-
-	if error:
-		printerr("We returned error: " + str(error))
-		return
 	
 	print("***********")
 	print(response)
 	print("***********")
+	if error:
+		printerr("We returned error: " + str(error))
+		return
+	
+	
 	
 	if response["command"]=="get_player_progress":
 		player_progress=response["datasize"]
 		
 	if response["command"]=="add_user":
-		get_tree().change_scene_to_file("res://Scenes/Screens/login.tscn")
-	
+		emit_signal("signed_up")
+
 	if response["command"]=="get_player_username":
-		if ("username" not in response["response"]):
-			popup_message("User doesnt exist!",$".")
-			return
-			
-		elif (response["response"]["password"]!=response["response"]["input_password"]):
-			popup_message("wrong password!",$".")
-			return
-		logged_in_username=response["response"]["username"]
-		get_tree().change_scene_to_file("res://Scenes/Screens/StartMenu.tscn")
+		emit_signal("log_in_response",response["response"])
 	
 	
 	if response["command"]=="get_level_scores":
@@ -165,7 +160,7 @@ func get_level_scores(level):
 	
 func get_player_progress(username):
 	var command = "get_player_progress"
-	var data = { "username" : logged_in_username}
+	var data = { "username" : username}
 	request_queue.push_back({"command" : command, "data" : data})
 	
 func popup_message(message,parentNode):
