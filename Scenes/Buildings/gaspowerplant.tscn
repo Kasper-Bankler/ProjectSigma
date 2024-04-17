@@ -49,8 +49,10 @@ script = ExtResource("1_f6n63")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(-29, -30)
+scale = Vector2(0.1, 0.1)
 sprite_frames = SubResource("SpriteFrames_tmuur")
 animation = &"level1"
+offset = Vector2(340, 300)
 
 [node name="Area2D" type="Area2D" parent="."]
 
@@ -75,8 +77,4 @@ offset_right = 40.0
 offset_bottom = 23.0
 text = "Upgade?"
 
-[node name="Timer" type="Timer" parent="."]
-autostart = true
-
 [connection signal="id_pressed" from="UpgradePopupMenu" to="." method="_on_upgrade_popup_menu_id_pressed"]
-[connection signal="timeout" from="Timer" to="." method="_on_gas_timer_timeout"]
