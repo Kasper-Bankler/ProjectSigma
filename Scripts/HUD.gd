@@ -4,12 +4,23 @@ signal place_building(building)
 var building_selected = ""
 
 func _ready():
-	update_weather(CurrentLevel.level1["sun"], CurrentLevel.level1["wind"])
+	update_weather(CurrentLevel.currentLevel["sun"], CurrentLevel.currentLevel["wind"])
 
 func _process(delta):
 	update_balance()
 	update_energy()
 	updata_buy_menu()
+	check_level_complete()
+
+func check_level_complete():
+	if CurrentLevel.energy_generated >= CurrentLevel.currentLevel["energy_required"]:
+		$LevelCompletePopup.visible = true
+		$EnergyProgressBar.visible = false
+		$CoinLabel.visible = false
+		$WeatherPanelContainer.visible = false
+		$PausePopup.visible = false
+		$CartButton.visible = false
+		$PauseButton.visible = false
 
 func update_balance():
 	$CoinLabel.text = str(CurrentLevel.balance)
@@ -29,12 +40,15 @@ func updata_buy_menu():
 		$BuildingPanelContainer/BuildingPanel/HBoxContainer/Water.disabled = true
 	if balance < CurrentLevel.bio["price"]:
 		$BuildingPanelContainer/BuildingPanel/HBoxContainer/Bio.disabled = true
+	if balance < CurrentLevel.nuclear["price"]:
+		$BuildingPanelContainer/BuildingPanel/HBoxContainer/Nuclear.disabled = true
 	else:
 		$BuildingPanelContainer/BuildingPanel/HBoxContainer/Coal.disabled = false
 		$BuildingPanelContainer/BuildingPanel/HBoxContainer/Solar.disabled = false
 		$BuildingPanelContainer/BuildingPanel/HBoxContainer/Wind.disabled = false
 		$BuildingPanelContainer/BuildingPanel/HBoxContainer/Water.disabled = false
 		$BuildingPanelContainer/BuildingPanel/HBoxContainer/Bio.disabled = false
+		$BuildingPanelContainer/BuildingPanel/HBoxContainer/Nuclear.disabled = false
 
 func update_weather(sun, wind):
 	if sun==0:
@@ -76,6 +90,9 @@ func _on_water_pressed():
 func _on_bio_pressed():
 	select_building("bio")
 
+func _on_nuclear_pressed():
+	select_building("nuclear")
+
 func _on_coal_mouse_entered():
 	update_popup(CurrentLevel.coal["name"], CurrentLevel.coal["price"], CurrentLevel.coal["productionRate"], CurrentLevel.coal["emissionRate"])
 
@@ -106,6 +123,12 @@ func _on_bio_mouse_entered():
 func _on_bio_mouse_exited():
 	$PopupPanel.visible = false
 
+func _on_nuclear_mouse_entered():
+	update_popup(CurrentLevel.nuclear["name"], CurrentLevel.nuclear["price"], CurrentLevel.nuclear["productionRate"], CurrentLevel.nuclear["emissionRate"])
+
+func _on_nuclear_mouse_exited():
+	$PopupPanel.visible = false
+
 func update_popup(name, price, productionRate, emission):
 	$PopupPanel.visible = true
 	$PopupPanel.position.x = get_viewport().get_mouse_position().x
@@ -120,7 +143,6 @@ func select_building(building):
 	emit_signal("place_building", building_selected)
 	$CartButton.visible = true
 	$BuildingPanelContainer.visible = false
-	
 
 func _on_exit_button_pressed():
 	get_tree().change_scene_to_file("res://Scenes/Screens/LevelSelect.tscn")
@@ -136,4 +158,3 @@ func _on_options_button_pressed_paused():
 
 func _on_exit_pressed_paused():
 	get_tree().change_scene_to_file("res://Scenes/Screens/LevelSelect.tscn")
-	

@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://d1kbrj17ghkn0"]
+[gd_scene load_steps=12 format=3 uid="uid://d1kbrj17ghkn0"]
 
 [ext_resource type="PackedScene" uid="uid://b1wn2qycrxqrr" path="res://Scenes/HUD.tscn" id="1_5v01m"]
 [ext_resource type="Script" path="res://Scripts/Level.gd" id="1_h8thf"]
@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://cw3o377hfisdp" path="res://Assets/buildings/solarpanel/solceller1.png" id="8_spjca"]
 [ext_resource type="Texture2D" uid="uid://3s7kyae117nn" path="res://Assets/buildings/biogas/biogas1.png" id="9_38num"]
 [ext_resource type="Texture2D" uid="uid://b1fb10w8a1gql" path="res://Assets/buildings/coal powerplant/level1.png" id="10_kdn3l"]
+[ext_resource type="Texture2D" uid="uid://bfsc7nojxv6wy" path="res://Assets/buildings/nuclear powerplant/1.png" id="11_vawht"]
 
 [node name="Level1" type="Node2D"]
 script = ExtResource("1_h8thf")
@@ -61,6 +62,7 @@ pivot_offset = Vector2(-100, -130)
 texture = ExtResource("8_spjca")
 
 [node name="Bio" type="TextureRect" parent="Builder"]
+visible = false
 self_modulate = Color(1, 1, 1, 0.509804)
 layout_direction = 2
 anchors_preset = 3
@@ -84,5 +86,14 @@ offset_bottom = 538.0
 scale = Vector2(0.2, 0.2)
 pivot_offset = Vector2(-130, -120)
 texture = ExtResource("10_kdn3l")
+
+[node name="Nuclear" type="TextureRect" parent="Builder"]
+visible = false
+self_modulate = Color(1, 1, 1, 0.509804)
+offset_right = 602.0
+offset_bottom = 538.0
+scale = Vector2(0.2, 0.2)
+pivot_offset = Vector2(-130, -120)
+texture = ExtResource("11_vawht")
 
 [connection signal="place_building" from="HUD" to="Builder" method="_on_hud_place_building"]
