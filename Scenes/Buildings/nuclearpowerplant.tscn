@@ -53,6 +53,7 @@ scale = Vector2(0.25388, 0.25388)
 sprite_frames = SubResource("SpriteFrames_yrtqw")
 animation = &"level4"
 autoplay = "level1"
+offset = Vector2(25, 40)
 
 [node name="Area2D" type="Area2D" parent="."]
 
