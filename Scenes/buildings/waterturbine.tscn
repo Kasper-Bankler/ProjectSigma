@@ -1,6 +1,5 @@
 [gd_scene load_steps=100 format=3 uid="uid://dj1hkyhsfa8xg"]
 
-[ext_resource type="Script" path="res://Scripts/UpgradeBuilding.gd" id="1_3xb57"]
 [ext_resource type="Texture2D" uid="uid://bc75cnltl02l6" path="res://Assets/buildings/waterturbine/animation/0001.png" id="1_vw0rj"]
 [ext_resource type="Texture2D" uid="uid://sj41088akjdl" path="res://Assets/buildings/waterturbine/animation/0002.png" id="2_4xe5h"]
 [ext_resource type="Texture2D" uid="uid://dyamhmx704g0e" path="res://Assets/buildings/waterturbine/animation/0003.png" id="3_s3fm7"]
@@ -97,6 +96,23 @@
 [ext_resource type="Texture2D" uid="uid://cqetsob4hxwpr" path="res://Assets/buildings/waterturbine/animation/0094.png" id="94_d3h4v"]
 [ext_resource type="Texture2D" uid="uid://yw6d51fdb6nw" path="res://Assets/buildings/waterturbine/animation/0095.png" id="95_04kjq"]
 [ext_resource type="Texture2D" uid="uid://c6yugxwtfidot" path="res://Assets/buildings/waterturbine/animation/0096.png" id="96_i57lg"]
+
+[sub_resource type="GDScript" id="GDScript_8fv7i"]
+script/source = "extends BuildingClass
+
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta):
+	pass
+
+
+
+
+
+func _on_upgrade_popup_menu_id_pressed(id):
+	pass # Replace with function body.
+"
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_0h24g"]
 animations = [{
@@ -413,7 +429,8 @@ animations = [{
 size = Vector2(68, 197)
 
 [node name="Waterturbine" type="Node2D"]
-script = ExtResource("1_3xb57")
+script = SubResource("GDScript_8fv7i")
+Name = "water"
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
@@ -445,8 +462,4 @@ offset_right = 40.0
 offset_bottom = 23.0
 text = "Upgade?"
 
-[node name="Timer" type="Timer" parent="."]
-autostart = true
-
 [connection signal="id_pressed" from="UpgradePopupMenu" to="." method="_on_upgrade_popup_menu_id_pressed"]
-[connection signal="timeout" from="Timer" to="." method="_on_water_timer_timeout"]

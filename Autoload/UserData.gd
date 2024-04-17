@@ -8,7 +8,7 @@ var num_of_levels=2
 var level_scores={}
 var username
 var score = []
-var popup=preload("res://Scenes/popup_messenger.tscn")
+var popup=preload("res://Scripts/popup_messenger.gd")
 
 var logged_in_username="tqd"
 var http_request : HTTPRequest = HTTPRequest.new()

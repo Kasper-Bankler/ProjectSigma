@@ -26,6 +26,9 @@ func _process(delta):
 		elif selected_building == "bio": 
 			building = preload("res://Scenes/Buildings/gaspowerplant.tscn")
 			update_preview("Bio")
+		elif selected_building == "nuclear": 
+			building = preload("res://Scenes/Buildings/nuclearpowerplant.tscn")
+			update_preview("Nuclear")
 		
 		var mouseLocation = get_global_mouse_position()
 		var tileLocation=(Vector2(CurrentLevel.tile_posiiton.x,CurrentLevel.tile_posiiton.y))
@@ -42,6 +45,7 @@ func _process(delta):
 			$Solar.visible = false
 			$Bio.visible = false
 			$Coal.visible = false
+			$Nuclear.visible = false
 
 func update_preview(name):
 	$".".get_node(name).visible = true

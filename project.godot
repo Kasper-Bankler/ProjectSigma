@@ -15,11 +15,16 @@ run/main_scene="res://Scenes/Screens/StartMenu.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
 config/icon="res://icon.svg"
 
+[audio]
+
+buses/default_bus_layout=""
+
 [autoload]
 
 UserData="*res://Autoload/UserData.gd"
 MusicController="*res://Autoload/MusicController.tscn"
 CurrentLevel="*res://Autoload/CurrentLevel.gd"
+BuildingData="*res://Autoload/BuildingData.gd"
 
 [display]
 

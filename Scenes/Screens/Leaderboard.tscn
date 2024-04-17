@@ -1,18 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://bif5kdskjyach"]
+[gd_scene load_steps=3 format=3 uid="uid://bif5kdskjyach"]
 
-[ext_resource type="Script" path="res://Scripts/LeaderboardScene.gd" id="1_hbvbf"]
+[ext_resource type="Script" path="res://Scripts/Leaderboard.gd" id="1_4v2wq"]
 [ext_resource type="FontFile" uid="uid://dikb6kaq6rwap" path="res://Assets/Fonts/kenvector_future.ttf" id="2_10um7"]
-[ext_resource type="FontFile" uid="uid://bohx8n7eiyr5o" path="res://Assets/Fonts/kenvector_future_thin.ttf" id="3_o26fj"]
-
-[sub_resource type="Theme" id="Theme_q6keo"]
-default_font = ExtResource("2_10um7")
-default_font_size = 45
-
-[sub_resource type="Theme" id="Theme_1oumw"]
-
-[sub_resource type="Theme" id="Theme_ilslj"]
-default_font = ExtResource("2_10um7")
-default_font_size = 20
 
 [node name="Leaderboard" type="Control"]
 layout_mode = 3
@@ -21,88 +10,170 @@ offset_left = 7.0
 offset_top = 202.0
 offset_right = 7.0
 offset_bottom = 202.0
-script = ExtResource("1_hbvbf")
+script = ExtResource("1_4v2wq")
 
-[node name="Back2" type="Button" parent="."]
+[node name="Back" type="MarginContainer" parent="."]
+layout_mode = 0
+offset_left = 66.0
+offset_top = 65.0
+offset_right = 115.0
+offset_bottom = 97.0
+metadata/_edit_group_ = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Back"]
 layout_mode = 2
-offset_left = 878.0
-offset_top = 640.0
-offset_right = 1079.0
-offset_bottom = 726.0
+
+[node name="Back" type="Button" parent="Back/VBoxContainer"]
+layout_mode = 2
 text = "Back"
+
+[node name="Number amount" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_left = -2.0
+offset_top = -92.0
+offset_right = 40.0
+offset_bottom = -66.0
+
+[node name="Number1" type="Label" parent="Number amount"]
+layout_mode = 2
+text = "1"
+
+[node name="Number2" type="Label" parent="Number amount"]
+layout_mode = 2
+text = "2"
+
+[node name="Number3" type="Label" parent="Number amount"]
+layout_mode = 2
+text = "3"
+
+[node name="Number4" type="Label" parent="Number amount"]
+layout_mode = 2
+text = "4"
+
+[node name="ScoreAmount" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 194.0
+offset_top = -95.0
+offset_right = 236.0
+offset_bottom = 9.0
+metadata/_edit_group_ = true
+
+[node name="ScoreAmount1" type="Label" parent="ScoreAmount"]
+layout_mode = 2
+text = "1"
+
+[node name="ScoreAmount2" type="Label" parent="ScoreAmount"]
+layout_mode = 2
+text = "2"
+
+[node name="ScoreAmount3" type="Label" parent="ScoreAmount"]
+layout_mode = 2
+text = "3"
+
+[node name="ScoreAmount4" type="Label" parent="ScoreAmount"]
+layout_mode = 2
+text = "4"
+
+[node name="Leaderboard" type="MarginContainer" parent="."]
+layout_mode = 0
+offset_left = -1.0
+offset_top = -191.0
+offset_right = 304.0
+offset_bottom = -147.0
+metadata/_edit_group_ = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Leaderboard"]
+layout_mode = 2
+
+[node name="Back" type="Button" parent="Leaderboard/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_10um7")
+theme_override_font_sizes/font_size = 32
+text = "Leaderboard"
+
+[node name="Leaderboard1" type="MarginContainer" parent="."]
+layout_mode = 0
+offset_left = 42.0
+offset_top = -98.0
+offset_right = 143.0
+offset_bottom = -58.0
+metadata/_edit_group_ = true
+
+[node name="Label" type="Label" parent="Leaderboard1"]
+layout_mode = 2
+text = "Victor"
+
+[node name="Leaderboard2" type="MarginContainer" parent="."]
+layout_mode = 0
+offset_left = 39.0
+offset_top = -68.0
+offset_right = 140.0
+offset_bottom = -28.0
+metadata/_edit_group_ = true
+
+[node name="Label" type="Label" parent="Leaderboard2"]
+layout_mode = 2
+text = "Goore
+"
+
+[node name="Leaderboard3" type="MarginContainer" parent="."]
+layout_mode = 0
+offset_left = 42.0
+offset_top = -40.0
+offset_right = 143.0
+metadata/_edit_group_ = true
+
+[node name="Label" type="Label" parent="Leaderboard3"]
+layout_mode = 2
+text = "Kasper
+"
+
+[node name="Leaderboard4" type="MarginContainer" parent="."]
+layout_mode = 0
+offset_left = 42.0
+offset_top = -15.0
+offset_right = 143.0
+offset_bottom = 25.0
+metadata/_edit_group_ = true
+
+[node name="Label" type="Label" parent="Leaderboard4"]
+layout_mode = 2
+text = "Christian
+"
+
+[node name="Score" type="MarginContainer" parent="."]
+layout_mode = 0
+offset_left = 194.0
+offset_top = -149.0
+offset_right = 295.0
+offset_bottom = -109.0
+metadata/_edit_group_ = true
+
+[node name="Label" type="Label" parent="Score"]
+layout_mode = 2
+text = "Score
+"
+
+[node name="Name" type="MarginContainer" parent="."]
+layout_mode = 0
+offset_left = 28.0
+offset_top = -147.0
+offset_right = 129.0
+offset_bottom = -107.0
+metadata/_edit_group_ = true
+
+[node name="Label" type="Label" parent="Name"]
+layout_mode = 2
+text = "Name"
 
 [node name="Button" type="Button" parent="."]
 layout_mode = 0
-offset_left = 891.0
-offset_top = 561.0
-offset_right = 1037.0
-offset_bottom = 626.0
+offset_left = 55.0
+offset_top = 25.0
+offset_right = 123.0
+offset_bottom = 60.0
 text = "Refresh"
 
-[node name="Label" type="Label" parent="."]
-layout_mode = 0
-offset_left = 724.0
-offset_top = -89.0
-offset_right = 1131.0
-offset_bottom = -20.0
-theme = SubResource("Theme_q6keo")
-text = "LEADERBOARD"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="HScrollBar" type="HScrollBar" parent="."]
-custom_minimum_size = Vector2(2.08165e-12, 500)
-layout_mode = 0
-offset_left = 9.0
-offset_right = 1891.0
-offset_bottom = 532.0
-
-[node name="HBoxContainer" type="HBoxContainer" parent="HScrollBar"]
-custom_minimum_size = Vector2(2.08165e-12, 500)
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
-
-[node name="Level1" type="VBoxContainer" parent="HScrollBar/HBoxContainer"]
-custom_minimum_size = Vector2(2.08165e-12, 500)
-layout_mode = 2
-
-[node name="Label" type="Label" parent="HScrollBar/HBoxContainer/Level1"]
-custom_minimum_size = Vector2(2.08165e-12, 75)
-layout_mode = 2
-theme = SubResource("Theme_1oumw")
-theme_override_fonts/font = ExtResource("3_o26fj")
-theme_override_font_sizes/font_size = 30
-text = "Level 1"
-horizontal_alignment = 1
-vertical_alignment = 1
-uppercase = true
-
-[node name="HBoxContainer" type="HBoxContainer" parent="HScrollBar/HBoxContainer/Level1"]
-custom_minimum_size = Vector2(2.08165e-12, 425)
-layout_mode = 2
-
-[node name="Username" type="VBoxContainer" parent="HScrollBar/HBoxContainer/Level1/HBoxContainer"]
-custom_minimum_size = Vector2(200, 100)
-layout_mode = 2
-
-[node name="usernameLabel" type="Label" parent="HScrollBar/HBoxContainer/Level1/HBoxContainer/Username"]
-layout_mode = 2
-theme = SubResource("Theme_ilslj")
-text = "USERNAME"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="Score" type="VBoxContainer" parent="HScrollBar/HBoxContainer/Level1/HBoxContainer"]
-custom_minimum_size = Vector2(200, 2.08165e-12)
-layout_mode = 2
-
-[node name="scoreLabel" type="Label" parent="HScrollBar/HBoxContainer/Level1/HBoxContainer/Score"]
-layout_mode = 2
-theme = SubResource("Theme_ilslj")
-text = "Score"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[connection signal="pressed" from="Back2" to="." method="_on_back_pressed"]
+[connection signal="pressed" from="Back/VBoxContainer/Back" to="." method="_on_back_pressed"]
+[connection signal="pressed" from="Leaderboard/VBoxContainer/Back" to="." method="_on_back_pressed"]
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
