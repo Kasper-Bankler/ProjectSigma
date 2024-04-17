@@ -23,7 +23,6 @@ func update_weather(sun, wind):
 		$WeatherPanelContainer/WeatherPanel/VBoxContainer/WeatherSymbol1/CloudSun.visible = true
 	else:
 		$WeatherPanelContainer/WeatherPanel/VBoxContainer/WeatherSymbol1/Cloud.visible = true
-	
 	if wind>0.5:
 		$WeatherPanelContainer/WeatherPanel/VBoxContainer/WeatherSymbol2/Tornado.visible = true
 	elif wind<0.5:
