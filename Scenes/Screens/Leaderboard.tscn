@@ -1,7 +1,97 @@
-[gd_scene load_steps=3 format=3 uid="uid://bif5kdskjyach"]
+[gd_scene load_steps=7 format=3 uid="uid://bif5kdskjyach"]
 
-[ext_resource type="Script" path="res://Scripts/Leaderboard.gd" id="1_4v2wq"]
 [ext_resource type="FontFile" uid="uid://dikb6kaq6rwap" path="res://Assets/Fonts/kenvector_future.ttf" id="2_10um7"]
+[ext_resource type="FontFile" uid="uid://bohx8n7eiyr5o" path="res://Assets/Fonts/kenvector_future_thin.ttf" id="3_o26fj"]
+
+[sub_resource type="GDScript" id="GDScript_ddrcp"]
+script/source = "extends Control
+
+
+# Declare member variables here. Examples:
+@onready var level_container=$ScrollContainer/HBoxContainer/Level1
+@onready var username_row=$ScrollContainer/HBoxContainer/Level1/HBoxContainer/Username/usernameLabel
+@onready var first_username_container=$ScrollContainer/HBoxContainer/Level1/HBoxContainer/Username
+@onready var first_score_container=$ScrollContainer/HBoxContainer/Level1/HBoxContainer/Score
+
+@onready var score_row=$ScrollContainer/HBoxContainer/Level1/HBoxContainer/Score/scoreLabel
+
+
+var username_container
+var score_container
+var level_fetched=0
+var fetched_levels=[]
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	UserData.get_level_scores(1)
+	pass
+
+func _process(delta):
+	if UserData.is_requesting:
+
+		return
+	
+	if (level_fetched>=UserData.num_of_levels):
+
+		return
+	if (level_fetched>len(UserData.level_scores)):
+		return
+	
+	
+	level_fetched+=1
+	print(\"doing\"+str(level_fetched))
+	create_new_level_container()
+	populate_leaderboard_level(level_fetched)
+	
+
+func create_new_level_container():
+	var new_level_container=$ScrollContainer/HBoxContainer/Level1.duplicate()
+	
+	new_level_container.get_child(0).text=\"LEVEL\"+str(level_fetched+1)
+	$ScrollContainer/HBoxContainer.add_child(new_level_container)
+	$ScrollContainer/HBoxContainer.add_child($ScrollContainer/HBoxContainer/split.duplicate())
+	
+func populate_leaderboard_level(level):
+	var level_container=$ScrollContainer/HBoxContainer.get_child(level*2-2)
+	var username_container=level_container.get_child(1).get_child(0)
+	var score_container=level_container.get_child(1).get_child(1)
+	
+	print(\"POPULATIONG LEVEL\"+str(level))
+	
+	
+	for row in UserData.level_scores[str(level)]:
+
+		var new_user_row=username_row.duplicate()
+		var new_score_row=score_row.duplicate()
+		new_user_row.text=str(row[\"username\"])
+		new_score_row.text=str(row[\"value\"])
+		
+		username_container.add_child(new_user_row)
+		score_container.add_child(new_score_row)
+
+	UserData.get_level_scores(level_fetched+1)
+	
+			
+
+		
+
+func _on_back_pressed():
+	get_tree().change_scene_to_file(\"res://Scenes/Screens/StartMenu.tscn\")
+
+
+func _on_button_pressed():
+	create_new_level_container()
+"
+
+[sub_resource type="Theme" id="Theme_q6keo"]
+default_font = ExtResource("2_10um7")
+default_font_size = 45
+
+[sub_resource type="Theme" id="Theme_1oumw"]
+
+[sub_resource type="Theme" id="Theme_ilslj"]
+default_font = ExtResource("2_10um7")
+default_font_size = 20
 
 [node name="Leaderboard" type="Control"]
 layout_mode = 3
@@ -10,170 +100,96 @@ offset_left = 7.0
 offset_top = 202.0
 offset_right = 7.0
 offset_bottom = 202.0
-script = ExtResource("1_4v2wq")
+script = SubResource("GDScript_ddrcp")
 
-[node name="Back" type="MarginContainer" parent="."]
+[node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 0
-offset_left = 66.0
-offset_top = 65.0
-offset_right = 115.0
-offset_bottom = 97.0
-metadata/_edit_group_ = true
+offset_right = 1910.0
+offset_bottom = 490.0
+color = Color(0, 0, 0, 1)
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Back"]
+[node name="Back2" type="Button" parent="."]
 layout_mode = 2
-
-[node name="Back" type="Button" parent="Back/VBoxContainer"]
-layout_mode = 2
+offset_left = 878.0
+offset_top = 640.0
+offset_right = 1079.0
+offset_bottom = 726.0
 text = "Back"
-
-[node name="Number amount" type="VBoxContainer" parent="."]
-layout_mode = 0
-offset_left = -2.0
-offset_top = -92.0
-offset_right = 40.0
-offset_bottom = -66.0
-
-[node name="Number1" type="Label" parent="Number amount"]
-layout_mode = 2
-text = "1"
-
-[node name="Number2" type="Label" parent="Number amount"]
-layout_mode = 2
-text = "2"
-
-[node name="Number3" type="Label" parent="Number amount"]
-layout_mode = 2
-text = "3"
-
-[node name="Number4" type="Label" parent="Number amount"]
-layout_mode = 2
-text = "4"
-
-[node name="ScoreAmount" type="VBoxContainer" parent="."]
-layout_mode = 0
-offset_left = 194.0
-offset_top = -95.0
-offset_right = 236.0
-offset_bottom = 9.0
-metadata/_edit_group_ = true
-
-[node name="ScoreAmount1" type="Label" parent="ScoreAmount"]
-layout_mode = 2
-text = "1"
-
-[node name="ScoreAmount2" type="Label" parent="ScoreAmount"]
-layout_mode = 2
-text = "2"
-
-[node name="ScoreAmount3" type="Label" parent="ScoreAmount"]
-layout_mode = 2
-text = "3"
-
-[node name="ScoreAmount4" type="Label" parent="ScoreAmount"]
-layout_mode = 2
-text = "4"
-
-[node name="Leaderboard" type="MarginContainer" parent="."]
-layout_mode = 0
-offset_left = -1.0
-offset_top = -191.0
-offset_right = 304.0
-offset_bottom = -147.0
-metadata/_edit_group_ = true
-
-[node name="VBoxContainer" type="VBoxContainer" parent="Leaderboard"]
-layout_mode = 2
-
-[node name="Back" type="Button" parent="Leaderboard/VBoxContainer"]
-layout_mode = 2
-theme_override_fonts/font = ExtResource("2_10um7")
-theme_override_font_sizes/font_size = 32
-text = "Leaderboard"
-
-[node name="Leaderboard1" type="MarginContainer" parent="."]
-layout_mode = 0
-offset_left = 42.0
-offset_top = -98.0
-offset_right = 143.0
-offset_bottom = -58.0
-metadata/_edit_group_ = true
-
-[node name="Label" type="Label" parent="Leaderboard1"]
-layout_mode = 2
-text = "Victor"
-
-[node name="Leaderboard2" type="MarginContainer" parent="."]
-layout_mode = 0
-offset_left = 39.0
-offset_top = -68.0
-offset_right = 140.0
-offset_bottom = -28.0
-metadata/_edit_group_ = true
-
-[node name="Label" type="Label" parent="Leaderboard2"]
-layout_mode = 2
-text = "Goore
-"
-
-[node name="Leaderboard3" type="MarginContainer" parent="."]
-layout_mode = 0
-offset_left = 42.0
-offset_top = -40.0
-offset_right = 143.0
-metadata/_edit_group_ = true
-
-[node name="Label" type="Label" parent="Leaderboard3"]
-layout_mode = 2
-text = "Kasper
-"
-
-[node name="Leaderboard4" type="MarginContainer" parent="."]
-layout_mode = 0
-offset_left = 42.0
-offset_top = -15.0
-offset_right = 143.0
-offset_bottom = 25.0
-metadata/_edit_group_ = true
-
-[node name="Label" type="Label" parent="Leaderboard4"]
-layout_mode = 2
-text = "Christian
-"
-
-[node name="Score" type="MarginContainer" parent="."]
-layout_mode = 0
-offset_left = 194.0
-offset_top = -149.0
-offset_right = 295.0
-offset_bottom = -109.0
-metadata/_edit_group_ = true
-
-[node name="Label" type="Label" parent="Score"]
-layout_mode = 2
-text = "Score
-"
-
-[node name="Name" type="MarginContainer" parent="."]
-layout_mode = 0
-offset_left = 28.0
-offset_top = -147.0
-offset_right = 129.0
-offset_bottom = -107.0
-metadata/_edit_group_ = true
-
-[node name="Label" type="Label" parent="Name"]
-layout_mode = 2
-text = "Name"
 
 [node name="Button" type="Button" parent="."]
 layout_mode = 0
-offset_left = 55.0
-offset_top = 25.0
-offset_right = 123.0
-offset_bottom = 60.0
+offset_left = 891.0
+offset_top = 561.0
+offset_right = 1037.0
+offset_bottom = 626.0
 text = "Refresh"
 
-[connection signal="pressed" from="Back/VBoxContainer/Back" to="." method="_on_back_pressed"]
-[connection signal="pressed" from="Leaderboard/VBoxContainer/Back" to="." method="_on_back_pressed"]
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 724.0
+offset_top = -89.0
+offset_right = 1131.0
+offset_bottom = -20.0
+theme = SubResource("Theme_q6keo")
+text = "LEADERBOARD"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
+layout_mode = 0
+offset_left = -3.0
+offset_top = -10.0
+offset_right = 1877.0
+offset_bottom = 521.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ScrollContainer"]
+custom_minimum_size = Vector2(2.08165e-12, 500)
+layout_mode = 2
+
+[node name="Level1" type="VBoxContainer" parent="ScrollContainer/HBoxContainer"]
+custom_minimum_size = Vector2(2.08165e-12, 500)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="ScrollContainer/HBoxContainer/Level1"]
+custom_minimum_size = Vector2(2.08165e-12, 75)
+layout_mode = 2
+theme = SubResource("Theme_1oumw")
+theme_override_fonts/font = ExtResource("3_o26fj")
+theme_override_font_sizes/font_size = 30
+text = "Level 1"
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ScrollContainer/HBoxContainer/Level1"]
+custom_minimum_size = Vector2(2.08165e-12, 425)
+layout_mode = 2
+
+[node name="Username" type="VBoxContainer" parent="ScrollContainer/HBoxContainer/Level1/HBoxContainer"]
+custom_minimum_size = Vector2(200, 100)
+layout_mode = 2
+
+[node name="usernameLabel" type="Label" parent="ScrollContainer/HBoxContainer/Level1/HBoxContainer/Username"]
+layout_mode = 2
+theme = SubResource("Theme_ilslj")
+text = "USERNAME"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Score" type="VBoxContainer" parent="ScrollContainer/HBoxContainer/Level1/HBoxContainer"]
+custom_minimum_size = Vector2(200, 2.08165e-12)
+layout_mode = 2
+
+[node name="scoreLabel" type="Label" parent="ScrollContainer/HBoxContainer/Level1/HBoxContainer/Score"]
+layout_mode = 2
+theme = SubResource("Theme_ilslj")
+text = "Score"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="split" type="ColorRect" parent="ScrollContainer/HBoxContainer"]
+custom_minimum_size = Vector2(10, 0)
+layout_mode = 2
+
+[connection signal="pressed" from="Back2" to="." method="_on_back_pressed"]
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
