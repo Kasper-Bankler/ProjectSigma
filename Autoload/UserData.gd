@@ -3,8 +3,9 @@ extends Node
 signal user_updated
 signal progression_cleared
 
-
-var level_scores=[]
+var player_progress=-1
+var num_of_levels=2
+var level_scores={}
 var username
 var score = []
 var popup=preload("res://Scenes/popup_messenger.tscn")
@@ -54,6 +55,9 @@ func _http_request_completed(_result, _response_code, _headers, _body):
 	print(response)
 	print("***********")
 	
+	if response["command"]=="get_player_progress":
+		player_progress=response["datasize"]
+		
 	if response["command"]=="add_user":
 		get_tree().change_scene_to_file("res://Scenes/Screens/login.tscn")
 	
@@ -77,9 +81,11 @@ func _http_request_completed(_result, _response_code, _headers, _body):
 		var transform=json.get_data()
 		print(transform)
 		print("HERE")
-		
+		var this_level=str(transform["0"]["level"])
+		print(this_level)
+		level_scores[str(this_level)]=[]
 		for n in response["datasize"]:
-			level_scores.append(transform[str(n)])
+			level_scores[str(this_level)].append(transform[str(n)])
 			
 	if response['datasize'] > 1:
 		print("**")
@@ -155,6 +161,12 @@ func get_level_scores(level):
 	var data = { "score_number" : 5,"level":level}
 	request_queue.push_back({"command" : command, "data" : data})
 	
+	
+	
+func get_player_progress(username):
+	var command = "get_player_progress"
+	var data = { "username" : logged_in_username}
+	request_queue.push_back({"command" : command, "data" : data})
 	
 func popup_message(message,parentNode):
 	var popup_instance=popup.instantiate()

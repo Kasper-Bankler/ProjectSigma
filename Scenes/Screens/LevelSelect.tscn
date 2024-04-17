@@ -97,6 +97,14 @@ offset_top = -216.0
 offset_right = -17.0
 offset_bottom = -176.0
 
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 506.0
+offset_top = 121.0
+offset_right = 1061.0
+offset_bottom = 496.0
+text = "YOU HAVE COMPLETED"
+
 [connection signal="pressed" from="Back" to="." method="_on_back_pressed"]
 [connection signal="pressed" from="Level 1" to="." method="_on_level_1_pressed"]
 [connection signal="pressed" from="Level 2" to="." method="_on_level_2_pressed"]
