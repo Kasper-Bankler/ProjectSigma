@@ -1,6 +1,6 @@
 extends CanvasLayer
 
-signal place_building(building)
+signal place_building
 var building_selected = ""
 
 func _ready():
