@@ -1,10 +1,10 @@
 [gd_scene load_steps=8 format=3 uid="uid://dvck0tsyjwg3g"]
 
 [ext_resource type="Script" path="res://Scripts/BuildingClass.gd" id="1_8ira5"]
-[ext_resource type="Texture2D" uid="uid://3s7kyae117nn" path="res://Assets/buildings/biogas/biogas1.png" id="1_cvorm"]
-[ext_resource type="Texture2D" uid="uid://dlpmdav0hscff" path="res://Assets/buildings/biogas/biogas2.png" id="2_mq7k8"]
-[ext_resource type="Texture2D" uid="uid://bu72bjpe50he2" path="res://Assets/buildings/biogas/biogas3.png" id="3_o6tgr"]
-[ext_resource type="Texture2D" uid="uid://cm2yqau5sy131" path="res://Assets/buildings/biogas/biogas4.png" id="4_4s2pg"]
+[ext_resource type="Texture2D" uid="uid://3s7kyae117nn" path="res://Assets/Buildings/biogas/biogas1.png" id="1_cvorm"]
+[ext_resource type="Texture2D" uid="uid://dlpmdav0hscff" path="res://Assets/Buildings/biogas/biogas2.png" id="2_mq7k8"]
+[ext_resource type="Texture2D" uid="uid://bu72bjpe50he2" path="res://Assets/Buildings/biogas/biogas3.png" id="3_o6tgr"]
+[ext_resource type="Texture2D" uid="uid://cm2yqau5sy131" path="res://Assets/Buildings/biogas/biogas4.png" id="4_4s2pg"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_tmuur"]
 animations = [{
@@ -42,7 +42,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4oyld"]
-size = Vector2(68, 197)
+size = Vector2(61, 55.5)
 
 [node name="Gaspowerplant" type="Node2D"]
 script = ExtResource("1_8ira5")
@@ -58,24 +58,12 @@ offset = Vector2(340, 300)
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(-4, -69.5)
+position = Vector2(5, -3)
 shape = SubResource("RectangleShape2D_4oyld")
 
 [node name="fullyUpgradedLabel" type="Label" parent="Area2D"]
-visible = false
-offset_left = -154.0
-offset_top = -204.0
-offset_right = 146.0
-offset_bottom = -148.0
+offset_left = -150.0
+offset_top = -101.0
+offset_right = 150.0
+offset_bottom = -45.0
 text = "Power source is already fully upgraded"
-
-[node name="UpgradePopupMenu" type="PopupMenu" parent="."]
-size = Vector2i(181, 100)
-visible = true
-
-[node name="Label" type="Label" parent="UpgradePopupMenu"]
-offset_right = 40.0
-offset_bottom = 23.0
-text = "Upgade?"
-
-[connection signal="id_pressed" from="UpgradePopupMenu" to="." method="_on_upgrade_popup_menu_id_pressed"]

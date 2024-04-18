@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://d17j3822dt8aj"
-path="res://.godot/imported/0034.png-2d045eb7f5c7167bb1fd36c65d1031ee.ctex"
+path="res://.godot/imported/0034.png-929d3691d866230ea98668fd81c42e77.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/buildings/waterturbine/animation/0034.png"
-dest_files=["res://.godot/imported/0034.png-2d045eb7f5c7167bb1fd36c65d1031ee.ctex"]
+source_file="res://Assets/Buildings/waterturbine/animation/0034.png"
+dest_files=["res://.godot/imported/0034.png-929d3691d866230ea98668fd81c42e77.ctex"]
 
 [params]
 

@@ -2,6 +2,12 @@ extends Node
 
 class_name BuildingClass
 
+var popup = preload("res://Scenes/Screens/popupmenu_messenger.tscn")
+
+@onready var new_popup=popup.instantiate()
+@onready var new_popup_child = new_popup.get_child(0)
+
+
 @export var Name = "wind"
 var upgradeLevel = 1
 var emissionRate
@@ -9,7 +15,8 @@ var productionRate
 var price
 var upgradePrice
 
-@onready var popup = get_node("UpgradePopupMenu")
+
+#@onready var popup = get_node("UpgradePopupMenu")
 @onready var areaNode = get_node("Area2D")
 @onready var animatedSprite = get_node("AnimatedSprite2D")
 @onready var upgradedLabel = get_node("Area2D/fullyUpgradedLabel")
@@ -17,6 +24,7 @@ var upgradePrice
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	$".".add_child(new_popup)
 	
 	print(BuildingData.BUILDINGS_STATS[Name])
 	emissionRate=BuildingData.BUILDINGS_STATS[Name]["emissionRate"]
@@ -24,12 +32,12 @@ func _ready():
 	price=BuildingData.BUILDINGS_STATS[Name]["price"]
 	upgradePrice=BuildingData.BUILDINGS_STATS[Name]["upgradePrice"]
 	
-	popup.id_pressed.connect(onClickMenu)
+	new_popup_child.id_pressed.connect(onClickMenu)
 	areaNode.input_event.connect(onClick)
-	popup.visible = false
-	popup.add_item(" ")
-	popup.add_item("YES",1)
-	popup.add_item("NO",0)
+	new_popup_child.visible = false
+	new_popup_child.add_item("Upgrade ")
+	new_popup_child.add_item("YES",1)
+	new_popup_child.add_item("NO",0)
 	CurrentLevel.update_balance(-price)
 	
 	var timer: Timer = Timer.new()
@@ -44,13 +52,13 @@ func _timer_Timeout():
 
 func onClick(viewport, event, shape_idx):
 	if (Input.is_action_just_pressed("ui_leftclick")):
-		popup.position.x = get_viewport().get_mouse_position().x
-		popup.position.y = get_viewport().get_mouse_position().y + 20
+		new_popup_child.position.x = get_viewport().get_mouse_position().x
+		new_popup_child.position.y = get_viewport().get_mouse_position().y + 20
 		upgradedLabel.visible = false
 		upgradeMenu()
 
 func upgradeMenu():
-	popup.visible = true
+	new_popup_child.visible = true
 
 func upgradeBuilding(id):
 	if id == 1:
