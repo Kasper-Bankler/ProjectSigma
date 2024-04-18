@@ -37,15 +37,3 @@ func _on_back_pressed():
 func go_to_level(level):
 	MusicController.confirmationSound()
 	get_tree().change_scene_to_file("res://Scenes/Levels/Level"+str(level)+".tscn")
-
-
-func _on_level_1_pressed():
-	go_to_level(1)
-
-
-func _on_level_2_pressed():
-	go_to_level(2)
-
-
-func _on_level_3_pressed():
-	go_to_level(3) # Replace with function body.
