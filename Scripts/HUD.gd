@@ -37,8 +37,6 @@ func updata_buy_menu():
 		$BuildingPanelContainer/BuildingPanel/HBoxContainer/Solar.disabled = true
 	if balance < BuildingData.BUILDINGS_STATS["wind"]["price"]:
 		$BuildingPanelContainer/BuildingPanel/HBoxContainer/Wind.disabled = true
-	if balance < BuildingData.BUILDINGS_STATS["water"]["price"]:
-		$BuildingPanelContainer/BuildingPanel/HBoxContainer/Water.disabled = true
 	if balance < BuildingData.BUILDINGS_STATS["bio"]["price"]:
 		$BuildingPanelContainer/BuildingPanel/HBoxContainer/Bio.disabled = true
 	if balance < BuildingData.BUILDINGS_STATS["nuclear"]["price"]:
@@ -47,7 +45,6 @@ func updata_buy_menu():
 		$BuildingPanelContainer/BuildingPanel/HBoxContainer/Coal.disabled = false
 		$BuildingPanelContainer/BuildingPanel/HBoxContainer/Solar.disabled = false
 		$BuildingPanelContainer/BuildingPanel/HBoxContainer/Wind.disabled = false
-		$BuildingPanelContainer/BuildingPanel/HBoxContainer/Water.disabled = false
 		$BuildingPanelContainer/BuildingPanel/HBoxContainer/Bio.disabled = false
 		$BuildingPanelContainer/BuildingPanel/HBoxContainer/Nuclear.disabled = false
 
@@ -85,9 +82,6 @@ func _on_solar_pressed():
 func _on_wind_pressed():
 	select_building("wind")
 
-func _on_water_pressed():
-	select_building("water")
-
 func _on_bio_pressed():
 	select_building("bio")
 
@@ -110,12 +104,6 @@ func _on_wind_mouse_entered():
 	update_popup(BuildingData.BUILDINGS_STATS["wind"]["name"], BuildingData.BUILDINGS_STATS["wind"]["price"], BuildingData.BUILDINGS_STATS["wind"]["productionRate"], BuildingData.BUILDINGS_STATS["wind"]["emissionRate"])
 
 func _on_wind_mouse_exited():
-	$PopupPanel.visible = false
-
-func _on_water_mouse_entered():
-	update_popup(BuildingData.BUILDINGS_STATS["water"]["name"], BuildingData.BUILDINGS_STATS["water"]["price"], BuildingData.BUILDINGS_STATS["water"]["productionRate"], BuildingData.BUILDINGS_STATS["water"]["emissionRate"])
-
-func _on_water_mouse_exited():
 	$PopupPanel.visible = false
 
 func _on_bio_mouse_entered():
