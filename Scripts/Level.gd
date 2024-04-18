@@ -11,6 +11,3 @@ class_name Level
 @export var energy_generated = 0
 
 
-func _ready():
-	$HUD.update_weather(0.7,0.4)
-	$HUD.update_energy()

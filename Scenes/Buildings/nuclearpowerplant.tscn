@@ -1,10 +1,10 @@
 [gd_scene load_steps=8 format=3 uid="uid://c81kuvl7kvkm3"]
 
 [ext_resource type="Script" path="res://Scripts/BuildingClass.gd" id="1_m82f2"]
-[ext_resource type="Texture2D" uid="uid://c4txemupygic5" path="res://Assets/buildings/nuclear powerplant/1.png" id="2_dfg6m"]
-[ext_resource type="Texture2D" uid="uid://cl7ekqi547e0p" path="res://Assets/buildings/nuclear powerplant/2.png" id="3_21ojs"]
-[ext_resource type="Texture2D" uid="uid://cfllvnuob2idt" path="res://Assets/buildings/nuclear powerplant/3.png" id="4_wstkb"]
-[ext_resource type="Texture2D" uid="uid://cvxurss67glwh" path="res://Assets/buildings/nuclear powerplant/4.png" id="5_4cmhq"]
+[ext_resource type="Texture2D" uid="uid://bfsc7nojxv6wy" path="res://Assets/buildings/nuclear powerplant/1.png" id="2_dfg6m"]
+[ext_resource type="Texture2D" uid="uid://b43jc5bfa0v3k" path="res://Assets/buildings/nuclear powerplant/2.png" id="3_21ojs"]
+[ext_resource type="Texture2D" uid="uid://re8dou2c8omu" path="res://Assets/buildings/nuclear powerplant/3.png" id="4_wstkb"]
+[ext_resource type="Texture2D" uid="uid://dg5jml5oocx6s" path="res://Assets/buildings/nuclear powerplant/4.png" id="5_4cmhq"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_yrtqw"]
 animations = [{
@@ -77,6 +77,14 @@ offset_top = -204.0
 offset_right = 146.0
 offset_bottom = -148.0
 text = "Insufficient funds"
+
+[node name="co2Label" type="Label" parent="Area2D"]
+visible = false
+offset_left = -154.0
+offset_top = -204.0
+offset_right = 146.0
+offset_bottom = -148.0
+text = "You just paid CO2 tax"
 
 [node name="UpgradePopupMenu" type="PopupMenu" parent="."]
 size = Vector2i(181, 100)

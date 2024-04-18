@@ -23,9 +23,11 @@ var sun
 @onready var animatedSprite = get_node("AnimatedSprite2D")
 @onready var upgradedLabel = get_node("Area2D/fullyUpgradedLabel")
 @onready var insufficientFundsLabel = $Area2D/insufficientFundsLabel
+@onready var co2Label = $Area2D/co2Label
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	UserData.emit_signal("new_building_added",self)
 	$".".add_child(new_popup)
 	emissionRate=BuildingData.BUILDINGS_STATS[Name]["emissionRate"]
 	productionRate=BuildingData.BUILDINGS_STATS[Name]["productionRate"]
@@ -47,6 +49,24 @@ func _ready():
 	timer.wait_time = 1.0
 	timer.timeout.connect(_timer_Timeout)
 	$".".add_child(timer)
+
+	if Name == "coal":
+		var co2timer: Timer = Timer.new()
+		co2timer.autostart = true
+		co2timer.wait_time = 1.0
+		co2timer.timeout.connect(_co2_timer_Timeout)
+		$".".add_child(co2timer)
+
+func _co2_timer_Timeout():
+	if CurrentLevel.co2_emitted % 1000 == 0 and not CurrentLevel.co2_emitted == 0:
+		var bill = CurrentLevel.co2_emitted*0.01
+		CurrentLevel.update_balance(-bill)
+		
+		co2Label.text = "You just paid "+ str(bill)+ " $ in CO2 tax."
+		co2Label.visible = true
+		await get_tree().create_timer(3.0).timeout
+		co2Label.visible = false
+
 
 func _timer_Timeout():
 	if CurrentLevel.is_playing == true:

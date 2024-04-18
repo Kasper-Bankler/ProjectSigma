@@ -70,10 +70,11 @@ position = Vector2(5, -3)
 shape = SubResource("RectangleShape2D_4oyld")
 
 [node name="fullyUpgradedLabel" type="Label" parent="Area2D"]
-offset_left = -150.0
-offset_top = -101.0
-offset_right = 150.0
-offset_bottom = -45.0
+visible = false
+offset_left = -139.0
+offset_top = -57.0
+offset_right = 161.0
+offset_bottom = -1.0
 text = "Power source is already fully upgraded"
 
 [node name="UpgradePopupMenu" type="PopupMenu" parent="."]

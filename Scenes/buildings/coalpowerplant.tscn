@@ -81,19 +81,27 @@ shape = SubResource("RectangleShape2D_nupnb")
 
 [node name="fullyUpgradedLabel" type="Label" parent="Area2D"]
 visible = false
-offset_left = -154.0
-offset_top = -204.0
-offset_right = 146.0
-offset_bottom = -148.0
+offset_left = -216.0
+offset_top = -112.0
+offset_right = 84.0
+offset_bottom = -56.0
 text = "Power source is already fully upgraded"
 
 [node name="insufficientFundsLabel" type="Label" parent="Area2D"]
 visible = false
-offset_left = -154.0
-offset_top = -204.0
-offset_right = 146.0
-offset_bottom = -148.0
+offset_left = -213.0
+offset_top = -115.0
+offset_right = 87.0
+offset_bottom = -59.0
 text = "Insufficient funds"
+
+[node name="co2Label" type="Label" parent="Area2D"]
+visible = false
+offset_left = -213.0
+offset_top = -116.0
+offset_right = 87.0
+offset_bottom = -60.0
+text = "You just paid CO2 tax"
 
 [node name="UpgradePopupMenu" type="PopupMenu" parent="."]
 size = Vector2i(181, 100)
