@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://bfth7tlibkh4r"]
 
 [ext_resource type="Script" path="res://Scripts/StartMenu.gd" id="1_2nj5o"]
-[ext_resource type="PackedScene" uid="uid://83xbbpcentb" path="res://Scenes/LandscapeTiles.tscn" id="2_4qq5h"]
+[ext_resource type="PackedScene" uid="uid://dxhoih6iqnxv8" path="res://Scenes/LandscapeTiles.tscn" id="2_4qq5h"]
 
 [node name="Login_Menu" type="Control"]
 layout_mode = 3

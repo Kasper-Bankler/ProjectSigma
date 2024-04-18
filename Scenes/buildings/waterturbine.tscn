@@ -438,10 +438,15 @@ text = "Power source is already fully upgraded"
 
 [node name="UpgradePopupMenu" type="PopupMenu" parent="."]
 size = Vector2i(181, 100)
+visible = true
 
 [node name="Label" type="Label" parent="UpgradePopupMenu"]
 offset_right = 40.0
 offset_bottom = 23.0
 text = "Upgade?"
 
+[node name="Timer" type="Timer" parent="."]
+autostart = true
+
 [connection signal="id_pressed" from="UpgradePopupMenu" to="." method="_on_upgrade_popup_menu_id_pressed"]
+[connection signal="timeout" from="Timer" to="." method="_on_water_timer_timeout"]
