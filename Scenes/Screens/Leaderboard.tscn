@@ -1,10 +1,10 @@
 [gd_scene load_steps=10 format=3 uid="uid://bif5kdskjyach"]
 
-[ext_resource type="Theme" uid="uid://d0juxhgobuuv2" path="res://Assets/FlatUI/kenneyUI-green.tres" id="1_77oul"]
+[ext_resource type="Theme" uid="uid://cq6n5g4sl3qda" path="res://Assets/FlatUI/kenneyUI-green.tres" id="1_77oul"]
 [ext_resource type="FontFile" uid="uid://dikb6kaq6rwap" path="res://Assets/Fonts/kenvector_future.ttf" id="2_10um7"]
-[ext_resource type="Theme" uid="uid://0mhwke7c7snx" path="res://Assets/FlatUI/kenneyUI-red.tres" id="3_ih35i"]
+[ext_resource type="Theme" uid="uid://10bfrd2i470b" path="res://Assets/FlatUI/kenneyUI-red.tres" id="3_ih35i"]
 [ext_resource type="FontFile" uid="uid://bohx8n7eiyr5o" path="res://Assets/Fonts/kenvector_future_thin.ttf" id="3_o26fj"]
-[ext_resource type="Texture2D" uid="uid://c5phet5buhndy" path="res://Assets/Background/background_color.png" id="5_0agny"]
+[ext_resource type="Texture2D" uid="uid://b4a70g5spxu6b" path="res://Assets/Background/background_color.png" id="5_0agny"]
 
 [sub_resource type="GDScript" id="GDScript_ddrcp"]
 script/source = "extends Control

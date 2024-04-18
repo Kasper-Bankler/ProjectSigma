@@ -13,8 +13,15 @@ func _process(_delta):
 	updata_buy_menu()
 	check_level_complete()
 
+
+
 func check_level_complete():
+	var totalScore = (CurrentLevel.energy_generated + CurrentLevel.balance) - CurrentLevel.co2_emitted
+	
 	if CurrentLevel.energy_generated >= CurrentLevel.currentLevel["energy_required"]:
+		$LevelCompletePopup/CenterContainer/VBoxContainer/Score.text = totalScore
+		$LevelCompletePopup/CenterContainer/VBoxContainer/Energy.text = CurrentLevel.energy_generated
+		$LevelCompletePopup/CenterContainer/VBoxContainer/CO2.text = CurrentLevel.co2_emitted
 		CurrentLevel.is_playing = false
 		$LevelCompletePopup.visible = true
 		$EnergyProgressBar.visible = false
@@ -23,6 +30,8 @@ func check_level_complete():
 		$PausePopup.visible = false
 		$CartButton.visible = false
 		$PauseButton.visible = false
+
+	
 
 func update_balance():
 	$CoinLabel.text = str(CurrentLevel.balance)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://cu062rpm4w0lk"]
+[gd_scene load_steps=33 format=3 uid="uid://cu062rpm4w0lk"]
 
 [ext_resource type="Script" path="res://Scripts/HUD.gd" id="1_kayje"]
 [ext_resource type="FontFile" uid="uid://dikb6kaq6rwap" path="res://Assets/Fonts/kenvector_future.ttf" id="1_l5apb"]
@@ -19,6 +19,7 @@
 [ext_resource type="Texture2D" uid="uid://3s7kyae117nn" path="res://Assets/buildings/biogas/biogas1.png" id="16_q104s"]
 [ext_resource type="Texture2D" uid="uid://cmdf2pyax8q2t" path="res://Assets/Medals/PNG/flat_medal2.png" id="18_h416i"]
 [ext_resource type="Texture2D" uid="uid://c4txemupygic5" path="res://Assets/buildings/nuclear powerplant/1.png" id="18_julbm"]
+[ext_resource type="Theme" uid="uid://d0qntl6ilcfff" path="res://Assets/FlatUI/kenneyUI-yellow.tres" id="19_ah2il"]
 [ext_resource type="Texture2D" uid="uid://bb6wgnnbbsmjb" path="res://Assets/Medals/PNG/flat_medal9.png" id="19_hxx15"]
 [ext_resource type="Texture2D" uid="uid://cicdcyusmu8xf" path="res://Assets/Medals/PNG/shaded_medal1.png" id="20_clds8"]
 [ext_resource type="Theme" uid="uid://10bfrd2i470b" path="res://Assets/FlatUI/kenneyUI-red.tres" id="22_tu7nr"]
@@ -72,6 +73,7 @@ corner_radius_bottom_left = 50
 bg_color = Color(1, 1, 1, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_q3oo2"]
+bg_color = Color(0, 0.717647, 0.388235, 1)
 
 [node name="HUD" type="CanvasLayer"]
 script = ExtResource("1_kayje")
@@ -336,31 +338,34 @@ text = "CO2 emission:"
 layout_mode = 2
 
 [node name="LevelCompletePopup" type="Panel" parent="."]
-visible = false
 layout_direction = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -406.5
-offset_top = -379.5
-offset_right = 406.5
-offset_bottom = 379.5
+offset_left = -965.0
+offset_top = -540.0
+offset_right = 911.0
+offset_bottom = 646.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("19_ah2il")
 theme_override_styles/panel = SubResource("StyleBoxFlat_q3oo2")
 
 [node name="CenterContainer" type="CenterContainer" parent="LevelCompletePopup"]
 layout_mode = 0
-offset_right = 812.0
-offset_bottom = 759.0
+offset_left = 462.0
+offset_top = 152.0
+offset_right = 1274.0
+offset_bottom = 911.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="LevelCompletePopup/CenterContainer"]
 layout_mode = 2
 
 [node name="TitleLabel" type="Label" parent="LevelCompletePopup/CenterContainer/VBoxContainer"]
 layout_mode = 2
+theme_override_font_sizes/font_size = 55
 text = "Level Complete!"
 
 [node name="HBoxContainer" type="HBoxContainer" parent="LevelCompletePopup/CenterContainer/VBoxContainer"]
@@ -378,15 +383,17 @@ texture = ExtResource("19_hxx15")
 layout_mode = 2
 texture = ExtResource("20_clds8")
 
-[node name="BalanceLabel" type="Label" parent="LevelCompletePopup/CenterContainer/VBoxContainer"]
+[node name="ScoreLabel" type="Label" parent="LevelCompletePopup/CenterContainer/VBoxContainer"]
 layout_mode = 2
-text = "Balance:"
+theme_override_font_sizes/font_size = 30
+text = "Score:"
 
-[node name="Balance" type="Label" parent="LevelCompletePopup/CenterContainer/VBoxContainer"]
+[node name="Score" type="Label" parent="LevelCompletePopup/CenterContainer/VBoxContainer"]
 layout_mode = 2
 
 [node name="EnergyLabel" type="Label" parent="LevelCompletePopup/CenterContainer/VBoxContainer"]
 layout_mode = 2
+theme_override_font_sizes/font_size = 30
 text = "Total energy generated:"
 
 [node name="Energy" type="Label" parent="LevelCompletePopup/CenterContainer/VBoxContainer"]
@@ -394,6 +401,7 @@ layout_mode = 2
 
 [node name="CO2Label" type="Label" parent="LevelCompletePopup/CenterContainer/VBoxContainer"]
 layout_mode = 2
+theme_override_font_sizes/font_size = 30
 text = "Total CO2 emitted:"
 
 [node name="CO2" type="Label" parent="LevelCompletePopup/CenterContainer/VBoxContainer"]
@@ -404,13 +412,16 @@ layout_mode = 2
 
 [node name="ExitButton" type="Button" parent="LevelCompletePopup/CenterContainer/VBoxContainer/HBoxContainer2"]
 layout_mode = 2
+theme_override_font_sizes/font_size = 20
 text = "Exit"
 
 [node name="NextButton" type="Button" parent="LevelCompletePopup/CenterContainer/VBoxContainer/HBoxContainer2"]
 layout_mode = 2
+theme_override_font_sizes/font_size = 20
 text = "Next level"
 
 [node name="PausePopup" type="Panel" parent="."]
+visible = false
 self_modulate = Color(0.454902, 0.6, 0.337255, 1)
 layout_direction = 1
 anchors_preset = 8
@@ -438,7 +449,7 @@ theme_override_font_sizes/font_size = 100
 text = "Game pasued"
 
 [node name="CenterContainer_Pause" type="CenterContainer" parent="PausePopup"]
-modulate = Color(0.827451, 0.921569, 0.85098, 1)
+modulate = Color(0.6, 0.980392, 0.866667, 1)
 custom_minimum_size = Vector2(2.08165e-12, 2.08165e-12)
 layout_mode = 0
 offset_right = 812.0
