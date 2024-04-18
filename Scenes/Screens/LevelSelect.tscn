@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://cqof14l2dtrs6"]
+[gd_scene load_steps=3 format=3 uid="uid://cqof14l2dtrs6"]
 
 [ext_resource type="Script" path="res://Scripts/LevelSelect.gd" id="1_41jrp"]
+[ext_resource type="Texture2D" uid="uid://c0b86h5ki378j" path="res://Assets/Icons/678129-lock-512.webp" id="2_6yk70"]
 
 [node name="LevelSelect" type="Control"]
 layout_mode = 3
@@ -52,15 +53,66 @@ layout_mode = 2
 custom_minimum_size = Vector2(2.08165e-12, 300)
 layout_mode = 2
 
-[node name="Button" type="Button" parent="ScrollContainer/HBoxContainer/LEVELCONTAINER"]
+[node name="level1" type="Button" parent="ScrollContainer/HBoxContainer/LEVELCONTAINER"]
 custom_minimum_size = Vector2(2.08165e-12, 100)
 layout_mode = 2
-text = "PLAY"
+disabled = true
+text = "LOCKED"
+
+[node name="678129-lock-512" type="Sprite2D" parent="ScrollContainer/HBoxContainer/LEVELCONTAINER/level1"]
+position = Vector2(75.0001, 44)
+scale = Vector2(0.108398, 0.108398)
+texture = ExtResource("2_6yk70")
 
 [node name="sep" type="ColorRect" parent="ScrollContainer/HBoxContainer"]
 custom_minimum_size = Vector2(10, 2.08165e-12)
 layout_mode = 2
 color = Color(0.298039, 0.737255, 0.266667, 1)
 
+[node name="LEVELCONTAINER2" type="VBoxContainer" parent="ScrollContainer/HBoxContainer"]
+custom_minimum_size = Vector2(300, 2.08165e-12)
+layout_mode = 2
+
+[node name="ColorRect" type="ColorRect" parent="ScrollContainer/HBoxContainer/LEVELCONTAINER2"]
+custom_minimum_size = Vector2(2.08165e-12, 300)
+layout_mode = 2
+
+[node name="level2" type="Button" parent="ScrollContainer/HBoxContainer/LEVELCONTAINER2"]
+custom_minimum_size = Vector2(2.08165e-12, 100)
+layout_mode = 2
+disabled = true
+text = "LOCKED"
+
+[node name="678129-lock-512" type="Sprite2D" parent="ScrollContainer/HBoxContainer/LEVELCONTAINER2/level2"]
+position = Vector2(75.0001, 44)
+scale = Vector2(0.108398, 0.108398)
+texture = ExtResource("2_6yk70")
+
+[node name="sep2" type="ColorRect" parent="ScrollContainer/HBoxContainer"]
+custom_minimum_size = Vector2(10, 2.08165e-12)
+layout_mode = 2
+color = Color(0.298039, 0.737255, 0.266667, 1)
+
+[node name="LEVELCONTAINER3" type="VBoxContainer" parent="ScrollContainer/HBoxContainer"]
+custom_minimum_size = Vector2(300, 2.08165e-12)
+layout_mode = 2
+
+[node name="ColorRect" type="ColorRect" parent="ScrollContainer/HBoxContainer/LEVELCONTAINER3"]
+custom_minimum_size = Vector2(2.08165e-12, 300)
+layout_mode = 2
+
+[node name="level3" type="Button" parent="ScrollContainer/HBoxContainer/LEVELCONTAINER3"]
+custom_minimum_size = Vector2(2.08165e-12, 100)
+layout_mode = 2
+disabled = true
+text = "LOCKED"
+
+[node name="678129-lock-512" type="Sprite2D" parent="ScrollContainer/HBoxContainer/LEVELCONTAINER3/level3"]
+position = Vector2(75.0001, 44)
+scale = Vector2(0.108398, 0.108398)
+texture = ExtResource("2_6yk70")
+
 [connection signal="pressed" from="Back" to="." method="_on_back_pressed"]
-[connection signal="pressed" from="ScrollContainer/HBoxContainer/LEVELCONTAINER/Button" to="." method="_on_button_pressed" binds= [1]]
+[connection signal="pressed" from="ScrollContainer/HBoxContainer/LEVELCONTAINER/level1" to="." method="_on_level_1_pressed"]
+[connection signal="pressed" from="ScrollContainer/HBoxContainer/LEVELCONTAINER2/level2" to="." method="_on_level_2_pressed"]
+[connection signal="pressed" from="ScrollContainer/HBoxContainer/LEVELCONTAINER3/level3" to="." method="_on_level_3_pressed"]

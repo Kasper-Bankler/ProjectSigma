@@ -29,7 +29,6 @@ func update_energy():
 	$EnergyProgressBar.value = CurrentLevel.energy_generated
 
 func updata_buy_menu():
-	
 	var balance = CurrentLevel.balance
 	if balance < BuildingData.BUILDINGS_STATS["coal"]["price"]:
 		$BuildingPanelContainer/BuildingPanel/HBoxContainer/Coal.disabled = true
@@ -37,8 +36,6 @@ func updata_buy_menu():
 		$BuildingPanelContainer/BuildingPanel/HBoxContainer/Solar.disabled = true
 	if balance < BuildingData.BUILDINGS_STATS["wind"]["price"]:
 		$BuildingPanelContainer/BuildingPanel/HBoxContainer/Wind.disabled = true
-	if balance < BuildingData.BUILDINGS_STATS["water"]["price"]:
-		$BuildingPanelContainer/BuildingPanel/HBoxContainer/Water.disabled = true
 	if balance < BuildingData.BUILDINGS_STATS["bio"]["price"]:
 		$BuildingPanelContainer/BuildingPanel/HBoxContainer/Bio.disabled = true
 	if balance < BuildingData.BUILDINGS_STATS["nuclear"]["price"]:
@@ -47,7 +44,6 @@ func updata_buy_menu():
 		$BuildingPanelContainer/BuildingPanel/HBoxContainer/Coal.disabled = false
 		$BuildingPanelContainer/BuildingPanel/HBoxContainer/Solar.disabled = false
 		$BuildingPanelContainer/BuildingPanel/HBoxContainer/Wind.disabled = false
-		$BuildingPanelContainer/BuildingPanel/HBoxContainer/Water.disabled = false
 		$BuildingPanelContainer/BuildingPanel/HBoxContainer/Bio.disabled = false
 		$BuildingPanelContainer/BuildingPanel/HBoxContainer/Nuclear.disabled = false
 
@@ -66,32 +62,38 @@ func update_weather(sun, wind):
 		$WeatherPanelContainer/WeatherPanel/VBoxContainer/WeatherSymbol2/Tornado.visible = true
 
 func _on_pause_button_pressed():
+	MusicController.clickSound()
 	$PausePopup.visible = true
+	$PauseButton.visible = false
 
 func _on_cart_button_pressed():
+	MusicController.clickSound()
 	$CartButton.visible = false
 	$BuildingPanelContainer.visible = true
 
 func _on_close_button_pressed():
+	MusicController.clickSound()
 	$CartButton.visible = true
 	$BuildingPanelContainer.visible = false
 
 func _on_coal_pressed():
+	MusicController.selectSound()
 	select_building("coal")
 
 func _on_solar_pressed():
+	MusicController.selectSound()
 	select_building("solar")
 
 func _on_wind_pressed():
+	MusicController.selectSound()
 	select_building("wind")
 
-func _on_water_pressed():
-	select_building("water")
-
 func _on_bio_pressed():
+	MusicController.selectSound()
 	select_building("bio")
 
 func _on_nuclear_pressed():
+	MusicController.selectSound()
 	select_building("nuclear")
 
 func _on_coal_mouse_entered():
@@ -110,12 +112,6 @@ func _on_wind_mouse_entered():
 	update_popup(BuildingData.BUILDINGS_STATS["wind"]["name"], BuildingData.BUILDINGS_STATS["wind"]["price"], BuildingData.BUILDINGS_STATS["wind"]["productionRate"], BuildingData.BUILDINGS_STATS["wind"]["emissionRate"])
 
 func _on_wind_mouse_exited():
-	$PopupPanel.visible = false
-
-func _on_water_mouse_entered():
-	update_popup(BuildingData.BUILDINGS_STATS["water"]["name"], BuildingData.BUILDINGS_STATS["water"]["price"], BuildingData.BUILDINGS_STATS["water"]["productionRate"], BuildingData.BUILDINGS_STATS["water"]["emissionRate"])
-
-func _on_water_mouse_exited():
 	$PopupPanel.visible = false
 
 func _on_bio_mouse_entered():
@@ -146,16 +142,22 @@ func select_building(building):
 	$BuildingPanelContainer.visible = false
 
 func _on_exit_button_pressed():
+	MusicController.clickSound()
 	get_tree().change_scene_to_file("res://Scenes/Screens/LevelSelect.tscn")
 
 func _on_next_button_pressed():
+	MusicController.clickSound()
 	get_tree().change_scene_to_file("res://Scenes/Screens/Level2.tscn")
 
 func _on_resume_button_pressed_paused():
+	$PauseButton.visible = true
+	MusicController.clickSound()
 	$PausePopup.visible = false
 
 func _on_options_button_pressed_paused():
+	MusicController.clickSound()
 	get_tree().change_scene_to_file("res://Scenes/Screens/options.tscn")
 
 func _on_exit_pressed_paused():
+	MusicController.closeSound()
 	get_tree().change_scene_to_file("res://Scenes/Screens/LevelSelect.tscn")

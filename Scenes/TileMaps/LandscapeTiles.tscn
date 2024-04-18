@@ -23,46 +23,57 @@
 [ext_resource type="Script" path="res://Scripts/tilemap.gd" id="18_hysgr"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_kyxdt"]
+resource_name = "dirt"
 texture = ExtResource("1_actil")
-margins = Vector2i(1, 16)
-texture_region_size = Vector2i(130, 84)
+texture_region_size = Vector2i(130, 95)
 0:0/0 = 0
+0:0/0/custom_data_0 = "ground"
+3:2/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_kw82c"]
+resource_name = "water"
 texture = ExtResource("2_btklf")
 texture_region_size = Vector2i(133, 82)
 0:0/0 = 0
+0:0/0/custom_data_0 = "water"
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_74yy3"]
+resource_name = "water"
 texture = ExtResource("3_6vj0n")
 texture_region_size = Vector2i(133, 99)
 0:0/0 = 0
+0:0/0/custom_data_0 = "water"
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_h62nj"]
 texture = ExtResource("4_gx8fc")
 texture_region_size = Vector2i(132, 99)
 0:0/0 = 0
+0:0/0/custom_data_0 = "water"
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_uf45y"]
 texture = ExtResource("5_sugt0")
 texture_region_size = Vector2i(133, 99)
 0:0/0 = 0
 0:0/0/texture_origin = Vector2i(0, -15)
+0:0/0/custom_data_0 = "water"
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_3lu4y"]
 texture = ExtResource("6_wonrr")
 texture_region_size = Vector2i(133, 99)
 0:0/0 = 0
+0:0/0/custom_data_0 = "water"
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_uw3av"]
 texture = ExtResource("7_dlpqe")
 texture_region_size = Vector2i(133, 99)
 0:0/0 = 0
+0:0/0/custom_data_0 = "water"
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_42bke"]
 texture = ExtResource("8_26qu4")
 texture_region_size = Vector2i(133, 99)
 0:0/0 = 0
+0:0/0/custom_data_0 = "water"
 
 [sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_4ykkt"]
 scenes/1/scene = ExtResource("9_0unq3")
@@ -87,9 +98,11 @@ texture_region_size = Vector2i(130, 200)
 1:7/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_nms1x"]
+resource_name = "water"
 texture = ExtResource("9_em10a")
 texture_region_size = Vector2i(132, 83)
 0:0/0 = 0
+0:0/0/custom_data_0 = "water"
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_tqerh"]
 texture = ExtResource("9_b3jbu")
@@ -102,47 +115,62 @@ texture_region_size = Vector2i(130, 99)
 texture = ExtResource("10_vf1j5")
 texture_region_size = Vector2i(133, 99)
 0:0/0 = 0
+0:0/0/custom_data_0 = "water"
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_vhh4d"]
+resource_name = "grass"
 texture = ExtResource("1_6wyeb")
 texture_region_size = Vector2i(132, 99)
 5:1/0 = 0
 0:0/0 = 0
 0:0/0/texture_origin = Vector2i(0, -15)
+0:0/0/custom_data_0 = "ground"
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_g63pa"]
+resource_name = "grass"
 texture = ExtResource("2_f28qu")
 texture_region_size = Vector2i(132, 99)
 0:0/0 = 0
 0:0/0/texture_origin = Vector2i(0, -15)
+0:0/0/custom_data_0 = "ground"
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ymhnq"]
+resource_name = "water"
 texture = ExtResource("3_8djl8")
 texture_region_size = Vector2i(132, 99)
 0:0/0 = 0
 0:0/0/texture_origin = Vector2i(0, -15)
+0:0/0/custom_data_0 = "water"
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_e3vpo"]
+resource_name = "water"
 texture = ExtResource("14_y37fg")
 texture_region_size = Vector2i(133, 99)
 0:0/0 = 0
 0:0/0/texture_origin = Vector2i(0, -15)
+0:0/0/custom_data_0 = "water"
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_afxlu"]
+resource_name = "water"
 texture = ExtResource("4_sjmom")
 texture_region_size = Vector2i(132, 82)
 0:0/0 = 0
 0:0/0/texture_origin = Vector2i(0, -22)
+0:0/0/custom_data_0 = "water"
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_dx25j"]
+resource_name = "sand"
 texture = ExtResource("5_q3etm")
 texture_region_size = Vector2i(132, 99)
 0:0/0 = 0
 0:0/0/texture_origin = Vector2i(0, -15)
+0:0/0/custom_data_0 = "ground"
 
 [sub_resource type="TileSet" id="TileSet_yvqpj"]
 tile_shape = 1
 tile_size = Vector2i(130, 64)
+custom_data_layer_0/name = "Name"
+custom_data_layer_0/type = 4
 sources/4 = SubResource("TileSetAtlasSource_vhh4d")
 sources/5 = SubResource("TileSetAtlasSource_g63pa")
 sources/6 = SubResource("TileSetAtlasSource_ymhnq")
