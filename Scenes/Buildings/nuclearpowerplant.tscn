@@ -1,10 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://4wker6emfj5i"]
+[gd_scene load_steps=8 format=3 uid="uid://c81kuvl7kvkm3"]
 
 [ext_resource type="Script" path="res://Scripts/BuildingClass.gd" id="1_m82f2"]
-[ext_resource type="Texture2D" uid="uid://bfsc7nojxv6wy" path="res://Assets/buildings/nuclear powerplant/1.png" id="2_dfg6m"]
-[ext_resource type="Texture2D" uid="uid://b43jc5bfa0v3k" path="res://Assets/buildings/nuclear powerplant/2.png" id="3_21ojs"]
-[ext_resource type="Texture2D" uid="uid://re8dou2c8omu" path="res://Assets/buildings/nuclear powerplant/3.png" id="4_wstkb"]
-[ext_resource type="Texture2D" uid="uid://dg5jml5oocx6s" path="res://Assets/buildings/nuclear powerplant/4.png" id="5_4cmhq"]
+[ext_resource type="Texture2D" uid="uid://diawy2r4hqwlo" path="res://Assets/buildings/nuclear powerplant/1.png" id="2_dfg6m"]
+[ext_resource type="Texture2D" uid="uid://dx17tcti1rvhm" path="res://Assets/buildings/nuclear powerplant/2.png" id="3_21ojs"]
+[ext_resource type="Texture2D" uid="uid://c1l50iwas1bdn" path="res://Assets/buildings/nuclear powerplant/3.png" id="4_wstkb"]
+[ext_resource type="Texture2D" uid="uid://cnjyojk4gnglt" path="res://Assets/buildings/nuclear powerplant/4.png" id="5_4cmhq"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_yrtqw"]
 animations = [{

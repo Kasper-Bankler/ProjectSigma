@@ -4,8 +4,9 @@ signal user_updated
 signal progression_cleared
 signal signed_up
 signal log_in_response
+signal player_progress_fetched
 
-var player_progress=-1
+var player_progress
 var num_of_levels=2
 var level_scores={}
 var username
@@ -45,7 +46,7 @@ func _http_request_completed(_result, _response_code, _headers, _body):
 	
 	var response_body = _body.get_string_from_utf8()
 	var json = JSON.new()
-	#print(response_body)
+	print(response_body)
 	var error = json.parse(response_body)
 	var response=json.get_data()
 	
@@ -60,7 +61,7 @@ func _http_request_completed(_result, _response_code, _headers, _body):
 	
 	if response["command"]=="get_player_progress":
 		player_progress=response["datasize"]
-		
+		emit_signal("player_progress_fetched")
 	if response["command"]=="add_user":
 		emit_signal("signed_up")
 
@@ -128,7 +129,6 @@ func _get_scores():
 	var data = {"score_ofset" : 0, "score_number" : 10}
 	request_queue.push_back({"command" : command, "data" : data})
 
-
 func _get_player():
 	var command = "get_player"
 	var user_id = $ID.get_text()
@@ -155,9 +155,8 @@ func get_level_scores(level):
 	var command = "get_level_scores"
 	var data = { "score_number" : 5,"level":level}
 	request_queue.push_back({"command" : command, "data" : data})
-	
-	
-	
+
+
 func get_player_progress(username):
 	var command = "get_player_progress"
 	var data = { "username" : username}
