@@ -821,6 +821,8 @@ scale = Vector2(0.428161, 0.428161)
 sprite_frames = SubResource("SpriteFrames_xcp36")
 animation = &"level1"
 autoplay = "level1"
+frame = 41
+frame_progress = 0.786878
 
 [node name="Area2D" type="Area2D" parent="."]
 
