@@ -72,7 +72,7 @@ func _http_request_completed(_result, _response_code, _headers, _body):
 	
 	if response["command"]=="get_nonce":
 		nonce = response["response"]["nonce"]
-		print("Got nonce"+response["response"]["nonce"])
+
 		return
 	
 	
@@ -87,7 +87,10 @@ func _http_request_completed(_result, _response_code, _headers, _body):
 	
 	
 	if response["command"]=="get_level_scores":
-		
+		if (response["datasize"]==0):
+			emit_signal("level_scores_fetched")
+			
+			return
 		json=JSON.new()
 		print("HERE")
 		error=json.parse(response["response"])
@@ -102,8 +105,13 @@ func _http_request_completed(_result, _response_code, _headers, _body):
 		print(len(level_scores))
 		print(num_of_levels)
 		print("********")
-		if (len(level_scores)<num_of_levels):
+		if (len(level_scores)<num_of_levels-1):
 			print("recall")
+			print("LEVEL "+str(len(level_scores)+1))
+			print("LEVEL "+str(len(level_scores)+1))
+			print("LEVEL "+str(len(level_scores)+1))
+			print(level_scores)
+			
 			get_level_scores(len(level_scores)+1)
 			return
 		
