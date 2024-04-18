@@ -42,7 +42,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4oyld"]
-size = Vector2(68, 197)
+size = Vector2(61, 55.5)
 
 [node name="Gaspowerplant" type="Node2D"]
 script = ExtResource("1_8ira5")
@@ -57,16 +57,23 @@ offset = Vector2(340, 300)
 
 [node name="Area2D" type="Area2D" parent="."]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(-4, -69.5)
-shape = SubResource("RectangleShape2D_4oyld")
-
-[node name="fullyUpgradedLabel" type="Label" parent="Area2D"]
+[node name="insufficientFundsLabel" type="Label" parent="Area2D"]
 visible = false
 offset_left = -154.0
 offset_top = -204.0
 offset_right = 146.0
 offset_bottom = -148.0
+text = "Insufficient funds"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(5, -3)
+shape = SubResource("RectangleShape2D_4oyld")
+
+[node name="fullyUpgradedLabel" type="Label" parent="Area2D"]
+offset_left = -150.0
+offset_top = -101.0
+offset_right = 150.0
+offset_bottom = -45.0
 text = "Power source is already fully upgraded"
 
 [node name="UpgradePopupMenu" type="PopupMenu" parent="."]
@@ -77,5 +84,3 @@ visible = true
 offset_right = 40.0
 offset_bottom = 23.0
 text = "Upgade?"
-
-[connection signal="id_pressed" from="UpgradePopupMenu" to="." method="_on_upgrade_popup_menu_id_pressed"]

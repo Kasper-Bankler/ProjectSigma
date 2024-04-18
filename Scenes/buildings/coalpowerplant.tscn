@@ -1,6 +1,6 @@
-[gd_scene load_steps=8 format=3 uid="uid://deg3svkcpg7bc"]
+[gd_scene load_steps=8 format=3 uid="uid://bhg0yloiehx0t"]
 
-[ext_resource type="Script" path="res://Scripts/UpgradeBuilding.gd" id="1_d75w8"]
+[ext_resource type="Script" path="res://Scripts/BuildingClass.gd" id="1_cmrjo"]
 [ext_resource type="Texture2D" uid="uid://b1fb10w8a1gql" path="res://Assets/buildings/coal powerplant/level1.png" id="1_q0dsg"]
 [ext_resource type="Texture2D" uid="uid://bwj0e4bogcmbi" path="res://Assets/buildings/coal powerplant/level2.png" id="2_qsisi"]
 [ext_resource type="Texture2D" uid="uid://bfr4oi21y7mix" path="res://Assets/buildings/coal powerplant/level3.png" id="3_8bb8q"]
@@ -45,14 +45,16 @@ animations = [{
 size = Vector2(68, 197)
 
 [node name="Coalpowerplant" type="Node2D"]
-script = ExtResource("1_d75w8")
+script = ExtResource("1_cmrjo")
+Name = "nuclear"
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(-6, -30)
 scale = Vector2(0.25388, 0.25388)
 sprite_frames = SubResource("SpriteFrames_yrtqw")
-animation = &"level1"
+animation = &"level4"
 autoplay = "level1"
+offset = Vector2(25, 40)
 
 [node name="Area2D" type="Area2D" parent="."]
 
@@ -67,6 +69,14 @@ offset_top = -204.0
 offset_right = 146.0
 offset_bottom = -148.0
 text = "Power source is already fully upgraded"
+
+[node name="insufficientFundsLabel" type="Label" parent="Area2D"]
+visible = false
+offset_left = -154.0
+offset_top = -204.0
+offset_right = 146.0
+offset_bottom = -148.0
+text = "Insufficient funds"
 
 [node name="UpgradePopupMenu" type="PopupMenu" parent="."]
 size = Vector2i(181, 100)
