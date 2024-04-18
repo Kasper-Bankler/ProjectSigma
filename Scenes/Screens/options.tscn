@@ -1,10 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://byw6n7gl1dfut"]
+[gd_scene load_steps=6 format=3 uid="uid://byw6n7gl1dfut"]
 
 [ext_resource type="Script" path="res://Scripts/Options.gd" id="1_aidr3"]
 [ext_resource type="Theme" uid="uid://0mfdlbx5h7b2" path="res://Themes/basicButtonTheme.tres" id="1_letll"]
 [ext_resource type="Script" path="res://Scripts/Volume.gd" id="2_dpmip"]
 [ext_resource type="FontFile" uid="uid://bohx8n7eiyr5o" path="res://Assets/Fonts/kenvector_future_thin.ttf" id="3_cp5lo"]
-[ext_resource type="Theme" uid="uid://cq6n5g4sl3qda" path="res://Assets/FlatUI/kenneyUI-green.tres" id="5_rjh44"]
 
 [sub_resource type="Theme" id="Theme_spk15"]
 default_font = ExtResource("3_cp5lo")
@@ -26,10 +25,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -29.5
+offset_left = -35.0
 offset_top = -45.0
-offset_right = 29.5
-offset_bottom = 45.0
+offset_right = 83.0
+offset_bottom = 98.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = SubResource("Theme_spk15")
@@ -39,12 +38,14 @@ layout_mode = 2
 
 [node name="VolumeLabel" type="Label" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
+theme_override_font_sizes/font_size = 75
 text = "Volume"
 
 [node name="Volume" type="HSlider" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 max_value = 1.0
 step = 0.001
+tick_count = 2
 script = ExtResource("2_dpmip")
 
 [node name="ResetButton" type="Button" parent="MarginContainer/VBoxContainer"]
@@ -52,16 +53,8 @@ layout_mode = 2
 
 [node name="BackButton" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
+theme_override_font_sizes/font_size = 50
 text = "Back"
-
-[node name="CheckBox" type="CheckBox" parent="."]
-layout_mode = 0
-offset_left = 106.0
-offset_top = 61.0
-offset_right = 213.0
-offset_bottom = 105.0
-theme = ExtResource("5_rjh44")
-text = "yuuyyu"
 
 [connection signal="changed" from="MarginContainer/VBoxContainer/Volume" to="MarginContainer/VBoxContainer/Volume" method="_on_changed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/BackButton" to="." method="_on_back_button_pressed"]
