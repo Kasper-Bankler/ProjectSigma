@@ -15,10 +15,14 @@ var username
 var score = []
 var popup=preload("res://Scenes/Screens/popup_messenger.tscn")
 
+
+
 var logged_in_username="tqd"
 var http_request : HTTPRequest = HTTPRequest.new()
 const SERVER_URL = "http://spaghetticodestudios.com/db_test.php"
 const SERVER_HEADERS = ["Content-Type: application/x-www-form-urlencoded", "Cache-Control: max-age=0"]
+var SECRET_KEY="1234567890"
+var nonce = null
 var request_queue : Array = []
 var is_requesting : bool = false
 #db stads^^
@@ -30,15 +34,22 @@ func _ready():
 	
 
 func _process(delta):
-	
+
 	if is_requesting:
+
 		return
 		
+
 	if request_queue.is_empty():
 		return
 		
 	is_requesting = true
-	_send_request(request_queue.pop_front())
+	if nonce==null:
+		#pass
+		request_nonce()
+	else:
+		
+		_send_request(request_queue.pop_front())
 
 func _http_request_completed(_result, _response_code, _headers, _body):
 	is_requesting = false
@@ -59,6 +70,10 @@ func _http_request_completed(_result, _response_code, _headers, _body):
 		printerr("We returned error: " + str(error))
 		return
 	
+	if response["command"]=="get_nonce":
+		nonce = response["response"]["nonce"]
+		print("Got nonce"+response["response"]["nonce"])
+		return
 	
 	
 	if response["command"]=="get_player_progress":
@@ -116,11 +131,39 @@ func _http_request_completed(_result, _response_code, _headers, _body):
 		print("No data")
 	
 
+func request_nonce():
+	print("nonce getting")
+	var client = HTTPClient.new()
+	var data = client.query_string_from_dict({"data" : JSON.stringify({})})
+	var body =  "command=get_nonce&"+data
+	
+	var err = http_request.request(SERVER_URL, SERVER_HEADERS, HTTPClient.METHOD_POST, body)
+	
+	if err != OK:
+		printerr("HTTPRequest error: " + String(err))
+		return
+	
+	print("Requeste nonce")
 
 func _send_request(request: Dictionary):
 	var client = HTTPClient.new()
 	var data = client.query_string_from_dict({"data" : JSON.stringify(request['data'])})
 	var body = "command=" + request['command'] + "&" + data
+	
+	var cnonce = str(Crypto.new().generate_random_bytes(32)).sha256_text()
+	print(nonce)
+	print(cnonce)
+	print(body)
+	print(SECRET_KEY)
+	
+	var client_hash = str(nonce + cnonce + body + SECRET_KEY).sha256_text()
+	nonce = null
+	
+	var headers = SERVER_HEADERS.duplicate()
+	headers.push_back("cnonce: " + cnonce)
+	headers.push_back("hash: " + client_hash)
+	
+	
 	
 	var err = http_request.request(SERVER_URL, SERVER_HEADERS, HTTPClient.METHOD_POST, body)
 	
