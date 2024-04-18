@@ -13,12 +13,10 @@ var upgradePrice
 @onready var areaNode = get_node("Area2D")
 @onready var animatedSprite = get_node("AnimatedSprite2D")
 @onready var upgradedLabel = get_node("Area2D/fullyUpgradedLabel")
-
+@onready var insufficientFundsLabel = $Area2D/insufficientFundsLabel
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	
-	print(BuildingData.BUILDINGS_STATS[Name])
 	emissionRate=BuildingData.BUILDINGS_STATS[Name]["emissionRate"]
 	productionRate=BuildingData.BUILDINGS_STATS[Name]["productionRate"]
 	price=BuildingData.BUILDINGS_STATS[Name]["price"]
@@ -58,12 +56,16 @@ func upgradeBuilding(id):
 			upgradedLabel.visible = true
 			await get_tree().create_timer(3.0).timeout
 			upgradedLabel.visible = false
-		else:
+		elif CurrentLevel.balance >= upgradePrice:
 			CurrentLevel.update_balance(-upgradePrice)
 			upgradeLevel += 1
 			animatedSprite.play("level" + str(upgradeLevel))
 			productionRate*=2
 			upgradePrice*=2
+		else:
+			insufficientFundsLabel.visible = true
+			await get_tree().create_timer(3.0).timeout
+			insufficientFundsLabel.visible = false
 
 func onClickMenu(id):
 	upgradeBuilding(id)

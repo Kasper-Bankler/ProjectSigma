@@ -69,6 +69,14 @@ offset_right = 146.0
 offset_bottom = -148.0
 text = "Power source is already fully upgraded"
 
+[node name="insufficientFundsLabel" type="Label" parent="Area2D"]
+visible = false
+offset_left = -154.0
+offset_top = -204.0
+offset_right = 146.0
+offset_bottom = -148.0
+text = "Insufficient funds"
+
 [node name="UpgradePopupMenu" type="PopupMenu" parent="."]
 size = Vector2i(181, 100)
 visible = true
