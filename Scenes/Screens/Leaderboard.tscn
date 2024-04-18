@@ -1,10 +1,10 @@
 [gd_scene load_steps=10 format=3 uid="uid://bif5kdskjyach"]
 
-[ext_resource type="Theme" uid="uid://cq6n5g4sl3qda" path="res://Assets/FlatUI/kenneyUI-green.tres" id="1_77oul"]
+[ext_resource type="Theme" uid="uid://d0juxhgobuuv2" path="res://Assets/FlatUI/kenneyUI-green.tres" id="1_77oul"]
 [ext_resource type="FontFile" uid="uid://dikb6kaq6rwap" path="res://Assets/Fonts/kenvector_future.ttf" id="2_10um7"]
-[ext_resource type="Theme" uid="uid://10bfrd2i470b" path="res://Assets/FlatUI/kenneyUI-red.tres" id="3_ih35i"]
+[ext_resource type="Theme" uid="uid://0mhwke7c7snx" path="res://Assets/FlatUI/kenneyUI-red.tres" id="3_ih35i"]
 [ext_resource type="FontFile" uid="uid://bohx8n7eiyr5o" path="res://Assets/Fonts/kenvector_future_thin.ttf" id="3_o26fj"]
-[ext_resource type="Texture2D" uid="uid://b4a70g5spxu6b" path="res://Assets/Background/background_color.png" id="5_0agny"]
+[ext_resource type="Texture2D" uid="uid://c5phet5buhndy" path="res://Assets/Background/background_color.png" id="5_0agny"]
 
 [sub_resource type="GDScript" id="GDScript_ddrcp"]
 script/source = "extends Control
@@ -32,6 +32,12 @@ func _ready():
 	
 
 func on_level_scores_fetched():
+	print(\"COMPLETE\")
+	print(\"COMPLETE\")
+
+	print(\"COMPLETE\")
+	print(\"COMPLETE\")
+	print(UserData.level_scores)	
 	$Label2.hide()
 	for n in range(1,UserData.num_of_levels+1):
 		create_new_level_container(n)
@@ -45,10 +51,17 @@ func create_new_level_container(level):
 	$ScrollContainer/HBoxContainer.add_child($ScrollContainer/HBoxContainer/split.duplicate())
 	
 func populate_leaderboard_level(level):
+	
 	var level_container=$ScrollContainer/HBoxContainer.get_child(level*2-2)
 	var username_container=level_container.get_child(2).get_child(0)
 	var score_container=level_container.get_child(2).get_child(2)
 	
+	if level>=len(UserData.level_scores):
+		var noDataLabel=username_row.duplicate()
+		noDataLabel.text=\"No Data\"
+		level_container.get_child(2).queue_free()
+		level_container.add_child(noDataLabel)
+		return
 	print(\"POPULATIONG LEVEL\"+str(level))
 	
 	
@@ -143,7 +156,7 @@ custom_minimum_size = Vector2(2.08165e-12, 500)
 layout_mode = 2
 
 [node name="Level1" type="VBoxContainer" parent="ScrollContainer/HBoxContainer"]
-custom_minimum_size = Vector2(2.08165e-12, 500)
+custom_minimum_size = Vector2(400, 500)
 layout_mode = 2
 
 [node name="Label" type="Label" parent="ScrollContainer/HBoxContainer/Level1"]
