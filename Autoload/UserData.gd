@@ -29,7 +29,7 @@ func _ready():
 	http_request.request_completed.connect(_http_request_completed)
 	
 
-func _process(delta):
+func _process(_delta):
 	
 	if is_requesting:
 		return

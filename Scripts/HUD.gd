@@ -7,7 +7,7 @@ func _ready():
 	CurrentLevel.is_playing = true
 	update_weather(CurrentLevel.currentLevel["sun"], CurrentLevel.currentLevel["wind"])
 
-func _process(delta):
+func _process(_delta):
 	update_balance()
 	update_energy()
 	updata_buy_menu()
@@ -131,11 +131,11 @@ func _on_nuclear_mouse_entered():
 func _on_nuclear_mouse_exited():
 	$PopupPanel.visible = false
 
-func update_popup(name, price, productionRate, emission):
+func update_popup(_name, price, productionRate, emission):
 	$PopupPanel.visible = true
 	$PopupPanel.position.x = get_viewport().get_mouse_position().x
 	$PopupPanel.position.y = get_viewport().get_mouse_position().y - 300
-	$PopupPanel/VBoxContainer/Name.text = name
+	$PopupPanel/VBoxContainer/Name.text = _name
 	$PopupPanel/VBoxContainer/Price.text = str(price)
 	$PopupPanel/VBoxContainer/Production.text = str(productionRate)
 	$PopupPanel/VBoxContainer/Emission.text = str(emission)
@@ -159,6 +159,7 @@ func _on_resume_button_pressed_paused():
 	$PauseButton.visible = true
 	MusicController.clickSound()
 	$PausePopup.visible = false
+	$CartButton.visible = true
 
 func _on_options_button_pressed_paused():
 	MusicController.clickSound()

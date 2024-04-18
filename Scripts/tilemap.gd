@@ -7,7 +7,7 @@ func _ready():
 
 var old_tile=Vector2i(0,0)
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	if CurrentLevel.is_playing:
 		# Get hover tile name
 		var mouse_pos = get_viewport().get_mouse_position()
