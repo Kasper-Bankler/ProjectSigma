@@ -1,10 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://ctc37vrlrqexw"]
+[gd_scene load_steps=8 format=3 uid="uid://bircqt5keyeh3"]
 
 [ext_resource type="Script" path="res://Scripts/BuildingClass.gd" id="1_ep7bs"]
-[ext_resource type="Texture2D" uid="uid://cw3o377hfisdp" path="res://Assets/buildings/solarpanel/solceller1.png" id="2_cgab4"]
-[ext_resource type="Texture2D" uid="uid://b1gw3pxs6mpjg" path="res://Assets/buildings/solarpanel/solceller2.png" id="3_jvmtd"]
-[ext_resource type="Texture2D" uid="uid://cmpgpjk5pxs7g" path="res://Assets/buildings/solarpanel/solceller3.png" id="4_vr3q3"]
-[ext_resource type="Texture2D" uid="uid://b0ukuaqfr3eds" path="res://Assets/buildings/solarpanel/solceller4.png" id="5_kcf2f"]
+[ext_resource type="Texture2D" uid="uid://cw3o377hfisdp" path="res://Assets/Buildings/solarpanel/solceller1.png" id="2_cgab4"]
+[ext_resource type="Texture2D" uid="uid://b1gw3pxs6mpjg" path="res://Assets/Buildings/solarpanel/solceller2.png" id="3_jvmtd"]
+[ext_resource type="Texture2D" uid="uid://cmpgpjk5pxs7g" path="res://Assets/Buildings/solarpanel/solceller3.png" id="4_vr3q3"]
+[ext_resource type="Texture2D" uid="uid://b0ukuaqfr3eds" path="res://Assets/Buildings/solarpanel/solceller4.png" id="5_kcf2f"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_xcp36"]
 animations = [{
@@ -42,7 +42,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1bvqy"]
-size = Vector2(68, 96)
+size = Vector2(74, 57)
 
 [node name="Solarpanel" type="Node2D"]
 script = ExtResource("1_ep7bs")
@@ -52,13 +52,13 @@ Name = "solar"
 position = Vector2(-1, -26)
 scale = Vector2(0.12484, 0.12484)
 sprite_frames = SubResource("SpriteFrames_xcp36")
-animation = &"level1"
+animation = &"level4"
 autoplay = "level1"
 
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(-4, -19)
+position = Vector2(-4, -15)
 shape = SubResource("RectangleShape2D_1bvqy")
 
 [node name="fullyUpgradedLabel" type="Label" parent="Area2D"]
@@ -68,22 +68,3 @@ offset_top = -204.0
 offset_right = 146.0
 offset_bottom = -148.0
 text = "Power source is already fully upgraded"
-
-[node name="insufficientFundsLabel" type="Label" parent="Area2D"]
-visible = false
-offset_left = -154.0
-offset_top = -204.0
-offset_right = 146.0
-offset_bottom = -148.0
-text = "Insufficient funds"
-
-[node name="UpgradePopupMenu" type="PopupMenu" parent="."]
-size = Vector2i(181, 100)
-visible = true
-
-[node name="Label" type="Label" parent="UpgradePopupMenu"]
-offset_right = 40.0
-offset_bottom = 23.0
-text = "Do you want to upgrade?"
-
-[connection signal="id_pressed" from="UpgradePopupMenu" to="." method="_on_upgrade_popup_menu_id_pressed"]
