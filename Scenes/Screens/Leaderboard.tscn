@@ -1,7 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://bif5kdskjyach"]
+[gd_scene load_steps=10 format=3 uid="uid://bif5kdskjyach"]
 
+[ext_resource type="Theme" uid="uid://cq6n5g4sl3qda" path="res://Assets/FlatUI/kenneyUI-green.tres" id="1_77oul"]
 [ext_resource type="FontFile" uid="uid://dikb6kaq6rwap" path="res://Assets/Fonts/kenvector_future.ttf" id="2_10um7"]
+[ext_resource type="Theme" uid="uid://10bfrd2i470b" path="res://Assets/FlatUI/kenneyUI-red.tres" id="3_ih35i"]
 [ext_resource type="FontFile" uid="uid://bohx8n7eiyr5o" path="res://Assets/Fonts/kenvector_future_thin.ttf" id="3_o26fj"]
+[ext_resource type="Texture2D" uid="uid://b4a70g5spxu6b" path="res://Assets/Background/background_color.png" id="5_0agny"]
 
 [sub_resource type="GDScript" id="GDScript_ddrcp"]
 script/source = "extends Control
@@ -95,7 +98,7 @@ layout_mode = 0
 offset_top = -12.0
 offset_right = 1910.0
 offset_bottom = 512.0
-color = Color(0, 0, 0, 1)
+color = Color(0.0588235, 0.568627, 0, 1)
 
 [node name="Back2" type="Button" parent="."]
 layout_mode = 2
@@ -103,6 +106,7 @@ offset_left = 878.0
 offset_top = 640.0
 offset_right = 1079.0
 offset_bottom = 726.0
+theme = ExtResource("1_77oul")
 text = "Back"
 
 [node name="Button" type="Button" parent="."]
@@ -131,6 +135,7 @@ offset_left = -3.0
 offset_top = -10.0
 offset_right = 1877.0
 offset_bottom = 521.0
+theme = ExtResource("3_ih35i")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="ScrollContainer"]
 custom_minimum_size = Vector2(2.08165e-12, 500)
@@ -207,6 +212,14 @@ theme = SubResource("Theme_q6keo")
 text = "LOADING..."
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = -99
+
+[node name="BackgroundTextureRect" type="TextureRect" parent="CanvasLayer"]
+offset_right = 2616.0
+offset_bottom = 1685.0
+texture = ExtResource("5_0agny")
 
 [connection signal="pressed" from="Back2" to="." method="_on_back_pressed"]
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
