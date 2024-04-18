@@ -13,11 +13,11 @@
 [ext_resource type="Texture2D" uid="uid://c6k7b63voq1yt" path="res://Assets/Landscape/landscapeTiles_041.png" id="6_wonrr"]
 [ext_resource type="Texture2D" uid="uid://do0va4mhldirh" path="res://Assets/Landscape/landscapeTiles_048.png" id="7_dlpqe"]
 [ext_resource type="Texture2D" uid="uid://ct84hjya35c3j" path="res://Assets/Landscape/landscapeTiles_049.png" id="8_26qu4"]
-[ext_resource type="PackedScene" uid="uid://dvck0tsyjwg3g" path="res://Scenes/Buildings/gaspowerplant.tscn" id="9_0unq3"]
+[ext_resource type="PackedScene" uid="uid://dvck0tsyjwg3g" path="res://Scenes/buildings/gaspowerplant.tscn" id="9_0unq3"]
 [ext_resource type="Texture2D" uid="uid://c6o41rrvx66pi" path="res://Assets/highlightTile.png" id="9_b3jbu"]
 [ext_resource type="Texture2D" uid="uid://bt60tnmlyoshd" path="res://Assets/Landscape/landscapeTiles_035.png" id="9_em10a"]
 [ext_resource type="Texture2D" uid="uid://cso4ru3kk6p2u" path="res://Assets/Landscape/landscapeTiles_064.png" id="10_vf1j5"]
-[ext_resource type="PackedScene" uid="uid://c5r4jwx0ch33c" path="res://Scenes/Buildings/windturbine.tscn" id="12_8n3pg"]
+[ext_resource type="PackedScene" uid="uid://c5r4jwx0ch33c" path="res://Scenes/buildings/windturbine.tscn" id="12_8n3pg"]
 [ext_resource type="Texture2D" uid="uid://c546k643fulat" path="res://Assets/buildings/windturbine/rotationAnimation/LEVEL1/0001.png" id="13_r1dxm"]
 [ext_resource type="Texture2D" uid="uid://d1xgvj2iauqnn" path="res://Assets/Landscape/landscapeTiles_072.png" id="14_y37fg"]
 [ext_resource type="Script" path="res://Scripts/tilemap.gd" id="18_hysgr"]
@@ -25,6 +25,7 @@
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_kyxdt"]
 resource_name = "dirt"
 texture = ExtResource("1_actil")
+margins = Vector2i(1, 16)
 texture_region_size = Vector2i(130, 95)
 0:0/0 = 0
 0:0/0/custom_data_0 = "ground"
@@ -191,7 +192,7 @@ sources/25 = SubResource("TileSetAtlasSource_tqerh")
 sources/16 = SubResource("TileSetScenesCollectionSource_4ykkt")
 sources/17 = SubResource("TileSetAtlasSource_k6m21")
 
-[node name="TileMap" type="TileMap"]
+[node name="TileMap2" type="TileMap"]
 z_index = -1
 y_sort_enabled = true
 texture_filter = 1
