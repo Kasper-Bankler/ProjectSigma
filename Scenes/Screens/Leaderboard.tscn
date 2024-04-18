@@ -79,6 +79,7 @@ default_font = ExtResource("2_10um7")
 default_font_size = 45
 
 [sub_resource type="Theme" id="Theme_1oumw"]
+default_font_size = 6
 
 [sub_resource type="Theme" id="Theme_ilslj"]
 default_font = ExtResource("2_10um7")

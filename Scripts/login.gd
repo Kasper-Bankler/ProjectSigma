@@ -16,6 +16,7 @@ func _process(delta):
 
 
 func _on_login_pressed():
+
 	if usernameField.get_text()=="":
 		MusicController.errorSound()
 		UserData.popup_message("Please enter a username",$".")
