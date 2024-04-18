@@ -14,6 +14,8 @@ var emissionRate
 var productionRate
 var price
 var upgradePrice
+var wind
+var sun
 
 
 #@onready var popup = get_node("UpgradePopupMenu")
@@ -29,6 +31,8 @@ func _ready():
 	productionRate=BuildingData.BUILDINGS_STATS[Name]["productionRate"]
 	price=BuildingData.BUILDINGS_STATS[Name]["price"]
 	upgradePrice=BuildingData.BUILDINGS_STATS[Name]["upgradePrice"]
+	wind = CurrentLevel.currentLevel["wind"]
+	sun = CurrentLevel.currentLevel["sun"]
 	
 	new_popup_child.id_pressed.connect(onClickMenu)
 	areaNode.input_event.connect(onClick)
@@ -46,8 +50,17 @@ func _ready():
 
 func _timer_Timeout():
 	if CurrentLevel.is_playing == true:
-		CurrentLevel.balance += productionRate
-		CurrentLevel.energy_generated += productionRate*0.01
+		if Name == "wind":
+			CurrentLevel.balance += productionRate*wind
+			CurrentLevel.energy_generated += productionRate*0.01*wind
+		if Name == "solar":
+			CurrentLevel.balance += productionRate*sun
+			CurrentLevel.energy_generated += productionRate*0.01*sun
+			CurrentLevel.co2_emitted += emissionRate
+		else:
+			CurrentLevel.balance += productionRate
+			CurrentLevel.energy_generated += productionRate*0.01
+			CurrentLevel.co2_emitted += emissionRate
 
 func onClick(_viewport, _event, _shape_idx):
 	if (Input.is_action_just_pressed("ui_leftclick") and CurrentLevel.is_playing == true):
