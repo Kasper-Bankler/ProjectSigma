@@ -8,31 +8,31 @@ var building_selected = ""
 func _ready():
 	CurrentLevel.is_playing = true
 	update_weather(CurrentLevel.currentLevel["sun"], CurrentLevel.currentLevel["wind"])
-
+	level.level_is_complete.connect(level_complete)
 func _process(_delta):
 	update_balance()
 	update_energy()
 	updata_buy_menu()
-	check_level_complete()
-
-
-
-func check_level_complete():
-	var totalScore = (CurrentLevel.energy_generated + CurrentLevel.balance) - CurrentLevel.co2_emitted
 	
-	if CurrentLevel.energy_generated >= CurrentLevel.currentLevel["energy_required"]:
-		$LevelCompletePopup/CenterContainer/VBoxContainer/Score.text = totalScore
-		$LevelCompletePopup/CenterContainer/VBoxContainer/Energy.text = CurrentLevel.energy_generated
-		$LevelCompletePopup/CenterContainer/VBoxContainer/CO2.text = CurrentLevel.co2_emitted
-		CurrentLevel.is_playing = false
-		$LevelCompletePopup.visible = true
-		$EnergyProgressBar.visible = false
-		$CoinLabel.visible = false
-		$WeatherPanelContainer.visible = false
-		$PausePopup.visible = false
-		$CartButton.visible = false
-		$PauseButton.visible = false
 
+
+
+func level_complete():
+	var totalScore = (level.energy + CurrentLevel.balance) - level.emission
+	
+	
+	$LevelCompletePopup/CenterContainer/VBoxContainer/Score.text = str(totalScore)
+	$LevelCompletePopup/CenterContainer/VBoxContainer/Energy.text = str(CurrentLevel.energy_generated)
+	$LevelCompletePopup/CenterContainer/VBoxContainer/CO2.text = str(CurrentLevel.co2_emitted)
+	CurrentLevel.is_playing = false
+	$LevelCompletePopup.visible = true
+	$EnergyProgressBar.visible = false
+	$CoinLabel.visible = false
+	$WeatherPanelContainer.visible = false
+	$PausePopup.visible = false
+	$CartButton.visible = false
+	$PauseButton.visible = false
+	UserData.submit_score(str(level.scene_file_path[25]),totalScore)
 	
 
 func update_balance():
@@ -43,22 +43,13 @@ func update_energy():
 
 func updata_buy_menu():
 	var balance = CurrentLevel.balance
-	if balance < BuildingData.BUILDINGS_STATS["coal"]["price"]:
-		$BuildingPanelContainer/BuildingPanel/HBoxContainer/Coal.disabled = true
-	if balance < BuildingData.BUILDINGS_STATS["solar"]["price"]:
-		$BuildingPanelContainer/BuildingPanel/HBoxContainer/Solar.disabled = true
-	if balance < BuildingData.BUILDINGS_STATS["wind"]["price"]:
-		$BuildingPanelContainer/BuildingPanel/HBoxContainer/Wind.disabled = true
-	if balance < BuildingData.BUILDINGS_STATS["bio"]["price"]:
-		$BuildingPanelContainer/BuildingPanel/HBoxContainer/Bio.disabled = true
-	if balance < BuildingData.BUILDINGS_STATS["nuclear"]["price"]:
-		$BuildingPanelContainer/BuildingPanel/HBoxContainer/Nuclear.disabled = true
-	else:
-		$BuildingPanelContainer/BuildingPanel/HBoxContainer/Coal.disabled = false
-		$BuildingPanelContainer/BuildingPanel/HBoxContainer/Solar.disabled = false
-		$BuildingPanelContainer/BuildingPanel/HBoxContainer/Wind.disabled = false
-		$BuildingPanelContainer/BuildingPanel/HBoxContainer/Bio.disabled = false
-		$BuildingPanelContainer/BuildingPanel/HBoxContainer/Nuclear.disabled = false
+	
+	for building in $BuildingPanelContainer/BuildingPanel/HBoxContainer.get_children():
+		if balance<BuildingData.BUILDINGS_STATS[building.name.to_lower()]["price"]:
+			building.disabled=true
+		else:
+			building.disabled=false
+	
 
 func update_weather(sun, wind):
 	if sun==0:
@@ -96,23 +87,10 @@ func _on_close_button_pressed():
 func on_building_hover(building_name):
 	update_popup(BuildingData.BUILDINGS_STATS[building_name]["name"], BuildingData.BUILDINGS_STATS[building_name]["price"], BuildingData.BUILDINGS_STATS[building_name]["productionRate"], BuildingData.BUILDINGS_STATS[building_name]["emissionRate"])
 
-func _on_coal_mouse_exited():
+
+func on_building_hover_exit():
 	$PopupPanel.visible = false
 
-
-func _on_solar_mouse_exited():
-	$PopupPanel.visible = false
-
-
-func _on_wind_mouse_exited():
-	$PopupPanel.visible = false
-
-
-func _on_bio_mouse_exited():
-	$PopupPanel.visible = false
-
-func _on_nuclear_mouse_exited():
-	$PopupPanel.visible = false
 
 func update_popup(_name, price, productionRate, emission):
 	$PopupPanel.visible = true

@@ -15,6 +15,7 @@
 script = ExtResource("1_h8thf")
 wind = 2
 sun = 1
+balance = 100
 
 [node name="HUD" parent="." instance=ExtResource("1_5v01m")]
 

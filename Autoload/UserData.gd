@@ -183,9 +183,9 @@ func _send_request(request: Dictionary):
 	print("Requesting...\n\tCommand: " + request['command'] + "\n\tBody: " + body)
 	
 	
-func submit_score(user_name,level,score):
+func submit_score(level,score):
 	var command = "add_score"
-	var data = {"username" : user_name, "score" : score,"level":level}
+	var data = {"username" : logged_in_username, "score" : score,"level":level}
 	request_queue.push_back({"command" : command, "data" : data})
 	
 func _get_scores():
@@ -239,6 +239,8 @@ func count_levels():
 	return (counter-1)
 
 func popup_message(message,parentNode):
+	
 	var popup_instance=popup.instantiate()
+	popup_instance.add_to_group("popup_message")
 	popup_instance.get_child(0).set_text(message)
 	parentNode.add_child(popup_instance)
