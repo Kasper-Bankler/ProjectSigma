@@ -1,5 +1,6 @@
 [gd_scene load_steps=196 format=3 uid="uid://c5r4jwx0ch33c"]
 
+[ext_resource type="Script" path="res://Scripts/BuildingClass.gd" id="1_5bhyq"]
 [ext_resource type="Texture2D" uid="uid://c546k643fulat" path="res://Assets/buildings/windturbine/rotationAnimation/LEVEL1/0001.png" id="1_he433"]
 [ext_resource type="Texture2D" uid="uid://d31xtt3wkk4w7" path="res://Assets/buildings/windturbine/rotationAnimation/LEVEL1/0002.png" id="2_qealm"]
 [ext_resource type="Texture2D" uid="uid://bgm8r4fydnke5" path="res://Assets/buildings/windturbine/rotationAnimation/LEVEL1/0003.png" id="3_ok5lv"]
@@ -192,23 +193,6 @@
 [ext_resource type="Texture2D" uid="uid://bad0ofu6gls51" path="res://Assets/buildings/windturbine/rotationAnimation/LEVEL4/LEVEL40046.png" id="190_bpb80"]
 [ext_resource type="Texture2D" uid="uid://dl7w0x771bw1i" path="res://Assets/buildings/windturbine/rotationAnimation/LEVEL4/LEVEL40047.png" id="191_8hjw8"]
 [ext_resource type="Texture2D" uid="uid://cuor5t2wpsyui" path="res://Assets/buildings/windturbine/rotationAnimation/LEVEL4/LEVEL40048.png" id="192_ux2gs"]
-
-[sub_resource type="GDScript" id="GDScript_8fv7i"]
-script/source = "extends BuildingClass
-
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
-
-
-
-
-
-func _on_upgrade_popup_menu_id_pressed(id):
-	pass # Replace with function body.
-"
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_xcp36"]
 animations = [{
@@ -813,7 +797,7 @@ animations = [{
 size = Vector2(68, 197)
 
 [node name="Windturbine" type="Node2D"]
-script = SubResource("GDScript_8fv7i")
+script = ExtResource("1_5bhyq")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(-9, -94)

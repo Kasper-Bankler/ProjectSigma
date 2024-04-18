@@ -45,11 +45,12 @@ func _ready():
 	$".".add_child(timer)
 
 func _timer_Timeout():
-	CurrentLevel.balance += productionRate
-	CurrentLevel.energy_generated += productionRate*0.01
+	if CurrentLevel.is_playing == true:
+		CurrentLevel.balance += productionRate
+		CurrentLevel.energy_generated += productionRate*0.01
 
-func onClick(viewport, event, shape_idx):
-	if (Input.is_action_just_pressed("ui_leftclick")):
+func onClick(_viewport, _event, _shape_idx):
+	if (Input.is_action_just_pressed("ui_leftclick") and CurrentLevel.is_playing == true):
 		upgradeMenu()
 
 func upgradeMenu():

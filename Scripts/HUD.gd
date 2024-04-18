@@ -4,9 +4,10 @@ signal place_building
 var building_selected = ""
 
 func _ready():
+	CurrentLevel.is_playing = true
 	update_weather(CurrentLevel.currentLevel["sun"], CurrentLevel.currentLevel["wind"])
 
-func _process(delta):
+func _process(_delta):
 	update_balance()
 	update_energy()
 	updata_buy_menu()
@@ -14,6 +15,7 @@ func _process(delta):
 
 func check_level_complete():
 	if CurrentLevel.energy_generated >= CurrentLevel.currentLevel["energy_required"]:
+		CurrentLevel.is_playing = false
 		$LevelCompletePopup.visible = true
 		$EnergyProgressBar.visible = false
 		$CoinLabel.visible = false
@@ -62,9 +64,12 @@ func update_weather(sun, wind):
 		$WeatherPanelContainer/WeatherPanel/VBoxContainer/WeatherSymbol2/Tornado.visible = true
 
 func _on_pause_button_pressed():
+	CurrentLevel.is_playing = false
 	MusicController.clickSound()
 	$PausePopup.visible = true
 	$PauseButton.visible = false
+	$CartButton.visible = false
+	$BuildingPanelContainer.visible = false
 
 func _on_cart_button_pressed():
 	MusicController.clickSound()
@@ -126,11 +131,11 @@ func _on_nuclear_mouse_entered():
 func _on_nuclear_mouse_exited():
 	$PopupPanel.visible = false
 
-func update_popup(name, price, productionRate, emission):
+func update_popup(_name, price, productionRate, emission):
 	$PopupPanel.visible = true
 	$PopupPanel.position.x = get_viewport().get_mouse_position().x
 	$PopupPanel.position.y = get_viewport().get_mouse_position().y - 300
-	$PopupPanel/VBoxContainer/Name.text = name
+	$PopupPanel/VBoxContainer/Name.text = _name
 	$PopupPanel/VBoxContainer/Price.text = str(price)
 	$PopupPanel/VBoxContainer/Production.text = str(productionRate)
 	$PopupPanel/VBoxContainer/Emission.text = str(emission)
@@ -150,9 +155,11 @@ func _on_next_button_pressed():
 	get_tree().change_scene_to_file("res://Scenes/Screens/Level2.tscn")
 
 func _on_resume_button_pressed_paused():
+	CurrentLevel.is_playing = true
 	$PauseButton.visible = true
 	MusicController.clickSound()
 	$PausePopup.visible = false
+	$CartButton.visible = true
 
 func _on_options_button_pressed_paused():
 	MusicController.clickSound()

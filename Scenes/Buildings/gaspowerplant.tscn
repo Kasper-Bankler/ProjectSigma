@@ -42,7 +42,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4oyld"]
-size = Vector2(61, 55.5)
+size = Vector2(68, 197)
 
 [node name="Gaspowerplant" type="Node2D"]
 script = ExtResource("1_8ira5")
@@ -52,7 +52,7 @@ Name = "bio"
 position = Vector2(-29, -30)
 scale = Vector2(0.1, 0.1)
 sprite_frames = SubResource("SpriteFrames_tmuur")
-animation = &"level1"
+animation = &"level4"
 offset = Vector2(340, 300)
 
 [node name="Area2D" type="Area2D" parent="."]

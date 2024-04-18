@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://bfth7tlibkh4r"]
+[gd_scene load_steps=4 format=3 uid="uid://bfth7tlibkh4r"]
 
 [ext_resource type="Script" path="res://Scripts/StartMenu.gd" id="1_2nj5o"]
 [ext_resource type="PackedScene" uid="uid://83xbbpcentb" path="res://Scenes/LandscapeTiles.tscn" id="2_4qq5h"]
+[ext_resource type="Theme" uid="uid://cq6n5g4sl3qda" path="res://Assets/FlatUI/kenneyUI-green.tres" id="3_yxhdi"]
 
 [node name="Login_Menu" type="Control"]
 layout_mode = 3
@@ -16,31 +17,40 @@ script = ExtResource("1_2nj5o")
 
 [node name="TileMap" parent="." instance=ExtResource("2_4qq5h")]
 position = Vector2(-99, 62)
-layer_0/tile_data = PackedInt32Array(131072, 4, 0, 196608, 4, 0, 131073, 4, 0, 196609, 4, 0, 131074, 4, 0, 65538, 4, 0, 131075, 4, 0, 196611, 4, 0, 262147, 4, 0, 327682, 4, 0, 393219, 4, 0, 327683, 4, 0, 196610, 4, 0, 262146, 4, 0, 262145, 4, 0, 327680, 4, 0, 327681, 4, 0, 393217, 4, 0, 458752, 4, 0, 393216, 4, 0, 262144, 4, 0, 262143, 4, 0, 196607, 4, 0, 131071, 4, 0, 65535, 4, 0, -1, 4, 0, 0, 4, 0, 65536, 4, 0, 393215, 4, 0, 327679, 4, 0, -65536, 4, 0, -131071, 4, 0, -196607, 4, 0, -131070, 4, 0, -196606, 4, 0, -196605, 4, 0, -131068, 4, 0, -65533, 4, 0, 4, 4, 0, 65539, 4, 0, 393218, 4, 0, -131072, 4, 0, -196608, 4, 0, -262143, 4, 0, -65535, 4, 0, 1, 4, 0, 65537, 4, 0, -65534, 4, 0, 2, 4, 0, 3, 4, 0, -131069, 4, 0, -262142, 4, 0, -327679, 4, 0, -327680, 4, 0, -262144, 4, 0, -327678, 4, 0, 262148, 4, 0, 196612, 4, 0, 131077, 4, 0, 131076, 4, 0, 65540, 4, 0, 458754, 4, 0, 524290, 4, 0, 458753, 4, 0, 524289, 4, 0, 524287, 4, 0, 458751, 4, 0, 393214, 4, 0, 327678, 4, 0, 262142, 4, 0, 196606, 4, 0, 131070, 4, 0, -65537, 4, 0, -131073, 4, 0, -2, 4, 0, 65534, 4, 0, 131069, 4, 0, -262141, 4, 0, -393214, 4, 0, -393215, 4, 0, -458751, 4, 0, 65533, 4, 0, -3, 4, 0, -65538, 4, 0, -131074, 4, 0, -196609, 4, 0, -262145, 4, 0, -393216, 4, 0, -458752, 4, 0, -524286, 4, 0, -589823, 4, 0, -524287, 4, 0)
+layer_0/tile_data = PackedInt32Array(131072, 8, 0, 196608, 8, 0, 131073, 8, 0, 196609, 8, 0, 131074, 8, 0, 65538, 8, 0, 131075, 8, 0, 196611, 4, 0, 262147, 4, 0, 327682, 4, 0, 393219, 4, 0, 327683, 4, 0, 196610, 8, 0, 262146, 8, 0, 262145, 8, 0, 327680, 8, 0, 327681, 8, 0, 393217, 8, 0, 458752, 8, 0, 393216, 8, 0, 262144, 8, 0, 262143, 8, 0, 196607, 8, 0, 131071, 8, 0, 65535, 8, 0, -1, 8, 0, 0, 8, 0, 65536, 8, 0, 393215, 8, 0, 327679, 8, 0, -65536, 8, 0, -131071, 8, 0, -196607, 8, 0, -131070, 8, 0, -196606, 8, 0, -196605, 4, 0, -131068, 4, 0, -65533, 8, 0, 4, 8, 0, 65539, 8, 0, 393218, 4, 0, -131072, 8, 0, -196608, 8, 0, -262143, 8, 0, -65535, 8, 0, 1, 8, 0, 65537, 8, 0, -65534, 8, 0, 2, 8, 0, 3, 8, 0, -131069, 8, 0, -262142, 8, 0, -327679, 8, 0, -327680, 4, 0, -262144, 4, 0, -327678, 4, 0, 262148, 4, 0, 196612, 4, 0, 131077, 4, 0, 131076, 4, 0, 65540, 4, 0, 458754, 4, 0, 524290, 4, 0, 458753, 4, 0, 524289, 4, 0, 524287, 4, 0, 458751, 4, 0, 393214, 4, 0, 327678, 4, 0, 262142, 8, 0, 196606, 8, 0, 131070, 8, 0, -65537, 4, 0, -131073, 4, 0, -2, 4, 0, 65534, 4, 0, 131069, 4, 0, -262141, 4, 0, -393214, 4, 0, -393215, 4, 0, -458751, 4, 0, 65533, 4, 0, -3, 4, 0, -65538, 4, 0, -131074, 4, 0, -196609, 4, 0, -262145, 4, 0, -393216, 4, 0, -458752, 4, 0, -524286, 4, 0, -589823, 4, 0, -524287, 4, 0, 131068, 4, 0, 196605, 4, 0, 262141, 4, 0, 524288, 4, 0, 589824, 4, 0, 655361, 4, 0, 589825, 4, 0, 65541, 4, 0, 5, 4, 0, -65532, 4, 0, -458750, 4, 0, -393213, 4, 0, -327677, 4, 0, -262140, 4, 0, -196604, 4, 0, -131067, 4, 0, -65531, 4, 0, 6, 4, 0, 720896, 4, 0, 655360, 4, 0, 655359, 4, 0, 589823, 4, 0, 524286, 4, 0, 458750, 4, 0, 393213, 4, 0, 327677, 4, 0, 262140, 4, 0, 196604, 4, 0)
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 0
 offset_left = -200.0
-offset_right = 256.0
-offset_bottom = 147.0
+offset_right = 100.0
+offset_bottom = 288.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+custom_minimum_size = Vector2(300, 250)
 layout_mode = 2
 
 [node name="Play" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("3_yxhdi")
 text = "Play"
 
 [node name="Options" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("3_yxhdi")
 text = "Options"
 
 [node name="Leaderboard" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("3_yxhdi")
 text = "Leaderboard"
 
 [node name="Quit" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("3_yxhdi")
 text = "Quit"
 
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Play" to="." method="_on_play_pressed"]
