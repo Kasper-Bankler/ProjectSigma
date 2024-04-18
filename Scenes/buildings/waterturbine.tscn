@@ -1,4 +1,4 @@
-[gd_scene load_steps=100 format=3 uid="uid://u2ijqd26sci5"]
+[gd_scene load_steps=100 format=3 uid="uid://dj1hkyhsfa8xg"]
 
 [ext_resource type="Script" path="res://Scripts/BuildingClass.gd" id="1_sf50i"]
 [ext_resource type="Texture2D" uid="uid://bc75cnltl02l6" path="res://Assets/buildings/waterturbine/animation/0001.png" id="1_vw0rj"]

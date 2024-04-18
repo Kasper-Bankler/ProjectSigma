@@ -5,9 +5,11 @@ signal progression_cleared
 signal signed_up
 signal log_in_response
 signal player_progress_fetched
+signal level_scores_fetched
+
 
 var player_progress
-var num_of_levels=2
+var num_of_levels=count_levels()
 var level_scores={}
 var username
 var score = []
@@ -70,7 +72,7 @@ func _http_request_completed(_result, _response_code, _headers, _body):
 	
 	
 	if response["command"]=="get_level_scores":
-		var c=1
+		
 		json=JSON.new()
 		print("HERE")
 		error=json.parse(response["response"])
@@ -82,7 +84,18 @@ func _http_request_completed(_result, _response_code, _headers, _body):
 		level_scores[str(this_level)]=[]
 		for n in response["datasize"]:
 			level_scores[str(this_level)].append(transform[str(n)])
-			
+		print(len(level_scores))
+		print(num_of_levels)
+		print("********")
+		if (len(level_scores)<num_of_levels):
+			print("recall")
+			get_level_scores(len(level_scores)+1)
+			return
+		
+		emit_signal("level_scores_fetched")
+		
+		
+		
 	if response['datasize'] > 1:
 		print("**")
 		print(response["response"])
@@ -162,6 +175,18 @@ func get_player_progress(username):
 	var data = { "username" : username}
 	request_queue.push_back({"command" : command, "data" : data})
 	
+
+func count_levels():
+	var dir = DirAccess.open("res://Scenes/Levels/")
+	var counter=0
+	if dir:
+		dir.list_dir_begin()
+		var file_name = dir.get_next()
+		while file_name != "":
+			counter+=1
+			file_name = dir.get_next()
+	return (counter-1)
+
 func popup_message(message,parentNode):
 	var popup_instance=popup.instantiate()
 	popup_instance.get_child(0).set_text(message)

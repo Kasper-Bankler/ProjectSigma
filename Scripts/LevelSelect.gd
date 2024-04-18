@@ -12,6 +12,8 @@ var player_completed_level_1 = false
 func _ready():
 	UserData.player_progress_fetched.connect(_on_progress_set)
 	UserData.get_player_progress(UserData.logged_in_username)
+	
+	print(UserData.num_of_levels)
 
 
 

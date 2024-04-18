@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://bhg0yloiehx0t"]
+[gd_scene load_steps=8 format=3 uid="uid://deg3svkcpg7bc"]
 
 [ext_resource type="Script" path="res://Scripts/BuildingClass.gd" id="1_cmrjo"]
 [ext_resource type="Texture2D" uid="uid://b1fb10w8a1gql" path="res://Assets/buildings/coal powerplant/level1.png" id="1_q0dsg"]
@@ -80,7 +80,6 @@ text = "Insufficient funds"
 
 [node name="UpgradePopupMenu" type="PopupMenu" parent="."]
 size = Vector2i(181, 100)
-visible = true
 
 [node name="Label" type="Label" parent="UpgradePopupMenu"]
 offset_right = 40.0

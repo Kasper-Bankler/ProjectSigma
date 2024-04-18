@@ -24,37 +24,27 @@ var fetched_levels=[]
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	UserData.get_level_scores(1)
-	pass
+	UserData.level_scores_fetched.connect(on_level_scores_fetched)
 
-func _process(delta):
-	if UserData.is_requesting:
-
-		return
-	
-	if (level_fetched>=UserData.num_of_levels):
-
-		return
-	if (level_fetched>len(UserData.level_scores)):
-		return
-	
-	
-	level_fetched+=1
-	print(\"doing\"+str(level_fetched))
-	create_new_level_container()
-	populate_leaderboard_level(level_fetched)
 	
 
-func create_new_level_container():
+func on_level_scores_fetched():
+	$Label2.hide()
+	for n in range(1,UserData.num_of_levels+1):
+		create_new_level_container(n)
+		populate_leaderboard_level(n)
+
+func create_new_level_container(level):
 	var new_level_container=$ScrollContainer/HBoxContainer/Level1.duplicate()
 	
-	new_level_container.get_child(0).text=\"LEVEL\"+str(level_fetched+1)
+	new_level_container.get_child(0).text=\"LEVEL\"+str(level+1)
 	$ScrollContainer/HBoxContainer.add_child(new_level_container)
 	$ScrollContainer/HBoxContainer.add_child($ScrollContainer/HBoxContainer/split.duplicate())
 	
 func populate_leaderboard_level(level):
 	var level_container=$ScrollContainer/HBoxContainer.get_child(level*2-2)
-	var username_container=level_container.get_child(1).get_child(0)
-	var score_container=level_container.get_child(1).get_child(1)
+	var username_container=level_container.get_child(2).get_child(0)
+	var score_container=level_container.get_child(2).get_child(2)
 	
 	print(\"POPULATIONG LEVEL\"+str(level))
 	
@@ -69,7 +59,6 @@ func populate_leaderboard_level(level):
 		username_container.add_child(new_user_row)
 		score_container.add_child(new_score_row)
 
-	UserData.get_level_scores(level_fetched+1)
 	
 			
 
@@ -79,8 +68,7 @@ func _on_back_pressed():
 	get_tree().change_scene_to_file(\"res://Scenes/Screens/StartMenu.tscn\")
 
 
-func _on_button_pressed():
-	create_new_level_container()
+
 "
 
 [sub_resource type="Theme" id="Theme_q6keo"]
@@ -104,8 +92,9 @@ script = SubResource("GDScript_ddrcp")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 0
+offset_top = -12.0
 offset_right = 1910.0
-offset_bottom = 490.0
+offset_bottom = 512.0
 color = Color(0, 0, 0, 1)
 
 [node name="Back2" type="Button" parent="."]
@@ -117,6 +106,7 @@ offset_bottom = 726.0
 text = "Back"
 
 [node name="Button" type="Button" parent="."]
+visible = false
 layout_mode = 0
 offset_left = 891.0
 offset_top = 561.0
@@ -161,6 +151,10 @@ horizontal_alignment = 1
 vertical_alignment = 1
 uppercase = true
 
+[node name="ColorRect" type="ColorRect" parent="ScrollContainer/HBoxContainer/Level1"]
+custom_minimum_size = Vector2(2.08165e-12, 5)
+layout_mode = 2
+
 [node name="HBoxContainer" type="HBoxContainer" parent="ScrollContainer/HBoxContainer/Level1"]
 custom_minimum_size = Vector2(2.08165e-12, 425)
 layout_mode = 2
@@ -176,6 +170,14 @@ text = "USERNAME"
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="ColorRect" type="ColorRect" parent="ScrollContainer/HBoxContainer/Level1/HBoxContainer/Username"]
+custom_minimum_size = Vector2(2.08165e-12, 5)
+layout_mode = 2
+
+[node name="ColorRect" type="ColorRect" parent="ScrollContainer/HBoxContainer/Level1/HBoxContainer"]
+custom_minimum_size = Vector2(10, 10)
+layout_mode = 2
+
 [node name="Score" type="VBoxContainer" parent="ScrollContainer/HBoxContainer/Level1/HBoxContainer"]
 custom_minimum_size = Vector2(200, 2.08165e-12)
 layout_mode = 2
@@ -187,9 +189,24 @@ text = "Score"
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="ColorRect" type="ColorRect" parent="ScrollContainer/HBoxContainer/Level1/HBoxContainer/Score"]
+custom_minimum_size = Vector2(2.08165e-12, 5)
+layout_mode = 2
+
 [node name="split" type="ColorRect" parent="ScrollContainer/HBoxContainer"]
 custom_minimum_size = Vector2(10, 0)
 layout_mode = 2
+
+[node name="Label2" type="Label" parent="."]
+layout_mode = 2
+offset_left = 661.0
+offset_top = 135.0
+offset_right = 1068.0
+offset_bottom = 187.0
+theme = SubResource("Theme_q6keo")
+text = "LOADING..."
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [connection signal="pressed" from="Back2" to="." method="_on_back_pressed"]
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
