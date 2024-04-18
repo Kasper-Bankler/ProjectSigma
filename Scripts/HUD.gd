@@ -4,6 +4,7 @@ signal place_building
 var building_selected = ""
 
 func _ready():
+	CurrentLevel.is_playing = true
 	update_weather(CurrentLevel.currentLevel["sun"], CurrentLevel.currentLevel["wind"])
 
 func _process(delta):
@@ -14,6 +15,7 @@ func _process(delta):
 
 func check_level_complete():
 	if CurrentLevel.energy_generated >= CurrentLevel.currentLevel["energy_required"]:
+		CurrentLevel.is_playing = false
 		$LevelCompletePopup.visible = true
 		$EnergyProgressBar.visible = false
 		$CoinLabel.visible = false
@@ -62,9 +64,12 @@ func update_weather(sun, wind):
 		$WeatherPanelContainer/WeatherPanel/VBoxContainer/WeatherSymbol2/Tornado.visible = true
 
 func _on_pause_button_pressed():
+	CurrentLevel.is_playing = false
 	MusicController.clickSound()
 	$PausePopup.visible = true
 	$PauseButton.visible = false
+	$CartButton.visible = false
+	$BuildingPanelContainer.visible = false
 
 func _on_cart_button_pressed():
 	MusicController.clickSound()
@@ -150,6 +155,7 @@ func _on_next_button_pressed():
 	get_tree().change_scene_to_file("res://Scenes/Screens/Level2.tscn")
 
 func _on_resume_button_pressed_paused():
+	CurrentLevel.is_playing = true
 	$PauseButton.visible = true
 	MusicController.clickSound()
 	$PausePopup.visible = false
