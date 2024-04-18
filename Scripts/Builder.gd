@@ -30,7 +30,8 @@ func _process(delta):
 		var mouseLocation = get_global_mouse_position()
 		var tileLocation=(Vector2(CurrentLevel.tile_posiiton.x,CurrentLevel.tile_posiiton.y))
 
-		if (Input.is_action_just_pressed("ui_leftclick") and not occupied_tiles.has(tileLocation)):
+		if (Input.is_action_just_pressed("ui_leftclick") and not occupied_tiles.has(tileLocation) and CurrentLevel.tile_hover_type=="ground"):
+			MusicController.confirmationSound()
 			occupied_tiles.append(tileLocation)
 			var building_scene = building.instantiate()
 			$".".add_child(building_scene)
