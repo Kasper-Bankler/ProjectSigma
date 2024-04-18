@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://Scripts/StartMenu.gd" id="1_2nj5o"]
 [ext_resource type="PackedScene" uid="uid://83xbbpcentb" path="res://Scenes/LandscapeTiles.tscn" id="2_4qq5h"]
-[ext_resource type="Theme" uid="uid://cq6n5g4sl3qda" path="res://Assets/FlatUI/kenneyUI-green.tres" id="3_yxhdi"]
+[ext_resource type="Theme" uid="uid://d0juxhgobuuv2" path="res://Assets/FlatUI/kenneyUI-green.tres" id="3_yxhdi"]
 
 [node name="Login_Menu" type="Control"]
 layout_mode = 3

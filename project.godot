@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="ProjectSigma"
-run/main_scene="res://Scenes/Screens/StartMenu.tscn"
+run/main_scene="res://Scenes/Levels/Level1.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
 config/icon="res://icon.svg"
 
@@ -30,6 +30,7 @@ BuildingData="*res://Autoload/BuildingData.gd"
 
 window/size/viewport_width=1920
 window/size/viewport_height=1080
+window/size/initial_position_type=2
 window/stretch/mode="viewport"
 window/stretch/aspect="keep_width"
 

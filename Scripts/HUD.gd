@@ -3,6 +3,8 @@ extends CanvasLayer
 signal place_building
 var building_selected = ""
 
+@onready var level=get_parent()
+
 func _ready():
 	CurrentLevel.is_playing = true
 	update_weather(CurrentLevel.currentLevel["sun"], CurrentLevel.currentLevel["wind"])
@@ -34,10 +36,10 @@ func check_level_complete():
 	
 
 func update_balance():
-	$CoinLabel.text = str(CurrentLevel.balance)
+	$CoinLabel.text = str(level.balance)
 	
 func update_energy():
-	$EnergyProgressBar.value = CurrentLevel.energy_generated
+	$EnergyProgressBar.value = level.energy
 
 func updata_buy_menu():
 	var balance = CurrentLevel.balance
@@ -90,52 +92,24 @@ func _on_close_button_pressed():
 	$CartButton.visible = true
 	$BuildingPanelContainer.visible = false
 
-func _on_coal_pressed():
-	MusicController.selectSound()
-	select_building("coal")
 
-func _on_solar_pressed():
-	MusicController.selectSound()
-	select_building("solar")
-
-func _on_wind_pressed():
-	MusicController.selectSound()
-	select_building("wind")
-
-func _on_bio_pressed():
-	MusicController.selectSound()
-	select_building("bio")
-
-func _on_nuclear_pressed():
-	MusicController.selectSound()
-	select_building("nuclear")
-
-func _on_coal_mouse_entered():
-	update_popup(BuildingData.BUILDINGS_STATS["coal"]["name"], BuildingData.BUILDINGS_STATS["coal"]["price"], BuildingData.BUILDINGS_STATS["coal"]["productionRate"], BuildingData.BUILDINGS_STATS["coal"]["emissionRate"])
+func on_building_hover(building_name):
+	update_popup(BuildingData.BUILDINGS_STATS[building_name]["name"], BuildingData.BUILDINGS_STATS[building_name]["price"], BuildingData.BUILDINGS_STATS[building_name]["productionRate"], BuildingData.BUILDINGS_STATS[building_name]["emissionRate"])
 
 func _on_coal_mouse_exited():
 	$PopupPanel.visible = false
 
-func _on_solar_mouse_entered():
-	update_popup(BuildingData.BUILDINGS_STATS["solar"]["name"], BuildingData.BUILDINGS_STATS["solar"]["price"], BuildingData.BUILDINGS_STATS["solar"]["productionRate"], BuildingData.BUILDINGS_STATS["solar"]["emissionRate"])
 
 func _on_solar_mouse_exited():
 	$PopupPanel.visible = false
 
-func _on_wind_mouse_entered():
-	update_popup(BuildingData.BUILDINGS_STATS["wind"]["name"], BuildingData.BUILDINGS_STATS["wind"]["price"], BuildingData.BUILDINGS_STATS["wind"]["productionRate"], BuildingData.BUILDINGS_STATS["wind"]["emissionRate"])
 
 func _on_wind_mouse_exited():
 	$PopupPanel.visible = false
 
-func _on_bio_mouse_entered():
-	update_popup(BuildingData.BUILDINGS_STATS["bio"]["name"], BuildingData.BUILDINGS_STATS["bio"]["price"], BuildingData.BUILDINGS_STATS["bio"]["productionRate"], BuildingData.BUILDINGS_STATS["bio"]["emissionRate"])
 
 func _on_bio_mouse_exited():
 	$PopupPanel.visible = false
-
-func _on_nuclear_mouse_entered():
-	update_popup(BuildingData.BUILDINGS_STATS["nuclear"]["name"], BuildingData.BUILDINGS_STATS["nuclear"]["price"], BuildingData.BUILDINGS_STATS["nuclear"]["productionRate"], BuildingData.BUILDINGS_STATS["nuclear"]["emissionRate"])
 
 func _on_nuclear_mouse_exited():
 	$PopupPanel.visible = false

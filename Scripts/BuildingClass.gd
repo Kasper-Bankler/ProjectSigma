@@ -4,19 +4,23 @@ class_name BuildingClass
 
 var popup = preload("res://Scenes/Screens/popupmenu_messenger.tscn")
 
+
+
+
 @onready var new_popup=popup.instantiate()
 @onready var new_popup_child = new_popup.get_child(0)
 
 
 @export var Name = "wind"
 var upgradeLevel = 1
-var emissionRate
-var productionRate
-var price
-var upgradePrice
+
+
+
+
 var wind
 var sun
 
+var stats=BuildingData.BUILDINGS_STATS[Name]
 
 #@onready var popup = get_node("UpgradePopupMenu")
 @onready var areaNode = get_node("Area2D")
@@ -27,22 +31,22 @@ var sun
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	UserData.emit_signal("new_building_added",self)
+	
+	add_to_group("buildings")
+	CurrentLevel.emit_signal("new_building_placed")
+	
 	$".".add_child(new_popup)
-	emissionRate=BuildingData.BUILDINGS_STATS[Name]["emissionRate"]
-	productionRate=BuildingData.BUILDINGS_STATS[Name]["productionRate"]
-	price=BuildingData.BUILDINGS_STATS[Name]["price"]
-	upgradePrice=BuildingData.BUILDINGS_STATS[Name]["upgradePrice"]
+	
 	wind = CurrentLevel.currentLevel["wind"]
 	sun = CurrentLevel.currentLevel["sun"]
 	
 	new_popup_child.id_pressed.connect(onClickMenu)
 	areaNode.input_event.connect(onClick)
 	new_popup_child.visible = false
-	new_popup_child.add_item("Upgrade for " + str(upgradePrice) + "$")
+	new_popup_child.add_item("Upgrade for " + str(stats["upgradePrice"]) + "$")
 	new_popup_child.add_item("YES",1)
 	new_popup_child.add_item("NO",0)
-	CurrentLevel.update_balance(-price)
+	CurrentLevel.update_balance(-stats["price"])
 	
 	var timer: Timer = Timer.new()
 	timer.autostart = true
@@ -71,16 +75,16 @@ func _co2_timer_Timeout():
 func _timer_Timeout():
 	if CurrentLevel.is_playing == true:
 		if Name == "wind":
-			CurrentLevel.balance += productionRate*wind
-			CurrentLevel.energy_generated += productionRate*0.01*wind
+			CurrentLevel.balance += stats["productionRate"]*wind
+			CurrentLevel.energy_generated += stats["productionRate"]*0.01*wind
 		if Name == "solar":
-			CurrentLevel.balance += productionRate*sun
-			CurrentLevel.energy_generated += productionRate*0.01*sun
-			CurrentLevel.co2_emitted += emissionRate
+			CurrentLevel.balance += stats["productionRate"]*sun
+			CurrentLevel.energy_generated += stats["productionRate"]*0.01*sun
+			CurrentLevel.co2_emitted += stats["emissionRate"]
 		else:
-			CurrentLevel.balance += productionRate
-			CurrentLevel.energy_generated += productionRate*0.01
-			CurrentLevel.co2_emitted += emissionRate
+			CurrentLevel.balance += stats["productionRate"]
+			CurrentLevel.energy_generated += stats["productionRate"]*0.01
+			CurrentLevel.co2_emitted += stats["emissionRate"]
 
 func onClick(_viewport, _event, _shape_idx):
 	if (Input.is_action_just_pressed("ui_leftclick") and CurrentLevel.is_playing == true):
@@ -100,13 +104,14 @@ func upgradeBuilding(id):
 			upgradedLabel.visible = true
 			await get_tree().create_timer(3.0).timeout
 			upgradedLabel.visible = false
-		elif CurrentLevel.balance >= upgradePrice:
+		elif CurrentLevel.balance >= stats["upgradePrice"]:
+			CurrentLevel.emit_signal("building_upgraded")
 			MusicController.confirmationSound()
-			CurrentLevel.update_balance(-upgradePrice)
+			CurrentLevel.update_balance(-stats["upgradePrice"])
 			upgradeLevel += 1
 			animatedSprite.play("level" + str(upgradeLevel))
-			productionRate*=2
-			upgradePrice*=2
+			stats["productionRate"]*=2
+			stats["upgradePrice"]*=2
 		else:
 			MusicController.errorSound()
 			insufficientFundsLabel.visible = true

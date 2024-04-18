@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://cqof14l2dtrs6"]
 
 [ext_resource type="Script" path="res://Scripts/LevelSelect.gd" id="1_41jrp"]
-[ext_resource type="Texture2D" uid="uid://bukdktwdks7sw" path="res://Assets/Icons/678129-lock-512.webp" id="2_6yk70"]
+[ext_resource type="Texture2D" uid="uid://c4hngp8ctjwqy" path="res://Assets/Icons/678129-lock-512.webp" id="2_6yk70"]
 [ext_resource type="Theme" uid="uid://d0juxhgobuuv2" path="res://Assets/FlatUI/kenneyUI-green.tres" id="2_jyrmf"]
 
 [node name="LevelSelect" type="Control"]
