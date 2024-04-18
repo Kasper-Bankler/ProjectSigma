@@ -12,6 +12,7 @@ func _ready():
 
 
 func signed_up():
+	MusicController.confirmationSound()
 	get_tree().change_scene_to_file("res://Scenes/Screens/login.tscn")
 	
 func _process(delta):
@@ -23,10 +24,12 @@ func _process(delta):
 
 func _on_login_button_down():
 	if usernameField.get_text()=="":
+		MusicController.errorSound()
 		UserData.popup_message("Please enter a username",$".")
 		return
 		
 	if passwordField.get_text()=="":
+		MusicController.errorsound()
 		UserData.popup_message("Please enter a password",$".")
 		return
 		
@@ -38,9 +41,8 @@ func _on_login_button_down():
 
 		$Username.text = ""
 		$Password.text = ""
-	
-		
 
 
 func _on_login_2_pressed():
+	MusicController.clickSound()
 	get_tree().change_scene_to_file("res://Scenes/Screens/login.tscn")

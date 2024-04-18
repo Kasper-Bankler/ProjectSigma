@@ -1,9 +1,32 @@
-[gd_scene load_steps=2 format=3 uid="uid://rgvd7ddumv7c"]
+[gd_scene load_steps=8 format=3 uid="uid://rgvd7ddumv7c"]
 
+[ext_resource type="Script" path="res://Autoload/MusicController.gd" id="1_hf4xl"]
 [ext_resource type="AudioStream" uid="uid://djb4gxxukmpdo" path="res://Assets/Music/music_zapsplat_game_music_childrens_soft_warm_cuddly_calm_015.mp3" id="1_o3mj7"]
+[ext_resource type="AudioStream" uid="uid://cbrv0efn8g545" path="res://Assets/Audio/click_003.ogg" id="3_ko33b"]
+[ext_resource type="AudioStream" uid="uid://g6sec7oo5dih" path="res://Assets/Audio/bong_001.ogg" id="4_vd4lp"]
+[ext_resource type="AudioStream" uid="uid://bi8qmnvmkubex" path="res://Assets/Audio/confirmation_001.ogg" id="5_rw2ww"]
+[ext_resource type="AudioStream" uid="uid://nfbujdhv235" path="res://Assets/Audio/select_001.ogg" id="6_tc5qw"]
+[ext_resource type="AudioStream" uid="uid://dwep173a0jihm" path="res://Assets/Audio/error_005.ogg" id="7_7jpd2"]
 
 [node name="MusicController" type="Node"]
+script = ExtResource("1_hf4xl")
 
 [node name="Music" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("1_o3mj7")
+volume_db = -10.0
 autoplay = true
+
+[node name="ClickSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_ko33b")
+
+[node name="CloseSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_vd4lp")
+
+[node name="ConfirmationSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_rw2ww")
+
+[node name="SelectSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_tc5qw")
+
+[node name="ErrorSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_7jpd2")

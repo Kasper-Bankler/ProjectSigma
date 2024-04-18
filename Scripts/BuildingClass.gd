@@ -25,8 +25,6 @@ var upgradePrice
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	$".".add_child(new_popup)
-	
-	print(BuildingData.BUILDINGS_STATS[Name])
 	emissionRate=BuildingData.BUILDINGS_STATS[Name]["emissionRate"]
 	productionRate=BuildingData.BUILDINGS_STATS[Name]["productionRate"]
 	price=BuildingData.BUILDINGS_STATS[Name]["price"]
@@ -35,7 +33,7 @@ func _ready():
 	new_popup_child.id_pressed.connect(onClickMenu)
 	areaNode.input_event.connect(onClick)
 	new_popup_child.visible = false
-	new_popup_child.add_item("Upgrade ")
+	new_popup_child.add_item("Upgrade for " + str(upgradePrice) + "$")
 	new_popup_child.add_item("YES",1)
 	new_popup_child.add_item("NO",0)
 	CurrentLevel.update_balance(-price)
@@ -52,35 +50,34 @@ func _timer_Timeout():
 
 func onClick(viewport, event, shape_idx):
 	if (Input.is_action_just_pressed("ui_leftclick")):
-		new_popup_child.position.x = get_viewport().get_mouse_position().x
-		new_popup_child.position.y = get_viewport().get_mouse_position().y + 20
-		upgradedLabel.visible = false
 		upgradeMenu()
 
 func upgradeMenu():
+	MusicController.clickSound()
+	new_popup_child.position.x = get_viewport().get_mouse_position().x
+	new_popup_child.position.y = get_viewport().get_mouse_position().y + 20
+	upgradedLabel.visible = false
 	new_popup_child.visible = true
 
 func upgradeBuilding(id):
 	if id == 1:
 		if upgradeLevel == 4:
+			MusicController.errorSound()
 			upgradedLabel.visible = true
 			await get_tree().create_timer(3.0).timeout
 			upgradedLabel.visible = false
 		elif CurrentLevel.balance >= upgradePrice:
+			MusicController.confirmationSound()
 			CurrentLevel.update_balance(-upgradePrice)
 			upgradeLevel += 1
 			animatedSprite.play("level" + str(upgradeLevel))
 			productionRate*=2
 			upgradePrice*=2
 		else:
+			MusicController.errorSound()
 			insufficientFundsLabel.visible = true
 			await get_tree().create_timer(3.0).timeout
 			insufficientFundsLabel.visible = false
 
 func onClickMenu(id):
 	upgradeBuilding(id)
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
-

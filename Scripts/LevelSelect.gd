@@ -29,11 +29,13 @@ func _on_progress_set():
 		this_level.get_child(1).set_text("Play")
 
 func _on_back_pressed():
+	MusicController.closeSound()
 	get_tree().change_scene_to_file("res://Scenes/Screens/StartMenu.tscn")
 
 
 
 func go_to_level(level):
+	MusicController.confirmationSound()
 	get_tree().change_scene_to_file("res://Scenes/Levels/Level"+str(level)+".tscn")
 
 
