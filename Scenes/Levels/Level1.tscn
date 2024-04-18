@@ -74,6 +74,7 @@ offset_left = -132.0
 offset_top = -124.0
 grow_horizontal = 0
 grow_vertical = 0
+scale = Vector2(0.2, 0.2)
 texture = ExtResource("9_38num")
 flip_h = true
 

@@ -398,6 +398,7 @@ animations = [{
 size = Vector2(68, 197)
 
 [node name="WaterTurbine" type="Node2D"]
+scale = Vector2(0.4, 0.4)
 script = ExtResource("1_sf50i")
 Name = "nuclear"
 
