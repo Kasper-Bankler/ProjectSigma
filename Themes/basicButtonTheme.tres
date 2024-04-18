@@ -1,0 +1,14 @@
+[gd_resource type="Theme" load_steps=3 format=3 uid="uid://0mfdlbx5h7b2"]
+
+[ext_resource type="Texture2D" uid="uid://grw1ntrhkfvf" path="res://Assets/UI/PNG/green_button01.png" id="1_ox6xs"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fclbo"]
+bg_color = Color(0.27451, 0.701961, 0.333333, 1)
+corner_radius_top_left = 7
+corner_radius_top_right = 7
+corner_radius_bottom_right = 7
+corner_radius_bottom_left = 7
+
+[resource]
+Button/icons/f = ExtResource("1_ox6xs")
+Button/styles/normal = SubResource("StyleBoxFlat_fclbo")
