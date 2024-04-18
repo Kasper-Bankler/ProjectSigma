@@ -75,7 +75,7 @@ func _http_request_completed(_result, _response_code, _headers, _body):
 	counter+=1
 	if (counter>=len(perms)):
 		return
-	get_user(perms[counter])
+	#get_user(perms[counter])
 	
 
 	#if response['datasize'] > 1:
@@ -118,7 +118,7 @@ func _send_request(request: Dictionary):
 	
 
 func get_leaderboard_days():
-	get_user("testt")
+	#get_user("testt")
 	#pass
 	
 	
@@ -127,12 +127,12 @@ func get_leaderboard_days():
 	
 	
 	
-	#var command = "add_user_achievement"
-	#var data = {"userId": 5, "aName": int($ID.get_text())};
-	#request_queue.push_back({"command" : command, "data" : data})
-	#command = "get_user_achievements"
-	#data = {"userId": 5};
-	#request_queue.push_back({"command" : command, "data" : data})
+	var command = "add_user_achievement"
+	var data = {"userId": 5, "aName": int($ID.get_text())};
+	request_queue.push_back({"command" : command, "data" : data})
+	command = "get_user_achievements"
+	data = {"userId": 5};
+	request_queue.push_back({"command" : command, "data" : data})
 	
 func _get_scores():
 	var command = "get_scores"
