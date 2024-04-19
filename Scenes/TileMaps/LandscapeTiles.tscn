@@ -34,7 +34,6 @@
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_kyxdt"]
 resource_name = "dirt"
 texture = ExtResource("1_actil")
-margins = Vector2i(1, 16)
 texture_region_size = Vector2i(130, 95)
 0:0/0 = 0
 0:0/0/custom_data_0 = "ground"

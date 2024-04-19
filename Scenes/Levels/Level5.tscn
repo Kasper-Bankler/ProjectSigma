@@ -10,6 +10,7 @@
 script = ExtResource("1_bnjuj")
 
 [node name="HUD" parent="." instance=ExtResource("2_ke5ne")]
+visible = false
 
 [node name="Background" type="CanvasLayer" parent="."]
 layer = -99

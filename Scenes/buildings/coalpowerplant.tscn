@@ -1,10 +1,10 @@
 [gd_scene load_steps=12 format=3 uid="uid://deg3svkcpg7bc"]
 
 [ext_resource type="Script" path="res://Scripts/BuildingClass.gd" id="1_cmrjo"]
-[ext_resource type="Texture2D" uid="uid://b1fb10w8a1gql" path="res://Assets/buildings/coal powerplant/level1.png" id="1_q0dsg"]
-[ext_resource type="Texture2D" uid="uid://bwj0e4bogcmbi" path="res://Assets/buildings/coal powerplant/level2.png" id="2_qsisi"]
-[ext_resource type="Texture2D" uid="uid://bfr4oi21y7mix" path="res://Assets/buildings/coal powerplant/level3.png" id="3_8bb8q"]
-[ext_resource type="Texture2D" uid="uid://cngdnj677vkdo" path="res://Assets/buildings/coal powerplant/level4.png" id="4_a71sy"]
+[ext_resource type="Texture2D" uid="uid://b1fb10w8a1gql" path="res://Assets/Buildings/coal powerplant/level1.png" id="1_q0dsg"]
+[ext_resource type="Texture2D" uid="uid://bwj0e4bogcmbi" path="res://Assets/Buildings/coal powerplant/level2.png" id="2_qsisi"]
+[ext_resource type="Texture2D" uid="uid://bfr4oi21y7mix" path="res://Assets/Buildings/coal powerplant/level3.png" id="3_8bb8q"]
+[ext_resource type="Texture2D" uid="uid://cngdnj677vkdo" path="res://Assets/Buildings/coal powerplant/level4.png" id="4_a71sy"]
 [ext_resource type="Texture2D" uid="uid://sa32f761lq5n" path="res://Assets/Particles/PNG/Black smoke/blackSmoke00.png" id="6_5ldh0"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_yrtqw"]
@@ -63,7 +63,7 @@ color_ramp = SubResource("GradientTexture1D_vc2cw")
 
 [node name="Coalpowerplant" type="Node2D"]
 script = ExtResource("1_cmrjo")
-Name = "coal"
+Name = "nuclear"
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(-6, -30)
@@ -81,36 +81,19 @@ shape = SubResource("RectangleShape2D_nupnb")
 
 [node name="fullyUpgradedLabel" type="Label" parent="Area2D"]
 visible = false
-offset_left = -216.0
-offset_top = -112.0
-offset_right = 84.0
-offset_bottom = -56.0
+offset_left = -154.0
+offset_top = -204.0
+offset_right = 146.0
+offset_bottom = -148.0
 text = "Power source is already fully upgraded"
 
 [node name="insufficientFundsLabel" type="Label" parent="Area2D"]
 visible = false
-offset_left = -213.0
-offset_top = -115.0
-offset_right = 87.0
-offset_bottom = -59.0
+offset_left = -154.0
+offset_top = -204.0
+offset_right = 146.0
+offset_bottom = -148.0
 text = "Insufficient funds"
-
-[node name="co2Label" type="Label" parent="Area2D"]
-visible = false
-offset_left = -213.0
-offset_top = -116.0
-offset_right = 87.0
-offset_bottom = -60.0
-text = "You just paid CO2 tax"
-
-[node name="UpgradePopupMenu" type="PopupMenu" parent="."]
-size = Vector2i(181, 100)
-visible = true
-
-[node name="Label" type="Label" parent="UpgradePopupMenu"]
-offset_right = 40.0
-offset_bottom = 23.0
-text = "Upgade?"
 
 [node name="Smoke" type="GPUParticles2D" parent="."]
 texture_filter = 1
@@ -119,5 +102,3 @@ process_material = SubResource("ParticleProcessMaterial_olitp")
 texture = ExtResource("6_5ldh0")
 lifetime = 2.0
 explosiveness = 1.0
-
-[connection signal="id_pressed" from="UpgradePopupMenu" to="." method="_on_upgrade_popup_menu_id_pressed"]
