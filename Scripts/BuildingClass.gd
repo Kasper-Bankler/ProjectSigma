@@ -93,8 +93,6 @@ func upgradeMenu():
 	generate_upgrade_popup()
 
 func upgradeBuilding(id):
-	
-	
 	if id == 1:
 		
 		if CurrentLevel.balance >= stats["upgradePrice"]:

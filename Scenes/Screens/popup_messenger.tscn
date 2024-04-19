@@ -1,7 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://bp6vkusl8o3ye"]
+[gd_scene load_steps=2 format=3 uid="uid://bp6vkusl8o3ye"]
 
 [ext_resource type="Script" path="res://Scripts/popup_messenger.gd" id="1_kmvod"]
-[ext_resource type="Theme" uid="uid://d0qntl6ilcfff" path="res://Assets/FlatUI/kenneyUI-yellow.tres" id="2_s4lme"]
 
 [node name="PopupMessenger" type="Control"]
 layout_mode = 3
@@ -15,7 +14,6 @@ script = ExtResource("1_kmvod")
 [node name="AcceptDialog" type="AcceptDialog" parent="."]
 initial_position = 1
 visible = true
-theme = ExtResource("2_s4lme")
 
 [connection signal="canceled" from="AcceptDialog" to="." method="_on_accept_dialog_canceled"]
 [connection signal="confirmed" from="AcceptDialog" to="." method="_on_accept_dialog_confirmed"]

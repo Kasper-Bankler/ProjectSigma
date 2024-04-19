@@ -1,15 +1,15 @@
 [gd_scene load_steps=11 format=3 uid="uid://cqof14l2dtrs6"]
 
 [ext_resource type="Script" path="res://Scripts/LevelSelect.gd" id="1_41jrp"]
-[ext_resource type="Texture2D" uid="uid://bukdktwdks7sw" path="res://Assets/Icons/678129-lock-512.webp" id="2_6yk70"]
+[ext_resource type="Texture2D" uid="uid://c2ss1lt630043" path="res://Assets/Icons/678129-lock-512.webp" id="2_6yk70"]
 [ext_resource type="Theme" uid="uid://cq6n5g4sl3qda" path="res://Assets/FlatUI/kenneyUI-green.tres" id="2_jyrmf"]
 [ext_resource type="Texture2D" uid="uid://b1ifr31ios5dk" path="res://Assets/Icons/Weather/cloud-solid.svg" id="3_p4q4c"]
 [ext_resource type="Texture2D" uid="uid://b4asdicqpdgi7" path="res://Assets/Icons/Weather/cloud-sun-solid.svg" id="4_85gog"]
 [ext_resource type="Texture2D" uid="uid://dkhkg5omrplta" path="res://Assets/Icons/Weather/wind-solid.svg" id="4_lwlxd"]
 [ext_resource type="Texture2D" uid="uid://bdr34jn8cuqnb" path="res://Assets/Icons/Weather/sun-solid.svg" id="5_25a3h"]
-[ext_resource type="Texture2D" uid="uid://gjiqcapb5kvn" path="res://Assets/Icons/Weather/no_sign.png" id="7_nwjgf"]
+[ext_resource type="Texture2D" uid="uid://cjrwows645ix6" path="res://Assets/Icons/Weather/no_sign.png" id="7_nwjgf"]
 [ext_resource type="Texture2D" uid="uid://digas8in53l7q" path="res://Assets/Icons/Weather/tornado-solid.svg" id="8_tdndw"]
-[ext_resource type="Texture2D" uid="uid://ds7d5yntky3vf" path="res://Assets/levelScreenshots/level1.png" id="9_tffct"]
+[ext_resource type="Texture2D" uid="uid://5pumx57s1k1l" path="res://Assets/levelScreenshots/level1.png" id="9_tffct"]
 
 [node name="LevelSelect" type="Control"]
 layout_mode = 3
@@ -55,10 +55,10 @@ vertical_alignment = 1
 [node name="ScrollContainer" type="ScrollContainer" parent="."]
 custom_minimum_size = Vector2(2.08165e-12, 400)
 layout_mode = 0
-offset_left = 262.0
-offset_top = 257.0
-offset_right = 1625.0
-offset_bottom = 828.0
+offset_left = 362.0
+offset_top = 248.0
+offset_right = 1725.0
+offset_bottom = 819.0
 
 [node name="HBoxContainer" type="HBoxContainer" parent="ScrollContainer"]
 custom_minimum_size = Vector2(400, 400)
@@ -149,6 +149,7 @@ offset = Vector2(60, 200)
 custom_minimum_size = Vector2(2.08165e-12, 100)
 layout_mode = 2
 theme = ExtResource("2_jyrmf")
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
 disabled = true
 text = "LOCKED"
 
@@ -239,6 +240,8 @@ layout_mode = 2
 [node name="level2" type="Button" parent="ScrollContainer/HBoxContainer/LEVELCONTAINER2"]
 custom_minimum_size = Vector2(2.08165e-12, 100)
 layout_mode = 2
+theme = ExtResource("2_jyrmf")
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
 disabled = true
 text = "LOCKED"
 
@@ -329,6 +332,8 @@ layout_mode = 2
 [node name="level3" type="Button" parent="ScrollContainer/HBoxContainer/LEVELCONTAINER3"]
 custom_minimum_size = Vector2(2.08165e-12, 100)
 layout_mode = 2
+theme = ExtResource("2_jyrmf")
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
 disabled = true
 text = "LOCKED"
 
@@ -419,6 +424,8 @@ layout_mode = 2
 [node name="level4" type="Button" parent="ScrollContainer/HBoxContainer/LEVELCONTAINER4"]
 custom_minimum_size = Vector2(2.08165e-12, 100)
 layout_mode = 2
+theme = ExtResource("2_jyrmf")
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
 disabled = true
 text = "LOCKED"
 
@@ -509,6 +516,8 @@ layout_mode = 2
 [node name="level5" type="Button" parent="ScrollContainer/HBoxContainer/LEVELCONTAINER5"]
 custom_minimum_size = Vector2(2.08165e-12, 100)
 layout_mode = 2
+theme = ExtResource("2_jyrmf")
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
 disabled = true
 text = "LOCKED"
 
