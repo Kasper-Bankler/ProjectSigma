@@ -1,393 +1,297 @@
-[gd_scene load_steps=100 format=3 uid="uid://xysvu1xewmxd"]
+[gd_scene load_steps=4 format=3 uid="uid://dt8bc1rm61ihf"]
 
 [ext_resource type="Script" path="res://Scripts/BuildingClass.gd" id="1_sf50i"]
-[ext_resource type="Texture2D" path="res://Assets/buildings/waterturbine/animation/0001.png" id="1_vw0rj"]
-[ext_resource type="Texture2D" path="res://Assets/buildings/waterturbine/animation/0002.png" id="2_4xe5h"]
-[ext_resource type="Texture2D" path="res://Assets/buildings/waterturbine/animation/0003.png" id="3_s3fm7"]
-[ext_resource type="Texture2D" path="res://Assets/buildings/waterturbine/animation/0004.png" id="4_fkgjr"]
-[ext_resource type="Texture2D" path="res://Assets/buildings/waterturbine/animation/0005.png" id="5_kfle2"]
-[ext_resource type="Texture2D" path="res://Assets/buildings/waterturbine/animation/0006.png" id="6_824bk"]
-[ext_resource type="Texture2D" path="res://Assets/buildings/waterturbine/animation/0007.png" id="7_x62y0"]
-[ext_resource type="Texture2D" path="res://Assets/buildings/waterturbine/animation/0008.png" id="8_v04dt"]
-[ext_resource type="Texture2D" path="res://Assets/buildings/waterturbine/animation/0009.png" id="9_2p408"]
-[ext_resource type="Texture2D" path="res://Assets/buildings/waterturbine/animation/0010.png" id="10_qu2gt"]
-[ext_resource type="Texture2D" path="res://Assets/buildings/waterturbine/animation/0011.png" id="11_25gts"]
-[ext_resource type="Texture2D" path="res://Assets/buildings/waterturbine/animation/0012.png" id="12_ugxog"]
-[ext_resource type="Texture2D" path="res://Assets/buildings/waterturbine/animation/0013.png" id="13_hc5r7"]
-[ext_resource type="Texture2D" path="res://Assets/buildings/waterturbine/animation/0014.png" id="14_k0bfg"]
-[ext_resource type="Texture2D" path="res://Assets/buildings/waterturbine/animation/0015.png" id="15_0qh3l"]
-[ext_resource type="Texture2D" path="res://Assets/buildings/waterturbine/animation/0016.png" id="16_jmdhh"]
-[ext_resource type="Texture2D" path="res://Assets/buildings/waterturbine/animation/0017.png" id="17_yoqka"]
-[ext_resource type="Texture2D" path="res://Assets/buildings/waterturbine/animation/0018.png" id="18_v8734"]
-[ext_resource type="Texture2D" path="res://Assets/buildings/waterturbine/animation/0019.png" id="19_5cfo7"]
-[ext_resource type="Texture2D" path="res://Assets/buildings/waterturbine/animation/0020.png" id="20_heyce"]
-[ext_resource type="Texture2D" path="res://Assets/buildings/waterturbine/animation/0021.png" id="21_uqrfq"]
-[ext_resource type="Texture2D" path="res://Assets/buildings/waterturbine/animation/0022.png" id="22_0g0xv"]
-[ext_resource type="Texture2D" path="res://Assets/buildings/waterturbine/animation/0023.png" id="23_ma7r8"]
-[ext_resource type="Texture2D" path="res://Assets/buildings/waterturbine/animation/0024.png" id="24_3utbk"]
-[ext_resource type="Texture2D" path="res://Assets/buildings/waterturbine/animation/0025.png" id="25_lhnpu"]
-[ext_resource type="Texture2D" path="res://Assets/buildings/waterturbine/animation/0026.png" id="26_4jsop"]
-[ext_resource type="Texture2D" path="res://Assets/buildings/waterturbine/animation/0027.png" id="27_7tv58"]
-[ext_resource type="Texture2D" path="res://Assets/buildings/waterturbine/animation/0028.png" id="28_1ay8t"]
-[ext_resource type="Texture2D" path="res://Assets/buildings/waterturbine/animation/0029.png" id="29_rwucf"]
-[ext_resource type="Texture2D" path="res://Assets/buildings/waterturbine/animation/0030.png" id="30_talji"]
-[ext_resource type="Texture2D" path="res://Assets/buildings/waterturbine/animation/0031.png" id="31_051ox"]
-[ext_resource type="Texture2D" path="res://Assets/buildings/waterturbine/animation/0032.png" id="32_r3n3j"]
-[ext_resource type="Texture2D" path="res://Assets/buildings/waterturbine/animation/0033.png" id="33_q7guu"]
-[ext_resource type="Texture2D" path="res://Assets/buildings/waterturbine/animation/0034.png" id="34_mbs78"]
-[ext_resource type="Texture2D" path="res://Assets/buildings/waterturbine/animation/0035.png" id="35_jxad3"]
-[ext_resource type="Texture2D" path="res://Assets/buildings/waterturbine/animation/0036.png" id="36_702cd"]
-[ext_resource type="Texture2D" path="res://Assets/buildings/waterturbine/animation/0037.png" id="37_qbqa3"]
-[ext_resource type="Texture2D" path="res://Assets/buildings/waterturbine/animation/0038.png" id="38_2o0vi"]
-[ext_resource type="Texture2D" path="res://Assets/buildings/waterturbine/animation/0039.png" id="39_r0er5"]
-[ext_resource type="Texture2D" path="res://Assets/buildings/waterturbine/animation/0040.png" id="40_nnh7r"]
-[ext_resource type="Texture2D" path="res://Assets/buildings/waterturbine/animation/0041.png" id="41_qwkam"]
-[ext_resource type="Texture2D" path="res://Assets/buildings/waterturbine/animation/0042.png" id="42_i361q"]
-[ext_resource type="Texture2D" path="res://Assets/buildings/waterturbine/animation/0043.png" id="43_kckxd"]
-[ext_resource type="Texture2D" path="res://Assets/buildings/waterturbine/animation/0044.png" id="44_vgqcd"]
-[ext_resource type="Texture2D" path="res://Assets/buildings/waterturbine/animation/0045.png" id="45_6kh7q"]
-[ext_resource type="Texture2D" path="res://Assets/buildings/waterturbine/animation/0046.png" id="46_2v0xq"]
-[ext_resource type="Texture2D" path="res://Assets/buildings/waterturbine/animation/0047.png" id="47_b7rml"]
-[ext_resource type="Texture2D" path="res://Assets/buildings/waterturbine/animation/0048.png" id="48_njwku"]
-[ext_resource type="Texture2D" path="res://Assets/buildings/waterturbine/animation/0049.png" id="49_hpme6"]
-[ext_resource type="Texture2D" path="res://Assets/buildings/waterturbine/animation/0050.png" id="50_131mu"]
-[ext_resource type="Texture2D" path="res://Assets/buildings/waterturbine/animation/0051.png" id="51_7p70y"]
-[ext_resource type="Texture2D" path="res://Assets/buildings/waterturbine/animation/0052.png" id="52_1s67l"]
-[ext_resource type="Texture2D" path="res://Assets/buildings/waterturbine/animation/0053.png" id="53_6b1nd"]
-[ext_resource type="Texture2D" path="res://Assets/buildings/waterturbine/animation/0054.png" id="54_rt165"]
-[ext_resource type="Texture2D" path="res://Assets/buildings/waterturbine/animation/0055.png" id="55_pxkcp"]
-[ext_resource type="Texture2D" path="res://Assets/buildings/waterturbine/animation/0056.png" id="56_f2lmv"]
-[ext_resource type="Texture2D" path="res://Assets/buildings/waterturbine/animation/0057.png" id="57_v1yx5"]
-[ext_resource type="Texture2D" path="res://Assets/buildings/waterturbine/animation/0058.png" id="58_bt7yn"]
-[ext_resource type="Texture2D" path="res://Assets/buildings/waterturbine/animation/0059.png" id="59_mo5hj"]
-[ext_resource type="Texture2D" path="res://Assets/buildings/waterturbine/animation/0060.png" id="60_m6jp0"]
-[ext_resource type="Texture2D" path="res://Assets/buildings/waterturbine/animation/0061.png" id="61_y23my"]
-[ext_resource type="Texture2D" path="res://Assets/buildings/waterturbine/animation/0062.png" id="62_ny4k0"]
-[ext_resource type="Texture2D" path="res://Assets/buildings/waterturbine/animation/0063.png" id="63_r0eel"]
-[ext_resource type="Texture2D" path="res://Assets/buildings/waterturbine/animation/0064.png" id="64_blcho"]
-[ext_resource type="Texture2D" path="res://Assets/buildings/waterturbine/animation/0065.png" id="65_6k37n"]
-[ext_resource type="Texture2D" path="res://Assets/buildings/waterturbine/animation/0066.png" id="66_vs38d"]
-[ext_resource type="Texture2D" path="res://Assets/buildings/waterturbine/animation/0067.png" id="67_mlx4g"]
-[ext_resource type="Texture2D" path="res://Assets/buildings/waterturbine/animation/0068.png" id="68_spn06"]
-[ext_resource type="Texture2D" path="res://Assets/buildings/waterturbine/animation/0069.png" id="69_wi6bf"]
-[ext_resource type="Texture2D" path="res://Assets/buildings/waterturbine/animation/0070.png" id="70_4t4qx"]
-[ext_resource type="Texture2D" path="res://Assets/buildings/waterturbine/animation/0071.png" id="71_o4y5a"]
-[ext_resource type="Texture2D" path="res://Assets/buildings/waterturbine/animation/0072.png" id="72_av1ve"]
-[ext_resource type="Texture2D" path="res://Assets/buildings/waterturbine/animation/0073.png" id="73_h7qx8"]
-[ext_resource type="Texture2D" path="res://Assets/buildings/waterturbine/animation/0074.png" id="74_xldna"]
-[ext_resource type="Texture2D" path="res://Assets/buildings/waterturbine/animation/0075.png" id="75_ctgo2"]
-[ext_resource type="Texture2D" path="res://Assets/buildings/waterturbine/animation/0076.png" id="76_gbs2y"]
-[ext_resource type="Texture2D" path="res://Assets/buildings/waterturbine/animation/0077.png" id="77_hhgme"]
-[ext_resource type="Texture2D" path="res://Assets/buildings/waterturbine/animation/0078.png" id="78_kyleh"]
-[ext_resource type="Texture2D" path="res://Assets/buildings/waterturbine/animation/0079.png" id="79_2ejyb"]
-[ext_resource type="Texture2D" path="res://Assets/buildings/waterturbine/animation/0080.png" id="80_igljx"]
-[ext_resource type="Texture2D" path="res://Assets/buildings/waterturbine/animation/0081.png" id="81_feua3"]
-[ext_resource type="Texture2D" path="res://Assets/buildings/waterturbine/animation/0082.png" id="82_om703"]
-[ext_resource type="Texture2D" path="res://Assets/buildings/waterturbine/animation/0083.png" id="83_60onq"]
-[ext_resource type="Texture2D" path="res://Assets/buildings/waterturbine/animation/0084.png" id="84_6q6wy"]
-[ext_resource type="Texture2D" path="res://Assets/buildings/waterturbine/animation/0085.png" id="85_63pec"]
-[ext_resource type="Texture2D" path="res://Assets/buildings/waterturbine/animation/0086.png" id="86_b0mfw"]
-[ext_resource type="Texture2D" path="res://Assets/buildings/waterturbine/animation/0087.png" id="87_g12y5"]
-[ext_resource type="Texture2D" path="res://Assets/buildings/waterturbine/animation/0088.png" id="88_uvjxp"]
-[ext_resource type="Texture2D" path="res://Assets/buildings/waterturbine/animation/0089.png" id="89_vlp0f"]
-[ext_resource type="Texture2D" path="res://Assets/buildings/waterturbine/animation/0090.png" id="90_y5guc"]
-[ext_resource type="Texture2D" path="res://Assets/buildings/waterturbine/animation/0091.png" id="91_83hss"]
-[ext_resource type="Texture2D" path="res://Assets/buildings/waterturbine/animation/0092.png" id="92_q7nna"]
-[ext_resource type="Texture2D" path="res://Assets/buildings/waterturbine/animation/0093.png" id="93_goiwn"]
-[ext_resource type="Texture2D" path="res://Assets/buildings/waterturbine/animation/0094.png" id="94_d3h4v"]
-[ext_resource type="Texture2D" path="res://Assets/buildings/waterturbine/animation/0095.png" id="95_04kjq"]
-[ext_resource type="Texture2D" path="res://Assets/buildings/waterturbine/animation/0096.png" id="96_i57lg"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_yrtqw"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("1_vw0rj")
+"texture": null
 }, {
 "duration": 1.0,
-"texture": ExtResource("2_4xe5h")
+"texture": null
 }, {
 "duration": 1.0,
-"texture": ExtResource("3_s3fm7")
+"texture": null
 }, {
 "duration": 1.0,
-"texture": ExtResource("4_fkgjr")
+"texture": null
 }, {
 "duration": 1.0,
-"texture": ExtResource("5_kfle2")
+"texture": null
 }, {
 "duration": 1.0,
-"texture": ExtResource("6_824bk")
+"texture": null
 }, {
 "duration": 1.0,
-"texture": ExtResource("7_x62y0")
+"texture": null
 }, {
 "duration": 1.0,
-"texture": ExtResource("8_v04dt")
+"texture": null
 }, {
 "duration": 1.0,
-"texture": ExtResource("9_2p408")
+"texture": null
 }, {
 "duration": 1.0,
-"texture": ExtResource("10_qu2gt")
+"texture": null
 }, {
 "duration": 1.0,
-"texture": ExtResource("11_25gts")
+"texture": null
 }, {
 "duration": 1.0,
-"texture": ExtResource("12_ugxog")
+"texture": null
 }, {
 "duration": 1.0,
-"texture": ExtResource("13_hc5r7")
+"texture": null
 }, {
 "duration": 1.0,
-"texture": ExtResource("14_k0bfg")
+"texture": null
 }, {
 "duration": 1.0,
-"texture": ExtResource("15_0qh3l")
+"texture": null
 }, {
 "duration": 1.0,
-"texture": ExtResource("16_jmdhh")
+"texture": null
 }, {
 "duration": 1.0,
-"texture": ExtResource("17_yoqka")
+"texture": null
 }, {
 "duration": 1.0,
-"texture": ExtResource("18_v8734")
+"texture": null
 }, {
 "duration": 1.0,
-"texture": ExtResource("19_5cfo7")
+"texture": null
 }, {
 "duration": 1.0,
-"texture": ExtResource("20_heyce")
+"texture": null
 }, {
 "duration": 1.0,
-"texture": ExtResource("21_uqrfq")
+"texture": null
 }, {
 "duration": 1.0,
-"texture": ExtResource("22_0g0xv")
+"texture": null
 }, {
 "duration": 1.0,
-"texture": ExtResource("23_ma7r8")
+"texture": null
 }, {
 "duration": 1.0,
-"texture": ExtResource("24_3utbk")
+"texture": null
 }, {
 "duration": 1.0,
-"texture": ExtResource("25_lhnpu")
+"texture": null
 }, {
 "duration": 1.0,
-"texture": ExtResource("26_4jsop")
+"texture": null
 }, {
 "duration": 1.0,
-"texture": ExtResource("27_7tv58")
+"texture": null
 }, {
 "duration": 1.0,
-"texture": ExtResource("28_1ay8t")
+"texture": null
 }, {
 "duration": 1.0,
-"texture": ExtResource("29_rwucf")
+"texture": null
 }, {
 "duration": 1.0,
-"texture": ExtResource("30_talji")
+"texture": null
 }, {
 "duration": 1.0,
-"texture": ExtResource("31_051ox")
+"texture": null
 }, {
 "duration": 1.0,
-"texture": ExtResource("32_r3n3j")
+"texture": null
 }, {
 "duration": 1.0,
-"texture": ExtResource("33_q7guu")
+"texture": null
 }, {
 "duration": 1.0,
-"texture": ExtResource("34_mbs78")
+"texture": null
 }, {
 "duration": 1.0,
-"texture": ExtResource("35_jxad3")
+"texture": null
 }, {
 "duration": 1.0,
-"texture": ExtResource("36_702cd")
+"texture": null
 }, {
 "duration": 1.0,
-"texture": ExtResource("37_qbqa3")
+"texture": null
 }, {
 "duration": 1.0,
-"texture": ExtResource("38_2o0vi")
+"texture": null
 }, {
 "duration": 1.0,
-"texture": ExtResource("39_r0er5")
+"texture": null
 }, {
 "duration": 1.0,
-"texture": ExtResource("40_nnh7r")
+"texture": null
 }, {
 "duration": 1.0,
-"texture": ExtResource("41_qwkam")
+"texture": null
 }, {
 "duration": 1.0,
-"texture": ExtResource("42_i361q")
+"texture": null
 }, {
 "duration": 1.0,
-"texture": ExtResource("43_kckxd")
+"texture": null
 }, {
 "duration": 1.0,
-"texture": ExtResource("44_vgqcd")
+"texture": null
 }, {
 "duration": 1.0,
-"texture": ExtResource("45_6kh7q")
+"texture": null
 }, {
 "duration": 1.0,
-"texture": ExtResource("46_2v0xq")
+"texture": null
 }, {
 "duration": 1.0,
-"texture": ExtResource("47_b7rml")
+"texture": null
 }, {
 "duration": 1.0,
-"texture": ExtResource("48_njwku")
+"texture": null
 }, {
 "duration": 1.0,
-"texture": ExtResource("49_hpme6")
+"texture": null
 }, {
 "duration": 1.0,
-"texture": ExtResource("50_131mu")
+"texture": null
 }, {
 "duration": 1.0,
-"texture": ExtResource("51_7p70y")
+"texture": null
 }, {
 "duration": 1.0,
-"texture": ExtResource("52_1s67l")
+"texture": null
 }, {
 "duration": 1.0,
-"texture": ExtResource("53_6b1nd")
+"texture": null
 }, {
 "duration": 1.0,
-"texture": ExtResource("54_rt165")
+"texture": null
 }, {
 "duration": 1.0,
-"texture": ExtResource("55_pxkcp")
+"texture": null
 }, {
 "duration": 1.0,
-"texture": ExtResource("56_f2lmv")
+"texture": null
 }, {
 "duration": 1.0,
-"texture": ExtResource("57_v1yx5")
+"texture": null
 }, {
 "duration": 1.0,
-"texture": ExtResource("58_bt7yn")
+"texture": null
 }, {
 "duration": 1.0,
-"texture": ExtResource("59_mo5hj")
+"texture": null
 }, {
 "duration": 1.0,
-"texture": ExtResource("60_m6jp0")
+"texture": null
 }, {
 "duration": 1.0,
-"texture": ExtResource("61_y23my")
+"texture": null
 }, {
 "duration": 1.0,
-"texture": ExtResource("62_ny4k0")
+"texture": null
 }, {
 "duration": 1.0,
-"texture": ExtResource("63_r0eel")
+"texture": null
 }, {
 "duration": 1.0,
-"texture": ExtResource("64_blcho")
+"texture": null
 }, {
 "duration": 1.0,
-"texture": ExtResource("65_6k37n")
+"texture": null
 }, {
 "duration": 1.0,
-"texture": ExtResource("66_vs38d")
+"texture": null
 }, {
 "duration": 1.0,
-"texture": ExtResource("67_mlx4g")
+"texture": null
 }, {
 "duration": 1.0,
-"texture": ExtResource("68_spn06")
+"texture": null
 }, {
 "duration": 1.0,
-"texture": ExtResource("69_wi6bf")
+"texture": null
 }, {
 "duration": 1.0,
-"texture": ExtResource("70_4t4qx")
+"texture": null
 }, {
 "duration": 1.0,
-"texture": ExtResource("71_o4y5a")
+"texture": null
 }, {
 "duration": 1.0,
-"texture": ExtResource("72_av1ve")
+"texture": null
 }, {
 "duration": 1.0,
-"texture": ExtResource("73_h7qx8")
+"texture": null
 }, {
 "duration": 1.0,
-"texture": ExtResource("74_xldna")
+"texture": null
 }, {
 "duration": 1.0,
-"texture": ExtResource("75_ctgo2")
+"texture": null
 }, {
 "duration": 1.0,
-"texture": ExtResource("76_gbs2y")
+"texture": null
 }, {
 "duration": 1.0,
-"texture": ExtResource("77_hhgme")
+"texture": null
 }, {
 "duration": 1.0,
-"texture": ExtResource("78_kyleh")
+"texture": null
 }, {
 "duration": 1.0,
-"texture": ExtResource("79_2ejyb")
+"texture": null
 }, {
 "duration": 1.0,
-"texture": ExtResource("80_igljx")
+"texture": null
 }, {
 "duration": 1.0,
-"texture": ExtResource("81_feua3")
+"texture": null
 }, {
 "duration": 1.0,
-"texture": ExtResource("82_om703")
+"texture": null
 }, {
 "duration": 1.0,
-"texture": ExtResource("83_60onq")
+"texture": null
 }, {
 "duration": 1.0,
-"texture": ExtResource("84_6q6wy")
+"texture": null
 }, {
 "duration": 1.0,
-"texture": ExtResource("85_63pec")
+"texture": null
 }, {
 "duration": 1.0,
-"texture": ExtResource("86_b0mfw")
+"texture": null
 }, {
 "duration": 1.0,
-"texture": ExtResource("87_g12y5")
+"texture": null
 }, {
 "duration": 1.0,
-"texture": ExtResource("88_uvjxp")
+"texture": null
 }, {
 "duration": 1.0,
-"texture": ExtResource("89_vlp0f")
+"texture": null
 }, {
 "duration": 1.0,
-"texture": ExtResource("90_y5guc")
+"texture": null
 }, {
 "duration": 1.0,
-"texture": ExtResource("91_83hss")
+"texture": null
 }, {
 "duration": 1.0,
-"texture": ExtResource("92_q7nna")
+"texture": null
 }, {
 "duration": 1.0,
-"texture": ExtResource("93_goiwn")
+"texture": null
 }, {
 "duration": 1.0,
-"texture": ExtResource("94_d3h4v")
+"texture": null
 }, {
 "duration": 1.0,
-"texture": ExtResource("95_04kjq")
+"texture": null
 }, {
 "duration": 1.0,
-"texture": ExtResource("96_i57lg")
+"texture": null
 }],
 "loop": true,
 "name": &"level4",

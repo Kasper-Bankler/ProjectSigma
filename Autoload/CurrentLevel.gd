@@ -13,7 +13,7 @@ signal building_upgraded
 
 
 var LEVELS_STATS = {1:{"wind": 1, "sun": 0.8, "energy_required": 100},
-2:{"wind": 0, "sun": 0, "energy_required": 100},
+2:{"wind": 0, "sun": 0, "energy_required": 100000},
 3:{"wind": 0, "sun": 0, "energy_required": 100},
 4:{"wind": 0, "sun": 0, "energy_required": 100},
 5:{"wind": 0, "sun": 0, "energy_required": 100},

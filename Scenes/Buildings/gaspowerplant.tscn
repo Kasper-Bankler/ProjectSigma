@@ -42,7 +42,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4oyld"]
-size = Vector2(68, 197)
+size = Vector2(68, 57.5)
 
 [node name="Gaspowerplant" type="Node2D"]
 script = ExtResource("1_8ira5")
@@ -52,7 +52,8 @@ Name = "bio"
 position = Vector2(-29, -30)
 scale = Vector2(0.1, 0.1)
 sprite_frames = SubResource("SpriteFrames_tmuur")
-animation = &"level4"
+animation = &"level1"
+autoplay = "level1"
 offset = Vector2(340, 300)
 
 [node name="Area2D" type="Area2D" parent="."]
@@ -66,10 +67,11 @@ offset_bottom = -148.0
 text = "Insufficient funds"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(5, -3)
+position = Vector2(7, 0.75)
 shape = SubResource("RectangleShape2D_4oyld")
 
 [node name="fullyUpgradedLabel" type="Label" parent="Area2D"]
+visible = false
 offset_left = -150.0
 offset_top = -101.0
 offset_right = 150.0

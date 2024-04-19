@@ -12,4 +12,5 @@ grow_vertical = 2
 script = ExtResource("1_nfty6")
 
 [node name="PopupMenu" type="PopupMenu" parent="."]
+initial_position = 1
 visible = true

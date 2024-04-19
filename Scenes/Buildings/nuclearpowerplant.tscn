@@ -1,10 +1,10 @@
 [gd_scene load_steps=8 format=3 uid="uid://c81kuvl7kvkm3"]
 
 [ext_resource type="Script" path="res://Scripts/BuildingClass.gd" id="1_m82f2"]
-[ext_resource type="Texture2D" uid="uid://b33mtq5ceq5p5" path="res://Assets/buildings/nuclear powerplant/1.png" id="2_dfg6m"]
-[ext_resource type="Texture2D" uid="uid://1r1k0kjddlql" path="res://Assets/buildings/nuclear powerplant/2.png" id="3_21ojs"]
-[ext_resource type="Texture2D" uid="uid://crunklmlolgse" path="res://Assets/buildings/nuclear powerplant/3.png" id="4_wstkb"]
-[ext_resource type="Texture2D" uid="uid://c4j7bp7cphlfw" path="res://Assets/buildings/nuclear powerplant/4.png" id="5_4cmhq"]
+[ext_resource type="Texture2D" uid="uid://b33mtq5ceq5p5" path="res://Assets/Buildings/nuclear powerplant/1.png" id="2_dfg6m"]
+[ext_resource type="Texture2D" uid="uid://1r1k0kjddlql" path="res://Assets/Buildings/nuclear powerplant/2.png" id="3_21ojs"]
+[ext_resource type="Texture2D" uid="uid://crunklmlolgse" path="res://Assets/Buildings/nuclear powerplant/3.png" id="4_wstkb"]
+[ext_resource type="Texture2D" uid="uid://c4j7bp7cphlfw" path="res://Assets/Buildings/nuclear powerplant/4.png" id="5_4cmhq"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_yrtqw"]
 animations = [{
@@ -42,7 +42,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nupnb"]
-size = Vector2(68, 197)
+size = Vector2(68, 77)
 
 [node name="NuclearPowerPlant" type="Node2D"]
 script = ExtResource("1_m82f2")
@@ -59,7 +59,7 @@ offset = Vector2(25, 40)
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(-4, -69.5)
+position = Vector2(-4, -9.5)
 shape = SubResource("RectangleShape2D_nupnb")
 
 [node name="fullyUpgradedLabel" type="Label" parent="Area2D"]

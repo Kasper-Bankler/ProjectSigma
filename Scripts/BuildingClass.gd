@@ -64,10 +64,15 @@ func generate_upgrade_popup():
 	new_popup_child.add_item("Upgrade for " + str(stats["upgradePrice"]) + "$")
 	new_popup_child.add_item("YES",1)
 	new_popup_child.add_item("NO",0)
-	new_popup.position=get_viewport().get_mouse_position()
+	print("idiot alu")
+	print(get_viewport().get_mouse_position())
+	var postion = Vector2(get_viewport().get_mouse_position().x,get_viewport().get_mouse_position().y)
+	new_popup.position.x=get_viewport().get_mouse_position().x
+	new_popup.position.y=get_viewport().get_mouse_position().y+20
+	
 
 	
-	$".".get_child(0).add_child(new_popup)
+	$".".add_child(new_popup)
 
 func onClick(_viewport, _event, _shape_idx):
 	if (Input.is_action_just_pressed("ui_leftclick") and CurrentLevel.is_playing == true):
