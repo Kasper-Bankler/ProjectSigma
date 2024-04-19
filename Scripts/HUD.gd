@@ -48,7 +48,7 @@ func update_balance():
 	$CoinLabel.text = str(level.balance)
 	
 func update_energy():
-	$EnergyProgressBar.value = level.energy
+	$EnergyProgressBar.value = level.energy/(level.energy_required+1)
 
 func updata_buy_menu():
 	var balance = CurrentLevel.balance

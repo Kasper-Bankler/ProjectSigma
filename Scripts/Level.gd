@@ -3,7 +3,7 @@ extends Node
 class_name Level
 
 
-@export var energy_required = 0
+
 @export var available_buildings = []
 @export var max_emission = 0
 @export var balance = 0
@@ -14,9 +14,8 @@ signal level_is_complete
 @onready var weather_multipliers={
 	"wind":CurrentLevel.LEVELS_STATS[int(scene_file_path[25])]["wind"],
 	"solar":CurrentLevel.LEVELS_STATS[int(scene_file_path[25])]["sun"],
-	"other_type":1
 }
-@onready var energy_generated = CurrentLevel.LEVELS_STATS[int(scene_file_path[25])]["energy_required"]
+@onready var energy_required = CurrentLevel.LEVELS_STATS[int(scene_file_path[25])]["energy_required"]
 
 var revenue_per_second=0
 var new_building
@@ -55,8 +54,7 @@ func tick():
 		
 	if (emission_rate>0):
 		emission+=emission_rate
-		print(emission_rate)
-		print(emission)
+	
 		if (fmod(emission,1000)==0):
 			bill=emission/50
 			change_balance(-bill)
@@ -67,9 +65,9 @@ func tick():
 	
 	change_balance(revenue_per_second)
 	
-	energy+=revenue_per_second/100
+	energy=energy+revenue_per_second*0.01
 	
-	if (energy>= energy_generated):
+	if (energy>= energy_required):
 		emit_signal("level_is_complete")
 		CurrentLevel.is_playing=false
 	
@@ -87,7 +85,7 @@ func recalculate_revenue():
 	for building in get_tree().get_nodes_in_group("buildings"):
 		new_revenue_per_second+=building.stats["productionRate"]*(1+weather_multipliers.get(building.Name,0))
 		
-	
+		
 	revenue_per_second=new_revenue_per_second
 	
 		
@@ -111,9 +109,9 @@ func on_new_building_placed():
 	new_building = buildings_group[len(buildings_group)-1]
 	
 	
-	print(new_building.stats)
+
 	change_balance(-new_building.stats.price)
 	recalculate_revenue()
 	if (new_building.stats.has("emissionRate")):
 		emission_rate+=new_building.stats["emissionRate"]
-	print (new_building)
+
