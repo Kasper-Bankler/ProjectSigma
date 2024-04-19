@@ -16,7 +16,7 @@ signal level_is_complete
 	"solar":CurrentLevel.LEVELS_STATS[int(scene_file_path[25])]["sun"],
 	"other_type":1
 }
-@onready var energy_generated = CurrentLeve.LEVELS_STATS[int(scene_file_path[25])]["energy_required"]
+@onready var energy_generated = CurrentLevel.LEVELS_STATS[int(scene_file_path[25])]["energy_required"]
 
 var revenue_per_second=0
 var new_building
@@ -85,7 +85,7 @@ func recalculate_revenue():
 	
 	
 	for building in get_tree().get_nodes_in_group("buildings"):
-		new_revenue_per_second+=building.stats["productionRate"]*weather_multipliers.get(building.Name,1)
+		new_revenue_per_second+=building.stats["productionRate"]*(1+weather_multipliers.get(building.Name,0))
 		
 	
 	revenue_per_second=new_revenue_per_second
