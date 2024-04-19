@@ -1,10 +1,10 @@
 [gd_scene load_steps=8 format=3 uid="uid://bircqt5keyeh3"]
 
 [ext_resource type="Script" path="res://Scripts/BuildingClass.gd" id="1_ep7bs"]
-[ext_resource type="Texture2D" uid="uid://cw3o377hfisdp" path="res://Assets/buildings/solarpanel/solceller1.png" id="2_cgab4"]
-[ext_resource type="Texture2D" uid="uid://b1gw3pxs6mpjg" path="res://Assets/buildings/solarpanel/solceller2.png" id="3_jvmtd"]
-[ext_resource type="Texture2D" uid="uid://cmpgpjk5pxs7g" path="res://Assets/buildings/solarpanel/solceller3.png" id="4_vr3q3"]
-[ext_resource type="Texture2D" uid="uid://b0ukuaqfr3eds" path="res://Assets/buildings/solarpanel/solceller4.png" id="5_kcf2f"]
+[ext_resource type="Texture2D" uid="uid://cw3o377hfisdp" path="res://Assets/Buildings/solarpanel/solceller1.png" id="2_cgab4"]
+[ext_resource type="Texture2D" uid="uid://b1gw3pxs6mpjg" path="res://Assets/Buildings/solarpanel/solceller2.png" id="3_jvmtd"]
+[ext_resource type="Texture2D" uid="uid://cmpgpjk5pxs7g" path="res://Assets/Buildings/solarpanel/solceller3.png" id="4_vr3q3"]
+[ext_resource type="Texture2D" uid="uid://b0ukuaqfr3eds" path="res://Assets/Buildings/solarpanel/solceller4.png" id="5_kcf2f"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_xcp36"]
 animations = [{
@@ -71,17 +71,8 @@ shape = SubResource("RectangleShape2D_1bvqy")
 
 [node name="fullyUpgradedLabel" type="Label" parent="Area2D"]
 visible = false
-offset_left = -150.0
-offset_top = -84.0
-offset_right = 150.0
-offset_bottom = -28.0
+offset_left = -154.0
+offset_top = -204.0
+offset_right = 146.0
+offset_bottom = -148.0
 text = "Power source is already fully upgraded"
-
-[node name="UpgradePopupMenu" type="PopupMenu" parent="."]
-size = Vector2i(181, 100)
-visible = true
-
-[node name="Label" type="Label" parent="UpgradePopupMenu"]
-offset_right = 40.0
-offset_bottom = 23.0
-text = "Upgade?"
