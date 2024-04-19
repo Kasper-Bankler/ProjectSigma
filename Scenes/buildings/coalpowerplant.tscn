@@ -105,7 +105,6 @@ text = "You just paid CO2 tax"
 
 [node name="UpgradePopupMenu" type="PopupMenu" parent="."]
 size = Vector2i(181, 100)
-visible = true
 
 [node name="Label" type="Label" parent="UpgradePopupMenu"]
 offset_right = 40.0

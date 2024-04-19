@@ -1,8 +1,14 @@
-[gd_scene load_steps=4 format=3 uid="uid://cqof14l2dtrs6"]
+[gd_scene load_steps=10 format=3 uid="uid://cqof14l2dtrs6"]
 
 [ext_resource type="Script" path="res://Scripts/LevelSelect.gd" id="1_41jrp"]
-[ext_resource type="Texture2D" uid="uid://c4hngp8ctjwqy" path="res://Assets/Icons/678129-lock-512.webp" id="2_6yk70"]
+[ext_resource type="Texture2D" uid="uid://bukdktwdks7sw" path="res://Assets/Icons/678129-lock-512.webp" id="2_6yk70"]
 [ext_resource type="Theme" uid="uid://d0juxhgobuuv2" path="res://Assets/FlatUI/kenneyUI-green.tres" id="2_jyrmf"]
+[ext_resource type="Texture2D" uid="uid://b1ifr31ios5dk" path="res://Assets/Icons/Weather/cloud-solid.svg" id="3_p4q4c"]
+[ext_resource type="Texture2D" uid="uid://b4asdicqpdgi7" path="res://Assets/Icons/Weather/cloud-sun-solid.svg" id="4_85gog"]
+[ext_resource type="Texture2D" uid="uid://dkhkg5omrplta" path="res://Assets/Icons/Weather/wind-solid.svg" id="4_lwlxd"]
+[ext_resource type="Texture2D" uid="uid://bdr34jn8cuqnb" path="res://Assets/Icons/Weather/sun-solid.svg" id="5_25a3h"]
+[ext_resource type="Texture2D" uid="uid://gjiqcapb5kvn" path="res://Assets/Icons/Weather/no_sign.png" id="7_nwjgf"]
+[ext_resource type="Texture2D" uid="uid://digas8in53l7q" path="res://Assets/Icons/Weather/tornado-solid.svg" id="8_tdndw"]
 
 [node name="LevelSelect" type="Control"]
 layout_mode = 3
@@ -50,8 +56,8 @@ custom_minimum_size = Vector2(2.08165e-12, 400)
 layout_mode = 0
 offset_left = 262.0
 offset_top = 257.0
-offset_right = 1614.0
-offset_bottom = 712.0
+offset_right = 1625.0
+offset_bottom = 828.0
 
 [node name="HBoxContainer" type="HBoxContainer" parent="ScrollContainer"]
 custom_minimum_size = Vector2(400, 400)
@@ -60,6 +66,72 @@ layout_mode = 2
 [node name="LEVELCONTAINER" type="VBoxContainer" parent="ScrollContainer/HBoxContainer"]
 custom_minimum_size = Vector2(300, 2.08165e-12)
 layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ScrollContainer/HBoxContainer/LEVELCONTAINER"]
+custom_minimum_size = Vector2(2.08165e-12, 100)
+layout_direction = 2
+layout_mode = 2
+
+[node name="WeatherSymbol1" type="CenterContainer" parent="ScrollContainer/HBoxContainer/LEVELCONTAINER/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Cloud" type="TextureRect" parent="ScrollContainer/HBoxContainer/LEVELCONTAINER/HBoxContainer/WeatherSymbol1"]
+visible = false
+custom_minimum_size = Vector2(120, 100)
+layout_mode = 2
+texture = ExtResource("3_p4q4c")
+expand_mode = 2
+
+[node name="CloudSun" type="TextureRect" parent="ScrollContainer/HBoxContainer/LEVELCONTAINER/HBoxContainer/WeatherSymbol1"]
+visible = false
+custom_minimum_size = Vector2(120, 100)
+layout_mode = 2
+texture = ExtResource("4_85gog")
+expand_mode = 2
+
+[node name="Sun" type="TextureRect" parent="ScrollContainer/HBoxContainer/LEVELCONTAINER/HBoxContainer/WeatherSymbol1"]
+visible = false
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+texture = ExtResource("5_25a3h")
+expand_mode = 4
+
+[node name="WeatherSymbol2" type="CenterContainer" parent="ScrollContainer/HBoxContainer/LEVELCONTAINER/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="NoWind" type="TextureRect" parent="ScrollContainer/HBoxContainer/LEVELCONTAINER/HBoxContainer/WeatherSymbol2"]
+visible = false
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+texture = ExtResource("4_lwlxd")
+expand_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="ScrollContainer/HBoxContainer/LEVELCONTAINER/HBoxContainer/WeatherSymbol2/NoWind"]
+custom_minimum_size = Vector2(120, 100)
+layout_mode = 1
+anchors_preset = -1
+offset_left = -11.0
+offset_right = 100.0
+offset_bottom = 100.0
+texture = ExtResource("7_nwjgf")
+expand_mode = 2
+
+[node name="Wind" type="TextureRect" parent="ScrollContainer/HBoxContainer/LEVELCONTAINER/HBoxContainer/WeatherSymbol2"]
+visible = false
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+texture = ExtResource("4_lwlxd")
+expand_mode = 2
+
+[node name="Tornado" type="TextureRect" parent="ScrollContainer/HBoxContainer/LEVELCONTAINER/HBoxContainer/WeatherSymbol2"]
+visible = false
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+texture = ExtResource("8_tdndw")
+expand_mode = 2
 
 [node name="ColorRect" type="ColorRect" parent="ScrollContainer/HBoxContainer/LEVELCONTAINER"]
 custom_minimum_size = Vector2(2.08165e-12, 300)
@@ -85,6 +157,72 @@ color = Color(0.298039, 0.737255, 0.266667, 1)
 custom_minimum_size = Vector2(300, 2.08165e-12)
 layout_mode = 2
 
+[node name="HBoxContainer" type="HBoxContainer" parent="ScrollContainer/HBoxContainer/LEVELCONTAINER2"]
+custom_minimum_size = Vector2(2.08165e-12, 100)
+layout_direction = 2
+layout_mode = 2
+
+[node name="WeatherSymbol1" type="CenterContainer" parent="ScrollContainer/HBoxContainer/LEVELCONTAINER2/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Cloud" type="TextureRect" parent="ScrollContainer/HBoxContainer/LEVELCONTAINER2/HBoxContainer/WeatherSymbol1"]
+visible = false
+custom_minimum_size = Vector2(120, 100)
+layout_mode = 2
+texture = ExtResource("3_p4q4c")
+expand_mode = 2
+
+[node name="CloudSun" type="TextureRect" parent="ScrollContainer/HBoxContainer/LEVELCONTAINER2/HBoxContainer/WeatherSymbol1"]
+visible = false
+custom_minimum_size = Vector2(120, 100)
+layout_mode = 2
+texture = ExtResource("4_85gog")
+expand_mode = 2
+
+[node name="Sun" type="TextureRect" parent="ScrollContainer/HBoxContainer/LEVELCONTAINER2/HBoxContainer/WeatherSymbol1"]
+visible = false
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+texture = ExtResource("5_25a3h")
+expand_mode = 4
+
+[node name="WeatherSymbol2" type="CenterContainer" parent="ScrollContainer/HBoxContainer/LEVELCONTAINER2/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="NoWind" type="TextureRect" parent="ScrollContainer/HBoxContainer/LEVELCONTAINER2/HBoxContainer/WeatherSymbol2"]
+visible = false
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+texture = ExtResource("4_lwlxd")
+expand_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="ScrollContainer/HBoxContainer/LEVELCONTAINER2/HBoxContainer/WeatherSymbol2/NoWind"]
+custom_minimum_size = Vector2(120, 100)
+layout_mode = 1
+anchors_preset = -1
+offset_left = -11.0
+offset_right = 100.0
+offset_bottom = 100.0
+texture = ExtResource("7_nwjgf")
+expand_mode = 2
+
+[node name="Wind" type="TextureRect" parent="ScrollContainer/HBoxContainer/LEVELCONTAINER2/HBoxContainer/WeatherSymbol2"]
+visible = false
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+texture = ExtResource("4_lwlxd")
+expand_mode = 2
+
+[node name="Tornado" type="TextureRect" parent="ScrollContainer/HBoxContainer/LEVELCONTAINER2/HBoxContainer/WeatherSymbol2"]
+visible = false
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+texture = ExtResource("8_tdndw")
+expand_mode = 2
+
 [node name="ColorRect" type="ColorRect" parent="ScrollContainer/HBoxContainer/LEVELCONTAINER2"]
 custom_minimum_size = Vector2(2.08165e-12, 300)
 layout_mode = 2
@@ -108,6 +246,72 @@ color = Color(0.298039, 0.737255, 0.266667, 1)
 [node name="LEVELCONTAINER3" type="VBoxContainer" parent="ScrollContainer/HBoxContainer"]
 custom_minimum_size = Vector2(300, 2.08165e-12)
 layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ScrollContainer/HBoxContainer/LEVELCONTAINER3"]
+custom_minimum_size = Vector2(2.08165e-12, 100)
+layout_direction = 2
+layout_mode = 2
+
+[node name="WeatherSymbol1" type="CenterContainer" parent="ScrollContainer/HBoxContainer/LEVELCONTAINER3/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Cloud" type="TextureRect" parent="ScrollContainer/HBoxContainer/LEVELCONTAINER3/HBoxContainer/WeatherSymbol1"]
+visible = false
+custom_minimum_size = Vector2(120, 100)
+layout_mode = 2
+texture = ExtResource("3_p4q4c")
+expand_mode = 2
+
+[node name="CloudSun" type="TextureRect" parent="ScrollContainer/HBoxContainer/LEVELCONTAINER3/HBoxContainer/WeatherSymbol1"]
+visible = false
+custom_minimum_size = Vector2(120, 100)
+layout_mode = 2
+texture = ExtResource("4_85gog")
+expand_mode = 2
+
+[node name="Sun" type="TextureRect" parent="ScrollContainer/HBoxContainer/LEVELCONTAINER3/HBoxContainer/WeatherSymbol1"]
+visible = false
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+texture = ExtResource("5_25a3h")
+expand_mode = 4
+
+[node name="WeatherSymbol2" type="CenterContainer" parent="ScrollContainer/HBoxContainer/LEVELCONTAINER3/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="NoWind" type="TextureRect" parent="ScrollContainer/HBoxContainer/LEVELCONTAINER3/HBoxContainer/WeatherSymbol2"]
+visible = false
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+texture = ExtResource("4_lwlxd")
+expand_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="ScrollContainer/HBoxContainer/LEVELCONTAINER3/HBoxContainer/WeatherSymbol2/NoWind"]
+custom_minimum_size = Vector2(120, 100)
+layout_mode = 1
+anchors_preset = -1
+offset_left = -11.0
+offset_right = 100.0
+offset_bottom = 100.0
+texture = ExtResource("7_nwjgf")
+expand_mode = 2
+
+[node name="Wind" type="TextureRect" parent="ScrollContainer/HBoxContainer/LEVELCONTAINER3/HBoxContainer/WeatherSymbol2"]
+visible = false
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+texture = ExtResource("4_lwlxd")
+expand_mode = 2
+
+[node name="Tornado" type="TextureRect" parent="ScrollContainer/HBoxContainer/LEVELCONTAINER3/HBoxContainer/WeatherSymbol2"]
+visible = false
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+texture = ExtResource("8_tdndw")
+expand_mode = 2
 
 [node name="ColorRect" type="ColorRect" parent="ScrollContainer/HBoxContainer/LEVELCONTAINER3"]
 custom_minimum_size = Vector2(2.08165e-12, 300)
@@ -133,6 +337,72 @@ color = Color(0.298039, 0.737255, 0.266667, 1)
 custom_minimum_size = Vector2(300, 2.08165e-12)
 layout_mode = 2
 
+[node name="HBoxContainer" type="HBoxContainer" parent="ScrollContainer/HBoxContainer/LEVELCONTAINER4"]
+custom_minimum_size = Vector2(2.08165e-12, 100)
+layout_direction = 2
+layout_mode = 2
+
+[node name="WeatherSymbol1" type="CenterContainer" parent="ScrollContainer/HBoxContainer/LEVELCONTAINER4/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Cloud" type="TextureRect" parent="ScrollContainer/HBoxContainer/LEVELCONTAINER4/HBoxContainer/WeatherSymbol1"]
+visible = false
+custom_minimum_size = Vector2(120, 100)
+layout_mode = 2
+texture = ExtResource("3_p4q4c")
+expand_mode = 2
+
+[node name="CloudSun" type="TextureRect" parent="ScrollContainer/HBoxContainer/LEVELCONTAINER4/HBoxContainer/WeatherSymbol1"]
+visible = false
+custom_minimum_size = Vector2(120, 100)
+layout_mode = 2
+texture = ExtResource("4_85gog")
+expand_mode = 2
+
+[node name="Sun" type="TextureRect" parent="ScrollContainer/HBoxContainer/LEVELCONTAINER4/HBoxContainer/WeatherSymbol1"]
+visible = false
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+texture = ExtResource("5_25a3h")
+expand_mode = 4
+
+[node name="WeatherSymbol2" type="CenterContainer" parent="ScrollContainer/HBoxContainer/LEVELCONTAINER4/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="NoWind" type="TextureRect" parent="ScrollContainer/HBoxContainer/LEVELCONTAINER4/HBoxContainer/WeatherSymbol2"]
+visible = false
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+texture = ExtResource("4_lwlxd")
+expand_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="ScrollContainer/HBoxContainer/LEVELCONTAINER4/HBoxContainer/WeatherSymbol2/NoWind"]
+custom_minimum_size = Vector2(120, 100)
+layout_mode = 1
+anchors_preset = -1
+offset_left = -11.0
+offset_right = 100.0
+offset_bottom = 100.0
+texture = ExtResource("7_nwjgf")
+expand_mode = 2
+
+[node name="Wind" type="TextureRect" parent="ScrollContainer/HBoxContainer/LEVELCONTAINER4/HBoxContainer/WeatherSymbol2"]
+visible = false
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+texture = ExtResource("4_lwlxd")
+expand_mode = 2
+
+[node name="Tornado" type="TextureRect" parent="ScrollContainer/HBoxContainer/LEVELCONTAINER4/HBoxContainer/WeatherSymbol2"]
+visible = false
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+texture = ExtResource("8_tdndw")
+expand_mode = 2
+
 [node name="ColorRect" type="ColorRect" parent="ScrollContainer/HBoxContainer/LEVELCONTAINER4"]
 custom_minimum_size = Vector2(2.08165e-12, 300)
 layout_mode = 2
@@ -157,6 +427,72 @@ color = Color(0.298039, 0.737255, 0.266667, 1)
 custom_minimum_size = Vector2(300, 2.08165e-12)
 layout_mode = 2
 
+[node name="HBoxContainer" type="HBoxContainer" parent="ScrollContainer/HBoxContainer/LEVELCONTAINER5"]
+custom_minimum_size = Vector2(2.08165e-12, 100)
+layout_direction = 2
+layout_mode = 2
+
+[node name="WeatherSymbol1" type="CenterContainer" parent="ScrollContainer/HBoxContainer/LEVELCONTAINER5/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Cloud" type="TextureRect" parent="ScrollContainer/HBoxContainer/LEVELCONTAINER5/HBoxContainer/WeatherSymbol1"]
+visible = false
+custom_minimum_size = Vector2(120, 100)
+layout_mode = 2
+texture = ExtResource("3_p4q4c")
+expand_mode = 2
+
+[node name="CloudSun" type="TextureRect" parent="ScrollContainer/HBoxContainer/LEVELCONTAINER5/HBoxContainer/WeatherSymbol1"]
+visible = false
+custom_minimum_size = Vector2(120, 100)
+layout_mode = 2
+texture = ExtResource("4_85gog")
+expand_mode = 2
+
+[node name="Sun" type="TextureRect" parent="ScrollContainer/HBoxContainer/LEVELCONTAINER5/HBoxContainer/WeatherSymbol1"]
+visible = false
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+texture = ExtResource("5_25a3h")
+expand_mode = 4
+
+[node name="WeatherSymbol2" type="CenterContainer" parent="ScrollContainer/HBoxContainer/LEVELCONTAINER5/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="NoWind" type="TextureRect" parent="ScrollContainer/HBoxContainer/LEVELCONTAINER5/HBoxContainer/WeatherSymbol2"]
+visible = false
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+texture = ExtResource("4_lwlxd")
+expand_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="ScrollContainer/HBoxContainer/LEVELCONTAINER5/HBoxContainer/WeatherSymbol2/NoWind"]
+custom_minimum_size = Vector2(120, 100)
+layout_mode = 1
+anchors_preset = -1
+offset_left = -11.0
+offset_right = 100.0
+offset_bottom = 100.0
+texture = ExtResource("7_nwjgf")
+expand_mode = 2
+
+[node name="Wind" type="TextureRect" parent="ScrollContainer/HBoxContainer/LEVELCONTAINER5/HBoxContainer/WeatherSymbol2"]
+visible = false
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+texture = ExtResource("4_lwlxd")
+expand_mode = 2
+
+[node name="Tornado" type="TextureRect" parent="ScrollContainer/HBoxContainer/LEVELCONTAINER5/HBoxContainer/WeatherSymbol2"]
+visible = false
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+texture = ExtResource("8_tdndw")
+expand_mode = 2
+
 [node name="ColorRect" type="ColorRect" parent="ScrollContainer/HBoxContainer/LEVELCONTAINER5"]
 custom_minimum_size = Vector2(2.08165e-12, 300)
 layout_mode = 2
@@ -180,6 +516,72 @@ color = Color(0.298039, 0.737255, 0.266667, 1)
 [node name="LEVELCONTAINER6" type="VBoxContainer" parent="ScrollContainer/HBoxContainer"]
 custom_minimum_size = Vector2(300, 2.08165e-12)
 layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ScrollContainer/HBoxContainer/LEVELCONTAINER6"]
+custom_minimum_size = Vector2(2.08165e-12, 100)
+layout_direction = 2
+layout_mode = 2
+
+[node name="WeatherSymbol1" type="CenterContainer" parent="ScrollContainer/HBoxContainer/LEVELCONTAINER6/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Cloud" type="TextureRect" parent="ScrollContainer/HBoxContainer/LEVELCONTAINER6/HBoxContainer/WeatherSymbol1"]
+visible = false
+custom_minimum_size = Vector2(120, 100)
+layout_mode = 2
+texture = ExtResource("3_p4q4c")
+expand_mode = 2
+
+[node name="CloudSun" type="TextureRect" parent="ScrollContainer/HBoxContainer/LEVELCONTAINER6/HBoxContainer/WeatherSymbol1"]
+visible = false
+custom_minimum_size = Vector2(120, 100)
+layout_mode = 2
+texture = ExtResource("4_85gog")
+expand_mode = 2
+
+[node name="Sun" type="TextureRect" parent="ScrollContainer/HBoxContainer/LEVELCONTAINER6/HBoxContainer/WeatherSymbol1"]
+visible = false
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+texture = ExtResource("5_25a3h")
+expand_mode = 4
+
+[node name="WeatherSymbol2" type="CenterContainer" parent="ScrollContainer/HBoxContainer/LEVELCONTAINER6/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="NoWind" type="TextureRect" parent="ScrollContainer/HBoxContainer/LEVELCONTAINER6/HBoxContainer/WeatherSymbol2"]
+visible = false
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+texture = ExtResource("4_lwlxd")
+expand_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="ScrollContainer/HBoxContainer/LEVELCONTAINER6/HBoxContainer/WeatherSymbol2/NoWind"]
+custom_minimum_size = Vector2(120, 100)
+layout_mode = 1
+anchors_preset = -1
+offset_left = -11.0
+offset_right = 100.0
+offset_bottom = 100.0
+texture = ExtResource("7_nwjgf")
+expand_mode = 2
+
+[node name="Wind" type="TextureRect" parent="ScrollContainer/HBoxContainer/LEVELCONTAINER6/HBoxContainer/WeatherSymbol2"]
+visible = false
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+texture = ExtResource("4_lwlxd")
+expand_mode = 2
+
+[node name="Tornado" type="TextureRect" parent="ScrollContainer/HBoxContainer/LEVELCONTAINER6/HBoxContainer/WeatherSymbol2"]
+visible = false
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+texture = ExtResource("8_tdndw")
+expand_mode = 2
 
 [node name="ColorRect" type="ColorRect" parent="ScrollContainer/HBoxContainer/LEVELCONTAINER6"]
 custom_minimum_size = Vector2(2.08165e-12, 300)
