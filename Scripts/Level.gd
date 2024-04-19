@@ -2,21 +2,21 @@ extends Node
 
 class_name Level
 
-@export var wind = 0
-@export var sun = 0
+
 @export var energy_required = 0
 @export var available_buildings = []
 @export var max_emission = 0
 @export var balance = 0
-@export var energy_generated = 0
+
 
 signal level_is_complete
 
 @onready var weather_multipliers={
-	"wind":wind,
-	"solar":sun,
+	"wind":CurrentLevel.LEVELS_STATS[int(scene_file_path[25])]["wind"],
+	"solar":CurrentLevel.LEVELS_STATS[int(scene_file_path[25])]["sun"],
 	"other_type":1
 }
+@onready var energy_generated = CurrentLeve.LEVELS_STATS[int(scene_file_path[25])]["energy_required"]
 
 var revenue_per_second=0
 var new_building
@@ -29,7 +29,8 @@ var old_upgrade_costs=0
 var bill
 
 func _ready():
-	
+	balance=100
+	CurrentLevel.balance=100
 	#signals connection
 	CurrentLevel.new_building_placed.connect(on_new_building_placed)
 
@@ -68,7 +69,7 @@ func tick():
 	
 	energy+=revenue_per_second/100
 	
-	if (energy> energy_required):
+	if (energy>= energy_generated):
 		emit_signal("level_is_complete")
 		CurrentLevel.is_playing=false
 	
