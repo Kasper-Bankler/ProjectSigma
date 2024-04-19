@@ -19,7 +19,6 @@ energy_required = 1000
 balance = 100
 
 [node name="HUD" parent="." instance=ExtResource("1_5v01m")]
-visible = false
 
 [node name="Background" type="CanvasLayer" parent="."]
 layer = -99
