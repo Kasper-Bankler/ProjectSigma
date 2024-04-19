@@ -66,7 +66,7 @@ func tick():
 	
 	change_balance(revenue_per_second)
 	
-	energy=balance*0.01
+	energy+=revenue_per_second/100
 	
 	if (energy> energy_required):
 		emit_signal("level_is_complete")

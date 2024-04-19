@@ -12,8 +12,14 @@ signal new_building_placed
 signal building_upgraded
 
 
-var level1 = {"wind": 1, "sun": 0.8, "energy_required": 100}
-var level2 = {"wind": 0, "sun": 0, "energy_required": 100}
-var level3 = {"wind": 0, "sun": 0, "energy_required": 100}
+var LEVELS_STATS = {1:{"wind": 1, "sun": 0.8, "energy_required": 100},
+2:{"wind": 0, "sun": 0, "energy_required": 100},
+3:{"wind": 0, "sun": 0, "energy_required": 100},
+4:{"wind": 0, "sun": 0, "energy_required": 100},
+5:{"wind": 0, "sun": 0, "energy_required": 100},
+6:{"wind": 0, "sun": 0, "energy_required": 100},
+} 
 
-var currentLevel = level1
+
+
+var currentLevel = LEVELS_STATS[1]
