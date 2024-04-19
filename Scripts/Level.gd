@@ -63,9 +63,9 @@ func tick():
 			UserData.popup_message("You have paid "+str(bill) + "$ in CO2 taxes.",$".")
 			
 	
-	change_balance(revenue_per_second)
+	change_balance(revenue_per_second*0.1)
 	
-	energy=energy+revenue_per_second*0.01
+	energy=energy+revenue_per_second*0.1
 	
 	if (energy>= energy_required):
 		emit_signal("level_is_complete")
