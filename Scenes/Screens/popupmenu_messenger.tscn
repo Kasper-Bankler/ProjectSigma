@@ -1,4 +1,4 @@
-[gd_scene load_steps=2 format=3 uid="uid://bxg1kead2p1jo"]
+[gd_scene load_steps=2 format=3 uid="uid://bp1a5n56cbbk8"]
 
 [ext_resource type="Script" path="res://Scripts/popupmenu_messenger.gd" id="1_nfty6"]
 
@@ -12,5 +12,4 @@ grow_vertical = 2
 script = ExtResource("1_nfty6")
 
 [node name="PopupMenu" type="PopupMenu" parent="."]
-initial_position = 1
 visible = true

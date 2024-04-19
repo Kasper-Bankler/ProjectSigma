@@ -1,8 +1,24 @@
-[gd_scene load_steps=4 format=3 uid="uid://cj2p4oro2qhgh"]
+[gd_scene load_steps=6 format=3 uid="uid://cj2p4oro2qhgh"]
 
 [ext_resource type="Script" path="res://Scripts/login.gd" id="1_r6uya"]
 [ext_resource type="Theme" uid="uid://bkhxy8i0ihnyh" path="res://Assets/FlatUI/kenneyUI-blue.tres" id="2_qddyi"]
-[ext_resource type="Theme" uid="uid://dqvoyqr6jk6yn" path="res://Assets/FlatUI/kenneyUI.tres" id="3_blu5q"]
+[ext_resource type="Theme" uid="uid://d0juxhgobuuv2" path="res://Assets/FlatUI/kenneyUI-green.tres" id="3_ql0sa"]
+
+[sub_resource type="FontFile" id="FontFile_5e75j"]
+cache/0/16/0/ascent = 0.0
+cache/0/16/0/descent = 0.0
+cache/0/16/0/underline_position = 0.0
+cache/0/16/0/underline_thickness = 0.0
+cache/0/16/0/scale = 1.0
+cache/0/16/0/kerning_overrides/16/0 = Vector2(0, 0)
+
+[sub_resource type="FontFile" id="FontFile_r8rta"]
+cache/0/16/0/ascent = 0.0
+cache/0/16/0/descent = 0.0
+cache/0/16/0/underline_position = 0.0
+cache/0/16/0/underline_thickness = 0.0
+cache/0/16/0/scale = 1.0
+cache/0/16/0/kerning_overrides/16/0 = Vector2(0, 0)
 
 [node name="Login" type="Control"]
 layout_mode = 3
@@ -32,24 +48,6 @@ text = "Password"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Username" type="TextEdit" parent="."]
-layout_mode = 0
-offset_left = 270.0
-offset_top = 103.0
-offset_right = 441.0
-offset_bottom = 153.0
-theme = ExtResource("3_blu5q")
-placeholder_text = "Username"
-
-[node name="Password" type="TextEdit" parent="."]
-layout_mode = 0
-offset_left = 262.0
-offset_top = 172.0
-offset_right = 445.0
-offset_bottom = 226.0
-theme = ExtResource("3_blu5q")
-placeholder_text = "Password"
-
 [node name="Login" type="Button" parent="."]
 layout_mode = 0
 offset_left = 268.0
@@ -68,6 +66,27 @@ offset_bottom = 161.0
 text = "Username"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="Username" type="TextEdit" parent="."]
+offset_left = 270.0
+offset_top = 103.0
+offset_right = 441.0
+offset_bottom = 153.0
+theme_override_colors/background_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = SubResource("FontFile_5e75j")
+placeholder_text = "Username"
+
+[node name="Password" type="TextEdit" parent="."]
+offset_left = 262.0
+offset_top = 172.0
+offset_right = 445.0
+offset_bottom = 226.0
+theme = ExtResource("3_ql0sa")
+theme_override_colors/background_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0.933333, 0.933333, 0.933333, 1)
+theme_override_fonts/font = SubResource("FontFile_r8rta")
+placeholder_text = "Password"
 
 [connection signal="pressed" from="Login2" to="." method="_on_login_2_pressed"]
 [connection signal="pressed" from="Login" to="." method="_on_login_pressed"]

@@ -1,9 +1,16 @@
 [gd_scene load_steps=8 format=3 uid="uid://c2cbyvl5notb6"]
 
 [ext_resource type="Script" path="res://Scripts/login_menu.gd" id="1_l0i5v"]
-[ext_resource type="Theme" uid="uid://dqvoyqr6jk6yn" path="res://Assets/FlatUI/kenneyUI.tres" id="2_aednh"]
-[ext_resource type="Theme" uid="uid://cq6n5g4sl3qda" path="res://Assets/FlatUI/kenneyUI-green.tres" id="2_m7lqc"]
-[ext_resource type="FontFile" uid="uid://5a6yldsomrxi" path="res://Assets/FlatUI/kenvector_future.ttf" id="3_bl6xe"]
+[ext_resource type="Theme" uid="uid://d0juxhgobuuv2" path="res://Assets/FlatUI/kenneyUI-green.tres" id="2_m7lqc"]
+[ext_resource type="Theme" uid="uid://bkhxy8i0ihnyh" path="res://Assets/FlatUI/kenneyUI-blue.tres" id="3_lnk3d"]
+
+[sub_resource type="FontFile" id="FontFile_gpf6j"]
+cache/0/16/0/ascent = 0.0
+cache/0/16/0/descent = 0.0
+cache/0/16/0/underline_position = 0.0
+cache/0/16/0/underline_thickness = 0.0
+cache/0/16/0/scale = 1.0
+cache/0/16/0/kerning_overrides/16/0 = Vector2(0, 0)
 
 [sub_resource type="FontFile" id="FontFile_thc04"]
 cache/0/16/0/ascent = 0.0
@@ -43,9 +50,9 @@ offset_left = 270.0
 offset_top = 103.0
 offset_right = 441.0
 offset_bottom = 153.0
-theme = ExtResource("2_m7lqc")
 theme_override_colors/background_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("3_bl6xe")
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = SubResource("FontFile_gpf6j")
 placeholder_text = "Username"
 
 [node name="Password" type="TextEdit" parent="."]
@@ -56,6 +63,7 @@ offset_right = 445.0
 offset_bottom = 226.0
 theme = ExtResource("2_m7lqc")
 theme_override_colors/background_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0.933333, 0.933333, 0.933333, 1)
 theme_override_fonts/font = SubResource("FontFile_thc04")
 placeholder_text = "Password"
 
@@ -65,7 +73,7 @@ offset_left = 268.0
 offset_top = 252.0
 offset_right = 366.0
 offset_bottom = 296.0
-theme = ExtResource("2_aednh")
+theme = ExtResource("2_m7lqc")
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = SubResource("FontVariation_fbknw")
 text = "Sign Up"
@@ -86,6 +94,7 @@ offset_left = 267.0
 offset_top = 312.0
 offset_right = 545.0
 offset_bottom = 356.0
+theme = ExtResource("3_lnk3d")
 text = "Already have an account? Login here"
 
 [connection signal="button_down" from="Login" to="." method="_on_login_button_down"]

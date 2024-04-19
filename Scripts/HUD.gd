@@ -31,8 +31,8 @@ func level_complete():
 		medal3.visible = true
 		
 	$LevelCompletePopup/CenterContainer/VBoxContainer/Score.text = str(totalScore)
-	$LevelCompletePopup/CenterContainer/VBoxContainer/Energy.text = str(CurrentLevel.energy_generated)
-	$LevelCompletePopup/CenterContainer/VBoxContainer/CO2.text = str(CurrentLevel.co2_emitted)
+	$LevelCompletePopup/CenterContainer/VBoxContainer/Energy.text = str(level.energy)
+	$LevelCompletePopup/CenterContainer/VBoxContainer/CO2.text = str(level.emission)
 	CurrentLevel.is_playing = false
 	$LevelCompletePopup.visible = true
 	$EnergyProgressBar.visible = false
@@ -45,13 +45,16 @@ func level_complete():
 	
 
 func update_balance():
-	$CoinLabel.text = str(level.balance)
+	$CoinLabel.text = str(round(level.balance))
 	
 func update_energy():
-	$EnergyProgressBar.value = level.energy/(level.energy_required+1)
 
+
+	print(level.energy/(level.energy_required+1))
+	$EnergyProgressBar.value = level.energy/(level.energy_required+1)*100
+	
 func updata_buy_menu():
-	var balance = CurrentLevel.balance
+	var balance = level.balance
 	
 	for building in $BuildingPanelContainer/BuildingPanel/HBoxContainer.get_children():
 		if balance<BuildingData.BUILDINGS_STATS[building.name.to_lower()]["price"]:
