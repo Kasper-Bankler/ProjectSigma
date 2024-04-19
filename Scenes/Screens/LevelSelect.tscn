@@ -1,15 +1,15 @@
 [gd_scene load_steps=11 format=3 uid="uid://cqof14l2dtrs6"]
 
 [ext_resource type="Script" path="res://Scripts/LevelSelect.gd" id="1_41jrp"]
-[ext_resource type="Texture2D" uid="uid://c0b86h5ki378j" path="res://Assets/Icons/678129-lock-512.webp" id="2_6yk70"]
-[ext_resource type="Theme" uid="uid://d0juxhgobuuv2" path="res://Assets/FlatUI/kenneyUI-green.tres" id="2_jyrmf"]
+[ext_resource type="Texture2D" uid="uid://c2ss1lt630043" path="res://Assets/Icons/678129-lock-512.webp" id="2_6yk70"]
+[ext_resource type="Theme" uid="uid://cq6n5g4sl3qda" path="res://Assets/FlatUI/kenneyUI-green.tres" id="2_jyrmf"]
 [ext_resource type="Texture2D" uid="uid://b1ifr31ios5dk" path="res://Assets/Icons/Weather/cloud-solid.svg" id="3_p4q4c"]
 [ext_resource type="Texture2D" uid="uid://b4asdicqpdgi7" path="res://Assets/Icons/Weather/cloud-sun-solid.svg" id="4_85gog"]
 [ext_resource type="Texture2D" uid="uid://dkhkg5omrplta" path="res://Assets/Icons/Weather/wind-solid.svg" id="4_lwlxd"]
 [ext_resource type="Texture2D" uid="uid://bdr34jn8cuqnb" path="res://Assets/Icons/Weather/sun-solid.svg" id="5_25a3h"]
-[ext_resource type="Texture2D" uid="uid://dpvplykks48k4" path="res://Assets/Icons/Weather/no_sign.png" id="7_nwjgf"]
+[ext_resource type="Texture2D" uid="uid://cjrwows645ix6" path="res://Assets/Icons/Weather/no_sign.png" id="7_nwjgf"]
 [ext_resource type="Texture2D" uid="uid://digas8in53l7q" path="res://Assets/Icons/Weather/tornado-solid.svg" id="8_tdndw"]
-[ext_resource type="Texture2D" uid="uid://4cax5iaqy41w" path="res://Assets/levelScreenshots/level1.png" id="9_tffct"]
+[ext_resource type="Texture2D" uid="uid://5pumx57s1k1l" path="res://Assets/levelScreenshots/level1.png" id="9_tffct"]
 
 [node name="LevelSelect" type="Control"]
 layout_mode = 3
