@@ -113,7 +113,7 @@ func _on_exit_button_pressed():
 
 func _on_next_button_pressed():
 	MusicController.clickSound()
-	get_tree().change_scene_to_file("res://Scenes/Screens/Level2.tscn")
+	get_tree().change_scene_to_file("res://Scenes/Levels/Level2.tscn")
 
 func _on_resume_button_pressed_paused():
 	CurrentLevel.is_playing = true
