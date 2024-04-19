@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=3 uid="uid://bp6vkusl8o3ye"]
+[gd_scene load_steps=3 format=3 uid="uid://c5s0vm3lwqtwd"]
 
 [ext_resource type="Script" path="res://Scripts/popup_messenger.gd" id="1_kmvod"]
 [ext_resource type="Theme" uid="uid://d0qntl6ilcfff" path="res://Assets/FlatUI/kenneyUI-yellow.tres" id="2_s4lme"]

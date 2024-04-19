@@ -29,7 +29,7 @@ func _on_login_button_down():
 		return
 		
 	if passwordField.get_text()=="":
-		MusicController.errorsound()
+		MusicController.errorSound()
 		UserData.popup_message("Please enter a password",$".")
 		return
 		
