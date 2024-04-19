@@ -2,6 +2,9 @@ extends CanvasLayer
 
 signal place_building
 var building_selected = ""
+@onready var medal1 = $LevelCompletePopup/CenterContainer/VBoxContainer/HBoxContainer/Medal1
+@onready var medal2 = $LevelCompletePopup/CenterContainer/VBoxContainer/HBoxContainer/Medal2
+@onready var medal3 = $LevelCompletePopup/CenterContainer/VBoxContainer/HBoxContainer/Medal3
 
 @onready var level=get_parent()
 
@@ -20,7 +23,13 @@ func _process(_delta):
 func level_complete():
 	var totalScore = (level.energy + CurrentLevel.balance) - level.emission
 	
-	
+	if (totalScore <= 100):
+		medal1.visible = true
+	elif (totalScore >= 500 and totalScore <= 1000):
+		medal2.visible = true
+	elif (totalScore >= 1000):
+		medal3.visible = true
+		
 	$LevelCompletePopup/CenterContainer/VBoxContainer/Score.text = str(totalScore)
 	$LevelCompletePopup/CenterContainer/VBoxContainer/Energy.text = str(CurrentLevel.energy_generated)
 	$LevelCompletePopup/CenterContainer/VBoxContainer/CO2.text = str(CurrentLevel.co2_emitted)

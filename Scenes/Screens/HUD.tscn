@@ -408,14 +408,17 @@ text = "Level Complete!"
 layout_mode = 2
 
 [node name="Medal1" type="TextureRect" parent="LevelCompletePopup/CenterContainer/VBoxContainer/HBoxContainer"]
+visible = false
 layout_mode = 2
 texture = ExtResource("18_h416i")
 
 [node name="Medal2" type="TextureRect" parent="LevelCompletePopup/CenterContainer/VBoxContainer/HBoxContainer"]
+visible = false
 layout_mode = 2
 texture = ExtResource("19_hxx15")
 
 [node name="Medal3" type="TextureRect" parent="LevelCompletePopup/CenterContainer/VBoxContainer/HBoxContainer"]
+visible = false
 layout_mode = 2
 texture = ExtResource("20_clds8")
 
