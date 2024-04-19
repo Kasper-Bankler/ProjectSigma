@@ -1,8 +1,8 @@
 extends Control
 
 var player_completed_level_1 = false
-
-
+@onready var level_image=$ScrollContainer/HBoxContainer/LEVELCONTAINER/ColorRect/Sprite2D
+var image_path
 @onready var level_container=$ScrollContainer/HBoxContainer/LEVELCONTAINER
 @onready var levels_container=$ScrollContainer/HBoxContainer
 @onready var seperator=$ScrollContainer/HBoxContainer/sep
@@ -24,17 +24,15 @@ func _on_progress_set():
 		
 		var this_level=levels_container.get_child(n*2)
 		var weather_container=this_level.get_child(0)
-		
-		print(CurrentLevel.LEVELS_STATS[n+1]["sun"])
-		print(floor(CurrentLevel.LEVELS_STATS[n+1]["sun"]*2))
-		print("***********")
-		print(CurrentLevel.LEVELS_STATS[n+1]["wind"])
-		print(floor(CurrentLevel.LEVELS_STATS[n+1]["wind"]*2))
-		print("***********")
+		var new_level_image=level_image.duplicate()
+		new_level_image.texture=load("res://Assets/levelScreenshots/level"+str(n+1)+".png")
+	
 		weather_container.get_child(0).get_child(floor(CurrentLevel.LEVELS_STATS[n+1]["sun"]*2)).visible=true
 		weather_container.get_child(1).get_child(floor(CurrentLevel.LEVELS_STATS[n+1]["wind"]*2)).visible=true
+		this_level.get_child(1).add_child(new_level_image)
 		this_level.get_child(2).get_child(0).queue_free()
 		this_level.get_child(2).disabled=false
+
 		this_level.get_child(2).set_text("Play")
 
 func _on_back_pressed():
