@@ -43,7 +43,7 @@ func _process(_delta):
 			$Coal.visible = false
 			$Nuclear.visible = false
 
-func update_preview(buildingName):
+func update_preview(buildingName): #Preview af valgt bygning ses
 	$".".get_node(buildingName).visible = true
 	$".".get_node(buildingName).position.x = get_viewport().get_mouse_position().x
 	$".".get_node(buildingName).position.y = get_viewport().get_mouse_position().y
