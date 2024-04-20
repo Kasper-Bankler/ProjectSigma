@@ -1,10 +1,15 @@
-[gd_scene load_steps=6 format=3 uid="uid://jf62nm5cfsou"]
+[gd_scene load_steps=11 format=3 uid="uid://jf62nm5cfsou"]
 
 [ext_resource type="Script" path="res://Scripts/Level.gd" id="1_0rh1m"]
 [ext_resource type="PackedScene" uid="uid://cu062rpm4w0lk" path="res://Scenes/Screens/HUD.tscn" id="2_fpahd"]
 [ext_resource type="Texture2D" uid="uid://dekvppjg05rvo" path="res://Assets/Background/background_color.png" id="3_vk6rr"]
 [ext_resource type="PackedScene" uid="uid://mb3dx1aga4n5" path="res://Scenes/TileMaps/LandscapeTiles.tscn" id="4_i7isb"]
 [ext_resource type="Script" path="res://Scripts/Builder.gd" id="5_nywhf"]
+[ext_resource type="Texture2D" uid="uid://c546k643fulat" path="res://Assets/buildings/windturbine/rotationAnimation/LEVEL1/0001.png" id="6_ye0i4"]
+[ext_resource type="Texture2D" uid="uid://cw3o377hfisdp" path="res://Assets/buildings/solarpanel/solceller1.png" id="7_sddjs"]
+[ext_resource type="Texture2D" uid="uid://3s7kyae117nn" path="res://Assets/buildings/biogas/biogas1.png" id="8_xepc8"]
+[ext_resource type="Texture2D" uid="uid://b1fb10w8a1gql" path="res://Assets/buildings/coal powerplant/level1.png" id="9_eso6r"]
+[ext_resource type="Texture2D" uid="uid://35i2w055qp48" path="res://Assets/buildings/nuclear powerplant/1.png" id="10_4idew"]
 
 [node name="Level3" type="Node2D"]
 script = ExtResource("1_0rh1m")
@@ -25,5 +30,60 @@ layer_0/tile_data = PackedInt32Array(589827, 9, 0, 524292, 9, 0, 458756, 9, 0, 6
 
 [node name="Builder" type="Node2D" parent="."]
 script = ExtResource("5_nywhf")
+
+[node name="Wind" type="TextureRect" parent="Builder"]
+visible = false
+self_modulate = Color(1, 1, 1, 0.509804)
+offset_left = -42.0
+offset_top = -97.0
+offset_right = 91.0
+offset_bottom = 112.0
+scale = Vector2(0.3, 0.3)
+pivot_offset = Vector2(-100, -180)
+texture = ExtResource("6_ye0i4")
+
+[node name="Solar" type="TextureRect" parent="Builder"]
+visible = false
+self_modulate = Color(1, 1, 1, 0.509804)
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(0.2, 0.2)
+pivot_offset = Vector2(-100, -130)
+texture = ExtResource("7_sddjs")
+
+[node name="Bio" type="TextureRect" parent="Builder"]
+visible = false
+self_modulate = Color(1, 1, 1, 0.509804)
+layout_direction = 2
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -132.0
+offset_top = -124.0
+grow_horizontal = 0
+grow_vertical = 0
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("8_xepc8")
+flip_h = true
+
+[node name="Coal" type="TextureRect" parent="Builder"]
+visible = false
+self_modulate = Color(1, 1, 1, 0.509804)
+offset_right = 602.0
+offset_bottom = 538.0
+scale = Vector2(0.2, 0.2)
+pivot_offset = Vector2(-130, -120)
+texture = ExtResource("9_eso6r")
+
+[node name="Nuclear" type="TextureRect" parent="Builder"]
+visible = false
+self_modulate = Color(1, 1, 1, 0.509804)
+offset_right = 602.0
+offset_bottom = 538.0
+scale = Vector2(0.2, 0.2)
+pivot_offset = Vector2(-130, -120)
+texture = ExtResource("10_4idew")
 
 [connection signal="place_building" from="HUD" to="Builder" method="_on_hud_place_building"]
