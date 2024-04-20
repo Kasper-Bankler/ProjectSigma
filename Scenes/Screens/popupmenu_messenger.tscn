@@ -13,3 +13,5 @@ script = ExtResource("1_nfty6")
 
 [node name="PopupMenu" type="PopupMenu" parent="."]
 visible = true
+
+[connection signal="popup_hide" from="PopupMenu" to="." method="_on_popup_menu_popup_hide"]

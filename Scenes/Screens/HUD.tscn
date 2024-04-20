@@ -23,7 +23,7 @@
 [ext_resource type="Texture2D" uid="uid://bb6wgnnbbsmjb" path="res://Assets/Medals/PNG/flat_medal9.png" id="19_hxx15"]
 [ext_resource type="Texture2D" uid="uid://cicdcyusmu8xf" path="res://Assets/Medals/PNG/shaded_medal1.png" id="20_clds8"]
 [ext_resource type="Theme" uid="uid://10bfrd2i470b" path="res://Assets/FlatUI/kenneyUI-red.tres" id="22_tu7nr"]
-[ext_resource type="Theme" uid="uid://cq6n5g4sl3qda" path="res://Assets/FlatUI/kenneyUI-green.tres" id="23_tw14b"]
+[ext_resource type="Theme" uid="uid://d0juxhgobuuv2" path="res://Assets/FlatUI/kenneyUI-green.tres" id="23_tw14b"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_88tuy"]
 bg_color = Color(0.545098, 0.556863, 0.0784314, 1)
