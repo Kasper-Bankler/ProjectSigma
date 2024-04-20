@@ -50,7 +50,7 @@ func update_balance():
 func update_energy():
 
 
-	print(level.energy/(level.energy_required+1))
+
 	$EnergyProgressBar.value = level.energy/(level.energy_required+1)*100
 	
 func updata_buy_menu():
