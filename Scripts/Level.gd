@@ -60,7 +60,7 @@ func tick():
 			change_balance(-bill)
 			if (len(get_tree().get_nodes_in_group("popup_message"))>0):
 				get_tree().get_nodes_in_group("popup_message")[0].queue_free()
-			UserData.popup_message("You have paid "+str(bill) + "$ in CO2 taxes.",$".")
+			UserData.popup_message("Du har betalt  "+str(bill) + "$ i CO2-afgifter.",$".")
 			
 	
 	change_balance(revenue_per_second*0.1)

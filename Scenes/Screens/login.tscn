@@ -1,8 +1,12 @@
-[gd_scene load_steps=6 format=3 uid="uid://cj2p4oro2qhgh"]
+[gd_scene load_steps=7 format=3 uid="uid://cj2p4oro2qhgh"]
 
 [ext_resource type="Script" path="res://Scripts/login.gd" id="1_r6uya"]
 [ext_resource type="Theme" uid="uid://bkhxy8i0ihnyh" path="res://Assets/FlatUI/kenneyUI-blue.tres" id="2_qddyi"]
 [ext_resource type="Theme" uid="uid://cq6n5g4sl3qda" path="res://Assets/FlatUI/kenneyUI-green.tres" id="3_ql0sa"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_bpsrh"]
+font_size = 50
+font_color = Color(0.364706, 0.752941, 0.447059, 1)
 
 [sub_resource type="FontFile" id="FontFile_5e75j"]
 cache/0/16/0/ascent = 0.0
@@ -29,66 +33,83 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_r6uya")
 
-[node name="Login2" type="Button" parent="."]
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 0
-offset_left = 267.0
-offset_top = 312.0
-offset_right = 545.0
-offset_bottom = 356.0
-theme = ExtResource("2_qddyi")
-text = "dont have an account? signup here"
+offset_left = 663.0
+offset_top = 311.0
+offset_right = 1098.0
+offset_bottom = 669.0
+metadata/_edit_group_ = true
 
-[node name="Label2" type="Label" parent="."]
-layout_mode = 0
-offset_left = 91.0
-offset_top = 167.0
-offset_right = 232.0
-offset_bottom = 241.0
-text = "Password"
+[node name="Label" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "Log ind!"
+label_settings = SubResource("LabelSettings_bpsrh")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Login" type="Button" parent="."]
-layout_mode = 0
-offset_left = 268.0
-offset_top = 252.0
-offset_right = 366.0
-offset_bottom = 296.0
-theme = ExtResource("2_qddyi")
-text = "Login"
+[node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
 
-[node name="Label" type="Label" parent="."]
-layout_mode = 0
-offset_left = 117.0
-offset_top = 87.0
-offset_right = 258.0
-offset_bottom = 161.0
-text = "Username"
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(120, 0)
+layout_mode = 2
+text = "Brugernavn"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Username" type="TextEdit" parent="."]
-layout_mode = 0
-offset_left = 270.0
-offset_top = 103.0
-offset_right = 441.0
-offset_bottom = 153.0
+[node name="Username" type="TextEdit" parent="VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
 theme_override_colors/background_color = Color(0, 0, 0, 1)
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = SubResource("FontFile_5e75j")
-placeholder_text = "Username"
+placeholder_text = "Brugernavn"
 
-[node name="Password" type="TextEdit" parent="."]
-layout_mode = 0
-offset_left = 262.0
-offset_top = 172.0
-offset_right = 445.0
-offset_bottom = 226.0
+[node name="HBoxContainer3" type="HBoxContainer" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Label2" type="Label" parent="VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(120, 0)
+layout_mode = 2
+text = "Adgangskode"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Password" type="TextEdit" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
 theme = ExtResource("3_ql0sa")
 theme_override_colors/background_color = Color(0, 0, 0, 1)
 theme_override_colors/font_color = Color(0.933333, 0.933333, 0.933333, 1)
 theme_override_fonts/font = SubResource("FontFile_r8rta")
-placeholder_text = "Password"
+placeholder_text = "Adgangskode"
 
-[connection signal="pressed" from="Login2" to="." method="_on_login_2_pressed"]
-[connection signal="pressed" from="Login" to="." method="_on_login_pressed"]
+[node name="HBoxContainer4" type="HBoxContainer" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+
+[node name="Login" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("2_qddyi")
+text = "Log ind"
+
+[node name="HBoxContainer5" type="HBoxContainer" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+
+[node name="change" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("3_ql0sa")
+text = "Registrer her hvis du ikke har en konto i forvejen!"
+
+[connection signal="pressed" from="VBoxContainer/Login" to="." method="_on_login_pressed"]
+[connection signal="pressed" from="VBoxContainer/change" to="." method="_on_login_2_pressed"]

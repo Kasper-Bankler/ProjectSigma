@@ -19,7 +19,7 @@ func _ready():
 
 
 func _on_progress_set():
-	$Label.text="YOU HAVE COMPLETED "+str(UserData.player_progress)+" LEVELS"
+	$Label.text="Du har fuldført "+str(UserData.player_progress)+" levels!"
 	for n in range(UserData.player_progress+1):
 		
 		var this_level=levels_container.get_child(n*2)
@@ -33,7 +33,7 @@ func _on_progress_set():
 		this_level.get_child(2).get_child(0).queue_free()
 		this_level.get_child(2).disabled=false
 
-		this_level.get_child(2).set_text("Play")
+		this_level.get_child(2).set_text("Spil")
 
 func _on_back_pressed():
 	MusicController.closeSound()

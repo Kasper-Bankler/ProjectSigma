@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://cu062rpm4w0lk"]
+[gd_scene load_steps=36 format=3 uid="uid://cu062rpm4w0lk"]
 
 [ext_resource type="Script" path="res://Scripts/HUD.gd" id="1_kayje"]
 [ext_resource type="FontFile" uid="uid://dikb6kaq6rwap" path="res://Assets/Fonts/kenvector_future.ttf" id="1_l5apb"]
@@ -10,7 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://b4asdicqpdgi7" path="res://Assets/Icons/Weather/cloud-sun-solid.svg" id="7_6cre7"]
 [ext_resource type="Texture2D" uid="uid://digas8in53l7q" path="res://Assets/Icons/Weather/tornado-solid.svg" id="8_ifrgb"]
 [ext_resource type="Texture2D" uid="uid://cxfv3sl4nrkj7" path="res://Assets/Icons/PNG/Black/1x/pause.png" id="10_5e062"]
-[ext_resource type="Texture2D" uid="uid://cjrwows645ix6" path="res://Assets/Icons/Weather/no_sign.png" id="10_5vwny"]
+[ext_resource type="Texture2D" uid="uid://da8id2vtcrmmu" path="res://Assets/Icons/Weather/no_sign.png" id="10_5vwny"]
 [ext_resource type="Texture2D" uid="uid://bahdoct3hvjvb" path="res://Assets/Icons/PNG/Black/1x/cart.png" id="11_jyge7"]
 [ext_resource type="Texture2D" uid="uid://bht74yjo1b707" path="res://Assets/UI/PNG/red_cross.png" id="12_4nm0u"]
 [ext_resource type="Texture2D" uid="uid://b1fb10w8a1gql" path="res://Assets/buildings/coal powerplant/level1.png" id="12_oiw1a"]
@@ -18,7 +18,7 @@
 [ext_resource type="Texture2D" uid="uid://c546k643fulat" path="res://Assets/buildings/windturbine/rotationAnimation/LEVEL1/0001.png" id="14_mt4g3"]
 [ext_resource type="Texture2D" uid="uid://3s7kyae117nn" path="res://Assets/buildings/biogas/biogas1.png" id="16_q104s"]
 [ext_resource type="Texture2D" uid="uid://cmdf2pyax8q2t" path="res://Assets/Medals/PNG/flat_medal2.png" id="18_h416i"]
-[ext_resource type="Texture2D" uid="uid://c4txemupygic5" path="res://Assets/buildings/nuclear powerplant/1.png" id="18_julbm"]
+[ext_resource type="Texture2D" uid="uid://35i2w055qp48" path="res://Assets/buildings/nuclear powerplant/1.png" id="18_julbm"]
 [ext_resource type="Theme" uid="uid://d0qntl6ilcfff" path="res://Assets/FlatUI/kenneyUI-yellow.tres" id="19_ah2il"]
 [ext_resource type="Texture2D" uid="uid://bb6wgnnbbsmjb" path="res://Assets/Medals/PNG/flat_medal9.png" id="19_hxx15"]
 [ext_resource type="Texture2D" uid="uid://cicdcyusmu8xf" path="res://Assets/Medals/PNG/shaded_medal1.png" id="20_clds8"]
@@ -74,9 +74,14 @@ bg_color = Color(1, 1, 1, 1)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_q3oo2"]
 bg_color = Color(0, 0.717647, 0.388235, 1)
 
+[sub_resource type="FontVariation" id="FontVariation_4228f"]
+
 [sub_resource type="FontVariation" id="FontVariation_463io"]
 
 [sub_resource type="FontFile" id="FontFile_4uk0j"]
+subpixel_positioning = 0
+msdf_pixel_range = 14
+msdf_size = 128
 cache/0/30/0/ascent = 0.0
 cache/0/30/0/descent = 0.0
 cache/0/30/0/underline_position = 0.0
@@ -93,6 +98,9 @@ cache/0/16/0/kerning_overrides/30/0 = Vector2(0, 0)
 cache/0/16/0/kerning_overrides/16/0 = Vector2(0, 0)
 
 [sub_resource type="FontFile" id="FontFile_mti0s"]
+subpixel_positioning = 0
+msdf_pixel_range = 14
+msdf_size = 128
 cache/0/32/0/ascent = 0.0
 cache/0/32/0/descent = 0.0
 cache/0/32/0/underline_position = 0.0
@@ -336,38 +344,38 @@ flat = true
 
 [node name="PopupPanel" type="PopupPanel" parent="."]
 initial_position = 1
-size = Vector2i(134, 220)
+size = Vector2i(152, 220)
 
 [node name="VBoxContainer" type="VBoxContainer" parent="PopupPanel"]
 offset_left = 4.0
 offset_top = 4.0
-offset_right = 130.0
+offset_right = 148.0
 offset_bottom = 216.0
 
 [node name="NameLabel" type="Label" parent="PopupPanel/VBoxContainer"]
 layout_mode = 2
-text = "Name:"
+text = "Navn:"
 
 [node name="Name" type="Label" parent="PopupPanel/VBoxContainer"]
 layout_mode = 2
 
 [node name="PriceLabel" type="Label" parent="PopupPanel/VBoxContainer"]
 layout_mode = 2
-text = "Price:"
+text = "Pris:"
 
 [node name="Price" type="Label" parent="PopupPanel/VBoxContainer"]
 layout_mode = 2
 
 [node name="ProductionLabel" type="Label" parent="PopupPanel/VBoxContainer"]
 layout_mode = 2
-text = "Production rate:"
+text = "Energi produktion:"
 
 [node name="Production" type="Label" parent="PopupPanel/VBoxContainer"]
 layout_mode = 2
 
 [node name="EmissionLabel" type="Label" parent="PopupPanel/VBoxContainer"]
 layout_mode = 2
-text = "CO2 emission:"
+text = "CO2 udledning:"
 
 [node name="Emission" type="Label" parent="PopupPanel/VBoxContainer"]
 layout_mode = 2
@@ -394,15 +402,16 @@ layout_mode = 0
 offset_left = 124.0
 offset_top = 10.0
 offset_right = 936.0
-offset_bottom = 769.0
+offset_bottom = 794.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="LevelCompletePopup/CenterContainer"]
 layout_mode = 2
+size_flags_stretch_ratio = 1.53
 
 [node name="TitleLabel" type="Label" parent="LevelCompletePopup/CenterContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 55
-text = "Level Complete!"
+text = "Du har klaret denne level!"
 
 [node name="HBoxContainer" type="HBoxContainer" parent="LevelCompletePopup/CenterContainer/VBoxContainer"]
 layout_mode = 2
@@ -425,7 +434,7 @@ texture = ExtResource("20_clds8")
 [node name="ScoreLabel" type="Label" parent="LevelCompletePopup/CenterContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 30
-text = "Score:"
+text = "Points:"
 
 [node name="Score" type="Label" parent="LevelCompletePopup/CenterContainer/VBoxContainer"]
 layout_mode = 2
@@ -433,7 +442,7 @@ layout_mode = 2
 [node name="EnergyLabel" type="Label" parent="LevelCompletePopup/CenterContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 30
-text = "Total energy generated:"
+text = "elektricitet produceret:"
 
 [node name="Energy" type="Label" parent="LevelCompletePopup/CenterContainer/VBoxContainer"]
 layout_mode = 2
@@ -441,23 +450,29 @@ layout_mode = 2
 [node name="CO2Label" type="Label" parent="LevelCompletePopup/CenterContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 30
-text = "Total CO2 emitted:"
+text = "CO2 udledning:"
 
 [node name="CO2" type="Label" parent="LevelCompletePopup/CenterContainer/VBoxContainer"]
 layout_mode = 2
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="LevelCompletePopup/CenterContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 40)
 layout_mode = 2
 
 [node name="ExitButton" type="Button" parent="LevelCompletePopup/CenterContainer/VBoxContainer/HBoxContainer2"]
 layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("22_tu7nr")
+theme_override_fonts/font = SubResource("FontVariation_4228f")
 theme_override_font_sizes/font_size = 20
-text = "Exit"
+text = "Tilbage"
 
 [node name="NextButton" type="Button" parent="LevelCompletePopup/CenterContainer/VBoxContainer/HBoxContainer2"]
 layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("23_tw14b")
 theme_override_font_sizes/font_size = 20
-text = "Next level"
+text = "Videre til næste level"
 
 [node name="PausePopup" type="Panel" parent="."]
 visible = false
@@ -478,15 +493,15 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_q3oo2")
 
 [node name="TitleLabel" type="Label" parent="PausePopup"]
 layout_mode = 2
-offset_left = 175.0
+offset_left = 33.0
 offset_top = 44.0
-offset_right = 941.0
+offset_right = 1092.0
 offset_bottom = 181.0
 scale = Vector2(0.7, 0.7)
 theme = ExtResource("22_tu7nr")
 theme_override_fonts/font = SubResource("FontVariation_463io")
 theme_override_font_sizes/font_size = 100
-text = "Game pasued"
+text = "Spillet er sat på pause"
 
 [node name="CenterContainer_Pause" type="CenterContainer" parent="PausePopup"]
 modulate = Color(0.760784, 0.929412, 0.933333, 1)
@@ -497,6 +512,7 @@ offset_right = 812.0
 offset_bottom = 759.0
 
 [node name="VBoxContainer_Pause" type="VBoxContainer" parent="PausePopup/CenterContainer_Pause"]
+custom_minimum_size = Vector2(150, 150)
 layout_mode = 2
 theme_override_constants/separation = 21
 
@@ -506,14 +522,14 @@ layout_mode = 2
 theme = ExtResource("23_tw14b")
 theme_override_fonts/font = SubResource("FontFile_4uk0j")
 theme_override_font_sizes/font_size = 30
-text = " Resume "
+text = " Fortsæt spillet "
 
 [node name="Exit" type="Button" parent="PausePopup/CenterContainer_Pause/VBoxContainer_Pause"]
 layout_mode = 2
-theme = ExtResource("23_tw14b")
+theme = ExtResource("22_tu7nr")
 theme_override_fonts/font = SubResource("FontFile_mti0s")
 theme_override_font_sizes/font_size = 32
-text = "Back"
+text = "Tilbage til menu"
 
 [connection signal="pressed" from="PauseButton" to="." method="_on_pause_button_pressed"]
 [connection signal="pressed" from="CartButton" to="." method="_on_cart_button_pressed"]

@@ -3,8 +3,8 @@ extends Control
 var username = ""
 var password
 
-@onready var usernameField =$Username
-@onready var passwordField =$Password
+@onready var usernameField =$VBoxContainer/HBoxContainer2/Username
+@onready var passwordField =$VBoxContainer/HBoxContainer/Password
 
 
 func _ready():
@@ -17,20 +17,20 @@ func signed_up():
 	
 func _process(delta):
 	if UserData.is_requesting:
-		$Login.set_text("Loading...")
+		$VBoxContainer/Login2.set_text("Loading...")
 	else:
-		$Login.set_text("Sign up")
+		$VBoxContainer/Login2.set_text("Sign up")
 		
 
 func _on_login_button_down():
 	if usernameField.get_text()=="":
 		MusicController.errorSound()
-		UserData.popup_message("Please enter a username",$".")
+		UserData.popup_message("Husk at vælge et brugernavn!",$".")
 		return
 		
 	if passwordField.get_text()=="":
 		MusicController.errorSound()
-		UserData.popup_message("Please enter a password",$".")
+		UserData.popup_message("Husk at vælge en adgangskode!",$".")
 		return
 		
 	if !UserData.is_requesting:
@@ -38,9 +38,8 @@ func _on_login_button_down():
 		password = passwordField.get_text()
 		UserData.register_new_user(username,password)
 		
-
-		$Username.text = ""
-		$Password.text = ""
+		usernameField.text = ""
+		passwordField.text = ""
 
 
 func _on_login_2_pressed():

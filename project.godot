@@ -34,6 +34,10 @@ window/size/initial_position_type=2
 window/stretch/mode="viewport"
 window/stretch/aspect="keep_width"
 
+[editor]
+
+import/reimport_missing_imported_files=false
+
 [input]
 
 ui_leftclick={

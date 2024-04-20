@@ -1,15 +1,15 @@
 [gd_scene load_steps=11 format=3 uid="uid://cqof14l2dtrs6"]
 
 [ext_resource type="Script" path="res://Scripts/LevelSelect.gd" id="1_41jrp"]
-[ext_resource type="Texture2D" uid="uid://c2ss1lt630043" path="res://Assets/Icons/678129-lock-512.webp" id="2_6yk70"]
+[ext_resource type="Texture2D" uid="uid://c4hngp8ctjwqy" path="res://Assets/Icons/678129-lock-512.webp" id="2_6yk70"]
 [ext_resource type="Theme" uid="uid://cq6n5g4sl3qda" path="res://Assets/FlatUI/kenneyUI-green.tres" id="2_jyrmf"]
 [ext_resource type="Texture2D" uid="uid://b1ifr31ios5dk" path="res://Assets/Icons/Weather/cloud-solid.svg" id="3_p4q4c"]
 [ext_resource type="Texture2D" uid="uid://b4asdicqpdgi7" path="res://Assets/Icons/Weather/cloud-sun-solid.svg" id="4_85gog"]
 [ext_resource type="Texture2D" uid="uid://dkhkg5omrplta" path="res://Assets/Icons/Weather/wind-solid.svg" id="4_lwlxd"]
 [ext_resource type="Texture2D" uid="uid://bdr34jn8cuqnb" path="res://Assets/Icons/Weather/sun-solid.svg" id="5_25a3h"]
-[ext_resource type="Texture2D" uid="uid://cjrwows645ix6" path="res://Assets/Icons/Weather/no_sign.png" id="7_nwjgf"]
+[ext_resource type="Texture2D" uid="uid://da8id2vtcrmmu" path="res://Assets/Icons/Weather/no_sign.png" id="7_nwjgf"]
 [ext_resource type="Texture2D" uid="uid://digas8in53l7q" path="res://Assets/Icons/Weather/tornado-solid.svg" id="8_tdndw"]
-[ext_resource type="Texture2D" uid="uid://5pumx57s1k1l" path="res://Assets/levelScreenshots/level1.png" id="9_tffct"]
+[ext_resource type="Texture2D" uid="uid://jk7q4cmofe3p" path="res://Assets/levelScreenshots/level1.png" id="9_tffct"]
 
 [node name="LevelSelect" type="Control"]
 layout_mode = 3
@@ -33,7 +33,7 @@ offset_left = 81.0
 offset_top = 148.0
 offset_right = 209.0
 offset_bottom = 214.0
-text = "Back"
+text = "Tilbage"
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 0
@@ -48,7 +48,7 @@ offset_left = 693.0
 offset_top = 161.0
 offset_right = 1248.0
 offset_bottom = 227.0
-text = "YOU HAVE COMPLETED"
+text = "Henter data..."
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -151,7 +151,7 @@ layout_mode = 2
 theme = ExtResource("2_jyrmf")
 theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
 disabled = true
-text = "LOCKED"
+text = "Låst"
 
 [node name="678129-lock-512" type="Sprite2D" parent="ScrollContainer/HBoxContainer/LEVELCONTAINER/level1"]
 position = Vector2(75.0001, 44)
@@ -243,7 +243,7 @@ layout_mode = 2
 theme = ExtResource("2_jyrmf")
 theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
 disabled = true
-text = "LOCKED"
+text = "Låst"
 
 [node name="678129-lock-512" type="Sprite2D" parent="ScrollContainer/HBoxContainer/LEVELCONTAINER2/level2"]
 position = Vector2(75.0001, 44)
@@ -335,7 +335,7 @@ layout_mode = 2
 theme = ExtResource("2_jyrmf")
 theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
 disabled = true
-text = "LOCKED"
+text = "Låst"
 
 [node name="678129-lock-512" type="Sprite2D" parent="ScrollContainer/HBoxContainer/LEVELCONTAINER3/level3"]
 position = Vector2(75.0001, 44)
@@ -427,7 +427,7 @@ layout_mode = 2
 theme = ExtResource("2_jyrmf")
 theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
 disabled = true
-text = "LOCKED"
+text = "Låst"
 
 [node name="678129-lock-512" type="Sprite2D" parent="ScrollContainer/HBoxContainer/LEVELCONTAINER4/level4"]
 position = Vector2(75.0001, 44)
@@ -519,7 +519,7 @@ layout_mode = 2
 theme = ExtResource("2_jyrmf")
 theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
 disabled = true
-text = "LOCKED"
+text = "Låst"
 
 [node name="678129-lock-512" type="Sprite2D" parent="ScrollContainer/HBoxContainer/LEVELCONTAINER5/level5"]
 position = Vector2(75.0001, 44)
@@ -610,7 +610,7 @@ custom_minimum_size = Vector2(2.08165e-12, 100)
 layout_mode = 2
 theme = ExtResource("2_jyrmf")
 disabled = true
-text = "LOCKED"
+text = "Låst"
 
 [node name="678129-lock-512" type="Sprite2D" parent="ScrollContainer/HBoxContainer/LEVELCONTAINER6/level6"]
 position = Vector2(75.0001, 44)

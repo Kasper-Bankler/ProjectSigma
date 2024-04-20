@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://byw6n7gl1dfut"]
+[gd_scene load_steps=8 format=3 uid="uid://byw6n7gl1dfut"]
 
 [ext_resource type="Script" path="res://Scripts/Options.gd" id="1_aidr3"]
 [ext_resource type="Theme" uid="uid://0mfdlbx5h7b2" path="res://Themes/basicButtonTheme.tres" id="1_letll"]
@@ -7,6 +7,10 @@
 
 [sub_resource type="Theme" id="Theme_spk15"]
 default_font = ExtResource("3_cp5lo")
+
+[sub_resource type="FontVariation" id="FontVariation_o4drg"]
+
+[sub_resource type="FontVariation" id="FontVariation_ihdo6"]
 
 [node name="Options" type="Control"]
 layout_mode = 3
@@ -38,8 +42,9 @@ layout_mode = 2
 
 [node name="VolumeLabel" type="Label" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
+theme_override_fonts/font = SubResource("FontVariation_o4drg")
 theme_override_font_sizes/font_size = 75
-text = "Volume"
+text = "Lydniveau"
 
 [node name="Volume" type="HSlider" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
@@ -53,8 +58,9 @@ layout_mode = 2
 
 [node name="BackButton" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
+theme_override_fonts/font = SubResource("FontVariation_ihdo6")
 theme_override_font_sizes/font_size = 50
-text = "Back"
+text = "Tilbage"
 
 [connection signal="changed" from="MarginContainer/VBoxContainer/Volume" to="MarginContainer/VBoxContainer/Volume" method="_on_changed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/BackButton" to="." method="_on_back_button_pressed"]

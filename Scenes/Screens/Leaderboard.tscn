@@ -1,10 +1,9 @@
-[gd_scene load_steps=10 format=3 uid="uid://bif5kdskjyach"]
+[gd_scene load_steps=13 format=3 uid="uid://bif5kdskjyach"]
 
 [ext_resource type="Theme" uid="uid://cq6n5g4sl3qda" path="res://Assets/FlatUI/kenneyUI-green.tres" id="1_77oul"]
 [ext_resource type="FontFile" uid="uid://dikb6kaq6rwap" path="res://Assets/Fonts/kenvector_future.ttf" id="2_10um7"]
 [ext_resource type="Theme" uid="uid://10bfrd2i470b" path="res://Assets/FlatUI/kenneyUI-red.tres" id="3_ih35i"]
-[ext_resource type="FontFile" uid="uid://bohx8n7eiyr5o" path="res://Assets/Fonts/kenvector_future_thin.ttf" id="3_o26fj"]
-[ext_resource type="Texture2D" uid="uid://b4a70g5spxu6b" path="res://Assets/Background/background_color.png" id="5_0agny"]
+[ext_resource type="Texture2D" uid="uid://dekvppjg05rvo" path="res://Assets/Background/background_color.png" id="5_0agny"]
 
 [sub_resource type="GDScript" id="GDScript_ddrcp"]
 script/source = "extends Control
@@ -32,39 +31,50 @@ func _ready():
 	
 
 func on_level_scores_fetched():
-	print(\"COMPLETE\")
-	print(\"COMPLETE\")
-
-	print(\"COMPLETE\")
-	print(\"COMPLETE\")
-	print(UserData.level_scores)	
+	
+	#skjul Loading besked
 	$Label2.hide()
 	for n in range(1,UserData.num_of_levels+1):
+		
 		create_new_level_container(n)
 		populate_leaderboard_level(n)
+		
+	#fjern den første level template og dens seperator
+	$ScrollContainer/HBoxContainer.get_child(0).queue_free()
+	$ScrollContainer/HBoxContainer.get_child(1).queue_free()
+	
 
 func create_new_level_container(level):
+	#kopier level template
 	var new_level_container=$ScrollContainer/HBoxContainer/Level1.duplicate()
 	
-	new_level_container.get_child(0).text=\"LEVEL\"+str(level+1)
+	#sætter det rigtige level nummer
+	new_level_container.get_child(0).text=\"LEVEL \"+str(level)
+	
+	#tilføjer level til levels containeren
 	$ScrollContainer/HBoxContainer.add_child(new_level_container)
+	
+	#seperator mellem levels for bedre adskilning af levels
 	$ScrollContainer/HBoxContainer.add_child($ScrollContainer/HBoxContainer/split.duplicate())
 	
 func populate_leaderboard_level(level):
+	#find den rigtige level container frem
+	var level_container=$ScrollContainer/HBoxContainer.get_child(level*2)
 	
-	var level_container=$ScrollContainer/HBoxContainer.get_child(level*2-2)
+	#find de rigtige containers frem
 	var username_container=level_container.get_child(2).get_child(0)
 	var score_container=level_container.get_child(2).get_child(2)
 	
-	if level>=len(UserData.level_scores):
+	#hvis der ikk er noget data så skriv no Data og returner
+	if level>len(UserData.level_scores):
 		var noDataLabel=username_row.duplicate()
 		noDataLabel.text=\"No Data\"
 		level_container.get_child(2).queue_free()
 		level_container.add_child(noDataLabel)
 		return
-	print(\"POPULATIONG LEVEL\"+str(level))
 	
 	
+	#populer rækkerne ind i levels containeren med data fra DB
 	for row in UserData.level_scores[str(level)]:
 
 		var new_user_row=username_row.duplicate()
@@ -94,9 +104,17 @@ default_font_size = 45
 [sub_resource type="Theme" id="Theme_1oumw"]
 default_font_size = 6
 
+[sub_resource type="FontVariation" id="FontVariation_5bygl"]
+
 [sub_resource type="Theme" id="Theme_ilslj"]
 default_font = ExtResource("2_10um7")
 default_font_size = 20
+
+[sub_resource type="FontVariation" id="FontVariation_41cvx"]
+
+[sub_resource type="FontVariation" id="FontVariation_jytkp"]
+
+[sub_resource type="FontVariation" id="FontVariation_ecdow"]
 
 [node name="Leaderboard" type="Control"]
 layout_mode = 3
@@ -109,9 +127,17 @@ script = SubResource("GDScript_ddrcp")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 0
-offset_top = -12.0
-offset_right = 1910.0
-offset_bottom = 512.0
+offset_left = 153.0
+offset_top = -14.0
+offset_right = 1727.0
+offset_bottom = 518.0
+
+[node name="ColorRect2" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = 163.0
+offset_top = -4.0
+offset_right = 1713.0
+offset_bottom = 508.0
 color = Color(0.0588235, 0.568627, 0, 1)
 
 [node name="Back2" type="Button" parent="."]
@@ -121,7 +147,7 @@ offset_top = 640.0
 offset_right = 1079.0
 offset_bottom = 726.0
 theme = ExtResource("1_77oul")
-text = "Back"
+text = "Tilbage"
 
 [node name="Button" type="Button" parent="."]
 visible = false
@@ -145,10 +171,10 @@ vertical_alignment = 1
 
 [node name="ScrollContainer" type="ScrollContainer" parent="."]
 layout_mode = 0
-offset_left = -3.0
-offset_top = -10.0
-offset_right = 1877.0
-offset_bottom = 521.0
+offset_left = 163.0
+offset_top = -6.0
+offset_right = 1713.0
+offset_bottom = 532.0
 theme = ExtResource("3_ih35i")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="ScrollContainer"]
@@ -163,7 +189,7 @@ layout_mode = 2
 custom_minimum_size = Vector2(2.08165e-12, 75)
 layout_mode = 2
 theme = SubResource("Theme_1oumw")
-theme_override_fonts/font = ExtResource("3_o26fj")
+theme_override_fonts/font = SubResource("FontVariation_5bygl")
 theme_override_font_sizes/font_size = 30
 text = "Level 1"
 horizontal_alignment = 1
@@ -185,7 +211,8 @@ layout_mode = 2
 [node name="usernameLabel" type="Label" parent="ScrollContainer/HBoxContainer/Level1/HBoxContainer/Username"]
 layout_mode = 2
 theme = SubResource("Theme_ilslj")
-text = "USERNAME"
+theme_override_fonts/font = SubResource("FontVariation_41cvx")
+text = "Brugernavn"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -204,7 +231,8 @@ layout_mode = 2
 [node name="scoreLabel" type="Label" parent="ScrollContainer/HBoxContainer/Level1/HBoxContainer/Score"]
 layout_mode = 2
 theme = SubResource("Theme_ilslj")
-text = "Score"
+theme_override_fonts/font = SubResource("FontVariation_jytkp")
+text = "Points"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -223,7 +251,8 @@ offset_top = 135.0
 offset_right = 1068.0
 offset_bottom = 187.0
 theme = SubResource("Theme_q6keo")
-text = "LOADING..."
+theme_override_fonts/font = SubResource("FontVariation_ecdow")
+text = "Henter data..."
 horizontal_alignment = 1
 vertical_alignment = 1
 
