@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://bfth7tlibkh4r"]
+[gd_scene load_steps=11 format=3 uid="uid://bfth7tlibkh4r"]
 
 [ext_resource type="Script" path="res://Scripts/StartMenu.gd" id="1_2nj5o"]
 [ext_resource type="PackedScene" uid="uid://83xbbpcentb" path="res://Scenes/LandscapeTiles.tscn" id="2_4qq5h"]
@@ -6,7 +6,6 @@
 [ext_resource type="Theme" uid="uid://dqvoyqr6jk6yn" path="res://Assets/FlatUI/kenneyUI.tres" id="4_cqaru"]
 [ext_resource type="Theme" uid="uid://bkhxy8i0ihnyh" path="res://Assets/FlatUI/kenneyUI-blue.tres" id="5_xnlqt"]
 [ext_resource type="Theme" uid="uid://10bfrd2i470b" path="res://Assets/FlatUI/kenneyUI-red.tres" id="6_kd168"]
-[ext_resource type="Texture2D" uid="uid://dapw853pnr55i" path="res://Assets/LOGO.png" id="7_bn1as"]
 
 [sub_resource type="FontFile" id="FontFile_xmrr8"]
 cache/0/16/0/ascent = 0.0
@@ -60,9 +59,8 @@ layer_0/tile_data = PackedInt32Array(131072, 8, 0, 196608, 8, 0, 131073, 8, 0, 1
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 0
-offset_left = -500.0
-offset_top = -17.0
-offset_right = -200.0
+offset_left = -200.0
+offset_right = 100.0
 offset_bottom = 288.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
@@ -101,11 +99,6 @@ theme = ExtResource("6_kd168")
 theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = SubResource("FontFile_114ru")
 text = "Quit"
-
-[node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(-242, -212)
-scale = Vector2(0.2985, 0.2985)
-texture = ExtResource("7_bn1as")
 
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Options" to="." method="_on_options_pressed"]
