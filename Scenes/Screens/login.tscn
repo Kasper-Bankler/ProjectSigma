@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://Scripts/login.gd" id="1_r6uya"]
 [ext_resource type="Theme" uid="uid://bkhxy8i0ihnyh" path="res://Assets/FlatUI/kenneyUI-blue.tres" id="2_qddyi"]
-[ext_resource type="Theme" uid="uid://cq6n5g4sl3qda" path="res://Assets/FlatUI/kenneyUI-green.tres" id="3_ql0sa"]
+[ext_resource type="Theme" uid="uid://d0juxhgobuuv2" path="res://Assets/FlatUI/kenneyUI-green.tres" id="3_ql0sa"]
 
 [sub_resource type="FontFile" id="FontFile_5e75j"]
 cache/0/16/0/ascent = 0.0
@@ -68,7 +68,6 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Username" type="TextEdit" parent="."]
-layout_mode = 0
 offset_left = 270.0
 offset_top = 103.0
 offset_right = 441.0
@@ -79,7 +78,6 @@ theme_override_fonts/font = SubResource("FontFile_5e75j")
 placeholder_text = "Username"
 
 [node name="Password" type="TextEdit" parent="."]
-layout_mode = 0
 offset_left = 262.0
 offset_top = 172.0
 offset_right = 445.0
