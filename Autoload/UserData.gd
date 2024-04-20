@@ -67,6 +67,9 @@ func _http_request_completed(_result, _response_code, _headers, _body):
 	print(response)
 	print("***********")
 	if error:
+		if response["command"]=="add_user":
+			emit_signal("signed_up",true)
+			return
 		printerr("We returned error: " + str(error))
 		return
 	
@@ -79,8 +82,9 @@ func _http_request_completed(_result, _response_code, _headers, _body):
 	if response["command"]=="get_player_progress":
 		player_progress=response["datasize"]
 		emit_signal("player_progress_fetched")
+	
 	if response["command"]=="add_user":
-		emit_signal("signed_up")
+		emit_signal("signed_up",false)
 
 	if response["command"]=="get_player_username":
 		emit_signal("log_in_response",response["response"])

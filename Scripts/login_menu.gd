@@ -11,7 +11,10 @@ func _ready():
 	UserData.connect("signed_up",signed_up)
 
 
-func signed_up():
+func signed_up(response,encountered_error):
+	if encountered_error:
+		UserData.popup_message("Der eksisterer en anden bruger med det valgte brugernavn!",$".")
+		return
 	MusicController.confirmationSound()
 	get_tree().change_scene_to_file("res://Scenes/Screens/login.tscn")
 	
