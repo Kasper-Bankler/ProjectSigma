@@ -122,7 +122,7 @@ func _http_request_completed(_result, _response_code, _headers, _body):
 			level_scores[str(this_level)].append(transform[str(n)])
 		
 		#Henter data for den næste level
-		if (len(level_scores)<num_of_levels-1):
+		if (len(level_scores)<num_of_levels):
 			get_level_scores(len(level_scores)+1)
 			return
 		
