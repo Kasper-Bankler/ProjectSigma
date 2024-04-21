@@ -4,12 +4,13 @@ var selected_building = ""
 var building: PackedScene
 var occupied_tiles = []
 
-# Called when the node enters the scene tree for the first time.
+ # Connecter til place_building signalet fra HUD
 func _ready():
 	$"../HUD".place_building.connect(_on_hud_place_building)
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
+
 func _process(_delta):
+	# Updatere preview med den valgte bygning
 	if selected_building != "":
 		if selected_building == "coal":
 			building = preload("res://Scenes/Buildings/coalpowerplant.tscn")
@@ -27,8 +28,8 @@ func _process(_delta):
 			building = preload("res://Scenes/Buildings/nuclearpowerplant.tscn")
 			update_preview("Nuclear")
 		
+		# Checker om input er venstreklik og om tilen er optaget og om tilen er af typen ground
 		var tileLocation=(Vector2(CurrentLevel.tile_posiiton.x,CurrentLevel.tile_posiiton.y))
-
 		if (Input.is_action_just_pressed("ui_leftclick") and not occupied_tiles.has(tileLocation) and CurrentLevel.tile_hover_type=="ground"):
 			MusicController.confirmationSound()
 			occupied_tiles.append(tileLocation)
@@ -45,8 +46,9 @@ func _process(_delta):
 
 func update_preview(buildingName): #Preview af valgt bygning ses
 	$".".get_node(buildingName).visible = true
-	$".".get_node(buildingName).position.x = get_viewport().get_mouse_position().x
+	$".".get_node(buildingName).position.x = get_viewport().get_mouse_position().x # Positionen af preview bliver sat til mouse_position
 	$".".get_node(buildingName).position.y = get_viewport().get_mouse_position().y
 
+# Signal fra HUD der emittes når en bygning skal placeres
 func _on_hud_place_building(selectedBuilding):
 	selected_building = selectedBuilding
