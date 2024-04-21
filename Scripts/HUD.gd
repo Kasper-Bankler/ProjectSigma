@@ -21,7 +21,7 @@ func _process(_delta):
 	update_weather(CurrentLevel.currentLevel["sun"], CurrentLevel.currentLevel["wind"])
 
 func level_complete():
-	var totalScore = (level.energy + CurrentLevel.balance) - level.emission*0.1
+	var totalScore = min((level.energy + CurrentLevel.balance) - level.emission*0.1,0)
 	if (totalScore <= 100):
 		medal1.visible = true
 	elif (totalScore >= 500 and totalScore <= 1000):
