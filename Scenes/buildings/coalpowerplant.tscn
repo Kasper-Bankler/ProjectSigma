@@ -76,6 +76,7 @@ offset = Vector2(25, 40)
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+y_sort_enabled = true
 position = Vector2(-4, -12)
 shape = SubResource("RectangleShape2D_nupnb")
 

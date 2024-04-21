@@ -45,6 +45,7 @@ animations = [{
 size = Vector2(68, 57.5)
 
 [node name="Gaspowerplant" type="Node2D"]
+y_sort_enabled = true
 script = ExtResource("1_8ira5")
 Name = "bio"
 

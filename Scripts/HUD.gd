@@ -10,8 +10,6 @@ var building_selected = ""
 func _ready():
 	# Sætter spillet igang
 	CurrentLevel.is_playing = true
-	# Opdatere vejret
-	update_weather(CurrentLevel.currentLevel["sun"], CurrentLevel.currentLevel["wind"])
 	# Signal til at fortælle at levelet er klaret
 	level.level_is_complete.connect(level_complete)
 func _process(_delta):
@@ -19,9 +17,11 @@ func _process(_delta):
 	update_balance()
 	update_energy()
 	update_buy_menu()
+	# Opdatere vejret
+	update_weather(CurrentLevel.currentLevel["sun"], CurrentLevel.currentLevel["wind"])
 
 func level_complete():
-	var totalScore = (level.energy + CurrentLevel.balance) - level.emission
+	var totalScore = (level.energy + CurrentLevel.balance) - level.emission*0.1
 	if (totalScore <= 100):
 		medal1.visible = true
 	elif (totalScore >= 500 and totalScore <= 1000):
@@ -60,17 +60,18 @@ func update_buy_menu():
 
 func update_weather(sun, wind):
 	# Opdatere vejrikoner dynamisk
-	if sun==0:
+	if sun<=0.1:
 		$WeatherPanelContainer/WeatherPanel/VBoxContainer/WeatherSymbol1/Cloud.visible = true
-	elif sun<0.5:
+	elif sun<=0.5:
 		$WeatherPanelContainer/WeatherPanel/VBoxContainer/WeatherSymbol1/CloudSun.visible = true
-	else:
+	elif sun>=0.5:
 		$WeatherPanelContainer/WeatherPanel/VBoxContainer/WeatherSymbol1/Sun.visible = true
-	if wind==0:
+	
+	if wind<=0.1:
 		$WeatherPanelContainer/WeatherPanel/VBoxContainer/WeatherSymbol2/NoWind.visible = true
-	elif wind<0.5:
+	elif wind<=0.5:
 		$WeatherPanelContainer/WeatherPanel/VBoxContainer/WeatherSymbol2/Wind.visible = true
-	else:
+	elif wind>=0.5:
 		$WeatherPanelContainer/WeatherPanel/VBoxContainer/WeatherSymbol2/Tornado.visible = true
 
 func _on_pause_button_pressed():

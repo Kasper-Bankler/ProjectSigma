@@ -45,6 +45,7 @@ animations = [{
 size = Vector2(74, 57)
 
 [node name="Solarpanel" type="Node2D"]
+y_sort_enabled = true
 script = ExtResource("1_ep7bs")
 Name = "solar"
 
