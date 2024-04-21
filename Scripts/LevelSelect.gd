@@ -1,27 +1,16 @@
 extends Control
 
-var player_completed_level_1 = false
 @onready var level_image=$ScrollContainer/HBoxContainer/LEVELCONTAINER/ColorRect/Sprite2D
-var image_path
-@onready var level_container=$ScrollContainer/HBoxContainer/LEVELCONTAINER
 @onready var levels_container=$ScrollContainer/HBoxContainer
-@onready var seperator=$ScrollContainer/HBoxContainer/sep
-
 
 
 func _ready():
 	UserData.player_progress_fetched.connect(_on_progress_set)
 	UserData.get_player_progress(UserData.logged_in_username)
-	
-	print(UserData.num_of_levels)
-
-
-
 
 func _on_progress_set():
 	$Label.text="Du har fuldført "+str(UserData.player_progress)+" levels!"
 	for n in range(UserData.player_progress+1):
-		
 		var this_level=levels_container.get_child(n*2)
 		var weather_container=this_level.get_child(0)
 		var new_level_image=level_image.duplicate()
@@ -38,8 +27,6 @@ func _on_progress_set():
 func _on_back_pressed():
 	MusicController.closeSound()
 	get_tree().change_scene_to_file("res://Scenes/Screens/StartMenu.tscn")
-
-
 
 func go_to_level(level):
 	MusicController.confirmationSound()

@@ -411,7 +411,7 @@ size_flags_stretch_ratio = 1.53
 [node name="TitleLabel" type="Label" parent="LevelCompletePopup/CenterContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 55
-text = "Du har klaret denne level!"
+text = "Du har klaret dette level!"
 
 [node name="HBoxContainer" type="HBoxContainer" parent="LevelCompletePopup/CenterContainer/VBoxContainer"]
 layout_mode = 2
@@ -442,7 +442,7 @@ layout_mode = 2
 [node name="EnergyLabel" type="Label" parent="LevelCompletePopup/CenterContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 30
-text = "elektricitet produceret:"
+text = "Elektricitet produceret:"
 
 [node name="Energy" type="Label" parent="LevelCompletePopup/CenterContainer/VBoxContainer"]
 layout_mode = 2

@@ -5,31 +5,29 @@ var building_selected = ""
 @onready var medal1 = $LevelCompletePopup/CenterContainer/VBoxContainer/HBoxContainer/Medal1
 @onready var medal2 = $LevelCompletePopup/CenterContainer/VBoxContainer/HBoxContainer/Medal2
 @onready var medal3 = $LevelCompletePopup/CenterContainer/VBoxContainer/HBoxContainer/Medal3
-
 @onready var level=get_parent()
 
 func _ready():
+	# Sætter spillet igang
 	CurrentLevel.is_playing = true
+	# Opdatere vejret
 	update_weather(CurrentLevel.currentLevel["sun"], CurrentLevel.currentLevel["wind"])
+	# Signal til at fortælle at levelet er klaret
 	level.level_is_complete.connect(level_complete)
 func _process(_delta):
+	# Opdatere balance, energy og buy menu
 	update_balance()
 	update_energy()
-	updata_buy_menu()
-	
-
-
+	update_buy_menu()
 
 func level_complete():
 	var totalScore = (level.energy + CurrentLevel.balance) - level.emission
-	
 	if (totalScore <= 100):
 		medal1.visible = true
 	elif (totalScore >= 500 and totalScore <= 1000):
 		medal2.visible = true
 	elif (totalScore >= 1000):
 		medal3.visible = true
-		
 	$LevelCompletePopup/CenterContainer/VBoxContainer/Score.text = str(totalScore)
 	$LevelCompletePopup/CenterContainer/VBoxContainer/Energy.text = str(level.energy)
 	$LevelCompletePopup/CenterContainer/VBoxContainer/CO2.text = str(level.emission)
@@ -48,14 +46,11 @@ func update_balance():
 	$CoinLabel.text = str(round(level.balance))
 	
 func update_energy():
-
-
-
 	$EnergyProgressBar.value = level.energy/(level.energy_required+1)*100
 	
-func updata_buy_menu():
+func update_buy_menu():
+	# Deaktivere knapper til bygninger man ikke har råd til
 	var balance = level.balance
-	
 	for building in $BuildingPanelContainer/BuildingPanel/HBoxContainer.get_children():
 		if balance<BuildingData.BUILDINGS_STATS[building.name.to_lower()]["price"]:
 			building.disabled=true
@@ -64,6 +59,7 @@ func updata_buy_menu():
 	
 
 func update_weather(sun, wind):
+	# Opdatere vejrikoner dynamisk
 	if sun==0:
 		$WeatherPanelContainer/WeatherPanel/VBoxContainer/WeatherSymbol1/Cloud.visible = true
 	elif sun<0.5:
@@ -95,14 +91,11 @@ func _on_close_button_pressed():
 	$CartButton.visible = true
 	$BuildingPanelContainer.visible = false
 
-
 func on_building_hover(building_name):
 	update_popup(BuildingData.BUILDINGS_STATS[building_name]["name"], BuildingData.BUILDINGS_STATS[building_name]["price"], BuildingData.BUILDINGS_STATS[building_name]["productionRate"], BuildingData.BUILDINGS_STATS[building_name]["emissionRate"])
 
-
 func on_building_hover_exit():
 	$PopupPanel.visible = false
-
 
 func update_popup(_name, price, productionRate, emission):
 	$PopupPanel.visible = true
@@ -114,6 +107,7 @@ func update_popup(_name, price, productionRate, emission):
 	$PopupPanel/VBoxContainer/Emission.text = str(emission)
 
 func select_building(building):
+	# Sender signal til builder noden
 	building_selected=building
 	emit_signal("place_building", building_selected)
 	$CartButton.visible = true
@@ -125,7 +119,9 @@ func _on_exit_button_pressed():
 
 func _on_next_button_pressed():
 	MusicController.clickSound()
-	get_tree().change_scene_to_file("res://Scenes/Levels/Level2.tscn")
+	var current_level = CurrentLevel.currentLevel["level"]
+	var next_level_scene = "res://Scenes/Levels/Level" + str(current_level+1) +".tscn"
+	get_tree().change_scene_to_file(next_level_scene)
 
 func _on_resume_button_pressed_paused():
 	CurrentLevel.is_playing = true
