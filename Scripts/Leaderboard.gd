@@ -58,7 +58,7 @@ func populate_leaderboard_level(level):
 	var username_container=level_container.get_child(2).get_child(0)
 	var score_container=level_container.get_child(2).get_child(2)
 	
-	#hvis der ikk er noget data så skriv no Data og returner
+	#hvis der ikke er noget data så skriv no Data og returner
 	if level>len(UserData.level_scores):
 		var noDataLabel=username_row.duplicate()
 		noDataLabel.text="No Data"
