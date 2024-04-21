@@ -1,13 +1,13 @@
-[gd_scene load_steps=9 format=3 uid="uid://b20ped71njd63"]
+[gd_scene load_steps=9 format=3 uid="uid://8k8q44u0wios"]
 
 [ext_resource type="Script" path="res://Scripts/Builder.gd" id="1_8bnrf"]
 [ext_resource type="Script" path="res://Scripts/Level.gd" id="1_mynxy"]
 [ext_resource type="PackedScene" uid="uid://mb3dx1aga4n5" path="res://Scenes/TileMaps/LandscapeTiles.tscn" id="2_ed7ie"]
-[ext_resource type="PackedScene" uid="uid://deg3svkcpg7bc" path="res://Scenes/buildings/coalpowerplant.tscn" id="4_ysy2q"]
-[ext_resource type="PackedScene" uid="uid://dvck0tsyjwg3g" path="res://Scenes/buildings/gaspowerplant.tscn" id="5_28cvk"]
-[ext_resource type="PackedScene" uid="uid://c81kuvl7kvkm3" path="res://Scenes/buildings/nuclearpowerplant.tscn" id="6_36ych"]
-[ext_resource type="PackedScene" uid="uid://bircqt5keyeh3" path="res://Scenes/buildings/solarpanel.tscn" id="7_jk0cl"]
-[ext_resource type="PackedScene" uid="uid://c5r4jwx0ch33c" path="res://Scenes/buildings/windturbine.tscn" id="8_iixjr"]
+[ext_resource type="PackedScene" uid="uid://deg3svkcpg7bc" path="res://Scenes/Buildings/coalpowerplant.tscn" id="4_ysy2q"]
+[ext_resource type="PackedScene" uid="uid://dvck0tsyjwg3g" path="res://Scenes/Buildings/gaspowerplant.tscn" id="5_28cvk"]
+[ext_resource type="PackedScene" uid="uid://c81kuvl7kvkm3" path="res://Scenes/Buildings/nuclearpowerplant.tscn" id="6_36ych"]
+[ext_resource type="PackedScene" uid="uid://bircqt5keyeh3" path="res://Scenes/Buildings/solarpanel.tscn" id="7_jk0cl"]
+[ext_resource type="PackedScene" uid="uid://c5r4jwx0ch33c" path="res://Scenes/Buildings/windturbine.tscn" id="8_iixjr"]
 
 [node name="Level0" type="Node2D"]
 script = ExtResource("1_mynxy")

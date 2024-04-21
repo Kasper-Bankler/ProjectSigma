@@ -1,7 +1,7 @@
 [gd_resource type="Theme" load_steps=34 format=3 uid="uid://bkhxy8i0ihnyh"]
 
-[ext_resource type="Texture2D" uid="uid://b0vvlv5m6ol5x" path="res://Assets/FlatUI/UIpack_vector.svg" id="1"]
-[ext_resource type="FontFile" uid="uid://d1t6aex1d4vdw" path="res://Assets/FlatUI/kenvector_future.ttf" id="2"]
+[ext_resource type="Texture2D" uid="uid://b2o41p6cfey6c" path="res://Assets/FlatUI/UIpack_vector.svg" id="1"]
+[ext_resource type="FontFile" uid="uid://bi7a41prh5cc3" path="res://Assets/FlatUI/kenvector_future.ttf" id="2"]
 
 [sub_resource type="FontFile" id="31"]
 fallbacks = Array[Font]([ExtResource("2")])
