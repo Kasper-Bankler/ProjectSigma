@@ -59,6 +59,7 @@ func _http_request_completed(_result, _response_code, _headers, _body):
 	
 	var response_body = _body.get_string_from_utf8()
 	var json = JSON.new()
+	print("***********")
 	print(response_body)
 	var error = json.parse(response_body)
 	var response=json.get_data()
@@ -66,10 +67,11 @@ func _http_request_completed(_result, _response_code, _headers, _body):
 	print("***********")
 	print(response)
 	print("***********")
-	if error:
-		if response["command"]=="add_user":
+	if response["command"]=="add_user" and response["error"]=="sameusername":
 			emit_signal("signed_up",true)
 			return
+			
+	if error:
 		printerr("We returned error: " + str(error))
 		return
 	

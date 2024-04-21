@@ -11,7 +11,7 @@ func _ready():
 	UserData.connect("signed_up",signed_up)
 
 
-func signed_up(response,encountered_error):
+func signed_up(encountered_error):
 	if encountered_error:
 		UserData.popup_message("Der eksisterer en anden bruger med det valgte brugernavn!",$".")
 		return
@@ -35,7 +35,10 @@ func _on_login_button_down():
 		MusicController.errorSound()
 		UserData.popup_message("Husk at vælge en adgangskode!",$".")
 		return
-		
+	if usernameField.get_text().contains(" ") or not usernameField.get_text().is_valid_filename():
+		MusicController.errorSound()
+		UserData.popup_message("Ugyldigt brugernavn!",$".")
+		return
 	if !UserData.is_requesting:
 		username = usernameField.get_text()
 		password = passwordField.get_text()
