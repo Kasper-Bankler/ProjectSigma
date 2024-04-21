@@ -12,16 +12,9 @@ var sun
 @onready var animatedSprite = get_node("AnimatedSprite2D")
 @onready var upgradedLabel = get_node("Area2D/fullyUpgradedLabel")
 @onready var insufficientFundsLabel = $Area2D/insufficientFundsLabel
-var upgrade_bool=false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	var timer=Timer.new()
-	timer.wait_time=1
-	timer.autostart=true
-	timer.timeout.connect(set_upgrade_bool)
-	$".".add_child(timer)
-	
 	# Tilføjer bygningen til gruppen buildings og sender et signal til levelet
 	add_to_group("buildings")
 	CurrentLevel.emit_signal("new_building_placed")
@@ -32,10 +25,6 @@ func _ready():
 	
 	# Signalet emittes når der klikkes på en bygning
 	areaNode.input_event.connect(onClick)
-
-func set_upgrade_bool():
-	upgrade_bool=true
-	
 
 func generate_upgrade_popup():
 	# Tilføjer en upgrade popup
@@ -54,19 +43,17 @@ func onClick(_viewport, _event, _shape_idx):
 		upgradeMenu()
 
 func upgradeMenu():
-	if (!upgrade_bool):
-		return
 	# Hvis bygningen er fuldt opgraderet
 	if upgradeLevel == 4:
 		MusicController.errorSound()
 		upgradedLabel.visible = true
 		await get_tree().create_timer(3.0).timeout
 		upgradedLabel.visible = false
-		return
-	# Hvis bygningen ikke er fuldt opgraderet
-	MusicController.clickSound()
-	upgradedLabel.visible = false
-	generate_upgrade_popup()
+	else:
+		# Hvis bygningen ikke er fuldt opgraderet
+		MusicController.clickSound()
+		upgradedLabel.visible = false
+		generate_upgrade_popup()
 
 func upgradeBuilding(id):
 	if id == 1:
