@@ -11,7 +11,7 @@ func _ready():
 
 func _on_progress_set():
 	$Label.text="Du har fuldført "+str(UserData.player_progress)+" levels!"
-	for n in range(UserData.player_progress+1):
+	for n in range(UserData.player_progress):
 		var this_level=levels_container.get_child(n*2)
 		var weather_container=this_level.get_child(0)
 		var new_level_image=level_image.duplicate()

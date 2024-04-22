@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://scripts/Leaderboard.gd" id="1_ofmmd"]
 [ext_resource type="FontFile" uid="uid://dikb6kaq6rwap" path="res://Assets/Fonts/kenvector_future.ttf" id="2_10um7"]
 [ext_resource type="Theme" uid="uid://10bfrd2i470b" path="res://Assets/FlatUI/kenneyUI-red.tres" id="3_ih35i"]
-[ext_resource type="Texture2D" uid="uid://c5phet5buhndy" path="res://Assets/Background/background_color.png" id="5_0agny"]
+[ext_resource type="Texture2D" uid="uid://dekvppjg05rvo" path="res://Assets/Background/background_color.png" id="5_0agny"]
 
 [sub_resource type="Theme" id="Theme_q6keo"]
 default_font = ExtResource("2_10um7")
