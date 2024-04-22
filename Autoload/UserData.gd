@@ -67,12 +67,13 @@ func _http_request_completed(_result, _response_code, _headers, _body):
 	
 	#konverterer til string
 	var response_body = _body.get_string_from_utf8()
+
 	
 	#forsøger at konvertere fra string til json, error hvis det ikke lykkes
 	var json = JSON.new()
 	var error = json.parse(response_body)
 	var response=json.get_data()
-	
+
 	#Fej håndtering af en kontrolleret error der signalerer, at der har været forsøg på indsættelse af en bruger med allerede eksisterende brugernavn. 
 	if response["command"]=="add_user" and response["error"]=="sameusername":
 			emit_signal("signed_up",true)
@@ -138,10 +139,7 @@ func _send_request(request: Dictionary):
 	var body = "command=" + request['command'] + "&" + data
 	
 	var cnonce = str(Crypto.new().generate_random_bytes(32)).sha256_text()
-	#print(nonce)
-	#print(cnonce)
-	#print(body)
-	#print(SECRET_KEY)
+	
 	
 	var client_hash = str(nonce + cnonce + body + SECRET_KEY).sha256_text()
 	nonce = null
@@ -152,14 +150,14 @@ func _send_request(request: Dictionary):
 	
 	
 	
-	var err = http_request.request(SERVER_URL, SERVER_HEADERS, HTTPClient.METHOD_POST, body)
+	var err = http_request.request(SERVER_URL, headers, HTTPClient.METHOD_POST, body)
 	
-	#if err != OK:
-		#printerr("HTTPRequest error: " + String(err))
+	if err != OK:
+		printerr("HTTPRequest error: " + String(err))
 		
 		
-	#print(body)
-	#print("Requesting...\n\tCommand: " + request['command'] + "\n\tBody: " + body)
+	print(body)
+	print("Requesting...\n\tCommand: " + request['command'] + "\n\tBody: " + body)
 	
 	
 func request_nonce():
