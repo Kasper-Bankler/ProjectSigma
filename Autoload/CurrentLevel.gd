@@ -20,4 +20,7 @@ var LEVELS_STATS = {1:{"wind": 0.5, "sun": 0.4, "energy_required": 100, "level":
 6:{"wind": 0.8, "sun": 0.7, "energy_required": 50000, "level": 6},
 } 
 
+var FAKTABOKS={"0":"Kulbrændstoffer som kul og olie er ikke så gode for vores planet. Når vi brænder dem for at lave energi, slipper de farlige stoffer som CO2 ud i luften, og det er ikke godt for miljøet. Derfor er der nogle steder en grøn afgift på at bruge kulbrændstoffer, for at få folk til at bruge mere miljøvenlige alternativer som solceller.",
+"1":"d"}
+
 var currentLevel = LEVELS_STATS[1]

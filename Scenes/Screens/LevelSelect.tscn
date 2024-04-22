@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://cqof14l2dtrs6"]
+[gd_scene load_steps=19 format=3 uid="uid://cqof14l2dtrs6"]
 
 [ext_resource type="Script" path="res://Scripts/LevelSelect.gd" id="1_41jrp"]
 [ext_resource type="Texture2D" uid="uid://bukdktwdks7sw" path="res://Assets/Icons/678129-lock-512.webp" id="2_6yk70"]
@@ -10,6 +10,15 @@
 [ext_resource type="Texture2D" uid="uid://gjiqcapb5kvn" path="res://Assets/Icons/Weather/no_sign.png" id="7_nwjgf"]
 [ext_resource type="Texture2D" uid="uid://digas8in53l7q" path="res://Assets/Icons/Weather/tornado-solid.svg" id="8_tdndw"]
 [ext_resource type="Texture2D" uid="uid://ds7d5yntky3vf" path="res://Assets/levelScreenshots/level1.png" id="9_tffct"]
+[ext_resource type="Texture2D" uid="uid://bkceni634ifth" path="res://Assets/UI/PNG/blue_boxCross.png" id="11_2ued5"]
+[ext_resource type="Texture2D" uid="uid://bwj0e4bogcmbi" path="res://Assets/buildings/coal powerplant/level2.png" id="12_q00aj"]
+[ext_resource type="Texture2D" uid="uid://b0ukuaqfr3eds" path="res://Assets/buildings/solarpanel/solceller4.png" id="13_w0jlh"]
+[ext_resource type="Texture2D" uid="uid://d31xtt3wkk4w7" path="res://Assets/buildings/windturbine/rotationAnimation/LEVEL1/0002.png" id="14_xbjob"]
+[ext_resource type="Texture2D" uid="uid://dx17tcti1rvhm" path="res://Assets/buildings/nuclear powerplant/2.png" id="15_1sm5j"]
+[ext_resource type="Texture2D" uid="uid://3s7kyae117nn" path="res://Assets/buildings/biogas/biogas1.png" id="16_po7dr"]
+[ext_resource type="Theme" uid="uid://10bfrd2i470b" path="res://Assets/FlatUI/kenneyUI-red.tres" id="17_my868"]
+
+[sub_resource type="FontVariation" id="FontVariation_tnglb"]
 
 [node name="LevelSelect" type="Control"]
 layout_mode = 3
@@ -617,6 +626,89 @@ position = Vector2(75.0001, 44)
 scale = Vector2(0.108398, 0.108398)
 texture = ExtResource("2_6yk70")
 
+[node name="CenterContainer" type="CenterContainer" parent="."]
+visible = false
+z_index = 4
+layout_mode = 0
+offset_right = 1924.0
+offset_bottom = 1066.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
+custom_minimum_size = Vector2(500, 500)
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+alignment = 2
+
+[node name="Button" type="Button" parent="CenterContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+icon = ExtResource("11_2ued5")
+
+[node name="ColorRect" type="ColorRect" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 20.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/VBoxContainer/ColorRect"]
+layout_mode = 0
+offset_right = 499.0
+offset_bottom = 450.0
+
+[node name="CenterContainer" type="CenterContainer" parent="CenterContainer/VBoxContainer/ColorRect/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Sprite2D2" type="Sprite2D" parent="CenterContainer/VBoxContainer/ColorRect/HBoxContainer/CenterContainer"]
+visible = false
+scale = Vector2(0.2411, 0.2411)
+texture = ExtResource("12_q00aj")
+centered = false
+
+[node name="Sprite2D3" type="Sprite2D" parent="CenterContainer/VBoxContainer/ColorRect/HBoxContainer/CenterContainer"]
+visible = false
+scale = Vector2(0.2411, 0.2411)
+texture = ExtResource("13_w0jlh")
+centered = false
+
+[node name="Sprite2D4" type="Sprite2D" parent="CenterContainer/VBoxContainer/ColorRect/HBoxContainer/CenterContainer"]
+visible = false
+scale = Vector2(0.385058, 0.385058)
+texture = ExtResource("14_xbjob")
+centered = false
+
+[node name="Sprite2D5" type="Sprite2D" parent="CenterContainer/VBoxContainer/ColorRect/HBoxContainer/CenterContainer"]
+visible = false
+scale = Vector2(0.407514, 0.407514)
+texture = ExtResource("15_1sm5j")
+centered = false
+
+[node name="Sprite2D" type="Sprite2D" parent="CenterContainer/VBoxContainer/ColorRect/HBoxContainer/CenterContainer"]
+visible = false
+scale = Vector2(0.2411, 0.2411)
+texture = ExtResource("16_po7dr")
+centered = false
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/VBoxContainer/ColorRect/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 2.36
+
+[node name="RichTextLabel" type="RichTextLabel" parent="CenterContainer/VBoxContainer/ColorRect/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+text = "	Solceller er som små miljøvenlige superhelte! De er grønne, fordi de ikke laver grimme ting som røg eller forurening, når de producerer elektricitet. Til forskel fra kulbrændstof, som er en slags energi, der kommer fra at brænde ting som kul eller olie, er solceller helt rene og venlige mod vores planet. Ved at bruge solceller kan vi hjælpe med at beskytte vores luft, vand og dyreliv mod skadelige stoffer, som ellers ville blive sluppet ud i naturen fra traditionelle energikilder. Så solceller er ikke bare en god idé – de er en vigtig del af vores kamp for at passe på vores smukke klode!"
+
+[node name="Button" type="Button" parent="CenterContainer/VBoxContainer/ColorRect/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(2.08165e-12, 75)
+layout_mode = 2
+theme = ExtResource("17_my868")
+theme_override_fonts/font = SubResource("FontVariation_tnglb")
+text = "LUK"
+
 [connection signal="pressed" from="Back" to="." method="_on_back_pressed"]
 [connection signal="pressed" from="ScrollContainer/HBoxContainer/LEVELCONTAINER/level1" to="." method="go_to_level" binds= [1]]
 [connection signal="pressed" from="ScrollContainer/HBoxContainer/LEVELCONTAINER2/level2" to="." method="go_to_level" binds= [2]]
@@ -624,3 +716,5 @@ texture = ExtResource("2_6yk70")
 [connection signal="pressed" from="ScrollContainer/HBoxContainer/LEVELCONTAINER4/level4" to="." method="go_to_level" binds= [4]]
 [connection signal="pressed" from="ScrollContainer/HBoxContainer/LEVELCONTAINER5/level5" to="." method="go_to_level" binds= [5]]
 [connection signal="pressed" from="ScrollContainer/HBoxContainer/LEVELCONTAINER6/level6" to="." method="go_to_level" binds= [6]]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/HBoxContainer/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/ColorRect/HBoxContainer/VBoxContainer/Button" to="." method="_on_button_pressed"]

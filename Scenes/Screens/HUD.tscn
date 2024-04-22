@@ -266,7 +266,6 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_0e0n1")
 icon = ExtResource("11_jyge7")
 
 [node name="BuildingPanelContainer" type="PanelContainer" parent="."]
-visible = false
 anchors_preset = -1
 anchor_top = 0.92
 anchor_right = 1.0

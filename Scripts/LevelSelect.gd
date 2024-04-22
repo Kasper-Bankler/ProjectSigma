@@ -3,6 +3,7 @@ extends Control
 @onready var level_image=$ScrollContainer/HBoxContainer/LEVELCONTAINER/ColorRect/Sprite2D
 @onready var levels_container=$ScrollContainer/HBoxContainer
 
+var seen_fact = false
 
 func _ready():
 	UserData.player_progress_fetched.connect(_on_progress_set)
@@ -29,5 +30,20 @@ func _on_back_pressed():
 	get_tree().change_scene_to_file("res://Scenes/Screens/StartMenu.tscn")
 
 func go_to_level(level):
+	if !seen_fact:
+		fact_box()
+		return
 	MusicController.confirmationSound()
 	get_tree().change_scene_to_file("res://Scenes/Levels/Level"+str(level)+".tscn")
+
+func fact_box():
+	seen_fact=true
+	if (UserData.player_progress==5):
+		return
+	$CenterContainer.visible=true
+	$CenterContainer/VBoxContainer/ColorRect/HBoxContainer/VBoxContainer/RichTextLabel.text=CurrentLevel.FAKTABOKS[str(UserData.player_progress)]
+
+
+func _on_button_pressed():
+	$CenterContainer.visible=false
+	

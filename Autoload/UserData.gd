@@ -17,7 +17,7 @@ var popup=preload("res://Scenes/Screens/popup_messenger.tscn")
 
 
 
-var logged_in_username="tqd"
+var logged_in_username="test"
 var http_request : HTTPRequest = HTTPRequest.new()
 const SERVER_URL = "http://spaghetticodestudios.com/db_test.php"
 const SERVER_HEADERS = ["Content-Type: application/x-www-form-urlencoded", "Cache-Control: max-age=0"]
