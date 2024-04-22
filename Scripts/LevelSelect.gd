@@ -38,8 +38,10 @@ func go_to_level(level):
 
 func fact_box():
 	seen_fact=true
-	if (UserData.player_progress==5):
+	
+	if (UserData.player_progress>4):
 		return
+	$CenterContainer/VBoxContainer/ColorRect/HBoxContainer/CenterContainer.get_child(UserData.player_progress).visible=true
 	$CenterContainer.visible=true
 	$CenterContainer/VBoxContainer/ColorRect/HBoxContainer/VBoxContainer/RichTextLabel.text=CurrentLevel.FAKTABOKS[str(UserData.player_progress)]
 

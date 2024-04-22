@@ -686,6 +686,7 @@ centered = false
 
 [node name="Sprite2D" type="Sprite2D" parent="CenterContainer/VBoxContainer/ColorRect/HBoxContainer/CenterContainer"]
 visible = false
+position = Vector2(-27, -1)
 scale = Vector2(0.2411, 0.2411)
 texture = ExtResource("16_po7dr")
 centered = false
