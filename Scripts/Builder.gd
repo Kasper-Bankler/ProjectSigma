@@ -37,6 +37,7 @@ func _process(_delta):
 			$".".add_child(building_scene)
 			building_scene.position.x=(tileLocation.x*130+65*(fmod(tileLocation.y,2)+1))
 			building_scene.position.y=(tileLocation.y+1)*32
+			building_scene.z_index=int(tileLocation.y)
 			selected_building = ""
 			$Wind.visible = false
 			$Solar.visible = false

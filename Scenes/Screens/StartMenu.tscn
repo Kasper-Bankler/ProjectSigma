@@ -1,12 +1,12 @@
 [gd_scene load_steps=12 format=3 uid="uid://bfth7tlibkh4r"]
 
 [ext_resource type="Script" path="res://Scripts/StartMenu.gd" id="1_2nj5o"]
-[ext_resource type="PackedScene" uid="uid://83xbbpcentb" path="res://Scenes/TileMaps/StartMenuTiles.tscn" id="2_4qq5h"]
+[ext_resource type="PackedScene" path="res://Scenes/TileMaps/StartMenuTiles.tscn" id="2_4qq5h"]
 [ext_resource type="Theme" uid="uid://d0juxhgobuuv2" path="res://Assets/FlatUI/kenneyUI-green.tres" id="3_yxhdi"]
 [ext_resource type="Theme" uid="uid://dqvoyqr6jk6yn" path="res://Assets/FlatUI/kenneyUI.tres" id="4_cqaru"]
 [ext_resource type="Theme" uid="uid://bkhxy8i0ihnyh" path="res://Assets/FlatUI/kenneyUI-blue.tres" id="5_xnlqt"]
 [ext_resource type="Theme" uid="uid://10bfrd2i470b" path="res://Assets/FlatUI/kenneyUI-red.tres" id="6_kd168"]
-[ext_resource type="Texture2D" uid="uid://b5h4cmfj88t3r" path="res://Assets/LOGO.png" id="7_bn1as"]
+[ext_resource type="Texture2D" uid="uid://dapw853pnr55i" path="res://Assets/LOGO.png" id="7_bn1as"]
 
 [sub_resource type="FontFile" id="FontFile_xmrr8"]
 cache/0/16/0/ascent = 0.0

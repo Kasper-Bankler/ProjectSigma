@@ -23,8 +23,8 @@ var bill
 
 func _ready():
 	CurrentLevel.currentLevel = CurrentLevel.LEVELS_STATS[int(scene_file_path[25])]
-	balance=100
-	CurrentLevel.balance=100
+	
+	CurrentLevel.balance=balance
 	#signals connection
 	CurrentLevel.new_building_placed.connect(on_new_building_placed)
 	CurrentLevel.building_upgraded.connect(_on_building_upgrade)
