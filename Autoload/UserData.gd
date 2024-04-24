@@ -155,9 +155,7 @@ func _send_request(request: Dictionary):
 	if err != OK:
 		printerr("HTTPRequest error: " + String(err))
 		
-		
-	print(body)
-	print("Requesting...\n\tCommand: " + request['command'] + "\n\tBody: " + body)
+	
 	
 	
 func request_nonce():

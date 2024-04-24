@@ -100,32 +100,31 @@ offset_left = 150.0
 offset_top = 980.0
 offset_right = 938.0
 offset_bottom = 1101.0
-text = "<= Click here to buy buildings!"
+text = "<= Klick på indkøbskurven for at købe en strømanlæg!"
 label_settings = SubResource("LabelSettings_w4880")
 
 [node name="HoverLabel" type="Label" parent="."]
 visible = false
-offset_left = 828.0
+offset_left = 783.0
 offset_top = 873.0
-offset_right = 1807.0
+offset_right = 1880.0
 offset_bottom = 994.0
-text = "Click on a building to equip it!"
+text = "Hold over en bygning for at se detaljerne!"
 label_settings = SubResource("LabelSettings_w4880")
 
 [node name="PlaceLabel" type="Label" parent="."]
 visible = false
-offset_left = 571.0
-offset_top = 306.0
-offset_right = 1258.0
-offset_bottom = 391.0
-text = "Click anywhere on the ground to place it!"
+offset_left = 400.0
+offset_top = 324.0
+offset_right = 1417.0
+offset_bottom = 409.0
+text = "Tryk hvor som helst på banen for at placere din nye bygning!"
 label_settings = SubResource("LabelSettings_m3ice")
 
 [node name="EnergyLabel" type="Label" parent="."]
-visible = false
-offset_left = 369.0
-offset_top = 32.0
-offset_right = 1056.0
-offset_bottom = 117.0
-text = "Now you'll earn energy! =>"
+offset_left = 184.0
+offset_top = 84.0
+offset_right = 916.0
+offset_bottom = 169.0
+text = "Nu er du i gang med at producere strøm!"
 label_settings = SubResource("LabelSettings_m3ice")
