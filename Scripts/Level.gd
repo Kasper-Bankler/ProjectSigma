@@ -70,19 +70,18 @@ func tick():
 
 
 func change_balance(value):
-	print("balance changed by "+str(value))
+
 	balance+=value
 	CurrentLevel.balance=balance
 
 func recalculate_revenue():
 	var new_revenue_per_second=0
-	print("***")
+
 	for building in get_tree().get_nodes_in_group("buildings"):
 		
-		print(building.stats["productionRate"])
+
 		new_revenue_per_second+=building.stats["productionRate"]*(1+weather_multipliers.get(building.Name,0))
-	print("***")
-	print(new_revenue_per_second)
+
 	revenue_per_second=new_revenue_per_second
 	
 		

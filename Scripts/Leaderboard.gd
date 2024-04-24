@@ -24,7 +24,7 @@ func _ready():
 	
 
 func on_level_scores_fetched():
-	print(UserData.level_scores)
+
 	#skjul Loading besked
 	$Label2.hide()
 	for n in range(1,UserData.num_of_levels+1):
