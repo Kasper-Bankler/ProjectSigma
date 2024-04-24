@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://Scripts/HUD.gd" id="1_kayje"]
 [ext_resource type="FontFile" uid="uid://dikb6kaq6rwap" path="res://Assets/Fonts/kenvector_future.ttf" id="1_l5apb"]
-[ext_resource type="Texture2D" uid="uid://cbw7tb54otaw4" path="res://Assets/Icons/lightning.png" id="2_xyjx7"]
+[ext_resource type="Texture2D" uid="uid://dug1crjj6mkro" path="res://Assets/Icons/lyn.png" id="3_c2ahr"]
 [ext_resource type="Texture2D" uid="uid://ciumuwkelucec" path="res://Assets/Icons/coin.png" id="3_xvr64"]
 [ext_resource type="Texture2D" uid="uid://bdr34jn8cuqnb" path="res://Assets/Icons/Weather/sun-solid.svg" id="5_q6t7r"]
 [ext_resource type="Texture2D" uid="uid://b1ifr31ios5dk" path="res://Assets/Icons/Weather/cloud-solid.svg" id="6_vu54g"]
@@ -146,7 +146,7 @@ offset_top = -24.0
 offset_right = 713.0
 offset_bottom = 488.0
 scale = Vector2(0.15, 0.15)
-texture = ExtResource("2_xyjx7")
+texture = ExtResource("3_c2ahr")
 
 [node name="CoinLabel" type="Label" parent="."]
 anchors_preset = 1

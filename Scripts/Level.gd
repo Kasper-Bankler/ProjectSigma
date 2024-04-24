@@ -52,7 +52,7 @@ func tick():
 	if (coal_count>0):
 		tick_count+=1
 		if (fmod(tick_count,10)==0):
-			bill=coal_count*50
+			bill=coal_count*15
 			emission+=coal_count*10
 			change_balance(-bill)
 			if (len(get_tree().get_nodes_in_group("popup_message"))>0):
@@ -76,12 +76,8 @@ func change_balance(value):
 
 func recalculate_revenue():
 	var new_revenue_per_second=0
-
 	for building in get_tree().get_nodes_in_group("buildings"):
-		
-
 		new_revenue_per_second+=building.stats["productionRate"]*(1+weather_multipliers.get(building.Name,0))
-
 	revenue_per_second=new_revenue_per_second
 	
 		
