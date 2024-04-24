@@ -26,7 +26,7 @@ func _process(_delta):
 	update_weather(CurrentLevel.currentLevel["sun"], CurrentLevel.currentLevel["wind"])
 
 func level_complete():
-	var totalScore = max(int(CurrentLevel.balance - level.emission*0.1+500),0)
+	var totalScore = max(int(CurrentLevel.balance - level.emission+500),0)
 	
 	medal1.visible = true
 	

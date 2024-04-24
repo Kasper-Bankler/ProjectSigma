@@ -24,21 +24,24 @@ func _on_login_pressed():
 
 	#Giver popup hvis et af felterne er tomt
 	
-	if usernameField.get_text()=="":
-		MusicController.errorSound()
-		UserData.popup_message("Husk at vælge et brugernavn!",$".")
-		return
-		
-	if passwordField.get_text()=="":
-		MusicController.errorSound()
-		UserData.popup_message("Husk at vælge en adgangskode!",$".")
-		return
+	
 	
 	
 	#Forsøger at finde bruger med den indtastede adgangskode og logind
 	
-	username = usernameField.get_text()
-	password = passwordField.get_text()
+	username = usernameField.get_text().strip_edges(true,true)
+	password = passwordField.get_text().strip_edges(true,true)
+	
+	if password=="":
+		MusicController.errorSound()
+		UserData.popup_message("Husk at vælge et brugernavn!",$".")
+		return
+		
+	if username=="":
+		MusicController.errorSound()
+		UserData.popup_message("Husk at vælge en adgangskode!",$".")
+		return
+		
 	UserData.login_user(username,password)
 
 func on_login_response(res):

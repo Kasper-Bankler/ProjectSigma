@@ -35,8 +35,10 @@ func _process(delta):
 
 func _on_login_button_down():
 	
-	var input_password = passwordField.get_text()
-	var input_username = usernameField.get_text()
+	
+	
+	var input_password = passwordField.get_text().strip_edges(true,true)
+	var input_username = usernameField.get_text().strip_edges(true,true)
 	
 	#Giver popup hvis et af felterne er tomt
 	
