@@ -64,7 +64,6 @@ func on_login_response(res):
 	
 	UserData.logged_in_username=res["username"]
 	get_tree().change_scene_to_file("res://Scenes/Screens/StartMenu.tscn")
-
 #Skifter scene til bruger registreringsside
 
 func _on_login_2_pressed():
