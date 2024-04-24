@@ -40,7 +40,7 @@ func on_level_scores_fetched():
 func create_new_level_container(level):
 	#kopier level template
 	var new_level_container=$ScrollContainer/HBoxContainer/Level1.duplicate()
-	
+	new_level_container.visible=true
 	#sætter det rigtige level nummer
 	new_level_container.get_child(0).text="LEVEL "+str(level)
 	
