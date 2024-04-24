@@ -127,14 +127,5 @@ theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = SubResource("FontVariation_imfgl")
 text = "Log ind her hvis du allerede har en konto!"
 
-[node name="scene_ change2" type="Button" parent="VBoxContainer"]
-layout_mode = 2
-size_flags_vertical = 3
-theme = ExtResource("3_lnk3d")
-theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = SubResource("FontVariation_imfgl")
-text = "Log ind her hvis du allerede har en konto!"
-
 [connection signal="button_down" from="VBoxContainer/Login2" to="." method="_on_login_button_down"]
 [connection signal="pressed" from="VBoxContainer/scene_ change" to="." method="_on_login_2_pressed"]
-[connection signal="pressed" from="VBoxContainer/scene_ change2" to="." method="_on_scene__change_2_pressed"]
