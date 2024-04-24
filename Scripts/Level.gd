@@ -21,9 +21,10 @@ var old_upgrade_costs=0
 var bill
 var coal_count=0
 var tick_count=0
+
 func _ready():
 	CurrentLevel.currentLevel = CurrentLevel.LEVELS_STATS[int(scene_file_path[25])]
-	balance=1000
+	balance=100
 	CurrentLevel.balance=balance
 	#signals connection
 	CurrentLevel.new_building_placed.connect(on_new_building_placed)
@@ -43,8 +44,10 @@ func tick():
 	
 	if (!CurrentLevel.is_playing):
 		return
+
 	if (len(get_tree().get_nodes_in_group("buildings"))==0):
 		return
+
 	if (coal_count>0):
 		tick_count+=1
 		if (fmod(tick_count,10)==0):

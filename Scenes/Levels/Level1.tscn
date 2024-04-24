@@ -1,15 +1,23 @@
-[gd_scene load_steps=11 format=3 uid="uid://d1kbrj17ghkn0"]
+[gd_scene load_steps=13 format=3 uid="uid://d1kbrj17ghkn0"]
 
 [ext_resource type="PackedScene" uid="uid://cu062rpm4w0lk" path="res://Scenes/Screens/HUD.tscn" id="1_5v01m"]
 [ext_resource type="Script" path="res://Scripts/Level.gd" id="1_h8thf"]
-[ext_resource type="Texture2D" uid="uid://bgj2vf6p5gpmt" path="res://Assets/Background/background_color.png" id="3_xw7v7"]
+[ext_resource type="Texture2D" uid="uid://b8u331l01iid" path="res://Assets/Background/background_color.png" id="3_xw7v7"]
 [ext_resource type="PackedScene" uid="uid://mb3dx1aga4n5" path="res://Scenes/TileMaps/LandscapeTiles.tscn" id="4_8w0od"]
 [ext_resource type="Script" path="res://Scripts/Builder.gd" id="5_hd7tj"]
 [ext_resource type="Texture2D" uid="uid://c546k643fulat" path="res://Assets/buildings/windturbine/rotationAnimation/LEVEL1/0001.png" id="6_vqemh"]
 [ext_resource type="Texture2D" uid="uid://cw3o377hfisdp" path="res://Assets/buildings/solarpanel/solceller1.png" id="8_spjca"]
 [ext_resource type="Texture2D" uid="uid://3s7kyae117nn" path="res://Assets/buildings/biogas/biogas1.png" id="9_38num"]
 [ext_resource type="Texture2D" uid="uid://b1fb10w8a1gql" path="res://Assets/buildings/coal powerplant/level1.png" id="10_kdn3l"]
-[ext_resource type="Texture2D" uid="uid://b33mtq5ceq5p5" path="res://Assets/buildings/nuclear powerplant/1.png" id="11_wg78k"]
+[ext_resource type="Texture2D" uid="uid://bfsc7nojxv6wy" path="res://Assets/buildings/nuclear powerplant/1.png" id="11_wg78k"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_w4880"]
+font_size = 55
+font_color = Color(0.0627451, 0.0627451, 0.0627451, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_m3ice"]
+font_size = 35
+font_color = Color(0, 0, 0, 1)
 
 [node name="Level1" type="Node2D"]
 script = ExtResource("1_h8thf")
@@ -86,3 +94,38 @@ offset_bottom = 538.0
 scale = Vector2(0.2, 0.2)
 pivot_offset = Vector2(-130, -120)
 texture = ExtResource("11_wg78k")
+
+[node name="BuyLabel" type="Label" parent="."]
+offset_left = 150.0
+offset_top = 980.0
+offset_right = 938.0
+offset_bottom = 1101.0
+text = "<= Click here to buy buildings!"
+label_settings = SubResource("LabelSettings_w4880")
+
+[node name="HoverLabel" type="Label" parent="."]
+visible = false
+offset_left = 828.0
+offset_top = 873.0
+offset_right = 1807.0
+offset_bottom = 994.0
+text = "Click on a building to equip it!"
+label_settings = SubResource("LabelSettings_w4880")
+
+[node name="PlaceLabel" type="Label" parent="."]
+visible = false
+offset_left = 571.0
+offset_top = 306.0
+offset_right = 1258.0
+offset_bottom = 391.0
+text = "Click anywhere on the ground to place it!"
+label_settings = SubResource("LabelSettings_m3ice")
+
+[node name="EnergyLabel" type="Label" parent="."]
+visible = false
+offset_left = 369.0
+offset_top = 32.0
+offset_right = 1056.0
+offset_bottom = 117.0
+text = "Now you'll earn energy! =>"
+label_settings = SubResource("LabelSettings_m3ice")

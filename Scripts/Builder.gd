@@ -4,6 +4,8 @@ var selected_building = ""
 var building: PackedScene
 var occupied_tiles = []
 
+signal placed_building
+
  # Connecter til place_building signalet fra HUD
 func _ready():
 	$"../HUD".place_building.connect(_on_hud_place_building)
@@ -31,6 +33,7 @@ func _process(_delta):
 		# Checker om input er venstreklik og om tilen er optaget og om tilen er af typen ground
 		var tileLocation=(Vector2(CurrentLevel.tile_posiiton.x,CurrentLevel.tile_posiiton.y))
 		if (Input.is_action_just_pressed("ui_leftclick") and not occupied_tiles.has(tileLocation) and CurrentLevel.tile_hover_type=="ground"):
+			emit_signal("placed_building")
 			MusicController.confirmationSound()
 			occupied_tiles.append(tileLocation)
 			var building_scene = building.instantiate()

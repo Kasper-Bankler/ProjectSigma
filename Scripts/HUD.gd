@@ -7,7 +7,12 @@ var building_selected = ""
 @onready var medal3 = $LevelCompletePopup/CenterContainer/VBoxContainer/HBoxContainer/Medal3
 @onready var level=get_parent()
 
+var first_open = true
+var first_select = true
+var first_placed = true
+
 func _ready():
+	$"../Builder".placed_building.connect(building_is_placed)
 	# Sætter spillet igang
 	CurrentLevel.is_playing = true
 	# Signal til at fortælle at levelet er klaret
@@ -21,7 +26,7 @@ func _process(_delta):
 	update_weather(CurrentLevel.currentLevel["sun"], CurrentLevel.currentLevel["wind"])
 
 func level_complete():
-	var totalScore = min(CurrentLevel.balance - level.emission*0.1,0)
+	var totalScore = max(int(CurrentLevel.balance - level.emission*0.1),0)
 	
 	medal1.visible = true
 	
@@ -42,6 +47,14 @@ func level_complete():
 	$PauseButton.visible = false
 	UserData.submit_score(str(level.scene_file_path[25]),totalScore)
 	
+
+func building_is_placed():
+	if (str(level.scene_file_path[25])=="1" and first_placed):
+		first_placed=false
+		level.get_child(6).visible = false
+		level.get_child(7).visible = true
+		await get_tree().create_timer(5.0).timeout
+		level.get_child(7).visible = false
 
 func update_balance():
 	$CoinLabel.text = str(round(level.balance))
@@ -85,10 +98,16 @@ func _on_pause_button_pressed():
 
 func _on_cart_button_pressed():
 	MusicController.clickSound()
+	if (str(level.scene_file_path[25])=="1" and first_open):
+		level.get_child(4).visible=false
+		level.get_child(5).visible=true
+		first_open=false
 	$CartButton.visible = false
 	$BuildingPanelContainer.visible = true
 
 func _on_close_button_pressed():
+	if (str(level.scene_file_path[25])=="1"):
+		level.get_child(5).visible=false
 	MusicController.clickSound()
 	$CartButton.visible = true
 	$BuildingPanelContainer.visible = false
@@ -110,6 +129,12 @@ func update_popup(_name, price, productionRate, emission):
 
 func select_building(building):
 	# Sender signal til builder noden
+	
+	if (first_select and str(level.scene_file_path[25])=="1"):
+		first_select=false
+		level.get_child(5).visible=false
+		level.get_child(6).visible=true
+	
 	building_selected=building
 	emit_signal("place_building", building_selected)
 	$CartButton.visible = true

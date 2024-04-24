@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=3 uid="uid://cu062rpm4w0lk"]
+[gd_scene load_steps=37 format=3 uid="uid://cu062rpm4w0lk"]
 
 [ext_resource type="Script" path="res://Scripts/HUD.gd" id="1_kayje"]
 [ext_resource type="FontFile" uid="uid://dikb6kaq6rwap" path="res://Assets/Fonts/kenvector_future.ttf" id="1_l5apb"]
@@ -46,6 +46,9 @@ corner_radius_top_left = 8
 corner_radius_top_right = 8
 corner_radius_bottom_right = 8
 corner_radius_bottom_left = 8
+
+[sub_resource type="LabelSettings" id="LabelSettings_u1cap"]
+font_size = 27
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_b7tap"]
 bg_color = Color(1, 1, 1, 1)
@@ -149,23 +152,24 @@ texture = ExtResource("2_xyjx7")
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -224.0
-offset_top = 32.0
-offset_right = -140.0
-offset_bottom = 61.0
+offset_left = -292.0
+offset_top = 46.0
+offset_right = -192.0
+offset_bottom = 77.0
 grow_horizontal = 0
 scale = Vector2(1.5, 1.5)
 theme_override_fonts/font = ExtResource("1_l5apb")
 text = "10000"
+label_settings = SubResource("LabelSettings_u1cap")
 horizontal_alignment = 2
 vertical_alignment = 1
 
 [node name="Coin" type="TextureRect" parent="CoinLabel"]
 layout_mode = 0
-offset_left = 89.0
-offset_top = -11.0
-offset_right = 601.0
-offset_bottom = 501.0
+offset_left = 120.667
+offset_top = -9.33333
+offset_right = 632.667
+offset_bottom = 502.667
 scale = Vector2(0.1, 0.1)
 texture = ExtResource("3_xvr64")
 
@@ -266,6 +270,7 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_0e0n1")
 icon = ExtResource("11_jyge7")
 
 [node name="BuildingPanelContainer" type="PanelContainer" parent="."]
+visible = false
 anchors_preset = -1
 anchor_top = 0.92
 anchor_right = 1.0
