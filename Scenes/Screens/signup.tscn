@@ -111,6 +111,7 @@ layout_mode = 2
 size_flags_vertical = 3
 theme = ExtResource("2_m7lqc")
 theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = SubResource("FontVariation_fbknw")
 text = "Registrer"
 
@@ -122,6 +123,7 @@ layout_mode = 2
 layout_mode = 2
 size_flags_vertical = 3
 theme = ExtResource("3_lnk3d")
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = SubResource("FontVariation_imfgl")
 text = "Log ind her hvis du allerede har en konto!"
 

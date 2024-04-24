@@ -1,6 +1,6 @@
 [gd_resource type="Theme" load_steps=34 format=3 uid="uid://dqvoyqr6jk6yn"]
 
-[ext_resource type="Texture2D" uid="uid://c2nv5ofedw113" path="res://Assets/FlatUI/UIpack_vector.svg" id="1"]
+[ext_resource type="Texture2D" uid="uid://dkxtew80w2uo2" path="res://Assets/FlatUI/UIpack_vector.svg" id="1"]
 
 [sub_resource type="SystemFont" id="SystemFont_bj75v"]
 
