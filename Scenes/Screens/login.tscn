@@ -99,6 +99,7 @@ layout_mode = 2
 layout_mode = 2
 size_flags_vertical = 3
 theme = ExtResource("2_qddyi")
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
 text = "Log ind"
 
 [node name="HBoxContainer5" type="HBoxContainer" parent="VBoxContainer"]
@@ -109,6 +110,7 @@ layout_mode = 2
 layout_mode = 2
 size_flags_vertical = 3
 theme = ExtResource("3_ql0sa")
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
 text = "Registrer her hvis du ikke har en konto i forvejen!"
 
 [connection signal="pressed" from="VBoxContainer/Login" to="." method="_on_login_pressed"]

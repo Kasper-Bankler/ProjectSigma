@@ -20,3 +20,4 @@ func _process(_delta):
 		if CurrentLevel.tile_hover_type == "ground":
 			set_cell(1,tile,25,Vector2i(0,0),0)
 			old_tile=tile
+
