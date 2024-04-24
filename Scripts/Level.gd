@@ -91,7 +91,7 @@ func _on_building_upgrade():
 func on_new_building_placed():
 	var buildings_group=get_tree().get_nodes_in_group("buildings")
 	new_building = buildings_group[len(buildings_group)-1]
-	if (new_building.stats.has("emissionRate")):
+	if (new_building.stats["emissionRate"]>0):
 		coal_count+=1
 	change_balance(-new_building.stats.price)
 	recalculate_revenue()
