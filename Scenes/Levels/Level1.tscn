@@ -122,6 +122,7 @@ text = "Tryk hvor som helst på banen for at placere din nye bygning!"
 label_settings = SubResource("LabelSettings_m3ice")
 
 [node name="EnergyLabel" type="Label" parent="."]
+visible = false
 offset_left = 184.0
 offset_top = 84.0
 offset_right = 916.0
