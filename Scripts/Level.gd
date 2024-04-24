@@ -23,12 +23,13 @@ var coal_count=0
 var tick_count=0
 
 func _ready():
+	add_to_group("level")
 	CurrentLevel.currentLevel = CurrentLevel.LEVELS_STATS[int(scene_file_path[25])]
 	balance=100
 	CurrentLevel.balance=balance
 	#signals connection
 	CurrentLevel.new_building_placed.connect(on_new_building_placed)
-	CurrentLevel.building_upgraded.connect(_on_building_upgrade)
+
 
 	var popup_container=Control.new()
 	$".".add_child(popup_container)
@@ -69,27 +70,24 @@ func tick():
 
 
 func change_balance(value):
+	print("balance changed by "+str(value))
 	balance+=value
 	CurrentLevel.balance=balance
 
 func recalculate_revenue():
 	var new_revenue_per_second=0
+	print("***")
 	for building in get_tree().get_nodes_in_group("buildings"):
+		
+		print(building.stats["productionRate"])
 		new_revenue_per_second+=building.stats["productionRate"]*(1+weather_multipliers.get(building.Name,0))
-	
+	print("***")
+	print(new_revenue_per_second)
 	revenue_per_second=new_revenue_per_second
 	
 		
 	
-func _on_building_upgrade():
-	var new_upgrade_costs=0
-	for building in get_tree().get_nodes_in_group("buildings"):
-		new_upgrade_costs+=building.stats["upgradePrice"]
-	
-	if (new_upgrade_costs!=old_upgrade_costs):
-		change_balance(old_upgrade_costs-new_upgrade_costs)
-		old_upgrade_costs=new_upgrade_costs
-	recalculate_revenue()
+
 
 func on_new_building_placed():
 	var buildings_group=get_tree().get_nodes_in_group("buildings")

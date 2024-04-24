@@ -26,7 +26,7 @@ func _process(_delta):
 	update_weather(CurrentLevel.currentLevel["sun"], CurrentLevel.currentLevel["wind"])
 
 func level_complete():
-	var totalScore = max(int(CurrentLevel.balance - level.emission*0.1),0)
+	var totalScore = max(int(CurrentLevel.balance - level.emission*0.1+500),0)
 	
 	medal1.visible = true
 	
@@ -74,18 +74,18 @@ func update_buy_menu():
 
 func update_weather(sun, wind):
 	# Opdatere vejrikoner dynamisk
-	if sun<=0.1:
+	if sun==0:
 		$WeatherPanelContainer/WeatherPanel/VBoxContainer/WeatherSymbol1/Cloud.visible = true
 	elif sun<=0.5:
 		$WeatherPanelContainer/WeatherPanel/VBoxContainer/WeatherSymbol1/CloudSun.visible = true
-	elif sun>=0.5:
+	else:
 		$WeatherPanelContainer/WeatherPanel/VBoxContainer/WeatherSymbol1/Sun.visible = true
 	
-	if wind<=0.1:
+	if wind==0:
 		$WeatherPanelContainer/WeatherPanel/VBoxContainer/WeatherSymbol2/NoWind.visible = true
 	elif wind<=0.5:
 		$WeatherPanelContainer/WeatherPanel/VBoxContainer/WeatherSymbol2/Wind.visible = true
-	elif wind>=0.5:
+	else:
 		$WeatherPanelContainer/WeatherPanel/VBoxContainer/WeatherSymbol2/Tornado.visible = true
 
 func _on_pause_button_pressed():

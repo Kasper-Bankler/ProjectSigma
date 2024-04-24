@@ -2,14 +2,14 @@
 
 [ext_resource type="Script" path="res://Scripts/Level.gd" id="1_c3j4a"]
 [ext_resource type="PackedScene" uid="uid://cu062rpm4w0lk" path="res://Scenes/Screens/HUD.tscn" id="2_gpqcn"]
-[ext_resource type="Texture2D" uid="uid://b8u331l01iid" path="res://Assets/Background/background_color.png" id="3_1td2u"]
+[ext_resource type="Texture2D" uid="uid://dekvppjg05rvo" path="res://Assets/Background/background_color.png" id="3_1td2u"]
 [ext_resource type="PackedScene" uid="uid://mb3dx1aga4n5" path="res://Scenes/TileMaps/LandscapeTiles.tscn" id="4_etm5h"]
 [ext_resource type="Script" path="res://Scripts/Builder.gd" id="5_kbrd8"]
 [ext_resource type="Texture2D" uid="uid://c546k643fulat" path="res://Assets/buildings/windturbine/rotationAnimation/LEVEL1/0001.png" id="6_6mbuw"]
 [ext_resource type="Texture2D" uid="uid://cw3o377hfisdp" path="res://Assets/buildings/solarpanel/solceller1.png" id="7_3hwbr"]
 [ext_resource type="Texture2D" uid="uid://3s7kyae117nn" path="res://Assets/buildings/biogas/biogas1.png" id="8_6x6so"]
 [ext_resource type="Texture2D" uid="uid://b1fb10w8a1gql" path="res://Assets/buildings/coal powerplant/level1.png" id="9_3ftj4"]
-[ext_resource type="Texture2D" uid="uid://bfsc7nojxv6wy" path="res://Assets/buildings/nuclear powerplant/1.png" id="10_jsbyy"]
+[ext_resource type="Texture2D" uid="uid://35i2w055qp48" path="res://Assets/buildings/nuclear powerplant/1.png" id="10_jsbyy"]
 
 [node name="Level2" type="Node2D"]
 script = ExtResource("1_c3j4a")

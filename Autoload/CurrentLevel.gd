@@ -9,7 +9,7 @@ var co2_emitted = 0
 
  
 signal new_building_placed
-signal building_upgraded
+
 
 
 var LEVELS_STATS = {1:{"wind": 0.5, "sun": 0.4, "energy_required": 100, "level": 1},

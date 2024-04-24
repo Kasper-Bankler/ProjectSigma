@@ -17,8 +17,8 @@ func _on_progress_set():
 	var new_level_image=level_image.duplicate()
 	new_level_image.texture=load("res://Assets/levelScreenshots/level"+str(1)+".png")
 
-	weather_container.get_child(0).get_child(floor(CurrentLevel.LEVELS_STATS[1]["sun"]*2)).visible=true
-	weather_container.get_child(1).get_child(floor(CurrentLevel.LEVELS_STATS[1]["wind"]*2)).visible=true
+	weather_container.get_child(0).get_child(ceil(CurrentLevel.LEVELS_STATS[1]["sun"]*2)).visible=true
+	weather_container.get_child(1).get_child(ceil(CurrentLevel.LEVELS_STATS[1]["wind"]*2)).visible=true
 	this_level.get_child(1).add_child(new_level_image)
 	this_level.get_child(2).get_child(0).queue_free()
 	this_level.get_child(2).disabled=false
@@ -31,8 +31,8 @@ func _on_progress_set():
 		new_level_image=level_image.duplicate()
 		new_level_image.texture=load("res://Assets/levelScreenshots/level"+str(n)+".png")
 	
-		weather_container.get_child(0).get_child(floor(CurrentLevel.LEVELS_STATS[n]["sun"]*2)).visible=true
-		weather_container.get_child(1).get_child(floor(CurrentLevel.LEVELS_STATS[n]["wind"]*2)).visible=true
+		weather_container.get_child(0).get_child(ceil(CurrentLevel.LEVELS_STATS[n]["sun"]*2)).visible=true
+		weather_container.get_child(1).get_child(ceil(CurrentLevel.LEVELS_STATS[n]["wind"]*2)).visible=true
 		this_level.get_child(1).add_child(new_level_image)
 		this_level.get_child(2).get_child(0).queue_free()
 		this_level.get_child(2).disabled=false

@@ -1,6 +1,6 @@
 extends Node
 
-class_name BuildingClass
+
 
 var popup = preload("res://Scenes/Screens/popupmenu_messenger.tscn")
 @export var Name = ""
@@ -59,12 +59,16 @@ func upgradeBuilding(id):
 	if id == 1:
 		# Hvis brugeren har råd til bygningen opgraderes den
 		if CurrentLevel.balance >= stats["upgradePrice"]:
-			CurrentLevel.emit_signal("building_upgraded")
+			get_tree().get_nodes_in_group("level")[0].change_balance(-stats["upgradePrice"])
 			stats["upgradePrice"]=stats["upgradePrice"]*2
 			MusicController.confirmationSound()
 			upgradeLevel += 1
 			animatedSprite.play("level" + str(upgradeLevel))
-			stats["productionRate"]*=2
+			
+			
+			stats["productionRate"]=stats["productionRate"]*2
+			
+			get_tree().get_nodes_in_group("level")[0].recalculate_revenue()
 		# Ellers vises en fejlmeddelelse
 		else:
 			MusicController.errorSound()
