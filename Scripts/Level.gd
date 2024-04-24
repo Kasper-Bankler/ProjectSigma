@@ -20,7 +20,8 @@ var emission_rate=0
 var popup_container
 var old_upgrade_costs=0
 var bill
-
+var coal_count=0
+var tick_count=0
 func _ready():
 	CurrentLevel.currentLevel = CurrentLevel.LEVELS_STATS[int(scene_file_path[25])]
 	balance=1000
@@ -40,14 +41,15 @@ func _ready():
 	$".".add_child(ticker)
 	
 func tick():
+	
 	if (!CurrentLevel.is_playing):
 		return
 	if (len(get_tree().get_nodes_in_group("buildings"))==0):
 		return
-	if (emission_rate>0):
-		emission+=emission_rate
-		if (fmod(emission,1000)==0):
-			bill=emission/50
+	if (coal_count>0):
+		tick_count+=1
+		if (fmod(tick_count,10)==0):
+			bill=coal_count*50
 			change_balance(-bill)
 			if (len(get_tree().get_nodes_in_group("popup_message"))>0):
 				get_tree().get_nodes_in_group("popup_message")[0].queue_free()
@@ -89,8 +91,7 @@ func _on_building_upgrade():
 func on_new_building_placed():
 	var buildings_group=get_tree().get_nodes_in_group("buildings")
 	new_building = buildings_group[len(buildings_group)-1]
-	
+	if (new_building.name=="coal"):
+		coal_count+=1
 	change_balance(-new_building.stats.price)
 	recalculate_revenue()
-	if (new_building.stats.has("emissionRate")):
-		emission_rate+=new_building.stats["emissionRate"]
