@@ -1,7 +1,17 @@
 [gd_scene load_steps=3 format=3 uid="uid://c5s0vm3lwqtwd"]
 
-[ext_resource type="Script" path="res://Scripts/popup_messenger.gd" id="1_kmvod"]
 [ext_resource type="Theme" uid="uid://d0qntl6ilcfff" path="res://Assets/FlatUI/kenneyUI-yellow.tres" id="2_s4lme"]
+
+[sub_resource type="GDScript" id="GDScript_clkck"]
+script/source = "extends Control
+
+func _on_accept_dialog_canceled():
+	queue_free()
+
+
+func _on_accept_dialog_confirmed():
+	queue_free()
+"
 
 [node name="PopupMessenger" type="Control"]
 layout_mode = 3
@@ -10,7 +20,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_kmvod")
+script = SubResource("GDScript_clkck")
 
 [node name="AcceptDialog" type="AcceptDialog" parent="."]
 initial_position = 1

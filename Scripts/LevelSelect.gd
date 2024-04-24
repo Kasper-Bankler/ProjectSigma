@@ -12,7 +12,7 @@ func _ready():
 func _on_progress_set():
 	$Label.text="Du har fuldført "+str(UserData.player_progress)+" levels!"
 	
-	var this_level=levels_container.get_child((0)*2)
+	var this_level=levels_container.get_child(0)
 	var weather_container=this_level.get_child(0)
 	var new_level_image=level_image.duplicate()
 	new_level_image.texture=load("res://Assets/levelScreenshots/level"+str(1)+".png")
@@ -23,21 +23,21 @@ func _on_progress_set():
 	this_level.get_child(2).get_child(0).queue_free()
 	this_level.get_child(2).disabled=false
 
-	this_level.get_child(2).set_text("Spil")
+	this_level.get_child(2).set_text("Spil level 1")
 	
-	for n in range(UserData.player_progress):
-		this_level=levels_container.get_child((n)*2)
+	for n in range(2,min(UserData.player_progress+2,7)):
+		this_level=levels_container.get_child((n-1)*2)
 		weather_container=this_level.get_child(0)
 		new_level_image=level_image.duplicate()
-		new_level_image.texture=load("res://Assets/levelScreenshots/level"+str(n+1)+".png")
+		new_level_image.texture=load("res://Assets/levelScreenshots/level"+str(n)+".png")
 	
-		weather_container.get_child(0).get_child(floor(CurrentLevel.LEVELS_STATS[n+1]["sun"]*2)).visible=true
-		weather_container.get_child(1).get_child(floor(CurrentLevel.LEVELS_STATS[n+1]["wind"]*2)).visible=true
+		weather_container.get_child(0).get_child(floor(CurrentLevel.LEVELS_STATS[n]["sun"]*2)).visible=true
+		weather_container.get_child(1).get_child(floor(CurrentLevel.LEVELS_STATS[n]["wind"]*2)).visible=true
 		this_level.get_child(1).add_child(new_level_image)
 		this_level.get_child(2).get_child(0).queue_free()
 		this_level.get_child(2).disabled=false
 
-		this_level.get_child(2).set_text("Spil")
+		this_level.get_child(2).set_text("Spil level "+str(n))
 
 func _on_back_pressed():
 	MusicController.closeSound()
