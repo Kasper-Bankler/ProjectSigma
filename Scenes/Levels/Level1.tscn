@@ -100,7 +100,7 @@ offset_left = 150.0
 offset_top = 980.0
 offset_right = 938.0
 offset_bottom = 1101.0
-text = "<= Klick på indkøbskurven for at købe en strømanlæg!"
+text = "<= Tryk på indkøbskurven for at købe en strømanlæg!"
 label_settings = SubResource("LabelSettings_w4880")
 
 [node name="HoverLabel" type="Label" parent="."]
