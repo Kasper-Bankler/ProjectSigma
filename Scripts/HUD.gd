@@ -21,12 +21,13 @@ func _process(_delta):
 	update_weather(CurrentLevel.currentLevel["sun"], CurrentLevel.currentLevel["wind"])
 
 func level_complete():
-	var totalScore = min((level.energy + CurrentLevel.balance) - level.emission*0.1,0)
-	if (totalScore <= 100):
-		medal1.visible = true
-	elif (totalScore >= 500 and totalScore <= 1000):
+	var totalScore = min(CurrentLevel.balance - level.emission*0.1,0)
+	
+	medal1.visible = true
+	
+	if (totalScore >= 500):
 		medal2.visible = true
-	elif (totalScore >= 1000):
+	if (totalScore >= 1000):
 		medal3.visible = true
 	$LevelCompletePopup/CenterContainer/VBoxContainer/Score.text = str(totalScore)
 	$LevelCompletePopup/CenterContainer/VBoxContainer/Energy.text = str(level.energy)

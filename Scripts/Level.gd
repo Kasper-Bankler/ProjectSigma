@@ -16,7 +16,6 @@ var revenue_per_second=0
 var new_building
 var energy = 0
 var emission=0
-var emission_rate=0
 var popup_container
 var old_upgrade_costs=0
 var bill
@@ -50,6 +49,7 @@ func tick():
 		tick_count+=1
 		if (fmod(tick_count,10)==0):
 			bill=coal_count*50
+			emission+=coal_count*10
 			change_balance(-bill)
 			if (len(get_tree().get_nodes_in_group("popup_message"))>0):
 				get_tree().get_nodes_in_group("popup_message")[0].queue_free()

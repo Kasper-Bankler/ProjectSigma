@@ -1,10 +1,10 @@
 [gd_scene load_steps=13 format=3 uid="uid://bif5kdskjyach"]
 
 [ext_resource type="Theme" uid="uid://d0juxhgobuuv2" path="res://Assets/FlatUI/kenneyUI-green.tres" id="1_77oul"]
-[ext_resource type="Script" path="res://scripts/Leaderboard.gd" id="1_ofmmd"]
+[ext_resource type="Script" path="res://Scripts/Leaderboard.gd" id="1_f44o7"]
 [ext_resource type="FontFile" uid="uid://dikb6kaq6rwap" path="res://Assets/Fonts/kenvector_future.ttf" id="2_10um7"]
 [ext_resource type="Theme" uid="uid://10bfrd2i470b" path="res://Assets/FlatUI/kenneyUI-red.tres" id="3_ih35i"]
-[ext_resource type="Texture2D" uid="uid://bgj2vf6p5gpmt" path="res://Assets/Background/background_color.png" id="5_0agny"]
+[ext_resource type="Texture2D" uid="uid://b8u331l01iid" path="res://Assets/Background/background_color.png" id="5_0agny"]
 
 [sub_resource type="Theme" id="Theme_q6keo"]
 default_font = ExtResource("2_10um7")
@@ -32,7 +32,7 @@ offset_left = 7.0
 offset_top = 202.0
 offset_right = 7.0
 offset_bottom = 202.0
-script = ExtResource("1_ofmmd")
+script = ExtResource("1_f44o7")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 0
